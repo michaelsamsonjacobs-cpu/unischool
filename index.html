@@ -94,6 +94,7 @@
             </div>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
                 <a href="#features" class="hover:text-white transition-colors">Agents</a>
+                <a href="#industries" class="hover:text-white transition-colors">Industries</a>
                 <a href="#security" class="hover:text-white transition-colors">Sovereignty</a>
                 <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
             </div>
@@ -148,43 +149,14 @@
             <div class="glass-card rounded-[24px] overflow-hidden shadow-2xl glow-blue border-t border-white/20">
                 <!-- Mac-style header for the mockup -->
                 <div class="h-8 bg-slate-900/90 border-b border-white/5 flex items-center px-4 gap-2">
-                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <span class="ml-3 text-[10px] text-slate-500 font-mono">Springroll Team — Documents</span>
                 </div>
-                <!-- Mockup Content (Screenshot placeholder) -->
-                <div class="aspect-video bg-slate-950 relative flex">
-                    <!-- Sidebar -->
-                    <div class="w-64 border-r border-white/5 bg-slate-900/30 p-4 space-y-3 hidden md:block">
-                        <div class="h-8 w-3/4 bg-white/5 rounded-lg"></div>
-                        <div class="h-4 w-1/2 bg-white/5 rounded mx-2"></div>
-                        <div class="h-4 w-2/3 bg-white/5 rounded mx-2"></div>
-                        <div
-                            class="mt-8 h-8 w-full bg-blue-600/20 border border-blue-500/30 rounded-lg flex items-center px-3 text-[10px] text-blue-300 font-mono">
-                            > INDEXING_COMPLETE
-                        </div>
-                    </div>
-                    <!-- Main Chat -->
-                    <div class="flex-1 p-8 space-y-6">
-                        <div class="flex justify-start">
-                            <div
-                                class="bg-slate-900 border border-white/10 p-4 rounded-2xl roounded-tl-none max-w-lg text-left">
-                                <p class="text-xs text-slate-400 font-mono mb-2">SPR-AGENT :: <span
-                                        class="text-green-400">ONLINE</span></p>
-                                <p class="text-sm text-slate-300">I've analyzed your local 'Grants' folder. I found 3
-                                    relevant RFPs. Would you like me to draft a proposal for the NSF SBIR using your
-                                    'Q4_Tech_Specs.pdf' as context?</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <div
-                                class="bg-blue-600 text-white p-4 rounded-2xl rounded-tr-none max-w-md text-left shadow-lg">
-                                <p class="text-sm">Yes, focus on Section 3. Use the visual assets from the 'Diagrams'
-                                    folder.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Actual Screenshot -->
+                <img src="hero-mockup.png"
+                    alt="Springroll Team Dashboard showing SBIR proposal generation with $1.2M pipeline" class="w-full">
             </div>
         </div>
     </section>
@@ -298,8 +270,8 @@
         </div>
     </section>
 
-    <!-- Hot Folder Section -->
-    <section class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <!-- Hot Folder Section (Sovereignty) -->
+    <section id="security" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
         <div class="glass-card p-12 rounded-[40px] relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent"></div>
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -409,13 +381,14 @@
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-center gap-3 mb-8 opacity-50">
-                <div class="w-6 h-6 bg-slate-600 rounded"></div>
+            <div class="flex items-center justify-center gap-3 mb-8">
+                <img src="logo.png" alt="Springroll" class="w-6 h-6 rounded opacity-50">
                 <span class="font-sora font-semibold text-lg tracking-tight text-slate-400">Springroll</span>
             </div>
             <div class="flex flex-wrap justify-center gap-8 mb-8 font-medium">
-                <a href="#" class="hover:text-white transition-colors">Manifesto</a>
-                <a href="#" class="hover:text-white transition-colors">Security Architecture</a>
+                <a href="#security" class="hover:text-white transition-colors">Data Sovereignty</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
                 <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
                 <a href="mailto:enterprise@springroll.ai" class="hover:text-white transition-colors">Enterprise</a>
             </div>
