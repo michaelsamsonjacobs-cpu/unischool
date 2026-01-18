@@ -21,6 +21,7 @@ import WebLLMService from './services/WebLLMService';
 import { GrantAgentDashboard } from './components/GrantAgentDashboard';
 import FeedbackService from './services/FeedbackService';
 import { ShareWorkspaceModal } from './components/ShareWorkspaceModal';
+import { StudentCockpit } from './components/StudentCockpit';
 
 // Runtime Tauri invoke detection - avoid static import that breaks web builds
 const invoke = typeof window !== 'undefined' && window.__TAURI__?.core?.invoke
@@ -35,15 +36,12 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Navigation items
+// Navigation items - University School Edition
 const NAV_ITEMS = [
-    { id: 'home', label: 'Dashboard', icon: Home, color: '#3b82f6' },
-    { id: 'agent', label: 'AI Agent', icon: MessageSquare, color: '#a855f7' },
-    { id: 'chatbot', label: 'Bot Builder', icon: Bot, color: '#f43f5e' },
-    { id: 'automation', label: 'Automation', icon: Globe, color: '#eab308' },
-    { id: 'docs', label: 'Doc Builder', icon: FileText, color: '#ec4899' },
-    { id: 'grants', label: 'Opportunity Finder', icon: Target, color: '#10b981' },
-    { id: 'gtm', label: 'GTM Agent', icon: Target, color: '#06b6d4' },
+    { id: 'home', label: 'Cockpit', icon: Home, color: '#8B2332' },
+    { id: 'agent', label: 'Navigator', icon: MessageSquare, color: '#C9B47C' },
+    { id: 'quests', label: 'Quest Log', icon: Target, color: '#1565C0' },
+    { id: 'docs', label: 'Assignments', icon: FileText, color: '#2E7D32' },
     { id: 'help', label: 'Help Center', icon: HelpCircle, color: '#f59e0b' },
 ];
 
@@ -417,9 +415,10 @@ function App() {
                 {/* Content Area */}
                 <main style={styles.content}>
                     {activeView === 'home' && (
-                        ClassroomService.isTeamMode() && ClassroomService.getRole() === 'admin'
-                            ? <TeamDashboard />
-                            : <DashboardHome onNavigate={setActiveView} />
+                        <StudentCockpit
+                            studentName={user?.name || 'Student'}
+                            onOpenChat={() => setActiveView('agent')}
+                        />
                     )}
 
                     {activeView === 'agent' && (

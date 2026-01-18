@@ -1,27 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ========================================
-   CSS VARIABLES - Sovereign Dark Theme
+   CSS VARIABLES - University School Theme
+   "Playful Yet Academic" - Maroon & Gold
    ======================================== */
 :root {
-    --bg-app: #020617;
-    --bg-panel: #0f172a;
-    --bg-surface: #1e293b;
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-active: rgba(255, 255, 255, 0.12);
+    /* Primary Brand Colors */
+    --crimson: #8B2332;
+    --crimson-dark: #6B1A26;
+    --crimson-light: #A8324C;
+    --gold: #C9B47C;
+    --gold-bright: #E5C97A;
+    --gold-dark: #A89560;
 
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-tertiary: #64748b;
+    /* Light Mode Backgrounds */
+    --bg-app: #FAF8F5;
+    --bg-panel: #FFFDF9;
+    --bg-surface: #F5F3EF;
+    --border-subtle: rgba(139, 35, 50, 0.1);
+    --border-active: rgba(139, 35, 50, 0.2);
 
-    --accent-blue: #3b82f6;
-    --accent-purple: #a855f7;
-    --accent-green: #22c55e;
-    --accent-pink: #f472b6;
+    /* Text Colors */
+    --text-primary: #2D2D2D;
+    --text-secondary: #5A5A5A;
+    --text-tertiary: #8A8A8A;
+
+    /* Semantic Colors */
+    --accent-success: #2E7D32;
+    --accent-quest: #1565C0;
+    --accent-warning: #F59E0B;
+    --accent-xp: var(--gold);
+
+    /* Dark Mode (The Cockpit) */
+    --cockpit-bg: #0A1628;
+    --cockpit-panel: #142238;
+    --cockpit-surface: #1E3A5F;
 }
 
 /* ========================================
@@ -304,4 +321,216 @@ pre,
 
 .transition-all-200 {
     transition: all 0.2s ease;
+}
+
+/* ========================================
+   UNIVERSITY SCHOOL - QUEST SYSTEM
+   ======================================== */
+.quest-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.quest-card:hover {
+    border-color: var(--border-active);
+    box-shadow: 0 8px 30px rgba(139, 35, 50, 0.1);
+    transform: translateY(-2px);
+}
+
+.quest-card.main-quest {
+    border-left-color: var(--crimson);
+    background: linear-gradient(135deg, rgba(139, 35, 50, 0.05) 0%, transparent 100%);
+}
+
+.quest-card.boss-battle {
+    border-left-color: var(--crimson-dark);
+    background: linear-gradient(135deg, rgba(107, 26, 38, 0.1) 0%, transparent 100%);
+    box-shadow: 0 0 20px rgba(139, 35, 50, 0.15);
+}
+
+.btn-quest {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    color: var(--text-primary);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(201, 180, 124, 0.3);
+}
+
+.btn-quest:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201, 180, 124, 0.4);
+}
+
+.btn-crimson {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-light) 100%);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(139, 35, 50, 0.3);
+}
+
+.btn-crimson:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(139, 35, 50, 0.4);
+}
+
+/* ========================================
+   SKILL TREE & XP SYSTEM
+   ======================================== */
+.skill-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 16px;
+    background: var(--bg-panel);
+    border: 2px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.skill-node:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(201, 180, 124, 0.2);
+}
+
+.skill-node.mastered {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(201, 180, 124, 0.1) 0%, transparent 100%);
+}
+
+.xp-bar {
+    background: rgba(201, 180, 124, 0.2);
+    border-radius: 100px;
+    height: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.xp-fill {
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(201, 180, 124, 0.5);
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border-radius: 100px;
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-light) 100%);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* ========================================
+   QUEST ANIMATIONS
+   ======================================== */
+@keyframes quest-complete {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(201, 180, 124, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes xp-pop {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+
+    60% {
+        transform: translateY(-10px) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes level-up {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.4);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.animate-quest-complete {
+    animation: quest-complete 0.6s ease-out;
+}
+
+.animate-xp-pop {
+    animation: xp-pop 0.4s ease-out;
+}
+
+.animate-level-up {
+    animation: level-up 0.8s ease-in-out;
+}
+
+/* ========================================
+   COCKPIT DARK MODE
+   ======================================== */
+.cockpit-mode {
+    --bg-app: var(--cockpit-bg);
+    --bg-panel: var(--cockpit-panel);
+    --bg-surface: var(--cockpit-surface);
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-tertiary: #64748B;
+    --border-subtle: rgba(201, 180, 124, 0.1);
+    --border-active: rgba(201, 180, 124, 0.2);
+}
+
+/* ========================================
+   TYPOGRAPHY OVERRIDES
+   ======================================== */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+}
+
+h4,
+h5,
+h6,
+.font-display {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
 }
