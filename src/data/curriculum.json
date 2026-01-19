@@ -1,0 +1,79 @@
+{
+    "quests": [
+        {
+            "id": "q_math_101",
+            "title": "Calculus: Limits & Continuity",
+            "description": "Master the foundational concepts of Calculus. Complete the worksheet and submit your proof.",
+            "type": "main-quest",
+            "xpReward": 250,
+            "timeEstimate": "4 hours",
+            "skills": [
+                "Calculus",
+                "Logic"
+            ],
+            "status": "available",
+            "content": {
+                "resource_url": "https://docs.google.com/document/d/1mock_syllabus_calculus/edit",
+                "video_url": "https://www.youtube.com/watch?v=RiXc862neAs",
+                "submission_type": "file_upload"
+            }
+        },
+        {
+            "id": "q_cs_202",
+            "title": "Capstone: Launch AI Startup",
+            "description": "Build an MVP using OpenAI API, launch on Product Hunt, and acquire 10 active users. (Tier 2 Tech Spike)",
+            "type": "boss-battle",
+            "xpReward": 1000,
+            "timeEstimate": "3 months",
+            "skills": [
+                "Engineering",
+                "Business",
+                "Leadership"
+            ],
+            "status": "active",
+            "content": {
+                "resource_url": "https://ycombinator.com/library",
+                "submission_type": "url_link",
+                "rubric": "10+ Users = Pass"
+            }
+        },
+        {
+            "id": "q_eng_105",
+            "title": "Rhetoric: The Persuasive Essay",
+            "description": "Write a 500-word persuasive essay on a current event topic. Convince the reader.",
+            "type": "side-quest",
+            "xpReward": 150,
+            "timeEstimate": "3 hours",
+            "skills": [
+                "Writing",
+                "Rhetoric"
+            ],
+            "status": "available",
+            "content": {
+                "resource_url": "https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/argumentative_essays.html",
+                "submission_type": "text_entry"
+            }
+        },
+        {
+            "id": "q_hist_301",
+            "title": "Research: Publish in Journal",
+            "description": "Write a 10-page original research paper and submit to the Concord Review. (Tier 1 History Spike)",
+            "type": "main-quest",
+            "xpReward": 800,
+            "timeEstimate": "6 weeks",
+            "skills": [
+                "Writing",
+                "Research",
+                "History"
+            ],
+            "status": "locked",
+            "prerequisites": [
+                "q_eng_105"
+            ],
+            "content": {
+                "resource_url": "https://www.tcr.org/",
+                "submission_type": "file_upload"
+            }
+        }
+    ]
+}
