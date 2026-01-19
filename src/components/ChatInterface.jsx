@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { GeminiService } from '../services/GeminiService.js';
 import { SearchService } from '../services/SearchService.js';
-import { Send, Bot, User, Loader2, Paperclip, Sparkles, ArrowUp } from 'lucide-react';
+import { Send, Bot, User, Loader2, Paperclip, Sparkles, ArrowUp, Settings, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import transferPathways from '../data/transfer-pathways.json';
+import { PersonalitySelector, PERSONALITIES } from './PersonalitySelector';
 
 export const ChatInterface = ({ onVisualUpdate }) => {
     const [messages, setMessages] = useState([
@@ -10,6 +12,8 @@ export const ChatInterface = ({ onVisualUpdate }) => {
     ]);
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
+    const [personaId, setPersonaId] = useState('socratic');
+    const [showSettings, setShowSettings] = useState(false);
     const scrollRef = useRef(null);
 
     useEffect(() => {
@@ -28,18 +32,24 @@ export const ChatInterface = ({ onVisualUpdate }) => {
 
         try {
             const localContext = await SearchService.getLocalContext(input);
+            const matrixData = JSON.stringify(transferPathways, null, 2);
 
-            const systemPrompt = `You are Springroll Team Agent, a sovereign AI assistant running on the user's local machine.
-            You have deep access to their local filesystem and context.
+            const systemPrompt = `You are Navigator, the AI guidance counselor and strategic advisor for University School.
+            Your mission is to help students treating their education like an open-world RPG, where classes are quests and degrees are the victory condition.
             
-            LOCAL FILES CONTEXT:
+            You have access to "The Matrix" (Guaranteed Transfer Pathways):
+            ${matrixData}
+            
+            LOCAL CONTEXT (User's Workspace/Notes):
             ${localContext}
             
             INSTRUCTIONS:
-            - Prioritize information from the local files.
-            - If the user asks for a visual (like an SVG or UI mock), wrap the code in <visual> tags.
-            - If you are analyzing code, be precise.
-            - Maintain a professional, agentic tone.`;
+            - **Persona**: ${PERSONALITIES.find(p => p.id === personaId)?.prompt_modifier || "You are wise, encouraging, and tactical."}
+            - **Enrollment**: Help students pick the right "quests" (classes) to unlock transfer guarantees.
+            - **The Matrix**: Always check the provided transfer data. If a student mentions a goal (e.g. "I want to study CS"), find the best P0 (Guaranteed) or P1 pathways for them.
+            - **Terminology**: Use terms like "XP" (credits), "Guilds" (majors), "Boss Battles" (exams), and "Transfer Portal" (admission).
+            - **Visuals**: If helpful, generate simple visual plans using strict <visual> tags.
+            - **Advisor**: You work in tandem with human Advisors (Berkeley staff).`;
 
             const aiResponse = await GeminiService.generate(input, systemPrompt);
 
@@ -48,7 +58,7 @@ export const ChatInterface = ({ onVisualUpdate }) => {
                 onVisualUpdate(visualMatch[1].trim());
             }
 
-            setMessages(prev => [...prev, { role: 'assistant', text: aiResponse.replace(/<visual>[\s\S]*?<\/visual>/g, '[Visual Output Generated]') }]);
+            setMessages(prev => [...prev, { role: 'assistant', text: aiResponse.replace(/<visual>[\s\S]*?<\/visual>/g, '[Visual Plan Generated]') }]);
         } catch (error) {
             setMessages(prev => [...prev, { role: 'assistant', text: `Error: ${error.message}` }]);
         } finally {
@@ -65,11 +75,42 @@ export const ChatInterface = ({ onVisualUpdate }) => {
                         <Sparkles size={14} className="text-white" />
                     </div>
                     <div>
-                        <span className="text-sm font-semibold text-[var(--text-primary)]">Springroll Agent</span>
-                        <span className="ml-2 px-2 py-0.5 rounded-full text-[9px] bg-[var(--accent-green)]/10 text-[var(--accent-green)] font-medium">Online</span>
+                        <span className="text-sm font-semibold text-[var(--text-primary)]">Navigator</span>
+                        <span className="ml-2 px-2 py-0.5 rounded-full text-[9px] bg-[var(--accent-green)]/10 text-[var(--accent-green)] font-medium">
+                            {PERSONALITIES.find(p => p.id === personaId)?.name}
+                        </span>
                     </div>
                 </div>
+                <button
+                    onClick={() => setShowSettings(!showSettings)}
+                    className="p-2 hover:bg-slate-700/50 rounded-full transition-colors"
+                >
+                    {showSettings ? <X size={16} className="text-slate-400" /> : <Settings size={16} className="text-slate-400" />}
+                </button>
             </div>
+
+            {/* Settings / Persona Selector Overlay */}
+            <AnimatePresence>
+                {showSettings && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="border-b border-slate-700 bg-slate-900/95 overflow-hidden z-10"
+                    >
+                        <div className="p-4">
+                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Navigator Personality</h3>
+                            <PersonalitySelector
+                                selectedId={personaId}
+                                onSelect={(id) => {
+                                    setPersonaId(id);
+                                    setShowSettings(false);
+                                }}
+                            />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Messages */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-5">

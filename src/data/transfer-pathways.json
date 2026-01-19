@@ -1,514 +1,254 @@
 {
-    "metadata": {
-        "version": "1.0",
-        "lastUpdated": "2026-01-18",
-        "description": "Comprehensive database of US university transfer guarantee programs"
-    },
-    "statePrograms": {
-        "california": {
-            "name": "California",
-            "systemPrograms": [
-                {
-                    "name": "UC Transfer Admission Guarantee (TAG)",
-                    "description": "Guaranteed admission to 6 UC campuses for qualifying CA community college students",
-                    "requirements": {
-                        "minGPA": 2.8,
-                        "maxGPA": 3.4,
-                        "units": 60
-                    }
+    "highSchool": {
+        "provider": "BYU Independent Study",
+        "accreditation": "Cognia, UC A-G Approved",
+        "tracks": {
+            "standard": {
+                "name": "Standard Diploma (24 Credits)",
+                "description": "Meets state requirements for graduation.",
+                "requirements": {
+                    "English": 4.0,
+                    "Math": 3.0,
+                    "Science": 3.0,
+                    "Social Studies": 3.0,
+                    "Arts": 1.5,
+                    "PE_Health": 2.0,
+                    "Digital Studies": 0.5,
+                    "Financial Literacy": 0.5,
+                    "Electives": 6.5
+                }
+            },
+            "college_prep": {
+                "name": "Advanced/College Prep (27 Credits)",
+                "description": "Recommended for admission to selective universities (UC A-G aligned).",
+                "requirements": {
+                    "English": 4.0,
+                    "Math": 4.0,
+                    "Science": 4.0,
+                    "Social Studies": 3.0,
+                    "World Languages": 2.0,
+                    "Arts": 1.5,
+                    "PE_Health": 2.0,
+                    "Digital Studies": 0.5,
+                    "Financial Literacy": 0.5,
+                    "Electives": 5.5
+                }
+            },
+            "ap_honors": {
+                "name": "AP/Honors Diploma (28 Credits)",
+                "description": "Rigorous curriculum with Advanced Placement courses for maximum competitive advantage.",
+                "requirements": {
+                    "English": 4.0,
+                    "Math": 4.0,
+                    "Science": 4.0,
+                    "Social Studies": 4.0,
+                    "World Languages": 3.0,
+                    "Arts": 1.5,
+                    "PE_Health": 2.0,
+                    "Digital Studies": 0.5,
+                    "Financial Literacy": 0.5,
+                    "AP Electives": 4.5
                 },
-                {
-                    "name": "CSU Associate Degree for Transfer (ADT)",
-                    "description": "Guaranteed admission to CSU system with major priority",
-                    "requirements": {
-                        "minGPA": 2.0,
-                        "units": 60
-                    }
-                }
-            ]
-        },
-        "texas": {
-            "name": "Texas",
-            "systemPrograms": [
-                {
-                    "name": "Texas Common Course Numbering System (TCCNS)",
-                    "description": "Statewide transfer credit guarantee between public institutions"
-                }
-            ]
-        },
-        "florida": {
-            "name": "Florida",
-            "systemPrograms": [
-                {
-                    "name": "2+2 Articulation Agreement",
-                    "description": "AA degree holders guaranteed admission to a state university",
-                    "requirements": {
-                        "degree": "AA",
-                        "minGPA": 2.0
-                    }
-                }
-            ]
-        },
-        "newYork": {
-            "name": "New York",
-            "systemPrograms": [
-                {
-                    "name": "SUNY Guaranteed Admission",
-                    "description": "NYS residents with AA/AS from SUNY CC guaranteed admission to 4-year SUNY",
-                    "requirements": {
-                        "degree": "AA/AS",
-                        "residency": "NY"
-                    }
-                }
-            ]
-        },
-        "washington": {
-            "name": "Washington",
-            "systemPrograms": [
-                {
-                    "name": "Direct Transfer Agreement (DTA)",
-                    "description": "DTA degree transfers with junior standing to WA baccalaureate institutions"
-                },
-                {
-                    "name": "Washington Guaranteed Admission Program (WAGAP)",
-                    "description": "High school students with 3.0 GPA guaranteed admission to 6 public universities"
-                }
-            ]
-        },
-        "oregon": {
-            "name": "Oregon",
-            "systemPrograms": [
-                {
-                    "name": "Associate of Arts Oregon Transfer (AAOT)",
-                    "description": "Transfers with junior status to any OR public university"
-                }
-            ]
-        },
-        "ohio": {
-            "name": "Ohio",
-            "systemPrograms": [
-                {
-                    "name": "Ohio Transfer 36 (OT36)",
-                    "description": "36 gen-ed credits guaranteed to transfer among OH public schools"
-                },
-                {
-                    "name": "Ohio Guaranteed Transfer Pathways (OGTP)",
-                    "description": "Major-specific pathways with guaranteed credit transfer"
-                }
-            ]
-        },
-        "pennsylvania": {
-            "name": "Pennsylvania",
-            "systemPrograms": [
-                {
-                    "name": "PASSHE Guaranteed Admission",
-                    "description": "AA/AS from PA CC guarantees admission to PASSHE universities",
-                    "requirements": {
-                        "degree": "AA/AS"
-                    }
-                }
-            ]
-        },
-        "michigan": {
-            "name": "Michigan",
-            "systemPrograms": [
-                {
-                    "name": "Michigan Transfer Agreement (MTA)",
-                    "description": "30 gen-ed credits guaranteed to transfer",
-                    "requirements": {
-                        "minGPA": 2.0,
-                        "units": 30
-                    }
-                }
-            ]
-        },
-        "northCarolina": {
-            "name": "North Carolina",
-            "systemPrograms": [
-                {
-                    "name": "NC Comprehensive Articulation Agreement",
-                    "description": "AA/AS from NC CC guarantees admission to UNC system"
-                }
-            ]
-        },
-        "virginia": {
-            "name": "Virginia",
-            "systemPrograms": [
-                {
-                    "name": "Virginia Community College Guaranteed Admission",
-                    "description": "Agreements with 30+ public and private 4-year institutions"
-                }
-            ]
-        },
-        "illinois": {
-            "name": "Illinois",
-            "systemPrograms": [
-                {
-                    "name": "U of I System Transfer Guarantee",
-                    "description": "Guaranteed admission to UIUC, UIC, or UIS with 3.0 GPA",
-                    "requirements": {
-                        "minGPA": 3.0
-                    }
-                }
-            ]
+                "featured_ap_courses": [
+                    "AP Calculus BC",
+                    "AP Physics C",
+                    "AP English Literature",
+                    "AP Computer Science A"
+                ]
+            }
         }
     },
     "universities": [
         {
-            "name": "UC Davis",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 3.2,
-            "requirements": "60 units, specific major prep",
-            "online": false
+            "id": 1,
+            "name": "University of California, Santa Barbara",
+            "location": "Santa Barbara, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Marine Biology",
+                "Physics",
+                "Economics"
+            ],
+            "acceptanceRate": "26%",
+            "guaranteedSupport": true,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/UC_Santa_Barbara_Variables_logo.svg/1200px-UC_Santa_Barbara_Variables_logo.svg.png",
+            "requirements": {
+                "gpa": 3.4,
+                "courses": [
+                    "IGETC Certification",
+                    "Major Prep (Calculus I & II)"
+                ]
+            }
         },
         {
-            "name": "UC Santa Barbara",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 3.2,
-            "requirements": "60 units, specific major prep",
-            "online": false
+            "id": 2,
+            "name": "University of California, Davis",
+            "location": "Davis, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Agriculture",
+                "Engineering",
+                "Veterinary Science"
+            ],
+            "acceptanceRate": "37%",
+            "guaranteedSupport": true,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/UC_Davis_Logo.svg/1200px-UC_Davis_Logo.svg.png",
+            "tag_available": true
         },
         {
-            "name": "UC Irvine",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 3.4,
-            "requirements": "60 units, major-specific",
-            "online": false
+            "id": 3,
+            "name": "University of California, Irvine",
+            "location": "Irvine, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Computer Science",
+                "Biology",
+                "Business"
+            ],
+            "acceptanceRate": "21%",
+            "guaranteedSupport": true,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/UCI_logo.svg/1200px-UCI_logo.svg.png",
+            "tag_available": true
         },
         {
-            "name": "UC Santa Cruz",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 2.8,
-            "requirements": "60 units",
-            "online": false
-        },
-        {
-            "name": "UC Riverside",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 2.8,
-            "requirements": "60 units",
-            "online": false
-        },
-        {
-            "name": "UC Merced",
-            "state": "CA",
-            "tier": "P0",
-            "program": "TAG",
-            "minGPA": 2.8,
-            "requirements": "60 units",
-            "online": false
-        },
-        {
+            "id": 4,
             "name": "Arizona State University",
-            "state": "AZ",
-            "tier": "P1",
-            "program": "MyPath2ASU",
-            "minGPA": 2.5,
-            "requirements": "24-60 transfer credits",
+            "location": "Tempe, AZ",
+            "tier": "Tier 2 (Large Public)",
+            "programs": [
+                "Business",
+                "Innovation",
+                "Online Degrees"
+            ],
+            "acceptanceRate": "88%",
+            "guaranteedSupport": true,
             "online": true,
-            "onlineMajors": 400
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arizona_State_University_logo.svg/1200px-Arizona_State_University_logo.svg.png"
         },
         {
-            "name": "Western Governors University",
-            "state": "UT",
-            "tier": "P1",
-            "program": "Transfer",
-            "minGPA": "None",
-            "requirements": "Competency-based admission",
-            "online": true
-        },
-        {
-            "name": "SUNY Empire State",
-            "state": "NY",
-            "tier": "P1",
-            "program": "Pathways",
-            "minGPA": 2.0,
-            "requirements": "AA/AS degree",
+            "id": 5,
+            "name": "Southern New Hampshire University",
+            "location": "Manchester, NH",
+            "tier": "Tier 3 (Flexible)",
+            "programs": [
+                "Liberal Arts",
+                "Business",
+                "Technology"
+            ],
+            "acceptanceRate": "92%",
+            "guaranteedSupport": true,
             "online": true,
-            "onlineMajors": 120
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Southern_New_Hampshire_University_logo.svg/1200px-Southern_New_Hampshire_University_logo.svg.png"
         },
         {
-            "name": "BYU Pathway Worldwide",
-            "state": "UT",
-            "tier": "P1",
-            "program": "Transfer to BYU-Idaho",
-            "minGPA": 2.0,
-            "requirements": "Certificate completion",
-            "online": true
+            "id": 6,
+            "name": "University of California, Santa Cruz",
+            "location": "Santa Cruz, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Computer Game Design",
+                "Astronomy",
+                "Psychology"
+            ],
+            "guaranteedSupport": true,
+            "tag_available": true
         },
         {
-            "name": "Texas A&M University",
-            "state": "TX",
-            "tier": "P1",
-            "program": "PTA (Program for Transfer Admission)",
-            "minGPA": "Varies by major",
-            "requirements": "65+ degree plans available",
-            "online": false
+            "id": 7,
+            "name": "University of California, Riverside",
+            "location": "Riverside, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Business",
+                "Engineering",
+                "Education"
+            ],
+            "guaranteedSupport": true,
+            "tag_available": true
         },
         {
-            "name": "Texas State University",
-            "state": "TX",
-            "tier": "P1",
-            "program": "Bats to Cats",
-            "minGPA": 2.25,
-            "requirements": "AA degree from partner CC",
-            "online": false
+            "id": 8,
+            "name": "University of California, Merced",
+            "location": "Merced, CA",
+            "tier": "Tier 1 (Research)",
+            "programs": [
+                "Environmental Science",
+                "Engineering"
+            ],
+            "guaranteedSupport": true,
+            "tag_available": true
         },
         {
-            "name": "Florida State University",
-            "state": "FL",
-            "tier": "P1",
-            "program": "Transfer Pathways",
-            "minGPA": 3.0,
-            "requirements": "AA from FL CC",
-            "online": false
-        },
-        {
-            "name": "University of Florida",
-            "state": "FL",
-            "tier": "P1",
-            "program": "2+2",
-            "minGPA": 3.0,
-            "requirements": "AA from FL CC",
-            "online": false
-        },
-        {
-            "name": "University of Illinois Urbana-Champaign",
-            "state": "IL",
-            "tier": "P1",
-            "program": "U of I Transfer Guarantee",
-            "minGPA": 3.0,
-            "requirements": "IL HS grad, transferable credits",
-            "online": false
-        },
-        {
-            "name": "University of Washington Tacoma",
-            "state": "WA",
-            "tier": "P1",
-            "program": "DTA Guarantee",
-            "minGPA": 2.75,
-            "requirements": "DTA degree from WA CC",
-            "online": false
-        },
-        {
-            "name": "NC State University",
-            "state": "NC",
-            "tier": "P1",
-            "program": "Wolfpack Connect",
-            "minGPA": 3.0,
-            "requirements": "AA from NC CC, 100+ eligible majors",
-            "online": false
-        },
-        {
-            "name": "East Carolina University",
-            "state": "NC",
-            "tier": "P1",
-            "program": "Pirate Promise",
-            "minGPA": 2.5,
-            "requirements": "AA from NC CC",
-            "online": false
-        },
-        {
-            "name": "UNC Wilmington",
-            "state": "NC",
-            "tier": "P1",
-            "program": "PathWays",
-            "minGPA": 2.5,
-            "requirements": "AA from NC CC",
-            "online": false
-        },
-        {
-            "name": "Ohio State University",
-            "state": "OH",
-            "tier": "P1",
-            "program": "Preferred Pathway",
-            "minGPA": 2.0,
-            "requirements": "AA from Columbus State",
-            "online": false
-        },
-        {
-            "name": "Ohio University",
-            "state": "OH",
-            "tier": "P1",
-            "program": "Guaranteed Admission",
-            "minGPA": 2.0,
-            "requirements": "AA from OH CC",
-            "online": false
-        },
-        {
-            "name": "Miami University (OH)",
-            "state": "OH",
-            "tier": "P1",
-            "program": "Transfer Partnership",
-            "minGPA": 2.5,
-            "requirements": "AA from partner CC",
-            "online": false
-        },
-        {
-            "name": "Penn State Abington",
-            "state": "PA",
-            "tier": "P1",
-            "program": "2+2",
-            "minGPA": 2.5,
-            "requirements": "AA from PA CC",
-            "online": false
-        },
-        {
-            "name": "Temple University",
-            "state": "PA",
-            "tier": "P1",
-            "program": "Dual Admissions",
-            "minGPA": 2.5,
-            "requirements": "Via Community College of Philadelphia",
-            "online": false
-        },
-        {
-            "name": "Eastern Michigan University",
-            "state": "MI",
-            "tier": "P1",
-            "program": "MTA + Articulation",
-            "minGPA": 2.0,
-            "requirements": "140+ CC agreements",
-            "online": false
-        },
-        {
-            "name": "Michigan State University",
-            "state": "MI",
-            "tier": "P1",
-            "program": "Macomb2MSU",
-            "minGPA": 2.5,
-            "requirements": "AA from Macomb CC",
-            "online": false
-        },
-        {
-            "name": "Virginia Tech",
-            "state": "VA",
-            "tier": "P1",
-            "program": "VCCS Agreements",
-            "minGPA": 3.0,
-            "requirements": "AA from VA CC",
-            "online": false
-        },
-        {
-            "name": "Old Dominion University",
-            "state": "VA",
-            "tier": "P1",
-            "program": "ODUGlobal Guarantee",
-            "minGPA": 2.5,
-            "requirements": "AA from VA CC",
-            "online": true
-        },
-        {
-            "name": "Oregon State University",
-            "state": "OR",
-            "tier": "P1",
-            "program": "DTA/AAOT",
-            "minGPA": 2.5,
-            "requirements": "AAOT or DTA degree",
-            "online": false
-        },
-        {
-            "name": "Southern New Hampshire University",
-            "state": "NH",
-            "tier": "P2",
-            "program": "Open Enrollment",
-            "minGPA": "None",
-            "requirements": "HS diploma or equivalent",
-            "online": true
-        },
-        {
-            "name": "Purdue University Global",
-            "state": "IN",
-            "tier": "P2",
-            "program": "Open Enrollment",
-            "minGPA": "None",
-            "requirements": "HS diploma or equivalent",
-            "online": true
-        },
-        {
-            "name": "University of Maryland Global Campus",
-            "state": "MD",
-            "tier": "P2",
-            "program": "Open Enrollment",
-            "minGPA": "None",
-            "requirements": "HS diploma or equivalent",
-            "online": true
-        },
-        {
-            "name": "Colorado State University Global",
-            "state": "CO",
-            "tier": "P2",
-            "program": "Open Enrollment",
-            "minGPA": "None",
-            "requirements": "HS diploma or equivalent",
-            "online": true
-        }
-    ],
-    "noGuarantee": [
-        "UC Berkeley",
-        "UCLA",
-        "UC San Diego",
-        "Stanford University",
-        "MIT",
-        "Harvard University",
-        "Yale University",
-        "Princeton University",
-        "Columbia University",
-        "University of Pennsylvania",
-        "University of Georgia"
-    ],
-    "onlineProgramsTier": [
-        {
-            "name": "Arizona State University Online",
-            "majors": 400,
-            "tuition": "Moderate",
-            "flexibility": "High",
-            "reputation": "Top 10 online"
-        },
-        {
+            "id": 9,
             "name": "Western Governors University",
-            "majors": 60,
-            "tuition": "Low (~$7k/yr)",
-            "flexibility": "Very High (competency-based)",
-            "reputation": "Good for self-starters"
+            "location": "Salt Lake City, UT",
+            "tier": "Tier 3 (Competency Based)",
+            "programs": [
+                "Teaching",
+                "Nursing",
+                "IT"
+            ],
+            "online": true,
+            "guaranteedSupport": true
         },
         {
-            "name": "SUNY Empire State",
-            "majors": 120,
-            "tuition": "Low (in-state NY)",
-            "flexibility": "High",
-            "reputation": "Good"
+            "id": 99,
+            "name": "Harvard University",
+            "location": "Cambridge, MA",
+            "tier": "Ivy League (Reach)",
+            "programs": [
+                "Law",
+                "Economics",
+                "Computer Science"
+            ],
+            "acceptanceRate": "3.4%",
+            "guaranteedSupport": false,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Harvard_University_coat_of_arms.svg/1200px-Harvard_University_coat_of_arms.svg.png",
+            "requirements": {
+                "gpa": 3.9,
+                "spike": "National Level Achievement (Tier 1)"
+            }
         },
         {
-            "name": "BYU Pathway + BYU-Idaho",
-            "majors": 30,
-            "tuition": "Very Low (~$4k/yr)",
-            "flexibility": "Moderate",
-            "reputation": "Good (religious affiliation)"
+            "id": 100,
+            "name": "Stanford University",
+            "location": "Stanford, CA",
+            "tier": "Ivy Plus (Reach)",
+            "programs": [
+                "Computer Science",
+                "Engineering",
+                "Entrepreneurship"
+            ],
+            "acceptanceRate": "3.9%",
+            "guaranteedSupport": false,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/1200px-Stanford_Cardinal_logo.svg.png",
+            "requirements": {
+                "gpa": 3.9,
+                "spike": "Innovation/Tech Spike (Tier 1)"
+            }
         },
         {
-            "name": "Southern New Hampshire University",
-            "majors": 200,
-            "tuition": "Moderate",
-            "flexibility": "High",
-            "reputation": "High awareness"
-        },
-        {
-            "name": "Purdue University Global",
-            "majors": 180,
-            "tuition": "Moderate",
-            "flexibility": "High",
-            "reputation": "Growing"
+            "id": 101,
+            "name": "UC Berkeley (EECS)",
+            "location": "Berkeley, CA",
+            "tier": "Tier 1 (Reach)",
+            "programs": [
+                "EECS",
+                "Business (Haas)"
+            ],
+            "acceptanceRate": "4.5%",
+            "guaranteedSupport": false,
+            "online": false,
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Seal_of_University_of_California%2C_Berkeley.svg/1200px-Seal_of_University_of_California%2C_Berkeley.svg.png",
+            "requirements": {
+                "gpa": 4.0,
+                "spike": "Olympiad/Code Spike (Tier 1)"
+            }
         }
     ]
 }
