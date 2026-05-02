@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { ArrowRight, ExternalLink, Award, Calendar, MapPin, Users, Sparkles, Star, GraduationCap, TrendingUp, Rocket, FileText, User, Camera } from 'lucide-react';
-import { trackPageView, trackBASICSView, trackRSVP } from '../../utils/trackingPixels';
+import { trackPageView, trackBASICSView } from '../../utils/trackingPixels';
 
 /**
  * BASICS @ Berkeley — Spring 2026 Demo Day
@@ -171,9 +171,6 @@ const INVESTOR_PANELISTS = [
     { name: 'Jeremy Fiance', firm: 'The House Fund', url: 'https://www.linkedin.com/in/jeremyfiance/' },
 ];
 
-// ─── PARTIFUL URL ─────────────────────────────────────────────
-const PARTIFUL_URL = 'https://partiful.com/e/sUzjd3CGX4ShLj9Rmm6t';
-
 export const BASICSDemoDay = ({ onNavigate }) => {
     // Fire remarketing events on page load
     useEffect(() => {
@@ -186,11 +183,6 @@ export const BASICSDemoDay = ({ onNavigate }) => {
             });
         }
     }, []);
-
-    const handleRSVP = () => {
-        trackRSVP();
-        window.open(PARTIFUL_URL, '_blank', 'noopener');
-    };
 
     const handleCompanyClick = (company) => {
         trackBASICSView(company.name);
@@ -263,19 +255,18 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <button
-                            onClick={handleRSVP}
-                            id="basics-rsvp-hero"
-                            className="w-full sm:w-auto bg-[#C9B47C] hover:bg-[#b8a56d] text-[#001a3d] px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all shadow-xl shadow-[#C9B47C]/20 hover:shadow-[#C9B47C]/40 hover:scale-105 flex items-center justify-center gap-2"
-                        >
-                            RSVP on Partiful
-                            <ExternalLink size={16} />
-                        </button>
                         <a
                             href="#cohort"
-                            className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border border-white/20 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                            className="w-full sm:w-auto bg-[#C9B47C] hover:bg-[#b8a56d] text-[#001a3d] px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all shadow-xl shadow-[#C9B47C]/20 hover:shadow-[#C9B47C]/40 hover:scale-105 flex items-center justify-center gap-2"
                         >
                             View Cohort Companies
+                            <ArrowRight size={16} />
+                        </a>
+                        <a
+                            href="mailto:basics@universityschool.ai"
+                            className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border border-white/20 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                        >
+                            Investor Inquiries
                             <ArrowRight size={16} />
                         </a>
                     </div>
@@ -580,21 +571,20 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                 <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6"
                         style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Join Us <span className="text-[#C9B47C]">May 1</span>
+                        Spring 2026 <span className="text-[#C9B47C]">Demo Day</span>
                     </h2>
                     <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-                        Watch Berkeley's brightest student founders pitch live. Network with top VCs. Invest early.
+                        Berkeley's brightest student founders pitched live. Support these companies and invest early.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-                        <button
-                            onClick={handleRSVP}
-                            id="basics-rsvp-bottom"
+                        <a
+                            href="#cohort"
                             className="w-full sm:w-auto bg-[#C9B47C] hover:bg-[#b8a56d] text-[#001a3d] px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all shadow-xl shadow-[#C9B47C]/20 hover:shadow-[#C9B47C]/40 hover:scale-105 flex items-center justify-center gap-2"
                         >
-                            RSVP on Partiful
-                            <ExternalLink size={16} />
-                        </button>
+                            View Companies
+                            <ArrowRight size={16} />
+                        </a>
                         <a
                             href="mailto:basics@universityschool.ai"
                             className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border border-white/20 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
