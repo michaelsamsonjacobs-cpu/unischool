@@ -294,10 +294,10 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                                 Led by Cognitive Science Lecturer <strong>Uri Korisky</strong> and BASICS Founder <strong>Mike Jacobs</strong>,
                                 each cohort of student entrepreneurs builds, iterates, and pitches AI-integrated startups to a panel
                                 of professional investors from firms including <strong>Y Combinator</strong>, <strong>Practical Venture Capital</strong>,
-                                and <strong>The House Fund</strong>.
+                                <strong>The House Fund</strong>, <strong>Techstars</strong>, and <strong>Berkeley Haas IBI</strong>.
                             </p>
                             <div className="flex flex-wrap gap-3">
-                                {['Multiple Cohorts', 'Y Combinator Exposure', 'VC Pitch Practice', 'AI-First Startups'].map((tag) => (
+                                {['Multiple Cohorts', 'Y Combinator Exposure', 'Techstars Network', 'VC Pitch Practice', 'AI-First Startups'].map((tag) => (
                                     <span key={tag} className="px-3 py-1 rounded-full bg-[#003262]/5 text-[#003262] text-xs font-bold border border-[#003262]/10">
                                         {tag}
                                     </span>
