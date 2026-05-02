@@ -24,14 +24,21 @@ import { ShareWorkspaceModal } from './components/ShareWorkspaceModal';
 import { StudentCockpit } from './components/StudentCockpit';
 import { StudentPortfolio } from './components/StudentPortfolio';
 
+// XP Engine Components
+import { XPPlayer } from './components/XPPlayer';
+import { XPMissionSelect } from './components/XPMissionSelect';
+import { XPAdminDashboard } from './components/XPAdminDashboard';
+import { XPGame3D } from './components/XPGame3D';
+import physicsDemoData from './data/xp-demo-physics.json';
+
 // New Admin & Auth Components
-import { MagicLinkAuth } from './components/MagicLinkAuth';
+// New Admin & Auth Components
 import { SuperAdminDashboard } from './components/SuperAdminDashboard';
 import { AcademicGoalSurvey } from './components/AcademicGoalSurvey';
 import { FranchiseOwnerDashboard } from './components/FranchiseOwnerDashboard';
 import { ParentDashboard } from './components/ParentDashboard';
 import { SettingsModal } from './components/SettingsModal'; // New Import
-import { MagicLinkService, ROLES } from './services/MagicLinkService';
+import { AuthService, ROLES } from './services/AuthService';
 
 // Runtime Tauri invoke detection - avoid static import that breaks web builds
 const invoke = typeof window !== 'undefined' && window.__TAURI__?.core?.invoke
@@ -42,13 +49,14 @@ import {
     Settings, MessageSquare, FileText, Target, Bot, Globe,
     Folder, Home, ChevronLeft, ChevronRight, Sparkles,
     Bell, Search, X, LayoutDashboard, Cpu, Server, Key, Check, AlertCircle, FolderPlus, Trash2, HelpCircle, Scale, Users, Award, Brain, Database,
-    Code, Layers
+    Code, Layers, Gamepad2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Navigation items - University School Edition
 const NAV_ITEMS = [
     { id: 'home', label: 'Cockpit', icon: Home, color: '#8B2332' },
+    { id: 'xp_missions', label: 'XP Missions', icon: Gamepad2, color: '#7C3AED' },
     { id: 'agent', label: 'Navigator', icon: MessageSquare, color: '#C9B47C' },
     { id: 'quests', label: 'Quest Log', icon: Target, color: '#1565C0' },
     { id: 'docs', label: 'Assignments', icon: FileText, color: '#2E7D32' },
@@ -63,8 +71,18 @@ import { FranchisePage } from './components/public/FranchisePage';
 import { TransferPartners } from './components/public/TransferPartners';
 import { AboutPage } from './components/public/AboutPage';
 import { ProcessPage } from './components/public/ProcessPage';
+import { BASICSDemoDay } from './components/public/BASICSDemoDay';
 import { AdvisorDashboard } from './components/AdvisorDashboard';
 import { HelpCenter } from './components/HelpCenter';
+
+// BASICS Accelerator Platform
+import { BASICSAuth } from './components/basics/BASICSAuth';
+import { BASICSCourse } from './components/basics/BASICSCourse';
+import { BASICSDataRoom } from './components/basics/BASICSDataRoom';
+import { BASICSVideoRecorder } from './components/basics/BASICSVideoRecorder';
+import { BASICSIncorporation } from './components/basics/BASICSIncorporation';
+import { BASICSInvestorPortal } from './components/basics/BASICSInvestorPortal';
+import { BASICSMeetingGate } from './components/basics/BASICSMeetingGate';
 
 function App() {
     // Auth State
@@ -77,11 +95,22 @@ function App() {
     });
     const [needsOnboarding, setNeedsOnboarding] = useState(false);
 
+    // BASICS Platform State
+    const [basicsUser, setBasicsUser] = useState(() => {
+        const saved = localStorage.getItem('basics_user');
+        return saved ? JSON.parse(saved) : null;
+    });
+    const [showVideoRecorder, setShowVideoRecorder] = useState(false);
+    const [showMeetingGate, setShowMeetingGate] = useState(null); // 'customer_discovery' | 'investor' | null
+
 
     // Default to 'landing' for marketing focus, unless we differ to /app
     const [activeView, setActiveView] = useState(() => {
         if (window.location.pathname.startsWith('/app')) {
             return 'home';
+        }
+        if (window.location.pathname.startsWith('/play')) {
+            return 'play';
         }
         return 'landing';
     });
@@ -156,6 +185,7 @@ function App() {
     const handleLogin = (userData, isNewUser = false) => {
         setIsAuthenticated(true);
         setUser(userData);
+        // Persistence is handled within AuthService (Firebase Auth)
         localStorage.setItem('springroll_auth', 'true');
         localStorage.setItem('springroll_user', JSON.stringify(userData));
 
@@ -173,7 +203,7 @@ function App() {
             setActiveView('franchise_dashboard');
         } else if (userData.role === ROLES.PARENT) {
             setActiveView('parent_dashboard');
-        } else if (userData.role === ROLES.FACILITATOR || userData.role === 'advisor') {
+        } else if (userData.role === ROLES.FACILITATOR || userData.role === 'advisor' || userData.role === 'center_staff' || userData.role === 'guidance_counselor') {
             setActiveView('advisor_dashboard');
         } else {
             setActiveView('home');
@@ -184,7 +214,7 @@ function App() {
         setIsAuthenticated(false);
         setUser(null);
         setNeedsOnboarding(false);
-        MagicLinkService.logout();
+        AuthService.logout();
         localStorage.removeItem('springroll_auth');
         localStorage.removeItem('springroll_user');
         setActiveView('landing');
@@ -192,7 +222,7 @@ function App() {
 
     const handleOnboardingComplete = (surveyData) => {
         // Save survey data to user profile
-        const updatedUser = MagicLinkService.updateUser(user.id, {
+        const updatedUser = AuthService.updateUser(user.id, {
             onboardingComplete: true,
             surveyData: surveyData,
         });
@@ -208,7 +238,11 @@ function App() {
         if (isAuthenticated && (activeView === 'cockpit' || activeView === 'landing')) {
             if (user?.role === ROLES.SUPER_ADMIN) {
                 setActiveView('super_admin');
-            } else if (user?.role === ROLES.FACILITATOR || user?.role === 'advisor') {
+            } else if (user?.role === ROLES.FRANCHISE_OWNER) {
+                setActiveView('franchise_dashboard');
+            } else if (user?.role === ROLES.PARENT) {
+                setActiveView('parent_dashboard');
+            } else if (user?.role === ROLES.FACILITATOR || user?.role === 'advisor' || user?.role === 'center_staff' || user?.role === 'guidance_counselor') {
                 setActiveView('advisor_dashboard');
             } else {
                 setActiveView('home');
@@ -248,9 +282,91 @@ function App() {
         return <AdvisorDashboard advisorName={user.name} onLogout={handleLogout} />;
     }
 
+    // 2.5 BASICS Accelerator Platform Routes
+    const basicsViews = ['basics_auth', 'basics_course', 'basics_dataroom', 'basics_incorporate', 'basics_investor'];
+    if (basicsViews.includes(activeView)) {
+        return (
+            <>
+                {activeView === 'basics_auth' && (
+                    <BASICSAuth
+                        onLogin={(u) => {
+                            setBasicsUser(u);
+                            localStorage.setItem('basics_user', JSON.stringify(u));
+                            setActiveView(u.role === 'basics_investor' ? 'basics_investor' : 'basics_course');
+                        }}
+                        onBack={() => setActiveView('basics')}
+                    />
+                )}
+                {activeView === 'basics_course' && (
+                    <BASICSCourse
+                        student={basicsUser}
+                        onOpenDataRoom={() => setActiveView('basics_dataroom')}
+                        onOpenRecorder={() => setShowVideoRecorder(true)}
+                        onOpenCalendar={() => setShowMeetingGate('customer_discovery')}
+                        onBack={() => setActiveView('basics')}
+                    />
+                )}
+                {activeView === 'basics_dataroom' && (
+                    <BASICSDataRoom
+                        student={basicsUser}
+                        companyName={basicsUser?.companyName}
+                        onOpenRecorder={() => setShowVideoRecorder(true)}
+                        onBack={() => setActiveView('basics_course')}
+                    />
+                )}
+                {activeView === 'basics_incorporate' && (
+                    <BASICSIncorporation
+                        student={basicsUser}
+                        onComplete={(data) => {
+                            const updated = { ...basicsUser, incorporated: true, companyName: data.companyName };
+                            setBasicsUser(updated);
+                            localStorage.setItem('basics_user', JSON.stringify(updated));
+                            setActiveView('basics_dataroom');
+                        }}
+                        onBack={() => setActiveView('basics_course')}
+                    />
+                )}
+                {activeView === 'basics_investor' && (
+                    <BASICSInvestorPortal
+                        investor={basicsUser}
+                        onBack={() => setActiveView('basics')}
+                        onLogout={() => {
+                            setBasicsUser(null);
+                            localStorage.removeItem('basics_user');
+                            setActiveView('basics');
+                        }}
+                    />
+                )}
+
+                {/* Video Recorder Modal */}
+                {showVideoRecorder && (
+                    <BASICSVideoRecorder
+                        onSave={(blob, url) => {
+                            console.log('[BASICS] Video saved:', url);
+                            setShowVideoRecorder(false);
+                        }}
+                        onClose={() => setShowVideoRecorder(false)}
+                    />
+                )}
+
+                {/* Meeting Gate Modal */}
+                {showMeetingGate && (
+                    <BASICSMeetingGate
+                        gateType={showMeetingGate}
+                        onGateMet={() => {
+                            console.log(`[BASICS] Gate met: ${showMeetingGate}`);
+                            setShowMeetingGate(null);
+                        }}
+                        onClose={() => setShowMeetingGate(null)}
+                    />
+                )}
+            </>
+        );
+    }
+
     // 3. Public Pages (Accessible when NOT authenticated, or strictly navigation)
     // If not authenticated, force public pages or auth screen
-    const publicPages = ['landing', 'students', 'franchise', 'partners', 'about', 'process'];
+    const publicPages = ['landing', 'students', 'franchise', 'partners', 'about', 'process', 'basics', 'play'];
     if (publicPages.includes(activeView)) {
         return (
             <WebsiteLayout activePage={activeView === 'landing' ? 'home' : activeView} onNavigate={setActiveView}>
@@ -260,6 +376,16 @@ function App() {
                 {activeView === 'partners' && <TransferPartners />}
                 {activeView === 'about' && <AboutPage onNavigate={setActiveView} />}
                 {activeView === 'process' && <ProcessPage onNavigate={setActiveView} />}
+                {activeView === 'basics' && <BASICSDemoDay onNavigate={setActiveView} />}
+                {activeView === 'play' && (
+                    <div className="fixed inset-0 z-50">
+                        <XPGame3D
+                            narrativeData={physicsDemoData}
+                            studentId="demo-visitor"
+                            onExit={() => { setActiveView('landing'); window.history.pushState({}, '', '/'); }}
+                        />
+                    </div>
+                )}
             </WebsiteLayout>
         );
     }
@@ -372,19 +498,46 @@ function App() {
                     {/* Views */}
                     {(activeView === 'cockpit' || activeView === 'home') && (
                         <StudentCockpit
-                            studentName={user.name || "Guest"}
+                            studentId={user?.id}
+                            studentName={user?.name || "Guest"}
                             onOpenChat={() => setActiveView('agent')}
+                            onOpenXPMissions={() => setActiveView('xp_missions')}
                         />
                     )}
 
                     {activeView === 'agent' && (
                         <div className="h-full bg-white max-w-5xl mx-auto shadow-sm border-x border-slate-200">
                             <ChatInterface
-                                messages={[]}
-                                onSendMessage={(msg) => console.log(msg)}
-                                isProcessing={false}
+                                studentId={user?.id}
+                                onClose={() => setActiveView('home')}
                             />
                         </div>
+                    )}
+
+                    {activeView === 'xp_missions' && (
+                        <XPMissionSelect
+                            studentId={user?.id}
+                            onLaunchMission={(mission) => {
+                                window.__xp_active_mission = mission;
+                                setActiveView('xp_player');
+                            }}
+                            onBack={() => setActiveView('home')}
+                        />
+                    )}
+
+                    {activeView === 'xp_player' && (
+                        <XPPlayer
+                            narrativeData={window.__xp_active_mission || physicsDemoData}
+                            studentId={user?.id || 'guest'}
+                            onExit={() => setActiveView('xp_missions')}
+                            onComplete={(session) => {
+                                console.log('[XP] Mission complete:', session);
+                            }}
+                        />
+                    )}
+
+                    {activeView === 'xp_admin' && (
+                        <XPAdminDashboard onBack={() => setActiveView('home')} />
                     )}
 
                     {activeView === 'quests' && (
