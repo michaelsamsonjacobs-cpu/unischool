@@ -159,16 +159,16 @@ const PRESS_ITEMS = [
 
 // ─── Past Investor Panelists ──────────────────────────────────
 const INVESTOR_PANELISTS = [
-    { name: 'Aman Verjee', firm: 'Practical Venture Capital' },
-    { name: 'Dermot Mee', firm: 'Fourier' },
-    { name: 'Lucas Miller', firm: 'Berkeley Haas School of Business' },
-    { name: 'Sudarshan Sridharan', firm: 'SF1' },
-    { name: 'Andrey Karailiev', firm: 'Prima Mente' },
-    { name: 'Tyler Bosmeny', firm: 'Y Combinator (Keynote Speaker)' },
+    { name: 'Aman Verjee', firm: 'Practical Venture Capital', url: 'https://www.linkedin.com/in/amanverjee/' },
+    { name: 'Dermot Mee', firm: 'Fourier', url: 'https://www.linkedin.com/in/dermot-mee/' },
+    { name: 'Lucas Miller', firm: 'Berkeley Haas School of Business', url: 'https://www.linkedin.com/in/lucasdmiller/' },
+    { name: 'Sudarshan Sridharan', firm: 'SF1', url: 'https://www.linkedin.com/in/sudarsridharan/' },
+    { name: 'Andrey Karailiev', firm: 'Prima Mente', url: 'https://www.linkedin.com/in/andreykarailiev/' },
+    { name: 'Tyler Bosmeny', firm: 'Y Combinator (Keynote Speaker)', url: 'https://www.linkedin.com/in/tylerbosmeny/' },
     { name: 'Oguzhan Aygoren', firm: 'Investor & Advisor', url: 'https://www.linkedin.com/in/oguzhanaygoren/' },
-    { name: 'Dr. David Whitney', firm: 'UC Berkeley Cognitive Science' },
-    { name: 'Elizabeth Redman Cleveland', firm: 'Berkeley Startup Cluster' },
-    { name: 'Jeremy Fiance', firm: 'The House Fund' },
+    { name: 'Dr. David Whitney', firm: 'UC Berkeley Cognitive Science', url: 'https://www.linkedin.com/in/david-whitney-b084454/' },
+    { name: 'Elizabeth Redman Cleveland', firm: 'Berkeley Startup Cluster', url: 'https://www.linkedin.com/in/elizabethredmancleveland/' },
+    { name: 'Jeremy Fiance', firm: 'The House Fund', url: 'https://www.linkedin.com/in/jeremyfiance/' },
 ];
 
 // ─── PARTIFUL URL ─────────────────────────────────────────────
