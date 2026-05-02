@@ -168,6 +168,7 @@ const INVESTOR_PANELISTS = [
     { name: 'Oguzhan Aygoren', firm: 'Investor & Advisor', url: 'https://www.linkedin.com/in/oguzhanaygoren/' },
     { name: 'Dr. David Whitney', firm: 'UC Berkeley Cognitive Science' },
     { name: 'Elizabeth Redman Cleveland', firm: 'Berkeley Startup Cluster' },
+    { name: 'Jeremy Fiance', firm: 'The House Fund' },
 ];
 
 // ─── PARTIFUL URL ─────────────────────────────────────────────
