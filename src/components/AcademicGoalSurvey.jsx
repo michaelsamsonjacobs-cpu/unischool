@@ -3,6 +3,8 @@ import {
     Target, GraduationCap, Briefcase, Heart, Globe, Sparkles,
     ChevronRight, ChevronLeft, Check, ArrowRight
 } from 'lucide-react';
+import { db } from '../services/FirebaseClient';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import transferPathways from '../data/transfer-pathways.json';
 
 /**
@@ -114,9 +116,25 @@ export const AcademicGoalSurvey = ({ studentName, onComplete }) => {
         setResponses(prev => ({ ...prev, timeline: id }));
     };
 
-    const handleComplete = () => {
+    const handleComplete = async () => {
         // Generate matrix based on responses
         const matrix = generateTransferMatrix(responses);
+
+        try {
+            // Save to Firestore if studentId is provided (or use a global auth state)
+            if (responses.studentId) {
+                const userRef = doc(db, 'users', responses.studentId);
+                await setDoc(userRef, {
+                    academic_goals: responses,
+                    transfer_matrix: matrix,
+                    onboarding_complete: true,
+                    updatedAt: serverTimestamp()
+                }, { merge: true });
+            }
+        } catch (err) {
+            console.error("Failed to save survey results:", err);
+        }
+
         onComplete({ ...responses, generatedMatrix: matrix });
     };
 

@@ -1,0 +1,557 @@
+{
+  "course": {
+    "id": "ECON-101",
+    "title": "Principles of Microeconomics",
+    "institution": "ASU Online",
+    "department": "Economics"
+  },
+  "chapter": {
+    "id": "ch03-supply-demand",
+    "title": "Supply, Demand, and Market Equilibrium",
+    "order": 3,
+    "canvas_module_ids": ["mod_3_1", "mod_3_2", "mod_3_3"],
+    "estimated_play_time": "35 min"
+  },
+  "narrative": {
+    "id": "xp_econ101_ch03_drop",
+    "title": "The Drop",
+    "subtitle": "Launch a Sneaker. Learn an Economy.",
+    "setting": "A small streetwear studio in downtown Los Angeles, 2026. You've been hired as the pricing strategist for an emerging sneaker brand about to release their first limited-edition shoe. The founder built the brand from nothing. The hype is building. The internet is watching. Every pricing and supply decision you make will teach you how markets actually work.",
+    "art_style": "Modern streetwear aesthetic, neon-lit studio, sneaker culture, bold typography, urban photography style with dramatic lighting, vibrant accent colors against dark backgrounds",
+    "characters": [
+      {
+        "id": "maya",
+        "name": "Maya",
+        "role": "mentor",
+        "personality": "The founder. Built the brand from her garage. Sharp, direct, talks fast. Teaches by showing you real-time sales dashboards and letting failures speak for themselves. Never gives you the answer — makes you watch the numbers until you see it yourself. Wears her own designs.",
+        "voice_id": "female_sharp_energetic"
+      },
+      {
+        "id": "kai",
+        "name": "Kai",
+        "role": "challenger",
+        "personality": "The data analyst. Quiet, precise, pulls up charts instead of arguing. When you're wrong, he doesn't correct you — he just shows you the graph. Speaks in short declarative sentences. Always has his laptop open.",
+        "voice_id": "male_calm_analytical"
+      }
+    ],
+    "entry_node_id": "n_opening",
+    "exit_node_ids": ["n_end_a", "n_end_b"],
+    "total_nodes": 22,
+    "estimated_play_time": "35 min",
+    "concept_map": [
+      { "concept": "Demand", "description": "Relationship between price and quantity consumers want to buy", "main_nodes": ["n_02", "n_03", "n_04"] },
+      { "concept": "Supply", "description": "Relationship between price and quantity producers are willing to offer", "main_nodes": ["n_06", "n_07", "n_08"] },
+      { "concept": "Market equilibrium", "description": "Price where quantity supplied equals quantity demanded", "main_nodes": ["n_10", "n_11", "n_12"] },
+      { "concept": "Shortage and surplus", "description": "What happens when price is above or below equilibrium", "main_nodes": ["n_04", "n_05", "n_08", "n_09"] },
+      { "concept": "Price elasticity of demand", "description": "How sensitive quantity demanded is to price changes", "main_nodes": ["n_14", "n_15", "n_16", "n_17"] },
+      { "concept": "Demand shifters", "description": "Non-price factors that move the entire demand curve", "main_nodes": ["n_18", "n_19", "n_20"] }
+    ],
+    "answer_map": {
+      "strongest_path": ["n_opening", "n_01", "n_02", "n_03", "n_06", "n_10", "n_11", "n_14", "n_15", "n_18", "n_20", "n_form", "n_end_a"],
+      "misconception_rich_path": ["n_opening", "n_01", "n_02", "n_04", "n_05", "n_06", "n_08", "n_09", "n_10", "n_12", "n_13", "n_14", "n_16", "n_17", "n_18", "n_19", "n_20", "n_form", "n_end_b"],
+      "convergence_nodes": ["n_06", "n_10", "n_14", "n_18", "n_form"],
+      "formalization_nodes": ["n_11", "n_form"],
+      "total_concepts_covered": 6
+    },
+    "nodes": [
+      {
+        "id": "n_opening",
+        "type": "scene",
+        "scene_text": "The studio smells like leather and heat-press adhesive.\n\nSneaker samples line the wall — prototypes that never shipped, colorways that got killed, one pair that sold out in eleven seconds during a test drop last month.\n\nYou walked in expecting a marketing internship. Instead, a woman in paint-stained Air Force 1s hands you a laptop and says something that changes the rest of your summer.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Our first real drop is in 72 hours. Three thousand pairs. And you're setting the price." },
+          { "character": "maya", "text": "Get it wrong and we either leave money on the table or kill the brand before it starts." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_01", "xp_bonus": 0 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Modern streetwear design studio with sneaker prototypes lining shelves, neon accent lighting, a young woman in designer streetwear standing next to a workbench covered in shoe materials, urban creative space, dramatic moody lighting",
+          "ambient_sound": "tools_metal"
+        }
+      },
+      {
+        "id": "n_01",
+        "type": "decision",
+        "scene_text": "Kai pulls up the dashboard. The pre-registration page has been live for two weeks.\n\n47,000 people signed up to be notified when the shoe drops.\n\nYou have 3,000 pairs.\n\nMaya watches your face as you process the numbers.",
+        "character_dialogue": [
+          { "character": "kai", "text": "47,000 people want this shoe. We have 3,000." },
+          { "character": "maya", "text": "So what's your first instinct?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Price them high — clearly demand is massive.\"", "next_node": "n_02", "hidden_tag": "price_quantity_intuition", "xp_bonus": 15 },
+          { "id": "b", "text": "\"Make more shoes — 3,000 isn't enough.\"", "next_node": "n_06", "hidden_tag": "supply_jump", "xp_bonus": 10 },
+          { "id": "c", "text": "\"Price them low so everyone can afford them.\"", "next_node": "n_04", "hidden_tag": "low_price_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand"],
+          "misconception_tested": null,
+          "convergence_target": "n_06",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A laptop screen showing a live dashboard with a counter at 47,000 pre-registrations, glowing in neon blue, modern dark studio background, dramatic data visualization",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_02",
+        "type": "decision",
+        "scene_text": "Maya nods slowly.\n\nKai pulls up a chart. On one axis: price. On the other: how many people said they'd buy at that price.\n\nAt $120, almost everyone wants one.\nAt $220, about half.\nAt $350, only the collectors.\nAt $500, barely anyone.\n\nThe line slopes downward. Always. Without exception.",
+        "character_dialogue": [
+          { "character": "kai", "text": "This curve has a name. But forget the name. Look at the shape." },
+          { "character": "kai", "text": "Higher price. Fewer buyers. Every single time." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the line always goes down — price up, buyers down.\"", "next_node": "n_03", "hidden_tag": "demand_curve_understood", "xp_bonus": 20 },
+          { "id": "b", "text": "\"But hype can make people pay anything, right?\"", "next_node": "n_04", "hidden_tag": "demand_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand"],
+          "misconception_tested": "unlimited_demand",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A downward-sloping demand curve on a glowing screen, price on Y-axis, quantity on X-axis, data points showing fewer buyers at higher prices, neon chart aesthetic, dark background, modern data visualization",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_03",
+        "type": "scene",
+        "scene_text": "Kai almost smiles. That's rare.\n\nHe draws the line with his finger on the screen.\n\nYou just saw the most fundamental pattern in economics — and you didn't need anyone to name it. The relationship between price and willingness to buy is not random. It's a law.\n\nEvery product. Every market. Every era. The line slopes down.",
+        "character_dialogue": [
+          { "character": "kai", "text": "Economists call it a demand curve. But you don't need the name. You need the pattern." },
+          { "character": "maya", "text": "Good. Now the harder question: how many should we MAKE?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to supply decisions", "next_node": "n_06", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person tracing a downward demand curve on a touchscreen, moment of understanding, modern studio, neon accent lighting reflecting on faces, cinematic",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_04",
+        "type": "decision",
+        "scene_text": "Maya lets you try it.\n\nYou price the shoe at $75. Affordable. Democratic. Everyone should be able to get one.\n\nKai runs the simulation.\n\nAt $75, demand explodes to 41,000 pairs. You have 3,000.\n\nThe drop sells out in 9 seconds. 38,000 people are furious. The resale market lights up at $600.\n\nYou made $225,000 in revenue.\nResellers made $1,575,000.\n\nYou just funded someone else's business.",
+        "character_dialogue": [
+          { "character": "maya", "text": "You tried to be fair. The market doesn't care about fair." },
+          { "character": "kai", "text": "When price is below what the market will bear, someone else captures the difference. Always." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So pricing too low creates... a gap that someone else fills?\"", "next_node": "n_05", "hidden_tag": "shortage_realization", "xp_bonus": 15 },
+          { "id": "b", "text": "\"We should just make more to match the 41,000\"", "next_node": "n_06", "hidden_tag": "supply_response", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["shortage_surplus", "demand"],
+          "misconception_tested": "low_price_is_always_better",
+          "is_error_path": true,
+          "correction_text": "When price is set below equilibrium, quantity demanded exceeds quantity supplied — creating a shortage. The excess demand gets captured by resellers, not by the brand."
+        },
+        "media": {
+          "scene_image_prompt": "A simulation dashboard showing a sneaker selling out in 9 seconds, resale prices skyrocketing to $600, angry customer notifications flooding in, red warning indicators, neon data visualization, dramatic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_05",
+        "type": "scene",
+        "scene_text": "Kai puts a word on it.\n\nShortage.\n\nNot a buzzword. A structural condition. When price sits below where buyers and sellers would naturally agree, more people want the product than can get it.\n\nThe gap doesn't disappear. It gets arbitraged.\n\nEvery concert ticket scalper. Every PS5 reseller. Every housing crisis. Same mechanism.",
+        "character_dialogue": [
+          { "character": "kai", "text": "A shortage is not 'we ran out.' It's 'the price was set wrong.'" },
+          { "character": "maya", "text": "Now let's talk about the other side — how many we should make." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to supply", "next_node": "n_06", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["shortage_surplus"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Visual metaphor showing a gap between a high demand bar and low supply bar, resellers filling the gap with dollar signs, infographic style with neon aesthetic, dark background",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_06",
+        "type": "convergence",
+        "scene_text": "Maya walks you to the production floor.\n\nNot a factory — a partnership. They work with a manufacturer in Portugal. Every pair costs $43 to make at their current scale.\n\nBut here's the catch: if they want MORE pairs, the cost per pair goes up. Overtime labor. Expedited materials. Rush shipping.\n\n1,000 pairs: $43 each.\n3,000 pairs: $48 each.\n10,000 pairs: $67 each.\n20,000 pairs: $89 each.\n\nMaking more isn't free. It gets harder the more you push.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Everyone's first instinct is 'just make more.' But every additional unit costs more than the last." },
+          { "character": "kai", "text": "This is the supply side. Price determines how much we're willing to produce." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So higher price makes us willing to produce more — because the margin is worth the effort.\"", "next_node": "n_07", "hidden_tag": "supply_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"Just eat the extra cost. Volume is everything.\"", "next_node": "n_08", "hidden_tag": "volume_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["supply"],
+          "misconception_tested": null,
+          "convergence_target": "n_10",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A production floor view showing sneaker manufacturing, cost-per-unit numbers floating above different batch sizes, each batch more expensive, modern facility with warm industrial lighting",
+          "ambient_sound": "tools_metal"
+        }
+      },
+      {
+        "id": "n_07",
+        "type": "scene",
+        "scene_text": "Maya points to the whiteboard where Kai has drawn a second line.\n\nThis one slopes UPWARD. Higher price → more units worth producing.\n\nYou now have two lines in your head:\n— Demand slopes DOWN (buyers buy less at higher prices)\n— Supply slopes UP (producers make more at higher prices)\n\nTwo forces. Opposite directions. They have to meet somewhere.",
+        "character_dialogue": [
+          { "character": "kai", "text": "Two curves. One slopes down, one slopes up. Where do they cross?" },
+          { "character": "maya", "text": "That crossing point is where we should be." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The crossing is where both sides are satisfied.\"", "next_node": "n_10", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["supply", "demand"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A whiteboard showing two curves crossing - one sloping down (demand) and one sloping up (supply), the intersection point highlighted, modern studio, dramatic visualization",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_08",
+        "type": "decision",
+        "scene_text": "You tell the manufacturer to produce 20,000 pairs at $89 each.\n\nTotal production cost: $1,780,000.\n\nYou price the shoe at $160.\n\nAt that price, only 8,000 people want to buy.\n\n12,000 pairs sit unsold in a warehouse.\n\nYou just burned through your entire budget on inventory nobody wants at this price.",
+        "character_dialogue": [
+          { "character": "maya", "text": "That's a surplus. You made too many for what the market wanted at this price." },
+          { "character": "kai", "text": "Surplus is the mirror of shortage. Price too high relative to demand — units pile up." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So overproduction at the wrong price is just as bad as underproduction?\"", "next_node": "n_09", "hidden_tag": "surplus_insight", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["shortage_surplus", "supply"],
+          "misconception_tested": "volume_always_wins",
+          "is_error_path": true,
+          "correction_text": "When supply exceeds demand at the current price, a surplus results. The producer is left with unsold inventory — the opposite of a shortage, but equally costly."
+        },
+        "media": {
+          "scene_image_prompt": "A warehouse full of unsold sneaker boxes, stacks reaching the ceiling, a single person standing alone among them looking overwhelmed, dramatic overhead lighting, sense of excess",
+          "ambient_sound": "silence_wind"
+        }
+      },
+      {
+        "id": "n_09",
+        "type": "scene",
+        "scene_text": "Kai draws both mistakes side by side:\n\nPrice too LOW → shortage → resellers win\nPrice too HIGH → surplus → warehouse full\n\nSomewhere between these two failures is a price where the amount people want to buy exactly equals the amount you're willing to make.\n\nThat place exists. And you can find it.",
+        "character_dialogue": [
+          { "character": "kai", "text": "One price clears the market. No shortage. No surplus. Both sides agree." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Let's find that price.\"", "next_node": "n_10", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["shortage_surplus"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Split screen comparison: left side shows empty shelves (shortage), right side shows overflowing warehouse (surplus), a balanced scale in the center, neon infographic style",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_10",
+        "type": "convergence",
+        "scene_text": "Kai runs the model.\n\nHe plots both curves on the same chart. Demand falling. Supply rising.\n\nThey cross at exactly one point.\n\nPrice: $185.\nQuantity: 5,200 pairs.\n\nAt $185, exactly 5,200 people want to buy — and it's worth making exactly 5,200 pairs.\n\nNo shortage. No surplus. No reseller gap. No warehouse full of unsold product.\n\nJust... balance.",
+        "character_dialogue": [
+          { "character": "kai", "text": "$185. 5,200 pairs. The market clears." },
+          { "character": "maya", "text": "That's not a guess. That's where the math lands when both sides tell the truth." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So this equilibrium is the only price where nobody is left wanting or wasting?\"", "next_node": "n_11", "hidden_tag": "equilibrium_correct", "xp_bonus": 25 },
+          { "id": "b", "text": "\"But we could still make more profit by pricing higher.\"", "next_node": "n_12", "hidden_tag": "greed_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["market_equilibrium"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two curves crossing on a neon-lit screen, the intersection point pulsing with light, $185 and 5,200 displayed prominently, perfect balance visualization, modern data aesthetic",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_11",
+        "type": "formalization",
+        "scene_text": "Kai finally writes the word.\n\nEQUILIBRIUM.\n\nNot because it's a new concept — you already felt it. Shortage pulled from one side. Surplus pushed from the other. The only stable point is where they cancel.\n\nThis is not a theory someone invented. It's what happens every time buyers and sellers interact at scale. The price finds its level the way water finds its level.\n\nYou didn't learn this from a textbook. You learned it by losing money on both sides and finding the middle.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Every market in history does this. Gas. Rent. Bitcoin. Sneakers. The mechanism is always the same." },
+          { "character": "kai", "text": "Equilibrium. Where quantity demanded equals quantity supplied. You found it by breaking it both ways." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Now what happens when something changes?\"", "next_node": "n_14", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["market_equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "The word EQUILIBRIUM written in bold neon letters hovering over a balanced supply-demand chart, a moment of formalization, cinematic lighting, modern studio",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_12",
+        "type": "decision",
+        "scene_text": "You set the price at $250 — $65 above equilibrium.\n\nKai runs it.\n\nAt $250, only 2,800 people want to buy. But at that margin, you produced 7,500 pairs.\n\n4,700 sit unsold. You discount them to $140 three weeks later. The brand looks desperate. Hype dies.\n\nThe lesson is brutal but clean: pricing above equilibrium doesn't capture more profit. It creates surplus that destroys brand value.",
+        "character_dialogue": [
+          { "character": "maya", "text": "You just learned the most expensive lesson in retail." },
+          { "character": "kai", "text": "The market has an opinion. You can ignore it, but you'll pay for the arrogance." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Return to equilibrium pricing", "next_node": "n_13", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["market_equilibrium", "shortage_surplus"],
+          "misconception_tested": "higher_price_more_profit",
+          "is_error_path": true,
+          "correction_text": "Pricing above equilibrium creates surplus — the brand overproduces relative to demand, leading to discounting that damages long-term brand equity."
+        },
+        "media": {
+          "scene_image_prompt": "A sneaker brand website showing SALE 40% OFF on a shoe that was supposed to be exclusive, social media comments mocking the brand, red downward trending chart, failure visualization",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_13",
+        "type": "scene",
+        "scene_text": "Maya doesn't rub it in. She just points to the chart where the two lines cross.\n\nEvery deviation from that point costs you something. Below: resellers eat your margin. Above: inventory eats your budget.\n\nEquilibrium isn't the \"best\" price. It's the only price where the market doesn't punish you.",
+        "character_dialogue": [
+          { "character": "maya", "text": "The market always wins. Your job is to listen to it, not fight it." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_14", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["market_equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person looking at two crossing curves on a screen, pointing to the intersection, moment of acceptance, dramatic studio lighting",
+          "ambient_sound": "understanding_calm"
+        }
+      },
+      {
+        "id": "n_14",
+        "type": "convergence",
+        "scene_text": "72 hours before the drop.\n\nEverything is set. $185. 5,200 pairs.\n\nThen Maya's phone rings.\n\nA major rapper just wore the shoe in an Instagram story. 8 million views. The pre-registration counter jumps from 47,000 to 112,000 in four hours.\n\nThe demand curve just moved. Not a slide along the curve — the entire curve shifted RIGHT.\n\nMore people want the shoe at EVERY price point.\n\nYour $185 equilibrium is now wrong.",
+        "character_dialogue": [
+          { "character": "maya", "text": "This is why economics is not math homework. The world moves." },
+          { "character": "kai", "text": "The demand curve shifted. Not the price — the entire relationship changed." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So we need a new equilibrium — higher price, higher quantity.\"", "next_node": "n_15", "hidden_tag": "shift_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"Just keep the same price — we'll sell out faster, that's all.\"", "next_node": "n_16", "hidden_tag": "shift_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand_shifters", "price_elasticity"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A phone screen showing a rapper wearing exclusive sneakers in an Instagram story, the pre-registration counter jumping wildly in the background, viral moment, neon notifications exploding, dynamic energy",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_15",
+        "type": "decision",
+        "scene_text": "Kai reruns the model with the new demand data.\n\nNew equilibrium: $245. 7,800 pairs.\n\nBut Maya hesitates. She asks a question that introduces a whole new dimension.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Here's what the textbook won't tell you. If I raise the price to $245, how many of those 112,000 people will be angry?" },
+          { "character": "maya", "text": "Is sneaker demand SENSITIVE to price changes? Or will the hype carry us through any number?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Hype makes demand less sensitive to price — the fans will pay.\"", "next_node": "n_17", "hidden_tag": "inelastic_intuition", "xp_bonus": 15 },
+          { "id": "b", "text": "\"Every price increase loses some buyers — it depends how many.\"", "next_node": "n_18", "hidden_tag": "elasticity_correct", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["price_elasticity"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A recalculated demand curve shifted to the right, new equilibrium point higher and further right, before-and-after comparison on a neon screen, data visualization",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_16",
+        "type": "scene",
+        "scene_text": "You keep the price at $185.\n\nThe drop sells out in 3 seconds. Not 9. Three.\n\n104,000 people didn't get the shoe.\n\nResale hits $800 within the hour.\n\nYou left $312,000 on the table. The resellers are celebrating. Your brand's value went to someone else's bank account.\n\nThe demand curve shifted — and you didn't shift with it.",
+        "character_dialogue": [
+          { "character": "kai", "text": "When demand shifts and price stays fixed, the shortage grows proportionally." },
+          { "character": "maya", "text": "A curve shift means the entire relationship changed. Same price doesn't mean same outcome." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So I need to distinguish between moving along a curve vs the curve itself moving.\"", "next_node": "n_17", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand_shifters", "shortage_surplus"],
+          "misconception_tested": "shift_vs_movement",
+          "is_error_path": true,
+          "correction_text": "A change in price moves you along the existing demand curve. A demand shifter (celebrity endorsement, changing preferences) moves the entire curve, creating a new equilibrium at a different price AND quantity."
+        },
+        "media": {
+          "scene_image_prompt": "A dashboard showing SOLD OUT in 3 seconds, resale prices at $800, frantic social media reactions, the gap between brand price and resale price visualized as lost revenue, dramatic red lighting",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_17",
+        "type": "scene",
+        "scene_text": "Maya introduces the concept with a comparison that sticks.\n\nWater during a hurricane: people will pay almost anything. Price goes up 300% — demand barely drops. That's inelastic.\n\nA $7 coffee when a $2 coffee exists across the street: raise the price 10% and half your customers leave. That's elastic.\n\nSneakers live in a weird middle. The hype collectors are inelastic — they'll pay anything. The casual buyers are elastic — $20 more and they're gone.\n\nYour customer base is split.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Elasticity tells you who leaves when you raise the price. It's the most practical concept in business." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_18", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["price_elasticity"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Split comparison: bottles of water with high price tag during storm (inelastic), coffee cups at competing shops (elastic), pricing sensitivity spectrum, modern infographic style",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_18",
+        "type": "convergence",
+        "scene_text": "24 hours before the drop.\n\nNew wrinkle: a competitor just announced their own limited shoe at $170. Same aesthetic. Similar hype.\n\nKai's data shows your pre-registrations dropped by 15% in four hours.\n\nThe demand curve didn't just shift from a celebrity. It shifted BACK from a substitute product entering the market.\n\nDemand isn't fixed. It responds to the world.",
+        "character_dialogue": [
+          { "character": "kai", "text": "Substitutes. Competitor products. Changes in income. Trends dying. These all shift the demand curve." },
+          { "character": "maya", "text": "Last decision. What do you do?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Adjust the price down slightly to account for competition, and hold production steady.\"", "next_node": "n_20", "hidden_tag": "strategic_correct", "xp_bonus": 25 },
+          { "id": "b", "text": "\"Ignore the competitor — our hype is strong enough.\"", "next_node": "n_19", "hidden_tag": "ignore_shift", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand_shifters"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A phone notification showing a competitor sneaker launch announcement, the pre-registration numbers ticking downward, tension in the studio, competing product visible on screen, dramatic lighting",
+          "ambient_sound": "wind_shift"
+        }
+      },
+      {
+        "id": "n_19",
+        "type": "scene",
+        "scene_text": "You ignore the competitor.\n\nDrop day arrives. You price at $245.\n\nThe shoe sells... but not out. 68% sold on Day 1. 22% trickle in over a week. 10% end up discounted.\n\nNot a disaster. Not a triumph. The competitor ate into your demand and you didn't adjust.\n\nThe market tried to tell you something and you didn't listen.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Not every mistake is catastrophic. But every ignored signal compounds." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"I should have adjusted for the demand shift.\"", "next_node": "n_20", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand_shifters"],
+          "misconception_tested": "demand_is_fixed",
+          "is_error_path": true,
+          "correction_text": "When a close substitute enters the market, the demand curve shifts left — consumers now have alternatives. Ignoring this shift leads to overpricing relative to the new equilibrium."
+        },
+        "media": {
+          "scene_image_prompt": "A sales dashboard showing 68% sold, 32% remaining, not a failure but not a sellout, muted colors, competitor shoe visible in the corner, realistic business outcome",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_20",
+        "type": "scene",
+        "scene_text": "You adjust. $215. 6,000 pairs.\n\nDrop day.\n\nSold out in 14 minutes.\n\nZero surplus. Minimal resale gap — $260 secondary market vs your $215 retail. The brand captured most of its own value.\n\nMaya looks at you across the studio.",
+        "character_dialogue": [
+          { "character": "maya", "text": "You just ran a market. Not a store. A market." },
+          { "character": "kai", "text": "Demand curve. Supply curve. Equilibrium. Shifts. Elasticity. You used all of them and you didn't need a textbook." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to formalization", "next_node": "n_form", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["market_equilibrium", "demand_shifters", "price_elasticity"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A sold-out dashboard showing clean numbers, minimal resale gap, the founder smiling across the studio, accomplishment, warm dramatic lighting, success moment, sneaker brand triumph",
+          "ambient_sound": "triumph_quiet"
+        }
+      },
+      {
+        "id": "n_form",
+        "type": "formalization",
+        "scene_text": "Kai writes four things on the whiteboard. The formal names for everything you just lived:\n\n1. DEMAND CURVE — price ↑, quantity demanded ↓ (always)\n2. SUPPLY CURVE — price ↑, quantity supplied ↑ (more worth making)\n3. EQUILIBRIUM — where the curves cross. No shortage. No surplus.\n4. SHIFTERS — substitute products, celebrity endorsements, income changes → the entire curve moves\n5. ELASTICITY — how sensitive buyers are to price changes\n\nYou experienced every one before you heard its name.\n\nThat's the difference between memorizing economics and understanding it.",
+        "character_dialogue": [
+          { "character": "maya", "text": "Next drop is in six weeks. Same game. Different shoe. You already know the rules." },
+          { "character": "kai", "text": "The math is F=ma for markets. Simple rule, infinite applications." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Ask about the next drop", "next_node": "n_end_a", "xp_bonus": 15 },
+          { "id": "b", "text": "Reflect on what went wrong and right", "next_node": "n_end_b", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["demand", "supply", "market_equilibrium", "shortage_surplus", "price_elasticity", "demand_shifters"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A whiteboard with clean economic concepts written in bold markers - demand, supply, equilibrium, shifters, elasticity - each connected to a sneaker diagram, modern studio, warm lighting, educational culmination",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_end_a",
+        "type": "end",
+        "scene_text": "Six weeks later.\n\nNew colorway. New hype cycle. But this time, you start with the curves.\n\nDemand data before design. Production costs before pricing. Competitor scan before launch date.\n\nThe second drop sells out in 8 minutes with zero resale gap. The brand captures 94% of its own market value.\n\nMaya doesn't say congratulations. She just hands you the next shoe and says—",
+        "character_dialogue": [
+          { "character": "maya", "text": "Again." }
+        ],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A triumphant studio scene, new sneaker colorway on the workbench, sales dashboard showing success, the founder handing over the next shoe, warm golden lighting, sense of mastery and continuation",
+          "ambient_sound": "triumph_orchestral"
+        }
+      },
+      {
+        "id": "n_end_b",
+        "type": "end",
+        "scene_text": "You walk out of the studio at sunset.\n\nYou didn't learn economics today. You USED economics today.\n\nThe demand curve isn't a line on a graph. It's 47,000 real people deciding whether something is worth their money.\n\nSupply isn't a textbook diagram. It's a factory in Portugal deciding whether overtime is worth the margin.\n\nEquilibrium isn't a theory. It's the moment when both sides stop fighting and the market clears.\n\nYou know this now. Not because someone told you. Because you watched the numbers move when you got it wrong and when you got it right.\n\nThat difference is everything.",
+        "character_dialogue": [],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person walking out of a design studio into a Los Angeles sunset, sneaker brand logo glowing behind them, reflective moment, warm golden hour light, cinematic closing shot, urban skyline",
+          "ambient_sound": "reflection_peaceful"
+        }
+      }
+    ]
+  }
+}

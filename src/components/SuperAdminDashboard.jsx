@@ -4,7 +4,9 @@ import {
     Mail, ChevronRight, Settings, BarChart3, UserPlus, Trash2,
     CheckCircle, XCircle, Clock, CreditCard
 } from 'lucide-react';
-import { MagicLinkService, ROLES, ROLE_LABELS } from '../services/MagicLinkService';
+import { AuthService, ROLES, ROLE_LABELS } from '../services/AuthService';
+import { collection, getDocs, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../services/FirebaseClient';
 import { SuperAdminBilling } from './SuperAdminBilling';
 
 /**
@@ -88,17 +90,27 @@ const CreateUserModal = ({ isOpen, onClose, onCreate }) => {
             return;
         }
 
-        const result = MagicLinkService.createUser(email, role);
-        if (result.success) {
-            // Send magic link to new user
-            MagicLinkService.requestMagicLink(email);
-            onCreate(result.user);
-            onClose();
-            setEmail('');
-            setError('');
-        } else {
-            setError(result.error);
-        }
+        // Using Firebase email links for invitations
+        AuthService.requestMagicLink(email).then(result => {
+            if (result.success || !result.error) {
+                // Record the intent in Firestore so they get the role upon signing in
+                // In production, this might call a Cloud Function
+                const uidMock = `invited_${Date.now()}`;
+                setDoc(doc(db, 'users', uidMock), {
+                    email,
+                    role,
+                    status: 'invited',
+                    created_at: serverTimestamp()
+                }).then(() => {
+                    onCreate({ id: uidMock, email, role, pending: true });
+                    onClose();
+                    setEmail('');
+                    setError('');
+                });
+            } else {
+                setError(result.error);
+            }
+        });
     };
 
     if (!isOpen) return null;
@@ -169,15 +181,16 @@ export const SuperAdminDashboard = ({ adminName, onLogout }) => {
     const [roleFilter, setRoleFilter] = useState('all');
 
     useEffect(() => {
-        // Load users
-        const allUsers = MagicLinkService.getUsers();
-        if (allUsers.length === 0) {
-            // Seed demo data if empty
-            MagicLinkService.seedDemoData();
-            setUsers(MagicLinkService.getUsers());
-        } else {
-            setUsers(allUsers);
-        }
+        const loadUsers = async () => {
+            try {
+                const snap = await getDocs(collection(db, 'users'));
+                const allUsers = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                setUsers(allUsers);
+            } catch (e) {
+                console.error("Failed to fetch users", e);
+            }
+        };
+        loadUsers();
     }, []);
 
     const stats = {
@@ -202,7 +215,7 @@ export const SuperAdminDashboard = ({ adminName, onLogout }) => {
     };
 
     const handleCreateUser = (newUser) => {
-        setUsers(MagicLinkService.getUsers());
+        setUsers(prev => [...prev, newUser]);
     };
 
     const tabs = [

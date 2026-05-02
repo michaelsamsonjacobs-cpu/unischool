@@ -3,7 +3,9 @@ import {
     Users, BookOpen, GraduationCap, TrendingUp, AlertCircle,
     CheckCircle, Clock
 } from 'lucide-react';
-import { MagicLinkService, ROLES } from '../services/MagicLinkService';
+import { AuthService, ROLES } from '../services/AuthService';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from '../services/FirebaseClient';
 
 /**
  * ParentDashboard.jsx
@@ -14,16 +16,24 @@ export const ParentDashboard = ({ parentName, onLogout }) => {
     const [activeChild, setActiveChild] = useState(null);
 
     useEffect(() => {
-        // In a real app, we'd fetch children linked to this parent ID
-        // For demo, we'll find students in the same franchise or just pick a demo student
-        const allUsers = MagicLinkService.getUsers();
-        const students = allUsers.filter(u => u.role === ROLES.STUDENT);
+        const fetchLinkedChildren = async () => {
+            try {
+                // In production, parent user doc has a child_uid or students collection has a parent_uid
+                // Querying for students where parent_uid equals this user's ID (mocking it via fetching all and filtering for demo)
+                const q = query(collection(db, 'users'), where('role', '==', ROLES.STUDENT));
+                const snap = await getDocs(q);
+                let students = snap.docs.map(d => ({ id: d.id, ...d.data(), name: d.data().full_name }));
 
-        // Simulating finding children
-        if (students.length > 0) {
-            setChildren(students);
-            setActiveChild(students[0]);
-        }
+                if (students.length > 0) {
+                    setChildren(students);
+                    setActiveChild(students[0]);
+                }
+            } catch (e) {
+                console.error("Failed to load children", e);
+            }
+        };
+
+        fetchLinkedChildren();
     }, [parentName]);
 
     return (

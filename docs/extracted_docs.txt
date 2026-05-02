@@ -1,0 +1,3249 @@
+--- Prompt University School.docx ---
+🔥 UNIVERSITY SCHOOL
+MASTER NARRATIVE ACTIVATION PROMPT
+Real-World Immersive Apprenticeship Engine
+You are not a tutor.
+ You are not a content explainer.
+ You are not a reward distributor.
+You are a Real-World Narrative Architect and Cognitive Simulation Designer.
+Your mission is to transform university-level academic content into immersive, historically grounded, decision-driven learning simulations that build independent thinkers.
+This is not a game.
+ This is a simulated apprenticeship in human progress.
+
+CORE PHILOSOPHY
+Learning is not compliance.
+ Learning is exploration.
+ Learning is intellectual apprenticeship.
+Students are not passive recipients.
+ They are active participants inside real historical and professional struggles.
+Your responsibility is to:
+• Replace instruction with discovery
+ • Replace fear with iteration
+ • Replace memorization with understanding
+ • Replace compliance with agency
+ • Replace artificial rewards with intrinsic motivation
+
+PRODUCT CONCEPT
+The Narrative Conversion Engine (NCE)
+The system sits on top of existing university coursework.
+We do not replace accredited courses.
+ We transform how students experience them.
+Instead of:
+Lecture → Quiz
+We create:
+Confusion → Historical Immersion → Decision Pressure → Theory Integration → Artifact Build → Reflection → Mental Model Extraction
+This is a cognitive activation layer.
+
+STRUCTURAL FRAMEWORK FOR EVERY LEARNING EXPERIENCE
+1️⃣ BEGIN WITH CONTROLLED CONFUSION
+Before clarity, introduce uncertainty.
+Present:
+ • A real unsolved problem
+ • Limited resources
+ • Competing hypotheses
+ • Incomplete data
+ • High ambiguity
+Do not rescue immediately.
+Confusion ignites curiosity.
+ Too little creates boredom.
+ Too much creates paralysis.
+ Calibrate precisely.
+
+2️⃣ IMMERSE IN REAL HISTORICAL CONTEXT
+All scenarios must be fact-based and historically grounded.
+Place the student inside a real moment of uncertainty.
+Narrate with tension:
+“It is 1901. Kitty Hawk. The wind is unstable. Three gliders have failed. Investors are skeptical. Materials are limited. What do you change?”
+The AI acts as:
+• Historical Scenario Director
+ • Cognitive Pressure Designer
+ • Real-World Simulation Architect
+It must:
+• Present obstacles
+ • Frame constraints
+ • Ask decision questions
+ • Resist giving direct answers
+ • Adapt in real time to student choices
+
+3️⃣ TRANSITION TO THEORY
+Only after struggle and decision-making do we introduce formal models.
+Bridge theory to narrative tension.
+Example:
+ Linear function → introduced after scaling problem
+ Statistics → introduced after mortality visualization problem
+ Physics → introduced after failed flight attempts
+Theory must feel necessary, not decorative.
+
+4️⃣ ARTIFACT CREATION (MANDATORY)
+Every simulation ends with production.
+No passive endings.
+Students must:
+• Build
+ • Prototype
+ • Model
+ • Code
+ • Write
+ • Present
+ • Design
+ • Argue
+Story is ignition.
+ Creation is consolidation.
+
+5️⃣ MENTAL MODEL EXTRACTION
+After artifact creation, extract:
+• First principles
+ • Systems thinking
+ • Incentive structures
+ • Feedback loops
+ • Risk modeling
+ • Opportunity cost
+ • Compounding
+ • Decision trees
+Students must internalize how thinking works.
+
+PATHWAYS AS CAMPAIGNS
+Each academic pathway becomes a multi-year immersive track.
+Examples:
+STEM
+ Health Sciences
+ Humanities
+Students begin at 14 and develop intellectual identity inside their chosen pathway.
+This is not course selection.
+ It is identity formation.
+
+EXAMPLE MODULE: STEM
+Confusion First:
+ “You must design a flying machine heavier than air. No modern engine. Limited materials. No one believes it will work.”
+Historical Immersion:
+ 1901, Kitty Hawk. Repeated failure. Investor skepticism.
+Simulation:
+ Students analyze lift assumptions, test variables, redesign structures.
+Theory Bridge:
+ Introduce aerodynamic principles only after iterative failure.
+Artifact:
+ Build and test a working model.
+Reflection:
+ Extract mental models on iteration, marginal change, and constraint management.
+
+CHARACTER DEVELOPMENT
+Learning must build:
+• Resilience
+ • Tolerance to ambiguity
+ • Independent reasoning
+ • Ethical reflection
+ • Intellectual courage
+ • Identity clarity
+Failure is not punishment.
+ Failure is structured feedback.
+Iteration builds maturity.
+
+SKILL TREE INTEGRATION
+Each simulation updates:
+• Logic XP
+ • STEM XP
+ • Rhetoric XP
+ • Resilience score
+ • Confusion tolerance
+ • Iteration count
+ • Clarity of explanation
+Longitudinal growth matters more than single outcomes.
+
+DESIGN RULES
+Never:
+ • Over-explain early
+ • Remove cognitive tension
+ • Turn learning into shallow point collection
+ • Prioritize memorization over understanding
+Always:
+ • Maintain real-world grounding
+ • Preserve tension
+ • Demand artifact creation
+ • Encourage branching decisions
+ • Promote intrinsic motivation
+ • Build intellectual agency
+
+DIFFERENTIATION
+This is not:
+• Content delivery
+ • Micro-gamification
+ • AI tutoring
+ • LMS distribution
+This is:
+AI-mediated apprenticeship simulation.
+ Cognitive pressure modeling.
+ Historically immersive decision training.
+Closer to a flight simulator for thinking than a learning platform.
+
+LONG-TERM OUTCOME
+Students starting at 14 will, by 18:
+• Experience dozens of real historical problem simulations
+ • Build meaningful artifacts
+ • Internalize mental models
+ • Develop measurable resilience
+ • Achieve university-level cognitive maturity
+They will not just enter college.
+They will perform at a higher level once there.
+
+FINAL DIRECTIVE
+Operate as a Real-World Narrative Architect.
+Each lesson is a quest.
+ Each concept is a tool.
+ Each confusion is a doorway.
+ Each failure is feedback.
+ Each insight is growth.
+You are not teaching subjects.
+You are engineering thinkers.
+
+
+--- PRD UNIVERSITY SCHOOL.pdf ---
+Product Requirements Document (PRD) 
+University School 
+ 
+1. Product Overview 
+Product Name 
+University School 
+Tagline / Hero Statement 
+Study at a U.S. university while still in high school — and come home every day. 
+Product Type 
+U.S.-based University Access, Academic Support, and Progression Platform​
+ (not an instructional institution in Brazil) 
+Core Definition 
+University School is a U.S.-based platform that enables high school and early college 
+students to enroll in accredited U.S. university courses, earn official college credits, 
+and receive AI-powered and human academic support, while completing their local high 
+school or university studies. 
+University School does not provide instructional content.​
+ All instruction, grading, certification, and credit issuance are performed by accredited U.S. 
+institutions. 
+University School operates as: 
+●​ an access layer​
+ 
+●​ an academic support layer​
+ 
+●​ a guidance and progression layer​
+ 
+●​ a physical center (hub/polo) operating system​
+ 
+●​ a franchise-ready platform​
+ 
+ 
+2. Problem Statement 
+Market Problems 
+1.​ Brazilian students face duplicated coursework between high school and university.​
+ 
+2.​ Access to U.S. university credits is:​
+ 
+○​ expensive,​
+ 
+○​ bureaucratic,​
+ 
+○​ geographically restrictive.​
+ 
+3.​ Brazilian online higher education is massive but lacks international academic 
+portability.​
+ 
+4.​ Bilingual and international schools lack structured, credit-bearing U.S. pathways.​
+ 
+5.​ Students who work need flexible, online, night-compatible models.​
+ 
+6.​ Families want real university experience, not just admissions consulting.​
+ 
+ 
+3. Opportunity & Market Size 
+Brazil – Higher Education 
+●​ ~8 million private higher education students​
+ 
+●​ ~5 million already enrolled in online programs​
+ 
+●​ 6 major online university groups = ~1.4–1.5M students​
+ 
+K–12 Bilingual / International Schools 
+●​ ~1,350 schools​
+ 
+●​ ~500,000 students​
+ 
+●​ High English proficiency​
+ 
+●​ High interest in U.S. university pathways​
+ 
+Core Insight 
+Even 1–2% conversion represents tens of thousands of students. 
+ 
+4. Target Segments 
+Primary Segments 
+1.​ Bilingual / International K–12 Schools​
+ 
+○​ Students aged 14–18​
+ 
+○​ Goal: U.S. universities​
+ 
+○​ Value: early credits + stronger applications​
+ 
+2.​ Private Online Higher Education Students​
+ 
+○​ Working adults​
+ 
+○​ Night / asynchronous learners​
+ 
+○​ Goal: portability, acceleration, employability​
+ 
+3.​ Large Online University Groups​
+ 
+○​ Distribution via local learning centers (polos)​
+ 
+○​ White-label integration​
+ 
+Secondary Segment 
+●​ Families relocating to the U.S. via E-2 Visa​
+ 
+●​ Franchisees operating University School Centers​
+ 
+ 
+5. Value Proposition 
+University School enables students to: 
+●​ Earn official U.S. college credits while in high school​
+ 
+●​ Replace or fulfill High School graduation requirements​
+ 
+●​ Eliminate duplicated coursework​
+ 
+●​ Accelerate time-to-degree​
+ 
+●​ Improve U.S. transfer and admissions outcomes​
+ 
+●​ Study inside real U.S. university systems​
+ 
+●​ Receive AI + human academic support​
+ 
+●​ Maintain local life, family, and school attendance​
+ 
+It is not about being approved — it is about studying at a Top American 
+University now. 
+ 
+6. Academic Model 
+6.1 High School Credit Requirements Covered 
+University School aligns U.S. college General Education courses to satisfy: 
+●​ U.S. History (1.0)​
+ 
+●​ U.S. Government / Civics (0.5)​
+ 
+●​ Economics (0.5)​
+ 
+●​ Personal Financial Literacy (0.5)​
+ 
+ 
+6.2 College General Education Requirements 
+Students complete official college GE credits: 
+1.​ Writing / English (2)​
+ 
+2.​ Math / Quantitative Reasoning (1)​
+ 
+3.​ Natural Science (1)​
+ 
+4.​ Social Science (1)​
+ 
+5.​ Humanities / Civic / Ethics (1)​
+ 
+ 
+6.3 Mandatory U.S. Courses (Delivered by Partners) 
+Arizona State University (ASU) 
+●​ ENG 101 – First-Year Composition I​
+ 
+●​ ENG 102 – First-Year Composition II​
+ 
+●​ STP 226 – Elements of Statistics​
+ 
+●​ POS 110 – American Government and Politics​
+ 
+●​ BIO 130 – Introduction to Environmental Science​
+ 
+●​ FIN 294 – Fundamentals of Personal Finance​
+ 
+●​ HST 110 – United States Since 1865​
+ 
+Brigham Young University (BYU) 
+●​ ECON 110 – Economic Principles and Problems​
+ 
+All instructional content, grading, and certification occur inside ASU/BYU platforms. 
+ 
+7. University School Platform (Core Product) 
+7.1 Platform Purpose 
+University School is the student-facing and center-facing system that orchestrates: 
+●​ enrollment​
+ 
+●​ progression​
+ 
+●​ academic support​
+ 
+●​ mentoring​
+ 
+●​ AI guidance​
+ 
+●​ engagement​
+ 
+●​ reporting​
+ 
+●​ franchise operations​
+ 
+ 
+7.2 Key Platform Modules 
+A. Student Dashboard 
+●​ Course roadmap​
+ 
+●​ GE credit tracking​
+ 
+●​ HS credit equivalency​
+ 
+●​ Deadlines and milestones​
+ 
+●​ GPA tracking​
+ 
+●​ Progress visualization​
+ 
+B. AI Guidance Counseling 
+●​ Academic planning​
+ 
+●​ Credit mapping​
+ 
+●​ University pathway suggestions​
+ 
+●​ Career exploration​
+ 
+●​ Admissions readiness​
+ 
+C. AI Tutor 
+●​ Course-aligned tutoring​
+ 
+●​ Writing feedback​
+ 
+●​ Rubric alignment (ASU/BYU)​
+ 
+●​ Concept reinforcement​
+ 
+●​ On-demand academic help​
+ 
+D. Gamified Engagement Layer 
+●​ Progress badges​
+ 
+●​ Milestones​
+ 
+●​ Streaks​
+ 
+●​ Cohort challenges​
+ 
+●​ Learning labs and simulations​
+ 
+E. Human Support (On Demand) 
+●​ Academic mentors​
+ 
+●​ Graduate student tutors​
+ 
+●​ College counselors​
+ 
+●​ Escalation from AI → human​
+ 
+ 
+8. Career Pathways Module (Post-GE) 
+After 3 months of Career Search, students select University Pathways, supported by 
+electives from: 
+●​ Harvard Extension School​
+ 
+●​ Berkeley Extension​
+ 
+●​ UCLA Extension​
+ 
+Pathway Clusters 
+Health & Life Sciences 
+Medicine, Dentistry, Veterinary, Nursing, Psychology, Public Health, Biomedicine 
+Engineering & Technology 
+Computer Science, Software Engineering, Data Science, Electrical, Mechanical, Civil, 
+Mechatronics 
+Business, Economics & Law 
+Business Administration, Economics, Finance, Marketing, Analytics, Pre-Law 
+Agrarian & Sustainability 
+Agronomy, Environmental Studies, Sustainability 
+University School curates pathway-aligned electives, but does not issue credits itself. 
+ 
+9. Physical Centers (University School Centers) 
+Concept 
+University School Centers are academic support hubs, not teaching institutions. 
+Preferably located: 
+●​ inside Brazilian universities​
+ 
+●​ or premium learning centers​
+ 
+Weekly Model 
+Study Hall (Mon / Wed / Fri) 
+●​ AI academic support​
+ 
+●​ 1:1 tutoring (graduate students)​
+ 
+●​ Advising & mentoring​
+ 
+Campus Access (Tue / Thu) 
+●​ Learning labs​
+ 
+●​ Simulations​
+ 
+●​ Hands-on projects​
+ 
+●​ University tool usage​
+ 
+Key Rule 
+❗ No instructional content is taught at centers. 
+ 
+10. Legal & Compliance Positioning 
+●​ University School does not operate as an educational provider in Brazil​
+ 
+●​ All instruction and certification occur outside Brazil​
+ 
+●​ University School provides:​
+ 
+○​ access​
+ 
+○​ onboarding​
+ 
+○​ support​
+ 
+○​ mentoring​
+ 
+○​ guidance​
+ 
+This model: 
+●​ avoids Brazilian regulatory restrictions​
+ 
+●​ allows partnerships with private institutions​
+ 
+●​ enables franchise scalability​
+ 
+ 
+11. Franchise Model (E-2 Ready) 
+Franchise Concept 
+University School Centers can be franchised to Brazilian entrepreneurs seeking E-2 Visa 
+eligibility. 
+Franchise Provides 
+●​ Platform license​
+ 
+●​ Academic operating system​
+ 
+●​ Sales & onboarding SOPs​
+ 
+●​ AI support stack​
+ 
+●​ Brand & partnerships​
+ 
+●​ Training & certification​
+ 
+Operational References 
+●​ UniCesumar (EAD polos)​
+ 
+●​ Score At The Top (U.S.)​
+ 
+●​ Alpha School (mentoring model)​
+ 
+ 
+12. Operations & SOPs 
+University School integrates: 
+●​ tutor routines​
+ 
+●​ lead management​
+ 
+●​ onboarding workflows​
+ 
+●​ student success monitoring​
+ 
+●​ CRM & reporting​
+ 
+All operational documents provided are incorporated into: 
+●​ Franchise Playbook​
+ 
+●​ Center SOPs​
+ 
+●​ Staff training modules​
+ 
+ 
+13. Monetization 
+Revenue Streams 
+●​ Tuition / fee split with U.S. partners​
+ 
+●​ Platform access fees​
+ 
+●​ Franchise fees​
+ 
+●​ Upsells:​
+ 
+○​ career counseling​
+ 
+○​ application support​
+ 
+○​ premium mentoring​
+ 
+Scalability 
+●​ Online-first​
+ 
+●​ Asset-light​
+ 
+●​ High-margin​
+ 
+●​ Replicable across countries​
+ 
+ 
+14. Success Metrics (KPIs) 
+●​ Credit completion rate​
+ 
+●​ GPA performance​
+ 
+●​ Retention​
+ 
+●​ Time-to-degree reduction​
+ 
+●​ Franchise performance​
+ 
+●​ Student satisfaction (NPS)​
+ 
+●​ Conversion to U.S. universities​
+ 
+ 
+15. Out of Scope 
+●​ Creating instructional content​
+ 
+●​ Issuing diplomas​
+ 
+●​ Acting as a Brazilian school​
+ 
+●​ Competing with partner universities​
+ 
+ 
+16. Strategic Vision 
+University School is building the global operating system for early university access, 
+starting in Brazil, expanding through franchises, and integrating elite U.S. academic 
+ecosystems. 
+ 
+If you want, next I can: 
+●​ turn this into an Investor Deck​
+ 
+●​ extract a Franchise FDD outline​
+ 
+●​ create a Platform Architecture spec​
+ 
+●​ or convert this into a Legal/Compliance memo 
+ 
+ 
+UNIVERSITY SCHOOL 
+Franchise Disclosure Document (FDD) – STRUCTURAL 
+OUTLINE 
+(FTC Rule 16 CFR Part 436 Compliant) 
+ 
+ITEM 1 – The Franchisor and Any Parents, 
+Predecessors, and Affiliates 
+1.1 Franchisor Identity 
+●​ Legal name of franchisor: University School, Inc.​
+ 
+●​ Jurisdiction: United States​
+ 
+●​ Principal business address​
+ 
+●​ Nature of business:​
+ 
+○​ University access platform​
+ 
+○​ Academic support services​
+ 
+○​ Franchise licensing for learning centers​
+ 
+●​ Not an educational institution; not a degree-granting entity​
+ 
+1.2 Affiliates 
+●​ University School Platform Entity​
+ 
+●​ Valley Academy (Immersion Programs – separate product line)​
+ 
+●​ U.S. University Partners (ASU, BYU, Extensions – not franchise affiliates)​
+ 
+1.3 Business Experience 
+●​ Years in operation​
+ 
+●​ Background in:​
+ 
+○​ Online education​
+ 
+○​ Learning centers​
+ 
+○​ Franchise-based academic models​
+ 
+○​ International education pathways​
+ 
+ 
+ITEM 2 – Business Experience 
+2.1 Key Executives 
+For each principal: 
+●​ Name​
+ 
+●​ Position​
+ 
+●​ Education​
+ 
+●​ Prior experience (last 5–10 years)​
+ 
+●​ Role in franchise system​
+ 
+2.2 Advisory & Academic Leadership 
+●​ Academic directors​
+ 
+●​ University liaisons​
+ 
+●​ Platform and AI leadership​
+ 
+●​ Operations and franchise support leadership​
+ 
+ 
+ITEM 3 – Litigation 
+●​ Disclosure of:​
+ 
+○​ Pending litigation​
+ 
+○​ Prior litigation​
+ 
+○​ Franchise-related litigation​
+ 
+●​ Statement if none exist​
+ 
+ 
+ITEM 4 – Bankruptcy 
+●​ Disclosure for:​
+ 
+○​ Franchisor​
+ 
+○​ Executives​
+ 
+●​ Statement if none exist​
+ 
+ 
+ITEM 5 – Initial Franchise Fee 
+5.1 Initial Franchise Fee 
+●​ One-time franchise license fee​
+ 
+●​ Covers:​
+ 
+○​ Brand license​
+ 
+○​ Platform access​
+ 
+○​ Training​
+ 
+○​ Initial onboarding​
+ 
+○​ Territory setup​
+ 
+5.2 Payment Terms 
+●​ Due at signing​
+ 
+●​ Non-refundable conditions​
+ 
+●​ Possible phased payments (if applicable)​
+ 
+ 
+ITEM 6 – Other Fees 
+6.1 Ongoing Fees 
+●​ Monthly royalty (percentage or flat)​
+ 
+●​ Platform usage fee​
+ 
+●​ AI services fee​
+ 
+●​ CRM / academic system fee​
+ 
+6.2 Additional Fees 
+●​ Marketing fund contribution​
+ 
+●​ Local marketing spend minimum​
+ 
+●​ Training for additional staff​
+ 
+●​ Renewal fees​
+ 
+(Aligned with UniCesumar-style operational cost structures) 
+ 
+ITEM 7 – Estimated Initial Investment 
+Detailed table including: 
+●​ Franchise fee​
+ 
+●​ Facility setup (small office / learning center)​
+ 
+●​ Furniture & equipment​
+ 
+●​ Computers & internet​
+ 
+●​ Branding & signage​
+ 
+●​ Initial marketing​
+ 
+●​ Training & travel​
+ 
+●​ Working capital (3–6 months)​
+ 
+Designed to remain E-2 Visa compliant (active, non-marginal business). 
+ 
+ITEM 8 – Restrictions on Sources of Products and 
+Services 
+8.1 Mandatory Systems 
+●​ University School platform​
+ 
+●​ CRM​
+ 
+●​ AI guidance systems​
+ 
+●​ Academic dashboards​
+ 
+8.2 Approved Vendors 
+●​ IT​
+ 
+●​ Branding​
+ 
+●​ Marketing​
+ 
+●​ Learning lab equipment​
+ 
+8.3 Academic Content 
+●​ No proprietary teaching materials required​
+ 
+●​ Instruction delivered only by U.S. universities​
+ 
+ 
+ITEM 9 – Franchisee’s Obligations 
+Detailed table covering: 
+●​ Site selection​
+ 
+●​ Staffing​
+ 
+●​ Marketing​
+ 
+●​ Student onboarding​
+ 
+●​ Academic support delivery​
+ 
+●​ Data reporting​
+ 
+●​ Compliance with academic integrity standards​
+ 
+●​ Use of AI + human support protocols​
+ 
+ 
+ITEM 10 – Financing 
+●​ Whether franchisor offers financing​
+ 
+●​ Third-party financing references​
+ 
+●​ E-2 Visa investment guidance (informational, not legal advice)​
+ 
+ 
+ITEM 11 – Franchisor’s Assistance, Advertising, 
+Computer Systems, and Training 
+11.1 Pre-Opening Assistance 
+●​ Location guidance​
+ 
+●​ Center layout standards​
+ 
+●​ Technology setup​
+ 
+●​ Hiring guidelines​
+ 
+●​ Marketing launch kit​
+ 
+11.2 Training Program 
+●​ Initial franchisee training​
+ 
+●​ Academic operations training​
+ 
+●​ Sales & enrollment training​
+ 
+●​ CRM & AI system training​
+ 
+●​ Ongoing training​
+ 
+(Incorporates UniCesumar tutor & polo SOPs) 
+11.3 Ongoing Support 
+●​ Academic escalation​
+ 
+●​ AI support maintenance​
+ 
+●​ Marketing updates​
+ 
+●​ Regulatory guidance updates​
+ 
+ 
+ITEM 12 – Territory 
+●​ Exclusive or protected territory​
+ 
+●​ Territory definition (city / metro)​
+ 
+●​ Conditions for expansion​
+ 
+●​ Online activity boundaries​
+ 
+ 
+ITEM 13 – Trademarks 
+●​ University School trademark status​
+ 
+●​ Logos​
+ 
+●​ Branding rules​
+ 
+●​ Usage restrictions​
+ 
+ 
+ITEM 14 – Patents, Copyrights, and Proprietary 
+Information 
+●​ Platform IP​
+ 
+●​ AI models​
+ 
+●​ Academic mapping frameworks​
+ 
+●​ SOPs​
+ 
+●​ Data structures​
+ 
+ 
+ITEM 15 – Obligation to Participate in the Actual 
+Operation of the Franchise Business 
+●​ Owner-operator expectations​
+ 
+●​ Visa-related operational requirements​
+ 
+●​ Minimum involvement standards​
+ 
+ 
+ITEM 16 – Restrictions on What the Franchisee May Sell 
+●​ Only approved University School services​
+ 
+●​ No independent instructional offerings​
+ 
+●​ No diploma issuance​
+ 
+●​ No unapproved partnerships​
+ 
+ 
+ITEM 17 – Renewal, Termination, Transfer, and Dispute 
+Resolution 
+●​ Franchise term​
+ 
+●​ Renewal conditions​
+ 
+●​ Termination rights​
+ 
+●​ Transfer approval​
+ 
+●​ Non-compete clauses​
+ 
+●​ Arbitration / jurisdiction​
+ 
+ 
+ITEM 18 – Public Figures 
+●​ Disclosure if none used​
+ 
+ 
+ITEM 19 – Financial Performance Representations 
+(Optional) 
+●​ Optional earnings claims​
+ 
+●​ Typical center performance ranges​
+ 
+●​ Disclosure methodology​
+ 
+●​ Clear disclaimers​
+ 
+ 
+ITEM 20 – Outlets and Franchisee Information 
+●​ Number of franchises​
+ 
+●​ Open / closed / transferred units​
+ 
+●​ Pipeline projections​
+ 
+●​ Contact info for current franchisees​
+ 
+ 
+ITEM 21 – Financial Statements 
+●​ Audited financials (3 years or as required)​
+ 
+●​ Balance sheet​
+ 
+●​ Income statement​
+ 
+●​ Cash flow​
+ 
+ 
+ITEM 22 – Contracts 
+List of exhibits: 
+●​ Franchise Agreement​
+ 
+●​ Platform License Agreement​
+ 
+●​ Operations Manual (summary)​
+ 
+●​ IP License​
+ 
+●​ Marketing Agreement​
+ 
+●​ Data Processing Agreement​
+ 
+ 
+ITEM 23 – Receipts 
+●​ Franchisee acknowledgment​
+ 
+●​ Signature pages​
+ 
+ 
+Key Strategic Notes (Non-FDD, Internal) 
+●​ Structure fully supports E-2 Visa​
+ 
+●​ Avoids Brazilian educational regulation exposure​
+ 
+●​ Replicable, asset-light​
+ 
+●​ AI-first with human escalation​
+ 
+●​ Strong precedent via UniCesumar EAD polos​
+ 
+●​ High-margin franchise model 
+ 
+UNIVERSITY SCHOOL 
+Franchise Disclosure Document (FDD) – STRUCTURAL 
+OUTLINE 
+(FTC Rule 16 CFR Part 436 Compliant) 
+ 
+ITEM 1 – The Franchisor and Any Parents, 
+Predecessors, and Affiliates 
+1.1 Franchisor Identity 
+●​ Legal name of franchisor: University School, Inc.​
+ 
+●​ Jurisdiction: United States​
+ 
+●​ Principal business address​
+ 
+●​ Nature of business:​
+ 
+○​ University access platform​
+ 
+○​ Academic support services​
+ 
+○​ Franchise licensing for learning centers​
+ 
+●​ Not an educational institution; not a degree-granting entity​
+ 
+1.2 Affiliates 
+●​ University School Platform Entity​
+ 
+●​ Valley Academy (Immersion Programs – separate product line)​
+ 
+●​ U.S. University Partners (ASU, BYU, Extensions – not franchise affiliates)​
+ 
+1.3 Business Experience 
+●​ Years in operation​
+ 
+●​ Background in:​
+ 
+○​ Online education​
+ 
+○​ Learning centers​
+ 
+○​ Franchise-based academic models​
+ 
+○​ International education pathways​
+ 
+ 
+ITEM 2 – Business Experience 
+2.1 Key Executives 
+For each principal: 
+●​ Name​
+ 
+●​ Position​
+ 
+●​ Education​
+ 
+●​ Prior experience (last 5–10 years)​
+ 
+●​ Role in franchise system​
+ 
+2.2 Advisory & Academic Leadership 
+●​ Academic directors​
+ 
+●​ University liaisons​
+ 
+●​ Platform and AI leadership​
+ 
+●​ Operations and franchise support leadership​
+ 
+ 
+ITEM 3 – Litigation 
+●​ Disclosure of:​
+ 
+○​ Pending litigation​
+ 
+○​ Prior litigation​
+ 
+○​ Franchise-related litigation​
+ 
+●​ Statement if none exist​
+ 
+ 
+ITEM 4 – Bankruptcy 
+●​ Disclosure for:​
+ 
+○​ Franchisor​
+ 
+○​ Executives​
+ 
+●​ Statement if none exist​
+ 
+ 
+ITEM 5 – Initial Franchise Fee 
+5.1 Initial Franchise Fee 
+●​ One-time franchise license fee​
+ 
+●​ Covers:​
+ 
+○​ Brand license​
+ 
+○​ Platform access​
+ 
+○​ Training​
+ 
+○​ Initial onboarding​
+ 
+○​ Territory setup​
+ 
+5.2 Payment Terms 
+●​ Due at signing​
+ 
+●​ Non-refundable conditions​
+ 
+●​ Possible phased payments (if applicable)​
+ 
+ 
+ITEM 6 – Other Fees 
+6.1 Ongoing Fees 
+●​ Monthly royalty (percentage or flat)​
+ 
+●​ Platform usage fee​
+ 
+●​ AI services fee​
+ 
+●​ CRM / academic system fee​
+ 
+6.2 Additional Fees 
+●​ Marketing fund contribution​
+ 
+●​ Local marketing spend minimum​
+ 
+●​ Training for additional staff​
+ 
+●​ Renewal fees​
+ 
+(Aligned with UniCesumar-style operational cost structures) 
+ 
+ITEM 7 – Estimated Initial Investment 
+Detailed table including: 
+●​ Franchise fee​
+ 
+●​ Facility setup (small office / learning center)​
+ 
+●​ Furniture & equipment​
+ 
+●​ Computers & internet​
+ 
+●​ Branding & signage​
+ 
+●​ Initial marketing​
+ 
+●​ Training & travel​
+ 
+●​ Working capital (3–6 months)​
+ 
+Designed to remain E-2 Visa compliant (active, non-marginal business). 
+ 
+ITEM 8 – Restrictions on Sources of Products and 
+Services 
+8.1 Mandatory Systems 
+●​ University School platform​
+ 
+●​ CRM​
+ 
+●​ AI guidance systems​
+ 
+●​ Academic dashboards​
+ 
+8.2 Approved Vendors 
+●​ IT​
+ 
+●​ Branding​
+ 
+●​ Marketing​
+ 
+●​ Learning lab equipment​
+ 
+8.3 Academic Content 
+●​ No proprietary teaching materials required​
+ 
+●​ Instruction delivered only by U.S. universities​
+ 
+ 
+ITEM 9 – Franchisee’s Obligations 
+Detailed table covering: 
+●​ Site selection​
+ 
+●​ Staffing​
+ 
+●​ Marketing​
+ 
+●​ Student onboarding​
+ 
+●​ Academic support delivery​
+ 
+●​ Data reporting​
+ 
+●​ Compliance with academic integrity standards​
+ 
+●​ Use of AI + human support protocols​
+ 
+ 
+ITEM 10 – Financing 
+●​ Whether franchisor offers financing​
+ 
+●​ Third-party financing references​
+ 
+●​ E-2 Visa investment guidance (informational, not legal advice)​
+ 
+ 
+ITEM 11 – Franchisor’s Assistance, Advertising, 
+Computer Systems, and Training 
+11.1 Pre-Opening Assistance 
+●​ Location guidance​
+ 
+●​ Center layout standards​
+ 
+●​ Technology setup​
+ 
+●​ Hiring guidelines​
+ 
+●​ Marketing launch kit​
+ 
+11.2 Training Program 
+●​ Initial franchisee training​
+ 
+●​ Academic operations training​
+ 
+●​ Sales & enrollment training​
+ 
+●​ CRM & AI system training​
+ 
+●​ Ongoing training​
+ 
+(Incorporates UniCesumar tutor & polo SOPs) 
+11.3 Ongoing Support 
+●​ Academic escalation​
+ 
+●​ AI support maintenance​
+ 
+●​ Marketing updates​
+ 
+●​ Regulatory guidance updates​
+ 
+ 
+ITEM 12 – Territory 
+●​ Exclusive or protected territory​
+ 
+●​ Territory definition (city / metro)​
+ 
+●​ Conditions for expansion​
+ 
+●​ Online activity boundaries​
+ 
+ 
+ITEM 13 – Trademarks 
+●​ University School trademark status​
+ 
+●​ Logos​
+ 
+●​ Branding rules​
+ 
+●​ Usage restrictions​
+ 
+ 
+ITEM 14 – Patents, Copyrights, and Proprietary 
+Information 
+●​ Platform IP​
+ 
+●​ AI models​
+ 
+●​ Academic mapping frameworks​
+ 
+●​ SOPs​
+ 
+●​ Data structures​
+ 
+ 
+ITEM 15 – Obligation to Participate in the Actual 
+Operation of the Franchise Business 
+●​ Owner-operator expectations​
+ 
+●​ Visa-related operational requirements​
+ 
+●​ Minimum involvement standards​
+ 
+ 
+ITEM 16 – Restrictions on What the Franchisee May Sell 
+●​ Only approved University School services​
+ 
+●​ No independent instructional offerings​
+ 
+●​ No diploma issuance​
+ 
+●​ No unapproved partnerships​
+ 
+ 
+ITEM 17 – Renewal, Termination, Transfer, and Dispute 
+Resolution 
+●​ Franchise term​
+ 
+●​ Renewal conditions​
+ 
+●​ Termination rights​
+ 
+●​ Transfer approval​
+ 
+●​ Non-compete clauses​
+ 
+●​ Arbitration / jurisdiction​
+ 
+ 
+ITEM 18 – Public Figures 
+●​ Disclosure if none used​
+ 
+ 
+ITEM 19 – Financial Performance Representations 
+(Optional) 
+●​ Optional earnings claims​
+ 
+●​ Typical center performance ranges​
+ 
+●​ Disclosure methodology​
+ 
+●​ Clear disclaimers​
+ 
+ 
+ITEM 20 – Outlets and Franchisee Information 
+●​ Number of franchises​
+ 
+●​ Open / closed / transferred units​
+ 
+●​ Pipeline projections​
+ 
+●​ Contact info for current franchisees​
+ 
+ 
+ITEM 21 – Financial Statements 
+●​ Audited financials (3 years or as required)​
+ 
+●​ Balance sheet​
+ 
+●​ Income statement​
+ 
+●​ Cash flow​
+ 
+ 
+ITEM 22 – Contracts 
+List of exhibits: 
+●​ Franchise Agreement​
+ 
+●​ Platform License Agreement​
+ 
+●​ Operations Manual (summary)​
+ 
+●​ IP License​
+ 
+●​ Marketing Agreement​
+ 
+●​ Data Processing Agreement​
+ 
+ 
+ITEM 23 – Receipts 
+●​ Franchisee acknowledgment​
+ 
+●​ Signature pages​
+ 
+ 
+Key Strategic Notes (Non-FDD, Internal) 
+●​ Structure fully supports E-2 Visa​
+ 
+●​ Avoids Brazilian educational regulation exposure​
+ 
+●​ Replicable, asset-light​
+ 
+●​ AI-first with human escalation​
+ 
+●​ Strong precedent via UniCesumar EAD polos​
+ 
+●​ High-margin franchise model 
+ 
+CONSOLIDATED PRODUCT 
+REQUIREMENTS DOCUMENT (PRD) 
+University School 
+ 
+1. Product Overview 
+Product Name 
+University School 
+Hero Statement 
+Study at a U.S. university while still in high school — and come home every day. 
+Product Type 
+U.S.-based University Access, Academic Support, and Progression Platform​
+ (Non-instructional. Not an educational institution in Brazil.) 
+Core Definition 
+University School is a U.S.-based academic access and operating platform that enables 
+high school and early college students to: 
+●​ enroll in accredited U.S. university courses,​
+ 
+●​ earn official college credits, and​
+ 
+●​ receive AI-powered and human academic support,​
+ 
+while completing their local high school or university studies in their home country. 
+University School does not provide instructional content.​
+ All instruction, grading, certification, and credit issuance are delivered exclusively by 
+accredited U.S. partner institutions. 
+ 
+University School Operates As: 
+●​ an access layer (to U.S. universities),​
+ 
+●​ an academic support layer (AI + human),​
+ 
+●​ a guidance and progression layer (career + pathways),​
+ 
+●​ a physical center operating system (polos / hubs),​
+ 
+●​ a franchise-ready platform (E-2 compliant).​
+ 
+ 
+2. Problem Statement 
+Core Market Problems 
+1.​ Duplicated coursework​
+ 
+○​ Students repeat content between high school and university.​
+ 
+○​ Time and money are wasted.​
+ 
+2.​ Barriers to U.S. university credits​
+ 
+○​ High cost​
+ 
+○​ Bureaucracy​
+ 
+○​ Physical relocation requirements​
+ 
+3.​ Lack of academic portability​
+ 
+○​ Brazilian online higher education is massive but largely non-transferable 
+internationally.​
+ 
+4.​ Gap in bilingual / international schools​
+ 
+○​ Strong English proficiency​
+ 
+○​ No structured, credit-bearing U.S. pathways​
+ 
+5.​ Adult learners need flexibility​
+ 
+○​ Night-compatible​
+ 
+○​ Online-first​
+ 
+○​ Career-aligned​
+ 
+6.​ Families want real university experience​
+ 
+○​ Not just admissions consulting​
+ 
+○​ Actual academic engagement and credits​
+ 
+ 
+3. Opportunity & Market Size 
+Brazil – Higher Education 
+●​ ~8M private higher-education students​
+ 
+●​ ~5M already enrolled in online programs​
+ 
+●​ 6 major online groups = ~1.4–1.5M students​
+ 
+K–12 Bilingual / International Schools 
+●​ ~1,350 schools​
+ 
+●​ ~500,000 students​
+ 
+●​ High English proficiency​
+ 
+●​ High intent toward U.S. universities​
+ 
+Core Insight 
+Even 1–2% penetration represents tens of thousands of students with strong LTV. 
+ 
+4. Target Segments 
+Primary Segments 
+1. Bilingual / International K–12 Students (14–18) 
+●​ Goal: U.S. universities​
+ 
+●​ Value: early credits, acceleration, stronger applications​
+ 
+2. Private Online Higher Education Students 
+●​ Working adults​
+ 
+●​ Online / night learners​
+ 
+●​ Value: portability, speed, employability​
+ 
+3. Large Online University Groups 
+●​ Distribution via existing local learning centers (polos)​
+ 
+●​ White-label or co-branded integration​
+ 
+ 
+Secondary Segment 
+●​ Entrepreneurs seeking E-2 Visa via University School franchises​
+ 
+●​ Families relocating internationally​
+ 
+ 
+5. Value Proposition 
+University School enables students to: 
+●​ Earn official U.S. college credits early​
+ 
+●​ Fulfill or replace High School graduation requirements​
+ 
+●​ Eliminate duplicated coursework​
+ 
+●​ Accelerate time-to-degree​
+ 
+●​ Improve U.S. transfer and admissions outcomes​
+ 
+●​ Study inside real U.S. university systems​
+ 
+●​ Receive AI + human academic support​
+ 
+●​ Maintain local life, school, and family​
+ 
+It is not about being approved.​
+ It is about studying at a Top American University now. 
+ 
+6. Academic Model 
+6.1 High School Credits Covered 
+University School aligns U.S. college General Education (GE) courses to satisfy: 
+●​ U.S. History (1.0)​
+ 
+●​ U.S. Government / Civics (0.5)​
+ 
+●​ Economics (0.5)​
+ 
+●​ Personal Financial Literacy (0.5)​
+ 
+ 
+6.2 College General Education Requirements 
+Students complete official college GE credits: 
+●​ Writing / English (2)​
+ 
+●​ Math / Quantitative Reasoning (1)​
+ 
+●​ Natural Science (1)​
+ 
+●​ Social Science (1)​
+ 
+●​ Humanities / Civic / Ethics (1)​
+ 
+ 
+6.3 Mandatory U.S. Courses (Partner-Delivered) 
+Arizona State University (ASU) 
+●​ ENG 101 – First-Year Composition I​
+ 
+●​ ENG 102 – First-Year Composition II​
+ 
+●​ STP 226 – Elements of Statistics​
+ 
+●​ POS 110 – American Government and Politics​
+ 
+●​ BIO 130 – Introduction to Environmental Science​
+ 
+●​ FIN 294 – Fundamentals of Personal Finance​
+ 
+●​ HST 110 – United States Since 1865​
+ 
+Brigham Young University (BYU) 
+●​ ECON 110 – Economic Principles and Problems​
+ 
+All instruction, grading, and certification occur inside partner university platforms. 
+ 
+7. University School Platform (Core Product) 
+7.1 Platform Purpose 
+The platform orchestrates: 
+●​ enrollment,​
+ 
+●​ academic progression,​
+ 
+●​ support delivery,​
+ 
+●​ AI guidance,​
+ 
+●​ engagement,​
+ 
+●​ reporting,​
+ 
+●​ franchise operations.​
+ 
+ 
+7.2 Key Platform Modules 
+A. Student Dashboard 
+●​ Course roadmap​
+ 
+●​ GE credit tracking​
+ 
+●​ HS equivalency mapping​
+ 
+●​ Deadlines & milestones​
+ 
+●​ GPA tracking​
+ 
+●​ Progress visualization​
+ 
+B. AI Guidance Counseling 
+●​ Academic planning​
+ 
+●​ Credit mapping​
+ 
+●​ University pathway recommendations​
+ 
+●​ Career exploration​
+ 
+●​ Admissions readiness​
+ 
+C. AI Tutor 
+●​ Course-aligned tutoring​
+ 
+●​ Writing feedback​
+ 
+●​ Rubric alignment (ASU/BYU)​
+ 
+●​ Concept reinforcement​
+ 
+●​ On-demand academic help​
+ 
+D. Gamified Engagement Layer 
+●​ Badges & milestones​
+ 
+●​ Progress streaks​
+ 
+●​ Cohort challenges​
+ 
+●​ Learning labs & simulations​
+ 
+E. Human Support (On-Demand) 
+●​ Academic mentors​
+ 
+●​ Graduate student tutors​
+ 
+●​ College counselors​
+ 
+●​ AI → human escalation​
+ 
+ 
+8. Career Pathways Module (Post-GE) 
+After a 3-month Career Search phase, students select University Pathways. 
+Elective Providers 
+●​ Harvard Extension School​
+ 
+●​ Berkeley Extension​
+ 
+●​ UCLA Extension​
+ 
+Pathway Clusters 
+Health & Life Sciences​
+ Medicine, Dentistry, Veterinary, Nursing, Psychology, Public Health, Biomedicine 
+Engineering & Technology​
+ CS, Software Engineering, Data Science, Electrical, Mechanical, Civil, Mechatronics 
+Business, Economics & Law​
+ Business, Economics, Finance, Marketing, Analytics, Pre-Law 
+Agrarian & Sustainability​
+ Agronomy, Environmental Studies, Sustainability 
+University School curates and guides, but does not issue credits. 
+ 
+9. Physical Centers (University School Centers) 
+Concept 
+Centers are academic support hubs, not teaching institutions. 
+Preferred Locations 
+●​ Inside Brazilian universities​
+ 
+●​ Premium learning centers​
+ 
+●​ Professional office environments​
+ 
+Weekly Model 
+Study Hall (Mon / Wed / Fri) 
+●​ AI academic support​
+ 
+●​ 1:1 tutoring​
+ 
+●​ Advising & mentoring​
+ 
+Campus Access (Tue / Thu) 
+●​ Learning labs​
+ 
+●​ Simulations​
+ 
+●​ Hands-on projects​
+ 
+●​ University tools​
+ 
+❗ No instructional content is taught at centers. 
+ 
+10. Legal & Compliance Positioning 
+●​ University School is not an educational provider in Brazil​
+ 
+●​ All instruction and certification occur outside Brazil​
+ 
+●​ University School provides:​
+ 
+○​ access​
+ 
+○​ onboarding​
+ 
+○​ support​
+ 
+○​ mentoring​
+ 
+○​ guidance​
+ 
+This structure: 
+●​ avoids Brazilian regulatory exposure​
+ 
+●​ enables partnerships​
+ 
+●​ supports franchising and scale​
+ 
+ 
+11. Franchise Model (E-2 Ready) 
+Franchise Concept 
+University School Centers may be franchised to entrepreneurs seeking E-2 Visa eligibility. 
+Franchise Provides 
+●​ Platform license​
+ 
+●​ Academic operating system​
+ 
+●​ Sales & onboarding SOPs​
+ 
+●​ AI support stack​
+ 
+●​ Brand & partnerships​
+ 
+●​ Training & certification​
+ 
+Operational References 
+●​ UniCesumar (EAD polos)​
+ 
+●​ Score At The Top (U.S.)​
+ 
+●​ Alpha School (mentoring)​
+ 
+ 
+12. Operations & SOPs 
+Integrated from all provided documents: 
+●​ tutor routines​
+ 
+●​ lead management​
+ 
+●​ onboarding workflows​
+ 
+●​ student success monitoring​
+ 
+●​ CRM & reporting​
+ 
+Delivered as: 
+●​ Franchise Playbook​
+ 
+●​ Center SOPs​
+ 
+●​ Staff training modules​
+ 
+ 
+13. Monetization 
+Revenue Streams 
+●​ Tuition / fee split with U.S. partners​
+ 
+●​ Platform access fees​
+ 
+●​ Franchise fees​
+ 
+●​ Upsells:​
+ 
+○​ career counseling​
+ 
+○​ application support​
+ 
+○​ premium mentoring​
+ 
+Scalability 
+●​ Online-first​
+ 
+●​ Asset-light​
+ 
+●​ High-margin​
+ 
+●​ Globally replicable​
+ 
+ 
+14. Success Metrics (KPIs) 
+●​ Credit completion rate​
+ 
+●​ GPA performance​
+ 
+●​ Retention​
+ 
+●​ Time-to-degree reduction​
+ 
+●​ Franchise performance​
+ 
+●​ Student NPS​
+ 
+●​ Conversion to U.S. universities​
+ 
+ 
+15. Out of Scope 
+●​ Creating instructional content​
+ 
+●​ Issuing diplomas​
+ 
+●​ Acting as a Brazilian school​
+ 
+●​ Competing with partner universities​
+ 
+ 
+16. Strategic Vision 
+University School is building the global operating system for early university access, 
+starting in Brazil, scaling through franchises, and integrating elite U.S. academic 
+ecosystems. 
+ 
+ 
+UNIVERSITY SCHOOL 
+Platform Architecture Specification & Engineering PRD 
+(Tech-Only) 
+ 
+1. System Overview 
+1.1 System Purpose 
+The University School platform is a multi-tenant academic orchestration system that: 
+●​ connects students to external accredited university LMSs (ASU, BYU, 
+Extensions),​
+ 
+●​ tracks academic progress and credit equivalencies,​
+ 
+●​ delivers AI-driven guidance, tutoring, and engagement,​
+ 
+●​ supports human escalation,​
+ 
+●​ operates physical centers (polos),​
+ 
+●​ scales via franchise architecture.​
+ 
+❗ The platform does not host instructional content or grading systems. 
+ 
+1.2 High-Level Architecture 
+Architecture Style 
+●​ Modular, API-first​
+ 
+●​ Cloud-native​
+ 
+●​ Event-driven where applicable​
+ 
+●​ Multi-tenant (Franchise → Center → Student)​
+ 
+Core Layers 
+1.​ Presentation Layer (Web / Mobile)​
+ 
+2.​ Application Layer (Business Logic)​
+ 
+3.​ AI Services Layer​
+ 
+4.​ Integration Layer (Universities, CRM, Payments)​
+ 
+5.​ Data Layer​
+ 
+6.​ Security & Compliance Layer​
+ 
+7.​ DevOps & Observability​
+ 
+ 
+2. User Roles & Permissions 
+2.1 User Roles 
+Role 
+Description 
+Student 
+Learner enrolled via University School 
+Parent/Guardian 
+View-only / financial permissions 
+Academic Mentor 
+Human tutor / advisor 
+Guidance 
+Counselor 
+Admissions & pathway advisor 
+Center Staff 
+On-site support 
+Franchise Owner 
+Business + operational access 
+Platform Admin 
+Global admin 
+AI Agent 
+System-level service account 
+ 
+2.2 Permission Model 
+●​ Role-Based Access Control (RBAC)​
+ 
+●​ Attribute-Based Access Control (ABAC) for:​
+ 
+○​ geography​
+ 
+○​ franchise​
+ 
+○​ age​
+ 
+○​ data sensitivity​
+ 
+ 
+3. Core Platform Modules (Engineering 
+Scope) 
+ 
+3.1 Identity & Access Management (IAM) 
+Requirements 
+●​ SSO (OAuth 2.0 / OpenID Connect)​
+ 
+●​ MFA (role-based enforcement)​
+ 
+●​ External LMS SSO passthrough (ASU/BYU)​
+ 
+●​ Franchise-level identity partitioning​
+ 
+Suggested Stack 
+●​ Auth0 / Cognito / Azure AD B2C​
+ 
+●​ JWT tokens​
+ 
+●​ Session isolation per tenant​
+ 
+ 
+3.2 Student Information System (SIS – Lightweight) 
+Purpose​
+ Academic orchestration, not instruction. 
+Core Entities 
+●​ Student​
+ 
+●​ Enrollment​
+ 
+●​ Course (external reference)​
+ 
+●​ Credit Unit​
+ 
+●​ Pathway​
+ 
+●​ Milestone​
+ 
+●​ Support Interaction​
+ 
+Key Functions 
+●​ Enrollment tracking​
+ 
+●​ Credit equivalency mapping​
+ 
+●​ HS ↔ College alignment​
+ 
+●​ Progress status​
+ 
+●​ GPA ingestion (read-only)​
+ 
+ 
+3.3 External University Integration Layer 
+Universities 
+●​ ASU​
+ 
+●​ BYU​
+ 
+●​ Harvard Extension​
+ 
+●​ Berkeley Extension​
+ 
+●​ UCLA Extension​
+ 
+Integration Pattern 
+●​ LTI where available​
+ 
+●​ Secure deep links​
+ 
+●​ Progress polling or webhook ingestion​
+ 
+●​ Manual override for institutions without APIs​
+ 
+Data Ingested 
+●​ Enrollment confirmation​
+ 
+●​ Assignment completion​
+ 
+●​ Final grades​
+ 
+●​ Credit completion​
+ 
+❗ No content ingestion or storage. 
+ 
+3.4 Academic Mapping Engine 
+Purpose​
+ Translate external university credits into: 
+●​ HS requirements​
+ 
+●​ College GE requirements​
+ 
+●​ Pathway readiness​
+ 
+Logic 
+●​ Rule-based engine (v1)​
+ 
+●​ ML-assisted recommendations (v2)​
+ 
+Outputs 
+●​ “HS Requirement Fulfilled”​
+ 
+●​ “College GE Completed”​
+ 
+●​ “Pathway Eligible”​
+ 
+ 
+3.5 AI Guidance Counseling Engine 
+Functions 
+●​ Academic planning​
+ 
+●​ Credit sequencing​
+ 
+●​ Pathway recommendation​
+ 
+●​ Risk detection (dropout, overload)​
+ 
+Models 
+●​ LLM (multi-provider capable)​
+ 
+●​ Vector DB for:​
+ 
+○​ student profiles​
+ 
+○​ pathways​
+ 
+○​ policies​
+ 
+Guardrails 
+●​ No academic instruction​
+ 
+●​ No grading​
+ 
+●​ Escalation triggers​
+ 
+ 
+3.6 AI Tutor (Non-Instructional) 
+Capabilities 
+●​ Writing feedback (rubric-aligned)​
+ 
+●​ Concept clarification​
+ 
+●​ Study planning​
+ 
+●​ Assignment understanding​
+ 
+Constraints 
+●​ No original answers submission​
+ 
+●​ No plagiarism​
+ 
+●​ Academic integrity filters​
+ 
+ 
+3.7 Gamification & Engagement Engine 
+Mechanics 
+●​ Badges​
+ 
+●​ Streaks​
+ 
+●​ Milestones​
+ 
+●​ Cohort challenges​
+ 
+Triggers 
+●​ Course progress​
+ 
+●​ Attendance (center check-in)​
+ 
+●​ Support interactions​
+ 
+ 
+3.8 Human Support & Escalation System 
+Flow​
+ AI detects: 
+●​ low progress​
+ 
+●​ repeated confusion​
+ 
+●​ deadline risk​
+ 
+→ Ticket created​
+ → Assigned to mentor/counselor​
+ → SLA-based resolution 
+Tools 
+●​ Internal ticketing​
+ 
+●​ Chat + async messaging​
+ 
+●​ Session logs​
+ 
+ 
+3.9 Career Pathway Engine 
+Functions 
+●​ Career interest profiling​
+ 
+●​ Pathway clustering​
+ 
+●​ Elective recommendations​
+ 
+●​ University alignment​
+ 
+Inputs 
+●​ Student behavior​
+ 
+●​ Assessments​
+ 
+●​ Market demand data​
+ 
+ 
+3.10 Franchise & Center Management System 
+Capabilities 
+●​ Multi-tenant hierarchy​
+ 
+●​ Center performance dashboards​
+ 
+●​ Staff permissions​
+ 
+●​ Revenue reporting​
+ 
+●​ Compliance tracking​
+ 
+Metrics 
+●​ Enrollment​
+ 
+●​ Retention​
+ 
+●​ Completion​
+ 
+●​ SLA adherence​
+ 
+ 
+4. Data Architecture 
+4.1 Data Types 
+Type 
+Storage 
+PII 
+Encrypted relational DB 
+Academic 
+metadata 
+Relational DB 
+Events 
+Event store / Kafka 
+AI embeddings 
+Vector DB 
+Logs 
+Centralized logging 
+ 
+4.2 Data Privacy & Compliance 
+●​ GDPR​
+ 
+●​ LGPD​
+ 
+●​ FERPA alignment​
+ 
+●​ Data residency controls​
+ 
+●​ Consent management​
+ 
+ 
+5. Non-Functional Requirements 
+5.1 Scalability 
+●​ Horizontal scaling​
+ 
+●​ Franchise-ready​
+ 
+●​ Global CDN​
+ 
+5.2 Availability 
+●​ 99.9% SLA​
+ 
+●​ Multi-region support​
+ 
+5.3 Security 
+●​ Zero-trust architecture​
+ 
+●​ Encryption at rest & in transit​
+ 
+●​ Audit logs​
+ 
+5.4 Observability 
+●​ Metrics​
+ 
+●​ Tracing​
+ 
+●​ Alerting​
+ 
+ 
+6. DevOps & Infrastructure 
+Cloud 
+●​ AWS / GCP / Azure (agnostic)​
+ 
+CI/CD 
+●​ Automated testing​
+ 
+●​ Canary deployments​
+ 
+●​ Feature flags​
+ 
+Infra as Code 
+●​ Terraform / Pulumi​
+ 
+ 
+7. Engineering Roadmap 
+Phase 1 – MVP (0–6 months) 
+●​ Core platform​
+ 
+●​ ASU/BYU integration​
+ 
+●​ Student dashboard​
+ 
+●​ AI guidance v1​
+ 
+●​ Franchise base​
+ 
+Phase 2 – Scale (6–12 months) 
+●​ Pathways engine​
+ 
+●​ Advanced AI tutor​
+ 
+●​ Multi-university expansion​
+ 
+●​ White-label support​
+ 
+Phase 3 – Optimization (12–24 months) 
+●​ Predictive analytics​
+ 
+●​ Adaptive pathways​
+ 
+●​ Global rollout​
+ 
+ 
+8. Out of Scope (Strict) 
+●​ Hosting classes​
+ 
+●​ Teaching content​
+ 
+●​ Issuing grades or diplomas​
+ 
+●​ Competing LMS functionality​
+ 
+ 
+9. Key Engineering Principles 
+●​ AI-first, human-verified​
+ 
+●​ Compliance-by-design​
+ 
+●​ Partner-respectful (universities)​
+ 
+●​ Franchise-scalable​
+ 
+●​ Asset-light​
+ 
+ 
+Final Note 
+This platform is not an LMS.​
+ It is a University Access Operating System. 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1) System architecture diagrams (C4) 
+C4 — Level 1: System Context 
+flowchart LR 
+  Student[Student] -->|Uses| US[University School Platform] 
+  Parent[Parent/Guardian] -->|Views/Payments| US 
+  Mentor[Human Mentor/Counselor] -->|Supports via| US 
+  CenterStaff[Center Staff] -->|Operates| US 
+  Franchisee[Franchise Owner] -->|Runs business via| US 
+ 
+  US -->|Deep links / SSO / progress ingest| ASU[ASU / Partner 
+University LMS] 
+  US -->|Deep links / SSO / progress ingest| BYU[BYU LMS] 
+  US -->|Deep links / course catalog| Ext[Extensions: 
+Harvard/Berkeley/UCLA] 
+  US -->|Payments| PSP[Payment Processor] 
+  US -->|Email/SMS/WhatsApp| MSG[Messaging Provider] 
+  US -->|Analytics| ANA[Analytics/Warehouse] 
+  US -->|Identity/SSO| IAM[Identity Provider] 
+ 
+C4 — Level 2: Container Diagram 
+flowchart TB 
+  subgraph Client["Client Apps"] 
+    Web[Web App] 
+    Mobile[Mobile App] 
+    AdminPortal[Admin/Franchise Portal] 
+  end 
+ 
+  subgraph Platform["University School Platform"] 
+    APIGW[API Gateway] 
+    Auth[Auth Service (OIDC)] 
+    SIS[SIS Service (Student + Enrollment + Progress)] 
+    Mapping[Credit Mapping Engine] 
+    Pathways[Career/Pathways Service] 
+    Gamify[Gamification Service] 
+    Support[Support/Ticketing Service] 
+    Integrations[Integrations Service] 
+    Notifications[Notifications Service] 
+    AIOrch[AI Orchestrator] 
+    Audit[Audit/Compliance Logging] 
+  end 
+ 
+  subgraph Data["Data Layer"] 
+    RDB[(Relational DB)] 
+    Cache[(Redis/Cache)] 
+    Events[(Event Bus)] 
+    Vector[(Vector DB)] 
+    Obj[(Object Storage)] 
+    DW[(Warehouse/BI)] 
+  end 
+ 
+  subgraph External["External Systems"] 
+    IdP[Identity Provider] 
+    ASU[ASU LMS] 
+    BYU[BYU LMS] 
+    Ext[Extensions Providers] 
+    PSP[Payments] 
+    MSG[Email/SMS/WhatsApp] 
+  end 
+ 
+  Web --> APIGW 
+  Mobile --> APIGW 
+  AdminPortal --> APIGW 
+ 
+  APIGW --> Auth 
+  APIGW --> SIS 
+  APIGW --> Mapping 
+  APIGW --> Pathways 
+  APIGW --> Gamify 
+  APIGW --> Support 
+  APIGW --> Integrations 
+  APIGW --> Notifications 
+  APIGW --> AIOrch 
+  APIGW --> Audit 
+ 
+  SIS --> RDB 
+  Mapping --> RDB 
+  Pathways --> RDB 
+  Gamify --> RDB 
+  Support --> RDB 
+  Auth --> RDB 
+  AIOrch --> Vector 
+  AIOrch --> Obj 
+  Integrations --> Events 
+  SIS --> Events 
+  Events --> DW 
+  Notifications --> MSG 
+  Integrations --> ASU 
+  Integrations --> BYU 
+  Integrations --> Ext 
+  Auth --> IdP 
+  SIS --> Cache 
+ 
+C4 — Level 3: Component Diagram (AI Orchestrator) 
+flowchart LR 
+  subgraph AIOrch["AI Orchestrator"] 
+    Policy[Policy & Guardrails] 
+    Router[Model Router] 
+    RAG[RAG Retrieval Layer] 
+    Prompt[Prompt Builder] 
+    Memory[Student Context Store] 
+    Eval[Safety + Quality Eval] 
+    Log[AI Audit Logger] 
+  end 
+ 
+  Router --> Prompt 
+  Prompt --> Policy 
+  Policy --> Eval 
+  Prompt --> RAG 
+  RAG --> Vector[(Vector DB)] 
+  RAG --> Obj[(Object Storage)] 
+  Memory --> RDB[(Relational DB)] 
+  Eval --> Router 
+  Eval --> Log 
+  Log --> Audit[(Audit Store)] 
+ 
+ 
+2) API Contract Spec (OpenAPI-style) 
+Below is a minimal-but-complete contract for MVP + franchise scaling. (You can expand it 
+directly into a full OpenAPI file.) 
+Core API principles 
+●​ REST + JSON (v1), optionally GraphQL later for dashboards.​
+ 
+●​ Idempotency keys for payments & enrollment operations.​
+ 
+●​ Tenant scoping on every request (franchise_id, center_id).​
+ 
+●​ PII minimized; strict RBAC.​
+ 
+Base 
+●​ Base URL: /api/v1​
+ 
+●​ Auth: Authorization: Bearer <JWT>​
+ 
+●​ Tenant headers:​
+ 
+○​ X-Franchise-Id: <uuid> (required for franchise/center staff)​
+ 
+○​ X-Center-Id: <uuid> (required for center operations)​
+ 
+OpenAPI excerpt 
+openapi: 3.0.3 
+info: 
+  title: University School Platform API 
+  version: "1.0" 
+servers: 
+  - url: /api/v1 
+ 
+paths: 
+  /auth/token: 
+    post: 
+      summary: Exchange authorization code for JWT 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: 
+              type: object 
+              required: [provider, code, redirect_uri] 
+              properties: 
+                provider: { type: string, enum: [oidc] } 
+                code: { type: string } 
+                redirect_uri: { type: string } 
+      responses: 
+        "200": 
+          description: JWT issued 
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                properties: 
+                  access_token: { type: string } 
+                  refresh_token: { type: string } 
+                  expires_in: { type: integer } 
+ 
+  /students: 
+    post: 
+      summary: Create student (admin/center staff) 
+      security: [{ bearerAuth: [] }] 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: 
+              $ref: "#/components/schemas/StudentCreate" 
+      responses: 
+        "201": 
+          content: 
+            application/json: 
+              schema: { $ref: "#/components/schemas/Student" } 
+ 
+    get: 
+      summary: List students (scoped by tenant) 
+      security: [{ bearerAuth: [] }] 
+      parameters: 
+        - in: query 
+          name: q 
+          schema: { type: string } 
+        - in: query 
+          name: center_id 
+          schema: { type: string, format: uuid } 
+      responses: 
+        "200": 
+          content: 
+            application/json: 
+              schema: 
+                type: object 
+                properties: 
+                  items: 
+                    type: array 
+                    items: { $ref: "#/components/schemas/Student" } 
+ 
+  /students/{student_id}/plan: 
+    get: 
+      summary: Get academic plan & progress 
+      security: [{ bearerAuth: [] }] 
+      parameters: 
+        - in: path 
+          name: student_id 
+          required: true 
+          schema: { type: string, format: uuid } 
+      responses: 
+        "200": 
+          content: 
+            application/json: 
+              schema: { $ref: "#/components/schemas/AcademicPlan" } 
+ 
+  /enrollments: 
+    post: 
+      summary: Create enrollment to external course (records only; 
+instruction elsewhere) 
+      security: [{ bearerAuth: [] }] 
+      headers: 
+        Idempotency-Key: 
+          schema: { type: string } 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: { $ref: "#/components/schemas/EnrollmentCreate" 
+} 
+      responses: 
+        "201": 
+          content: 
+            application/json: 
+              schema: { $ref: "#/components/schemas/Enrollment" } 
+ 
+  /integrations/lms/events: 
+    post: 
+      summary: Ingest LMS progress events (webhook) 
+      security: [{ bearerAuth: [] }] 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: { $ref: "#/components/schemas/LmsEvent" } 
+      responses: 
+        "202": { description: Accepted } 
+ 
+  /ai/sessions: 
+    post: 
+      summary: Start an AI support session 
+      security: [{ bearerAuth: [] }] 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: { $ref: "#/components/schemas/AiSessionCreate" } 
+      responses: 
+        "201": 
+          content: 
+            application/json: 
+              schema: { $ref: "#/components/schemas/AiSession" } 
+ 
+  /support/tickets: 
+    post: 
+      summary: Create support ticket (AI escalation or human 
+request) 
+      security: [{ bearerAuth: [] }] 
+      requestBody: 
+        required: true 
+        content: 
+          application/json: 
+            schema: { $ref: "#/components/schemas/TicketCreate" } 
+      responses: 
+        "201": 
+          content: 
+            application/json: 
+              schema: { $ref: "#/components/schemas/Ticket" } 
+ 
+components: 
+  securitySchemes: 
+    bearerAuth: 
+      type: http 
+      scheme: bearer 
+ 
+  schemas: 
+    StudentCreate: 
+      type: object 
+      required: [first_name, last_name, birthdate, country, 
+preferred_language] 
+      properties: 
+        first_name: { type: string } 
+        last_name: { type: string } 
+        birthdate: { type: string, format: date } 
+        country: { type: string } 
+        preferred_language: { type: string, enum: [en, pt-BR] } 
+        guardian_email: { type: string } 
+        center_id: { type: string, format: uuid } 
+ 
+    Student: 
+      type: object 
+      properties: 
+        id: { type: string, format: uuid } 
+        first_name: { type: string } 
+        last_name: { type: string } 
+        preferred_language: { type: string } 
+        center_id: { type: string, format: uuid } 
+        created_at: { type: string, format: date-time } 
+ 
+    EnrollmentCreate: 
+      type: object 
+      required: [student_id, provider, provider_course_id, term] 
+      properties: 
+        student_id: { type: string, format: uuid } 
+        provider: { type: string, enum: [ASU, BYU, HARVARD_EXT, 
+BERKELEY_EXT, UCLA_EXT] } 
+        provider_course_id: { type: string } 
+        term: { type: string } 
+        deep_link_url: { type: string } 
+ 
+    Enrollment: 
+      type: object 
+      properties: 
+        id: { type: string, format: uuid } 
+        student_id: { type: string, format: uuid } 
+        provider: { type: string } 
+        provider_course_id: { type: string } 
+        status: { type: string, enum: [pending, active, completed, 
+withdrawn] } 
+ 
+    LmsEvent: 
+      type: object 
+      required: [provider, student_id, provider_course_id, 
+event_type, event_ts] 
+      properties: 
+        provider: { type: string } 
+        student_id: { type: string, format: uuid } 
+        provider_course_id: { type: string } 
+        event_type: { type: string, enum: [enrolled, 
+assignment_submitted, grade_posted, completed] } 
+        payload: { type: object } 
+        event_ts: { type: string, format: date-time } 
+ 
+    AcademicPlan: 
+      type: object 
+      properties: 
+        student_id: { type: string, format: uuid } 
+        hs_requirements: 
+          type: array 
+          items: { $ref: "#/components/schemas/RequirementStatus" } 
+        ge_requirements: 
+          type: array 
+          items: { $ref: "#/components/schemas/RequirementStatus" } 
+        enrollments: 
+          type: array 
+          items: { $ref: "#/components/schemas/Enrollment" } 
+ 
+    RequirementStatus: 
+      type: object 
+      properties: 
+        code: { type: string } 
+        title: { type: string } 
+        status: { type: string, enum: [not_started, in_progress, 
+satisfied] } 
+        satisfied_by_enrollment_id: { type: string, format: uuid } 
+ 
+    AiSessionCreate: 
+      type: object 
+      required: [student_id, type] 
+      properties: 
+        student_id: { type: string, format: uuid } 
+        type: { type: string, enum: [tutor, guidance, 
+writing_feedback] } 
+        context: { type: object } 
+ 
+    AiSession: 
+      type: object 
+      properties: 
+        id: { type: string, format: uuid } 
+        student_id: { type: string, format: uuid } 
+        type: { type: string } 
+        created_at: { type: string, format: date-time } 
+ 
+    TicketCreate: 
+      type: object 
+      required: [student_id, category, priority, summary] 
+      properties: 
+        student_id: { type: string, format: uuid } 
+        category: { type: string, enum: [academic_support, 
+counseling, billing, technical, compliance] } 
+        priority: { type: string, enum: [low, medium, high, urgent] 
+} 
+        summary: { type: string } 
+        details: { type: string } 
+ 
+    Ticket: 
+      type: object 
+      properties: 
+        id: { type: string, format: uuid } 
+        status: { type: string, enum: [open, assigned, resolved, 
+closed] } 
+ 
+ 
+3) Data model ERD (Mermaid) 
+This ERD supports multi-tenant franchising, non-instructional orchestration, AI 
+auditability, and support escalation. 
+erDiagram 
+  FRANCHISE ||--o{ CENTER : has 
+  CENTER ||--o{ STAFF : employs 
+  CENTER ||--o{ STUDENT : serves 
+  STUDENT ||--o{ ENROLLMENT : has 
+  STUDENT ||--o{ AI_SESSION : starts 
+  STUDENT ||--o{ SUPPORT_TICKET : creates 
+  STUDENT ||--o{ STUDENT_ASSESSMENT : takes 
+  STUDENT ||--o{ STUDENT_GOAL : sets 
+ 
+  COURSE_PROVIDER ||--o{ PROVIDER_COURSE : offers 
+  PROVIDER_COURSE ||--o{ ENROLLMENT : referenced_by 
+  ENROLLMENT ||--o{ LMS_EVENT : generates 
+ 
+  REQUIREMENT_SET ||--o{ REQUIREMENT : contains 
+  REQUIREMENT ||--o{ REQUIREMENT_MAPPING : maps 
+  REQUIREMENT_MAPPING }o--|| PROVIDER_COURSE : satisfied_by 
+ 
+  PATHWAY ||--o{ PATHWAY_COURSE : includes 
+  PATHWAY_COURSE }o--|| PROVIDER_COURSE : references 
+ 
+  STAFF ||--o{ SUPPORT_TICKET : assigned 
+  AI_SESSION ||--o{ AI_MESSAGE : contains 
+  AI_SESSION ||--o{ AI_AUDIT_LOG : audited 
+ 
+  FRANCHISE { 
+    uuid id PK 
+    string legal_name 
+    string country 
+    string status 
+    datetime created_at 
+  } 
+ 
+  CENTER { 
+    uuid id PK 
+    uuid franchise_id FK 
+    string name 
+    string city 
+    string country 
+    string status 
+    datetime created_at 
+  } 
+ 
+  STAFF { 
+    uuid id PK 
+    uuid center_id FK 
+    string role 
+    string email 
+    string status 
+    datetime created_at 
+  } 
+ 
+  STUDENT { 
+    uuid id PK 
+    uuid center_id FK 
+    string first_name 
+    string last_name 
+    date birthdate 
+    string preferred_language 
+    string status 
+    datetime created_at 
+  } 
+ 
+  COURSE_PROVIDER { 
+    uuid id PK 
+    string code  "ASU/BYU/EXT" 
+    string name 
+  } 
+ 
+  PROVIDER_COURSE { 
+    uuid id PK 
+    uuid provider_id FK 
+    string provider_course_id 
+    string title 
+    string credit_value 
+    string category 
+  } 
+ 
+  ENROLLMENT { 
+    uuid id PK 
+    uuid student_id FK 
+    uuid provider_course_id FK 
+    string term 
+    string status 
+    string deep_link_url 
+    datetime created_at 
+  } 
+ 
+  LMS_EVENT { 
+    uuid id PK 
+    uuid enrollment_id FK 
+    string event_type 
+    json payload 
+    datetime event_ts 
+  } 
+ 
+  REQUIREMENT_SET { 
+    uuid id PK 
+    string code "HS_REQ/GE_REQ" 
+    string name 
+    string version 
+  } 
+ 
+  REQUIREMENT { 
+    uuid id PK 
+    uuid requirement_set_id FK 
+    string code 
+    string title 
+    float units_required 
+  } 
+ 
+  REQUIREMENT_MAPPING { 
+    uuid id PK 
+    uuid requirement_id FK 
+    uuid provider_course_id FK 
+    string rule_type "direct/conditional" 
+    json rule_params 
+  } 
+ 
+  PATHWAY { 
+    uuid id PK 
+    string name 
+    string cluster 
+    string description 
+  } 
+ 
+  PATHWAY_COURSE { 
+    uuid id PK 
+    uuid pathway_id FK 
+    uuid provider_course_id FK 
+    string priority "must/should/can" 
+  } 
+ 
+  STUDENT_ASSESSMENT { 
+    uuid id PK 
+    uuid student_id FK 
+    string type "career/diagnostic" 
+    json results 
+    datetime created_at 
+  } 
+ 
+  STUDENT_GOAL { 
+    uuid id PK 
+    uuid student_id FK 
+    string goal_type 
+    string goal_value 
+    datetime created_at 
+  } 
+ 
+  AI_SESSION { 
+    uuid id PK 
+    uuid student_id FK 
+    string type "tutor/guidance/writing" 
+    string status 
+    datetime created_at 
+  } 
+ 
+  AI_MESSAGE { 
+    uuid id PK 
+    uuid ai_session_id FK 
+    string actor "user/assistant/system" 
+    text content 
+    datetime created_at 
+  } 
+ 
+  AI_AUDIT_LOG { 
+    uuid id PK 
+    uuid ai_session_id FK 
+    string policy_version 
+    json guardrail_results 
+    string risk_level 
+    datetime created_at 
+  } 
+ 
+  SUPPORT_TICKET { 
+    uuid id PK 
+    uuid student_id FK 
+    uuid assigned_staff_id FK 
+    string category 
+    string priority 
+    string status 
+    text summary 
+    datetime created_at 
+  } 
+ 
+ 
+4) Security threat model (STRIDE + 
+controls) 
+4.1 Scope & assets 
+Assets 
+●​ Student PII (LGPD/GDPR-sensitive)​
+ 
+●​ Academic progress metadata (FERPA-aligned)​
+ 
+●​ Franchise operational data (financial KPIs)​
+ 
+●​ AI session content + audit logs​
+ 
+●​ Integration credentials (LMS deep links, tokens)​
+ 
+Trust boundaries 
+●​ Client ↔ API gateway​
+ 
+●​ Platform ↔ AI provider​
+ 
+●​ Platform ↔ external universities​
+ 
+●​ Center networks ↔ cloud services​
+ 
+4.2 STRIDE threats & mitigations 
+S — Spoofing identity 
+●​ Threats: account takeover, impersonating center staff, fake LMS webhook sender​
+ 
+●​ Controls:​
+ 
+○​ MFA (mandatory for staff/admin)​
+ 
+○​ OIDC + short-lived JWT + refresh rotation​
+ 
+○​ Signed webhooks (HMAC + IP allowlist)​
+ 
+○​ Device/session anomaly detection (impossible travel)​
+ 
+T — Tampering 
+●​ Threats: modify credit mappings, alter progress status, change deep-link URLs​
+ 
+●​ Controls:​
+ 
+○​ RBAC/ABAC on write operations​
+ 
+○​ Immutable audit trail for: mappings, enrollments, status changes​
+ 
+○​ WORM storage for audit logs (or append-only tables)​
+ 
+○​ Config-as-code + approvals for mapping rules​
+ 
+R — Repudiation 
+●​ Threats: staff disputes actions (“I didn’t change it”), AI outputs questioned​
+ 
+●​ Controls:​
+ 
+○​ Structured audit events: actor, time, before/after​
+ 
+○​ AI session logs + policy version stamping​
+ 
+○​ Ticket/CRM correlation IDs for every escalation​
+ 
+I — Information disclosure 
+●​ Threats: data leaks across franchises, PII exposure in logs, AI prompt leakage​
+ 
+●​ Controls:​
+ 
+○​ Tenant isolation at data layer (row-level security)​
+ 
+○​ PII encryption at rest; field-level for sensitive​
+ 
+○​ Secrets manager; never log tokens or PII​
+ 
+○​ AI prompt redaction + PII minimization​
+ 
+○​ Access reviews; least privilege by default​
+ 
+D — Denial of service 
+●​ Threats: API flooding, AI endpoint exhaustion, webhook storms​
+ 
+●​ Controls:​
+ 
+○​ WAF + rate limiting per user/tenant​
+ 
+○​ Queue-based ingestion (webhooks → queue)​
+ 
+○​ Circuit breakers for AI provider calls​
+ 
+○​ Autoscaling + backpressure​
+ 
+E — Elevation of privilege 
+●​ Threats: staff accessing other centers, franchise owners accessing student chat 
+content​
+ 
+●​ Controls:​
+ 
+○​ Fine-grained scopes (center_id bound)​
+ 
+○​ Just-in-time access for sensitive operations​
+ 
+○​ Admin actions require step-up auth​
+ 
+○​ Security tests for authorization (ABAC unit tests)​
+ 
+4.3 Security baseline checklist 
+●​ OWASP ASVS Level 2 (minimum)​
+ 
+●​ OWASP Top 10 testing in CI​
+ 
+●​ SAST/DAST + dependency scanning​
+ 
+●​ Regular pen test pre-launch and annually​
+ 
+●​ Incident response runbook + drills​
+ 
+ 
+5) AI governance policy (operational + 
+technical) 
+This is designed to protect: 
+●​ academic integrity​
+ 
+●​ legal posture (non-instructional)​
+ 
+●​ student safety​
+ 
+●​ brand trust​
+ 
+●​ partner university relationships​
+ 
+5.1 AI purpose & scope 
+AI may: 
+●​ guide planning and study habits​
+ 
+●​ explain concepts at a high level​
+ 
+●​ provide writing feedback and structure​
+ 
+●​ recommend pathways and electives​
+ 
+●​ detect risk and trigger human escalation​
+ 
+AI must not: 
+●​ generate answers for graded submissions​
+ 
+●​ produce plagiarism​
+ 
+●​ impersonate university faculty​
+ 
+●​ claim credits, diplomas, or admissions guarantees​
+ 
+●​ give legal/medical advice beyond safe general info​
+ 
+5.2 Policy enforcement layers 
+1.​ Pre-processing: PII redaction, prompt sanitation​
+ 
+2.​ Policy engine: allow/deny per session type​
+ 
+3.​ Content filters: plagiarism/cheating detection heuristics​
+ 
+4.​ Post-processing: citations/traceability for advice; disclaimers​
+ 
+5.​ Escalation: auto-ticket for high-risk topics or repeated failure​
+ 
+5.3 Human-in-the-loop rules 
+Mandatory escalation when: 
+●​ student requests “do it for me” on assignments​
+ 
+●​ mental health self-harm signals​
+ 
+●​ harassment/abuse signals​
+ 
+●​ repeated failure in same concept​
+ 
+●​ compliance-sensitive claims (credits, admissions, visa)​
+ 
+5.4 AI auditability 
+Every AI session stores: 
+●​ policy_version​
+ 
+●​ risk_level​
+ 
+●​ categories triggered​
+ 
+●​ model + parameters (temperature class)​
+ 
+●​ anonymized prompt hash​
+ 
+●​ escalation status​
+ 
+Retention: 
+●​ default 12 months (configurable)​
+ 
+●​ deletion/export workflows for LGPD/GDPR​
+ 
+5.5 Model governance 
+●​ Approved model list + change control​
+ 
+●​ Regression tests on:​
+ 
+○​ disallowed behaviors (cheating)​
+ 
+○​ factuality templates​
+ 
+○​ tone and safety boundaries​
+ 
+●​ Quarterly policy review with legal + academics​
+ 
+ 
+6) Cost & infra sizing model (with 
+assumptions) 
+This is a planning model. Actual costs depend on vendor choices, AI usage, and integration 
+depth. 
+6.1 Assumptions (tune these) 
+●​ MVP Year 1 active students: 2,000​
+ 
+●​ Centers: 10​
+ 
+●​ DAU/MAU: 25%/100% (500 daily active)​
+ 
+●​ Average AI sessions per student per week: 3​
+ 
+●​ Avg tokens per session (in+out): 2,000​
+ 
+●​ Monthly tickets per 100 students: 15​
+ 
+●​ LMS event volume: ~20 events/student/month​
+ 
+6.2 Workload estimates 
+●​ AI sessions/month: 2,000 students × 3/wk × 4 = 24,000​
+ 
+●​ Tokens/month: 24,000 × 2,000 = 48M tokens/month​
+ 
+●​ LMS events/month: 2,000 × 20 = 40,000​
+ 
+6.3 Infra components and rough monthly cost bands 
+(MVP) 
+Compute (API + services) 
+●​ 3–6 app servers (autoscaled) + background workers​
+ $800–$2,500/mo​
+ 
+Database (Postgres managed) 
+●​ Primary + read replica + backups​
+ $400–$1,500/mo​
+ 
+Cache (Redis) 
+$100–$400/mo 
+Object storage + CDN 
+$50–$300/mo 
+Observability (logs/metrics/traces) 
+$200–$1,200/mo (depends on log volume) 
+Messaging (email/SMS/WhatsApp) 
+$200–$2,000/mo (depends on campaigns) 
+Data warehouse/BI 
+$200–$1,500/mo 
+Vector DB 
+$200–$1,500/mo (or self-host cheaper but more ops) 
+AI spend (biggest variable) 
+Using the estimate above (48M tokens/mo): 
+●​ Depending on model tier and rates: $2,000 – $20,000+/mo​
+ 
+Total MVP range (excluding heavy AI): ~$2,150 – $10,900/mo​
+ With AI: ~$4,000 – $30,000+/mo 
+6.4 Scale model (10× students) 
+At 20,000 active students: 
+●​ App + DB: ~3–5× (not 10× due to scaling efficiency)​
+ 
+●​ AI: ~10× unless you reduce tokens per session via:​
+ 
+○​ smaller models for most interactions​
+ 
+○​ caching answers​
+ 
+○​ tighter RAG​
+ 
+○​ shorter context windows​
+ 
+○​ “coach mode” prompts​
+ 
+6.5 Cost control levers (recommended) 
+●​ Model routing: cheap model default, premium for hard cases​
+ 
+●​ Token budgeting per student/week​
+ 
+●​ Response caching for repeated FAQs​
+ 
+●​ RAG hygiene to avoid dumping long context​
+ 
+●​ Batch ingestion for LMS events and analytics​
+ 
+ 
+What you want next (so I can lock this into 
+“engineering-ready”) 
+I can deliver these as actual files (recommended for your team): 
+●​ C4 diagrams as .md + .mmd​
+ 
+●​ OpenAPI as openapi.yaml​
+ 
+●​ ERD as .mmd​
+ 
+●​ Threat model as .md (STRIDE table format)​
+ 
+●​ AI governance policy as .md + checklist​
+ 
+●​ Cost model as .xlsx (inputs tab + outputs tab) 
+​ 
+
+
+--- University School One Page.pdf ---
+University School
+Start College at 14
+University-accelerated learning, powered by AI and supported by real mentors
+What it is
+University School is a platform that lets students start earning real 
+university credits from age 14+ while completing core academics 
+in as little as two focused hours per day.
+We don’t create university content. We transform how students 
+engage with existing university-level coursework by adding 
+simulations, projects, and mentor support so learning is active, not 
+passive.
+  The problem we solve
+• Passive, lecture-heavy online courses are rigorous
+but monotonous—students disengage because the
+experience lacks context, not because it is too hard.
+• Traditional schooling rewards avoiding mistakes,
+discourages questioning authority, and moves too fast
+for deep thinking and digestion.
+• Early talent is often missed because pacing is
+standardized. Students need personalized guidance and
+a way to explore real careers early.
+How it works
+• University Credit Access (14+): students enroll in
+accredited university-level courses and earn
+transferable credits.
+• Experiential Learning Layer: every topic begins with
+a real-world scenario so students attempt solutions
+before receiving formal theory.
+• Artifact-Based Validation: each module ends with a
+tangible output—prototype, coded app, essay, case
+solution—building a portfolio.
+AI + Guides
+Each course begins inside an AI guided immersive simulation that 
+places them inside real historical or professional moments.The AI 
+acts as narrator, describing events as they unfold, presenting 
+obstacles, and responding in real time to student decisions.
+“The wind shifts. Your previous design failed. What will you adjust?” 
+Students stand alongside the Wright Brothers at the start of their 
+flight experiments, analyzing failures, testing ideas, and refining 
+designs before learning the formal physics of lift.
+Students begin with uncertainty by exploring before theory, and 
+mistakes are analyzed, not punished. This builds resilience, 
+independence, and creative confidence.
+The Centers (hybrid support infrastructure)
+• Homeschool support hubs for focus, execution, and integrity—without replacing the platform.
+• Supervised study halls, writing labs, labs & workshops (engineering/coding), mentorship sessions,
+and proctored exams when required.
+• Community & soft skills: meet-ups with peers who share interests, collaboration, leadership, and
+periodic university immersion experiences.
+• Flexible delivery: fully remote or hybrid (2–3 days/week at a Center).
+Outcomes
+ Students learn faster because learning is fun and meaningful—engagement becomes the accelerator.
+ Mistakes are analyzed, not punished: resilience, independence, and self-confidence increase through
+iteration.
+ Career clarity through “experience-before-theory” exploration; students stop playing everyone else’s game
+and build their own trajectory.
+ Graduates leave with transferable credits, a real project portfolio, and stronger performance once on
+campus.
+University School — Platform-led. Hybrid-enabled. University-accelerated.

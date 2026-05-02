@@ -1,0 +1,1232 @@
+{
+  "course": {
+    "id": "PHY-101",
+    "title": "Introductory Physics: Mechanics",
+    "institution": "ASU Online",
+    "department": "Physics"
+  },
+  "chapter": {
+    "id": "ch04-dynamics",
+    "title": "Dynamics: Forces and Newton's Laws of Motion",
+    "order": 4,
+    "canvas_module_ids": ["mod_4_1", "mod_4_2", "mod_4_3"],
+    "estimated_play_time": "45 min"
+  },
+  "narrative": {
+    "id": "xp_phy101_ch04_wright",
+    "title": "The Wright Problem",
+    "subtitle": "Newton's Laws Through the Eyes of Two Brothers",
+    "setting": "Kitty Hawk, North Carolina, 1903. A rough workshop near the sand dunes where Wilbur and Orville Wright are building something that has not yet decided what it is.",
+    "art_style": "Cinematic illustration, warm golden-hour lighting, early 1900s American workshop, sand dunes, fabric-and-wood aircraft, painterly style with subtle texture, muted earth tones with crimson accents",
+    "characters": [
+      {
+        "id": "wilbur",
+        "name": "Wilbur",
+        "role": "mentor",
+        "personality": "The taller brother. Quiet, observant, speaks in deliberate short sentences. Watches faces more than machines. Teaches by asking questions that reveal what you already know but haven't named.",
+        "voice_id": "male_calm_deliberate"
+      },
+      {
+        "id": "orville",
+        "name": "Orville",
+        "role": "mentor",
+        "personality": "The practical brother. Draws diagrams in the sand. Explains by showing rather than telling. More talkative than Wilbur but never wastes words. Kneels when he teaches.",
+        "voice_id": "male_warm_practical"
+      }
+    ],
+    "entry_node_id": "n_opening",
+    "exit_node_ids": ["n_end", "n_62", "n_63"],
+    "total_nodes": 63,
+    "estimated_play_time": "45 min",
+    "concept_map": [
+      { "concept": "Kinematics vs. dynamics", "description": "Distinguishing seeing motion from explaining motion", "main_nodes": ["n_03", "n_08"] },
+      { "concept": "Force and mass relation", "description": "Same push, different mass; more push, different result", "main_nodes": ["n_02", "n_05", "n_06", "n_07", "n_13"] },
+      { "concept": "Force as vector", "description": "Same strength, different direction, different outcome", "main_nodes": ["n_17", "n_18", "n_19", "n_52", "n_56", "n_58", "n_59"] },
+      { "concept": "Net force", "description": "Combined effect determines change in motion", "main_nodes": ["n_10", "n_13", "n_20", "n_21", "n_51", "n_54"] },
+      { "concept": "Free-body diagram", "description": "Mapping the system with directional forces", "main_nodes": ["n_17", "n_19"] },
+      { "concept": "First Law / inertia", "description": "Motion continues after push stops", "main_nodes": ["n_04", "n_11", "n_12", "n_24", "n_25", "n_26"] },
+      { "concept": "Second Law / ΣF=ma", "description": "Pattern becomes predictive before formula is revealed", "main_nodes": ["n_31", "n_33", "n_35", "n_37", "n_40", "n_41", "n_45", "n_57", "n_60"] },
+      { "concept": "Third Law", "description": "Propeller pushes air backward, air pushes machine forward", "main_nodes": ["n_27", "n_28", "n_29", "n_60"] },
+      { "concept": "Equilibrium", "description": "Balanced forces with no acceleration", "main_nodes": ["n_20", "n_22", "n_23"] },
+      { "concept": "Components / vector decomposition", "description": "Angled force split into useful directional parts", "main_nodes": ["n_52", "n_55", "n_56", "n_58", "n_59", "n_60"] }
+    ],
+    "answer_map": {
+      "strongest_path": ["n_opening", "n_01", "n_02", "n_06", "n_13", "n_14", "n_17", "n_19", "n_20", "n_23", "n_24", "n_26", "n_27", "n_28", "n_30", "n_31", "n_33", "n_35", "n_37", "n_41", "n_45", "n_49", "n_51", "n_54", "n_57", "n_60", "n_62"],
+      "misconception_rich_path": ["n_opening", "n_01", "n_04", "n_12", "n_13", "n_16", "n_17", "n_18", "n_19", "n_20", "n_22", "n_24", "n_25", "n_26", "n_27", "n_29", "n_28", "n_30", "n_31", "n_32", "n_34", "n_35", "n_38", "n_43", "n_48", "n_45", "n_50", "n_51", "n_53", "n_54", "n_52", "n_55", "n_56", "n_58", "n_59", "n_60", "n_63"],
+      "convergence_nodes": ["n_13", "n_20", "n_24", "n_27", "n_30", "n_35", "n_45", "n_60"],
+      "formalization_nodes": ["n_13", "n_27", "n_45", "n_60"],
+      "total_concepts_covered": 10
+    },
+    "nodes": [
+      {
+        "id": "n_opening",
+        "type": "scene",
+        "scene_text": "You were not looking for this.\n\nThe town barely felt like a town. Wind crossed everything without permission. Sand moved across the ground, over wooden steps, through door frames that never sealed properly.\n\nThe sign was small.\n\nHELP WANTED — Mechanical Assistance Needed\n\nNo company name. No listed wage. No explanation of the work.\n\nYou followed the direction and reached a rough workshop near the dunes. When you stepped inside, you saw wood, tools, stretched fabric, wire, grease, sketches, broken parts — and then something that did not fit with anything else you knew.\n\nA long structure with wings.\n\nNot a wagon. Not a boat. Not a bicycle.\n\nSomething that had not yet decided what it was.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You came." },
+          { "character": "orville", "text": "Help us move it." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_01", "xp_bonus": 0 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A rough wooden workshop near sand dunes at golden hour, early 1900s, tools scattered on workbenches, a strange winged machine of wood and fabric in the center, two men in work clothes, warm cinematic lighting, painterly illustration style",
+          "ambient_sound": "wind_coastal"
+        }
+      },
+      {
+        "id": "n_01",
+        "type": "decision",
+        "scene_text": "You step closer to the machine. The taller man wipes his hands and finally introduces himself.\n\nHe points with his chin toward the other.\n\nThat is all. No speech. No explanation. No \"welcome.\"\n\nOnly the machine between you.\n\nYou look again at the wings.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Wilbur." },
+          { "character": "orville", "text": "Most people ask what it is. We ask what forces are keeping it from working." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Tell me what to do.\"", "next_node": "n_02", "hidden_tag": "action_entry", "xp_bonus": 10 },
+          { "id": "b", "text": "\"Tell me what is wrong first.\"", "next_node": "n_03", "hidden_tag": "explanation_entry", "xp_bonus": 10 },
+          { "id": "c", "text": "\"This does not seem possible.\"", "next_node": "n_04", "hidden_tag": "doubt_entry", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "misconception_tested": null,
+          "convergence_target": "n_13",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Close-up of a strange early aircraft made of wood and fabric inside a dusty workshop, two men in early 1900s work clothes, one tall and quiet, one shorter and practical, warm golden light",
+          "ambient_sound": "wind_coastal"
+        }
+      },
+      {
+        "id": "n_02",
+        "type": "decision",
+        "scene_text": "Wilbur points to the side of the machine.\n\nYou put both hands on the frame. It feels lighter than it looks, but harder to move than it should be.\n\nYou push.\n\nAlmost nothing happens.\n\nYou shift your footing and push harder.\n\nThe machine moves a little, but not enough to justify the effort.\n\nWilbur watches your face, not the machine.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Push." },
+          { "character": "wilbur", "text": "Good. Now you feel the problem." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Push harder", "next_node": "n_05", "hidden_tag": "more_force", "xp_bonus": 5 },
+          { "id": "b", "text": "Look for parts that can be removed", "next_node": "n_06", "hidden_tag": "less_mass", "xp_bonus": 15 },
+          { "id": "c", "text": "Ask for another person to help", "next_node": "n_07", "hidden_tag": "combined_force", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_mass_relation"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person pushing against a large wooden and fabric flying machine in a sandy workshop, straining with effort, the machine barely moving, dusty golden light",
+          "ambient_sound": "wood_creaking"
+        }
+      },
+      {
+        "id": "n_03",
+        "type": "decision",
+        "scene_text": "Orville kneels in the sand and draws a point, then several arrows around it.\n\nHe draws another arrow.\n\nWilbur adds a thought that lands differently than expected.\n\nYou still have not touched the machine, but the problem has already changed shape. This is not just about movement. It is about causes.",
+        "character_dialogue": [
+          { "character": "orville", "text": "One way to look at this is to watch what the machine does." },
+          { "character": "orville", "text": "The better way is to ask why it does it." },
+          { "character": "wilbur", "text": "Most people confuse those. They describe motion and think they have explained it." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So describing motion is not the same as explaining it?\"", "next_node": "n_08", "hidden_tag": "kinematics_dynamics", "xp_bonus": 15 },
+          { "id": "b", "text": "\"Do those arrows represent every force on the machine?\"", "next_node": "n_09", "hidden_tag": "fbd_early", "xp_bonus": 10 },
+          { "id": "c", "text": "\"So what matters is the combined effect, not one force by itself?\"", "next_node": "n_10", "hidden_tag": "net_force_early", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["kinematics_vs_dynamics"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A man kneeling in sand drawing arrows and diagrams with a stick, another man standing watching, workshop background, early 1900s, warm light, educational moment",
+          "ambient_sound": "sand_wind"
+        }
+      },
+      {
+        "id": "n_04",
+        "type": "decision",
+        "scene_text": "Orville points to a bicycle leaning against the wall.\n\nThe statement bothers you because it sounds incomplete, but you cannot yet say why.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Good. Doubt can work." },
+          { "character": "orville", "text": "When you stop pedaling, it keeps moving for a while. Most people learn the wrong lesson from that." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So things can keep moving without being pushed the whole time?\"", "next_node": "n_11", "hidden_tag": "inertia_correct", "xp_bonus": 15 },
+          { "id": "b", "text": "\"No, there must still be some force pushing forward.\"", "next_node": "n_12", "hidden_tag": "inertia_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "misconception_tested": "continuous_force_needed",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "An old bicycle leaning against a wooden workshop wall, sand dunes visible through an open door, early 1900s setting, warm afternoon light",
+          "ambient_sound": "wind_coastal"
+        }
+      },
+      {
+        "id": "n_05",
+        "type": "decision",
+        "scene_text": "You push again with everything you have.\n\nThe machine moves more, yes. But not as much as your body expected it to.\n\nThat bothers you.\n\nThe increase in result is real, but not clean.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "If brute effort solved everything, this would already be over." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Reflect that force alone does not explain what happened", "next_node": "n_13", "hidden_tag": "force_mass_insight", "xp_bonus": 15 },
+          { "id": "b", "text": "Decide the answer is simply even more force", "next_node": "n_09", "hidden_tag": "linear_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_mass_relation"],
+          "misconception_tested": "more_force_always_works",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person straining to push a large wooden flying machine, muscles tense, the machine barely responding, frustration visible, workshop interior, warm light",
+          "ambient_sound": "wood_creaking"
+        }
+      },
+      {
+        "id": "n_06",
+        "type": "decision",
+        "scene_text": "You remove two parts that look temporary.\n\nPush again.\n\nSame people. Nearly same effort.\n\nThis time the machine responds faster.\n\nThe result is impossible to ignore.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "What changed? The push, or what the push had to move?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Mass changed.\"", "next_node": "n_13", "hidden_tag": "mass_identified", "xp_bonus": 20 },
+          { "id": "b", "text": "\"It is still just about force.\"", "next_node": "n_09", "hidden_tag": "force_only_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_mass_relation"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Wooden parts being removed from a flying machine, the machine now lighter, a person about to push again, workshop interior, warm golden light",
+          "ambient_sound": "tools_metal"
+        }
+      },
+      {
+        "id": "n_07",
+        "type": "scene",
+        "scene_text": "A helper joins you.\n\nNow three people push in the same direction.\n\nThis time the machine moves much more convincingly.",
+        "character_dialogue": [
+          { "character": "orville", "text": "The machine does not care whose strength it is. It only feels the total effect." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Compare this with the previous attempts", "next_node": "n_13", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Three people pushing a large wooden flying machine together in a sandy workshop, machine now moving noticeably, teamwork, early 1900s, warm light",
+          "ambient_sound": "effort_pushing"
+        }
+      },
+      {
+        "id": "n_08",
+        "type": "scene",
+        "scene_text": "Wilbur stands and points to the machine.\n\nThen he points to the arrows in the sand.\n\nThis sounds simple, but it reorganizes the problem completely.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "If you say it accelerated, you described what happened." },
+          { "character": "wilbur", "text": "If you say what interactions made that happen, now you are explaining it." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_13", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["kinematics_vs_dynamics"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A man pointing first at a flying machine then at arrows drawn in sand, teaching moment, workshop interior, golden light, cinematic",
+          "ambient_sound": "wind_light"
+        }
+      },
+      {
+        "id": "n_09",
+        "type": "decision",
+        "scene_text": "You keep trying to reduce the whole situation to one variable.\n\nMore push. More effort. More insistence.\n\nThe machine responds, but never cleanly enough for your explanation to survive.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You are trying to solve a system with one idea." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Reconsider the problem with more than one variable", "next_node": "n_13", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_mass_relation"],
+          "misconception_tested": "single_variable_thinking",
+          "is_error_path": true,
+          "correction_text": "Force alone cannot explain motion change — mass matters too."
+        },
+        "media": {
+          "scene_image_prompt": "A frustrated person pushing a machine that barely responds, realization dawning on their face, workshop, warm light",
+          "ambient_sound": "wood_creaking"
+        }
+      },
+      {
+        "id": "n_10",
+        "type": "scene",
+        "scene_text": "You look at the arrows and start counting them.\n\nOne pushes forward. Another pushes backward — friction.\nGravity pulls everything down. The ground pushes up.\n\nOrville watches you count.\n\nThen he asks the question that shifts everything.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Now — what happens when all of those cancel out?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Nothing. The machine stays still.\"", "next_node": "n_13", "hidden_tag": "equilibrium_insight", "xp_bonus": 15 },
+          { "id": "b", "text": "\"It still moves because something must be dominant.\"", "next_node": "n_09", "hidden_tag": "misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force", "equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Multiple force arrows drawn in sand around a sketch of a machine, a person counting them, mentor watching thoughtfully, workshop, warm light",
+          "ambient_sound": "sand_wind"
+        }
+      },
+      {
+        "id": "n_11",
+        "type": "scene",
+        "scene_text": "Orville nods slowly.\n\nHe taps the bicycle wheel.\n\nThis is the first time you have questioned whether forces need to be present for motion to continue. The answer is uncomfortable but clean.",
+        "character_dialogue": [
+          { "character": "orville", "text": "If there is nothing slowing it, it keeps going. Not because something is pushing it — because nothing is stopping it." },
+          { "character": "orville", "text": "That is what most people never accept until they see it work." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the main problem", "next_node": "n_13", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A man tapping a bicycle wheel that spins freely, demonstrating perpetual motion concept, workshop, warm light, cinematic teaching moment",
+          "ambient_sound": "wheel_spinning"
+        }
+      },
+      {
+        "id": "n_12",
+        "type": "decision",
+        "scene_text": "Orville tilts his head.\n\nHe places the bicycle on flat sand and gives it a push.\n\nThe bicycle rolls. No one touches it. It travels several feet and then slows.\n\nThe slowing is caused by friction — not by a force in the direction of motion disappearing.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Watch. Nothing is pushing it forward. Yet it moves." },
+          { "character": "orville", "text": "The slowing tells you something IS acting — backward. Not that forward stopped." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Accept that motion can persist without forward force", "next_node": "n_13", "hidden_tag": "inertia_accepted", "xp_bonus": 15 },
+          { "id": "b", "text": "Still unsure — test it again", "next_node": "n_11", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "misconception_tested": "continuous_force_needed",
+          "is_error_path": true,
+          "correction_text": "Motion persists unless an external force acts to change it. Friction is that external force — not the absence of a 'forward push'."
+        },
+        "media": {
+          "scene_image_prompt": "A bicycle rolling across flat sand by itself with no one touching it, gradually slowing, sand dunes in background, warm light, cinematic",
+          "ambient_sound": "sand_rolling"
+        }
+      },
+      {
+        "id": "n_13",
+        "type": "convergence",
+        "scene_text": "Now you stand differently in front of the machine.\n\nYou do not see wood and fabric anymore.\n\nYou see something that can only move if the right combination of force, mass, and direction cooperates.\n\nOrville draws three clean arrows in the sand.\n\nThis is not a formula. Not yet. But it is the first time you sense the structure behind the struggle.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Push matters. Mass resists. Direction decides. The three are not separate. They are the same conversation." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Show me where direction matters most.\"", "next_node": "n_14", "xp_bonus": 15 },
+          { "id": "b", "text": "\"So what happens when all the pushes cancel?\"", "next_node": "n_16", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_mass_relation", "net_force"],
+          "convergence_target": "n_17",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Three clean force arrows drawn in sand near a flying machine, person standing with new understanding, dramatic warm light, moment of clarity, cinematic",
+          "ambient_sound": "wind_calm"
+        }
+      },
+      {
+        "id": "n_14",
+        "type": "scene",
+        "scene_text": "Wilbur takes a rope and ties it to the front of the machine.\n\nHe pulls to the right.\n\nThe machine moves right.\n\nThen he pulls with the same strength, but upward.\n\nSame rope. Same force. Different result entirely.\n\nThe difference is not strength. The difference is direction.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "A force is not just how much. It is also which way." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the same strength can produce completely different motion?\"", "next_node": "n_17", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["force_as_vector"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A man pulling a rope attached to a flying machine in different directions, showing different results, workshop, arrows showing force direction, warm light",
+          "ambient_sound": "rope_tension"
+        }
+      },
+      {
+        "id": "n_16",
+        "type": "scene",
+        "scene_text": "You ask about cancellation.\n\nOrville takes two ropes, one on each side of the machine.\n\nHe and Wilbur pull with equal force in opposite directions.\n\nThe machine does not move at all.\n\nForces exist. Effort is real. But the machine behaves as though no force acts.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Nothing disappeared. Everything cancels." },
+          { "character": "wilbur", "text": "When everything cancels, the machine does not know it is being pulled." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So zero net force means no change?\"", "next_node": "n_17", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["equilibrium", "net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two men pulling ropes on opposite sides of a flying machine with equal force, machine perfectly still, tension visible in ropes, workshop, warm light",
+          "ambient_sound": "rope_tension"
+        }
+      },
+      {
+        "id": "n_17",
+        "type": "decision",
+        "scene_text": "Orville kneels again and draws the machine from above.\n\nAround it, he draws every force arrow he can identify:\n\n— Gravity pulling down\n— Ground pushing up\n— Wind pushing backward\n— Your push going forward\n— Friction in the sand\n\nThis is not art. It is a map of everything trying to move the machine.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Before you solve anything, you map the system." },
+          { "character": "wilbur", "text": "If you skip this, you are guessing." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Study each arrow and what it represents", "next_node": "n_19", "hidden_tag": "fbd_study", "xp_bonus": 20 },
+          { "id": "b", "text": "Ask why so many arrows are needed", "next_node": "n_18", "hidden_tag": "fbd_question", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["free_body_diagram", "force_as_vector"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A diagram drawn in sand showing a machine from above with multiple force arrows pointing in different directions - down, up, backward, forward - with labels, warm light, educational moment",
+          "ambient_sound": "sand_drawing"
+        }
+      },
+      {
+        "id": "n_18",
+        "type": "scene",
+        "scene_text": "You resist the complexity.\n\nIt feels like overcomplication.\n\nBut Wilbur counters with a question you cannot easily dismiss.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You tried one push already. Did it explain what happened?" },
+          { "character": "wilbur", "text": "The machine lives in all of these arrows at once. If you ignore any, you lose the prediction." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Return and study the arrows properly", "next_node": "n_19", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["free_body_diagram"],
+          "misconception_tested": "oversimplification",
+          "is_error_path": true
+        },
+        "media": {
+          "scene_image_prompt": "A person looking skeptically at a complex force diagram in sand while a mentor gestures patiently, workshop, warm light",
+          "ambient_sound": "wind_light"
+        }
+      },
+      {
+        "id": "n_19",
+        "type": "decision",
+        "scene_text": "You trace each arrow.\n\nDown: weight. Constant. Pulls toward the earth.\nUp: the ground pushes back. Holds the machine above the sand.\nBackward: wind resistance. Increases with speed.\nForward: your push. The only one you control.\nFriction: sand slowing the rails.\n\nFor the first time, you understand the machine as a system of competing pressures.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Now you see it. Not as a machine — as a set of forces competing for the outcome." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"What happens when those forces are perfectly balanced?\"", "next_node": "n_20", "xp_bonus": 15 },
+          { "id": "b", "text": "\"What if one force is stronger than all the others?\"", "next_node": "n_21", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["free_body_diagram", "force_as_vector"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Annotated force arrows around a flying machine in sand, each labeled - weight down, ground up, wind backward, push forward, friction - educational diagram, warm light",
+          "ambient_sound": "wind_calm"
+        }
+      },
+      {
+        "id": "n_20",
+        "type": "decision",
+        "scene_text": "Orville arranges four forces that cancel.\n\nThe machine sits still. Not because nothing acts on it. Because everything acting on it adds up to zero.\n\nThis is a different kind of stillness than before. Before, you thought stillness meant no forces. Now you know it can mean perfectly opposed forces.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Balanced does not mean empty. It means equal in every direction." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So if I remove one force, the balance breaks?\"", "next_node": "n_23", "hidden_tag": "equilibrium_break", "xp_bonus": 15 },
+          { "id": "b", "text": "\"But this machine needs to move, not sit still.\"", "next_node": "n_22", "hidden_tag": "practical_urgency", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A flying machine perfectly still with balanced force arrows canceling each other, calm moment, sand workshop, warm golden light, equilibrium visualization",
+          "ambient_sound": "silence_wind"
+        }
+      },
+      {
+        "id": "n_21",
+        "type": "scene",
+        "scene_text": "You push forward with more force than the wind resists.\n\nThe machine begins to move.\n\nBut the motion is not instant. It builds. Slowly at first, then faster.\n\nOrville does not name acceleration yet. He lets you feel it.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Notice. It does not jump to full speed. It builds. That building has a reason." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_24", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A flying machine beginning to slowly move forward on sand rails, person pushing, motion blur beginning, warm light, cinematic",
+          "ambient_sound": "sand_sliding"
+        }
+      },
+      {
+        "id": "n_22",
+        "type": "scene",
+        "scene_text": "Wilbur steps in.\n\nHe does not dismiss your impatience. He uses it.\n\nThe insight lands: to make the machine move, you must break the balance. You must create a difference.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Exactly. So which force do you add or remove to break the balance?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Add more push forward.\"", "next_node": "n_23", "xp_bonus": 10 },
+          { "id": "b", "text": "\"Remove the friction somehow.\"", "next_node": "n_23", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A mentor stepping forward with practical energy, pointing at the machine, ready to break equilibrium, workshop, warm light",
+          "ambient_sound": "wind_light"
+        }
+      },
+      {
+        "id": "n_23",
+        "type": "scene",
+        "scene_text": "You break the balance.\n\nThe machine begins to creep forward on the sand rail.\n\nNot fast. Not dramatic. But undeniably moving.\n\nOrville watches you watching the machine. He can see the next question forming before you ask it.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Now — what happens after you stop pushing?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"It stops immediately.\"", "next_node": "n_25", "hidden_tag": "inertia_wrong", "xp_bonus": 5 },
+          { "id": "b", "text": "\"It keeps moving for a moment.\"", "next_node": "n_24", "hidden_tag": "inertia_correct", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["equilibrium"],
+          "misconception_tested": "continuous_force_needed",
+          "convergence_target": "n_24",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A flying machine beginning to move along a sand rail, slow but definite motion, person stepping back, moment of anticipation, warm light",
+          "ambient_sound": "sand_sliding"
+        }
+      },
+      {
+        "id": "n_24",
+        "type": "convergence",
+        "scene_text": "You stop pushing.\n\nThe machine continues forward.\n\nNot far. Not fast. But it does not stop the instant your hands leave.\n\nSomething keeps it going — and it is not you.\n\nOr more precisely: nothing stops it instantly because nothing new is applied. It slows because sand and air resist. Not because forward motion requires forward force at every moment.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "This is the part most people never accept." },
+          { "character": "wilbur", "text": "Motion does not need a reason to continue. It needs a reason to stop." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the machine would keep going forever without friction?\"", "next_node": "n_26", "xp_bonus": 20 },
+          { "id": "b", "text": "\"That cannot be right — things always slow down.\"", "next_node": "n_25", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A flying machine gliding forward on its own after being pushed, hands no longer touching it, motion continuing, sand dunes, golden sunset light, cinematic moment of realization",
+          "ambient_sound": "gliding_sand"
+        }
+      },
+      {
+        "id": "n_25",
+        "type": "scene",
+        "scene_text": "The machine proves you wrong.\n\nYour hands are off. The machine is still moving.\n\nIt slows — but slowing is not stopping. And slowing has its own explanation: friction and air.\n\nNot the absence of a forward force.",
+        "character_dialogue": [
+          { "character": "orville", "text": "You are confusing two things. Slowing is not the same as stopping. Slowing means something acts backward — not that forward vanished." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Accept that motion persists without continuous force", "next_node": "n_26", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "misconception_tested": "continuous_force_needed",
+          "is_error_path": true,
+          "correction_text": "Things slow down because of resistive forces, not because forward force 'runs out'. Without friction, motion would continue indefinitely."
+        },
+        "media": {
+          "scene_image_prompt": "A machine still gliding after being released, sand particles showing friction, arrows showing backward forces only, warm light, educational moment",
+          "ambient_sound": "sand_friction"
+        }
+      },
+      {
+        "id": "n_26",
+        "type": "scene",
+        "scene_text": "Now you understand something that changes the rest of the day.\n\nMotion is not the thing that needs a cause.\nChange in motion is.\n\nThe machine will keep doing what it is doing — unless something makes it do otherwise.\n\nThis is not a theory someone told you. You just watched it happen.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Good. You have just understood the most dangerous idea in mechanics." },
+          { "character": "wilbur", "text": "It is dangerous because it contradicts everything your body believes." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the next challenge", "next_node": "n_27", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["first_law_inertia"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A moment of understanding, person looking at the machine with new eyes, sunset light flooding the workshop, conceptual breakthrough, cinematic",
+          "ambient_sound": "wind_beautiful"
+        }
+      },
+      {
+        "id": "n_27",
+        "type": "convergence",
+        "scene_text": "Orville walks to the back of the machine and points to something you have ignored until now.\n\nA propeller.\n\nNot decorative. Not accidental.\n\nHe spins it slowly by hand and says something that opens a new door.",
+        "character_dialogue": [
+          { "character": "orville", "text": "When this spins, it pushes air backward." },
+          { "character": "orville", "text": "What does the air do in return?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The air pushes the machine forward.\"", "next_node": "n_28", "hidden_tag": "third_law_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"Nothing — air just gets out of the way.\"", "next_node": "n_29", "hidden_tag": "third_law_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["third_law"],
+          "misconception_tested": "unidirectional_force",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Close-up of a wooden propeller being slowly hand-spun, air flowing backward visible with dust particles, flying machine in background, warm workshop light",
+          "ambient_sound": "propeller_slow"
+        }
+      },
+      {
+        "id": "n_28",
+        "type": "scene",
+        "scene_text": "Orville nods.\n\nThis surprises you less than it should. But Wilbur clarifies why it matters.\n\nThe implication settles: every interaction is two-way. Without the air to push against, the propeller is useless. Without the propeller pushing, the air does nothing.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Every push has a push back. Not because nature is fair — because that is how interaction works." },
+          { "character": "wilbur", "text": "The propeller does not create force. It creates an exchange." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_30", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["third_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two opposite arrows showing action-reaction between propeller and air, the machine ready for motion, workshop, golden light, physics visualization",
+          "ambient_sound": "propeller_wind"
+        }
+      },
+      {
+        "id": "n_29",
+        "type": "scene",
+        "scene_text": "Orville does not correct you with words.\n\nHe stands behind the spinning propeller and lets the wind hit your face.\n\nYou feel the backward push of displaced air.\n\nIf the air pushes you, it must have been pushed itself. And if the propeller pushed the air, the air pushes back on the propeller.\n\nInteraction is always two-way.",
+        "character_dialogue": [
+          { "character": "orville", "text": "If I push you, you push me. It is not kindness. It is physics." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Accept: forces always come in pairs", "next_node": "n_28", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["third_law"],
+          "misconception_tested": "unidirectional_force",
+          "is_error_path": true,
+          "correction_text": "Forces always come in pairs — when one body exerts a force on a second, the second exerts an equal and opposite force back."
+        },
+        "media": {
+          "scene_image_prompt": "A person feeling wind from a spinning propeller on their face, realization of action-reaction, wind visible with sand particles, warm light",
+          "ambient_sound": "propeller_wind_face"
+        }
+      },
+      {
+        "id": "n_30",
+        "type": "decision",
+        "scene_text": "Now Wilbur sits down on a crate and says something that shifts the entire afternoon.\n\nHe holds up two different sized wooden blocks.\n\nFor the first time, you are being asked to predict rather than observe.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "We now know that force, mass, and direction all matter. But we do not yet know the rule that connects them." },
+          { "character": "wilbur", "text": "Push the same force on both. Which one moves more?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The lighter one moves more.\"", "next_node": "n_31", "hidden_tag": "correct_prediction", "xp_bonus": 20 },
+          { "id": "b", "text": "\"They move the same — same force means same result.\"", "next_node": "n_32", "hidden_tag": "misconception_equal", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "misconception_tested": "force_equals_motion",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A man sitting on a crate holding two wooden blocks of different sizes, about to push both with equal force, workshop, warm light, experimental moment",
+          "ambient_sound": "wind_calm"
+        }
+      },
+      {
+        "id": "n_31",
+        "type": "decision",
+        "scene_text": "Wilbur pushes both. The lighter one accelerates faster.\n\nYour prediction was correct.\n\nNow he reverses the game.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Good. Now — same mass. I push one harder. What happens?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The harder push makes it accelerate more.\"", "next_node": "n_33", "hidden_tag": "correct", "xp_bonus": 15 },
+          { "id": "b", "text": "\"They should be equal if the mass is the same.\"", "next_node": "n_34", "hidden_tag": "misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two wooden blocks pushed with equal force, the lighter one shooting ahead faster, sand workshop, experimental physics moment, warm light",
+          "ambient_sound": "blocks_sliding"
+        }
+      },
+      {
+        "id": "n_32",
+        "type": "scene",
+        "scene_text": "The blocks prove you wrong.\n\nSame force. Different mass.\n\nThe lighter block shoots forward. The heavier one barely moves.\n\nWilbur does not scold. He observes.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Same push. Different response. The difference is what resists." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So mass is the resistance to being moved.\"", "next_node": "n_33", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": true,
+          "correction_text": "Mass resists acceleration — same force on more mass produces less acceleration."
+        },
+        "media": {
+          "scene_image_prompt": "Two blocks of different sizes after being pushed with equal force, one far ahead, one barely moved, educational comparison, warm light",
+          "ambient_sound": "blocks_sliding"
+        }
+      },
+      {
+        "id": "n_33",
+        "type": "decision",
+        "scene_text": "Now you can feel the rule forming. It has not been named, but it has a shape:\n\nMore force → more acceleration.\nMore mass → less acceleration.\n\nThe two are inverse. Push and resistance. Cause and inertia.\n\nWilbur watches you form the thought.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Do you see the pattern?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Acceleration equals force divided by mass.\"", "next_node": "n_35", "hidden_tag": "formula_derived", "xp_bonus": 25 },
+          { "id": "b", "text": "\"Force and mass both matter, but I need more examples.\"", "next_node": "n_37", "hidden_tag": "needs_more_data", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person deep in thought, the pattern forming in their mind, abstract force and mass arrows floating in their imagination, workshop, warm dramatic light",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_34",
+        "type": "scene",
+        "scene_text": "Wilbur pushes both blocks again — this time with different force.\n\nThe harder push produces faster motion.\n\nNow the mistake is visible: you assumed equal mass would guarantee equal result, but you forgot to check whether the push itself was equal.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You are close. But you are holding one variable constant while the other changes." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Reconsider: both force and mass determine the outcome", "next_node": "n_33", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": true
+        },
+        "media": {
+          "scene_image_prompt": "Two equal blocks pushed with different force, one moving much faster than the other, educational physics demonstration, warm light",
+          "ambient_sound": "blocks_sliding"
+        }
+      },
+      {
+        "id": "n_35",
+        "type": "convergence",
+        "scene_text": "You have just derived the rule from the experience.\n\nNot from a book. Not from a lecture. From pushing, watching, failing, and noticing.\n\nOrville smiles for the first time all day.\n\nHe does not write the formula yet. He lets the understanding set.",
+        "character_dialogue": [
+          { "character": "orville", "text": "You just discovered what took humanity centuries. And you did not need a textbook." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Now show me the numbers.\"", "next_node": "n_37", "xp_bonus": 15 },
+          { "id": "b", "text": "\"One more test before numbers.\"", "next_node": "n_38", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A moment of scientific discovery, warm smile, workshop bathed in golden light, the feeling of understanding, cinematic moment of triumph",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_37",
+        "type": "decision",
+        "scene_text": "Wilbur gives you numbers for the first time.\n\nForce: 20 units.\nMass: 10 units.\n\nHe asks you to predict the acceleration.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Now use the pattern." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Response = 2", "next_node": "n_41", "hidden_tag": "correct_calculation", "xp_bonus": 25 },
+          { "id": "b", "text": "Response = 200", "next_node": "n_43", "hidden_tag": "wrong_calculation", "xp_bonus": 5 },
+          { "id": "c", "text": "Response = 10", "next_node": "n_43", "hidden_tag": "wrong_calculation", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Numbers written in sand: Force = 20, Mass = 10, with a question mark for acceleration, workshop, warm light, mathematical moment",
+          "ambient_sound": "sand_writing"
+        }
+      },
+      {
+        "id": "n_38",
+        "type": "scene",
+        "scene_text": "You push the heavy block twice.\n\nOnce with moderate force. Once with double the force.\n\nThe second time, the acceleration is exactly double.\n\nThe proportionality is clean.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Double the push, double the response. That is not a coincidence." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Now I am ready for numbers.\"", "next_node": "n_37", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A block being pushed twice with different force magnitudes, showing proportional acceleration responses, educational physics, warm light",
+          "ambient_sound": "blocks_sliding"
+        }
+      },
+      {
+        "id": "n_41",
+        "type": "decision",
+        "scene_text": "Correct.\n\n20 divided by 10 equals 2.\n\nWilbur nods.\n\nNow the next test: Force = 30. Mass = 10.\n\nYou already know the answer, but the point is that you derived it, not memorized it.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Again." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Response = 3", "next_node": "n_45", "hidden_tag": "correct", "xp_bonus": 20 },
+          { "id": "b", "text": "Response = 300", "next_node": "n_48", "hidden_tag": "wrong", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Correct answer revealed, a nod of approval, new numbers appearing in sand, iterative learning, warm confident light",
+          "ambient_sound": "approval_nod"
+        }
+      },
+      {
+        "id": "n_43",
+        "type": "scene",
+        "scene_text": "The number does not match the observation.\n\nOrville does not correct you with numbers. He corrects you with the machine.\n\nHe pushes with 20 force on 10 mass — and the result is clearly only 2, not 200 or 10.\n\nThe gap between your answer and reality forces a revision.",
+        "character_dialogue": [
+          { "character": "orville", "text": "The pattern is force divided by mass. Not force times mass. Not force minus mass." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Retry with the correct operation", "next_node": "n_41", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": true,
+          "correction_text": "Acceleration = Force ÷ Mass. The relationship is a ratio, not a product."
+        },
+        "media": {
+          "scene_image_prompt": "A practical demonstration proving the correct ratio, blocks and force values visible, correction moment, workshop, warm light",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_45",
+        "type": "convergence",
+        "scene_text": "You now have the rule in your hands.\n\nIt works every time.\nIt predicts before you test.\nIt reduces confusion to arithmetic.\n\nOrville finally writes it in the sand.\n\nYou recognize it not as something new — but as something you already discovered, now compressed into three symbols.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Acceleration equals net force divided by mass." },
+          { "character": "orville", "text": "Or, written another way: ΣF = m·a" },
+          { "character": "wilbur", "text": "You earned that formula. Most people just receive it." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"What about when there is more than one force?\"", "next_node": "n_49", "xp_bonus": 15 },
+          { "id": "b", "text": "\"Test it on the machine.\"", "next_node": "n_51", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "The formula ΣF = ma written in sand with a stick, golden light, moment of formalization, the machine behind it, earned knowledge, cinematic dramatic light",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_48",
+        "type": "scene",
+        "scene_text": "The machine proves the answer wrong again.\n\nOrville is patient.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Divide. Not multiply. The machine tells you the answer is small, not large." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Retry with division", "next_node": "n_45", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": true
+        },
+        "media": {
+          "scene_image_prompt": "Patient correction with practical demonstration, numbers in sand being adjusted, warm light, no judgment",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_49",
+        "type": "decision",
+        "scene_text": "Wilbur sets up a scenario with the machine.\n\nTwo people push forward. Wind pushes back.\n\nForward: 50 + 30 = 80\nBackward: 30 (wind) + 10 (friction) = 40\n\nTotal net forward: 40\n\nMass of the machine: 20",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "What does the formula give you now?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Acceleration = 2", "next_node": "n_51", "hidden_tag": "correct", "xp_bonus": 20 },
+          { "id": "b", "text": "Acceleration = 4", "next_node": "n_50", "hidden_tag": "used_gross_not_net", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force", "second_law"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Multiple force arrows on the machine from different directions, numbers labeled on each arrow, net force calculation setup, workshop, warm light",
+          "ambient_sound": "wind_moderate"
+        }
+      },
+      {
+        "id": "n_50",
+        "type": "scene",
+        "scene_text": "Orville shakes his head gently.\n\nYou used the total forward push, not the net.\n\nThe backward forces exist. They reduce the effective push.\n\n80 total - 40 backward = 40 net. Divide by 20 mass = 2.",
+        "character_dialogue": [
+          { "character": "orville", "text": "The formula uses net force. Not gross force. Not hope." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Recalculate with net force", "next_node": "n_51", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": true,
+          "correction_text": "Always use NET force (sum of all forces including opposing ones) in ΣF = ma, not just the forward forces."
+        },
+        "media": {
+          "scene_image_prompt": "Force arrows being subtracted, net force calculation shown visually, correction moment, warm light, educational",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_51",
+        "type": "decision",
+        "scene_text": "Now the challenge becomes more realistic.\n\nOne person pulls forward with 60 units.\nResistance pushes back with 20.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Does the machine feel 60?" },
+          { "character": "wilbur", "text": "Or does it feel what remains after resistance?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "It feels 60", "next_node": "n_53", "hidden_tag": "gross_force_error", "xp_bonus": 5 },
+          { "id": "b", "text": "It feels 40", "next_node": "n_54", "hidden_tag": "net_force_correct", "xp_bonus": 20 },
+          { "id": "c", "text": "It feels 20", "next_node": "n_53", "hidden_tag": "subtraction_error", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person pulling a machine forward with a rope, wind visibly pushing against it, force arrows showing 60 forward and 20 backward, workshop, warm light",
+          "ambient_sound": "rope_pulling"
+        }
+      },
+      {
+        "id": "n_53",
+        "type": "scene",
+        "scene_text": "The machine proves you wrong.\n\nThe forward motion is not as strong as 60 alone would suggest.",
+        "character_dialogue": [
+          { "character": "orville", "text": "You are counting what helps and forgetting what resists." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Recalculate what remains", "next_node": "n_54", "xp_bonus": 10 },
+          { "id": "b", "text": "Return to the practical net-force question", "next_node": "n_51", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": true,
+          "correction_text": "Net force = forward forces - backward forces. The machine feels only the remainder."
+        },
+        "media": {
+          "scene_image_prompt": "Machine moving less than expected, person looking surprised, backward forces visible, correction moment, warm light",
+          "ambient_sound": "wind_resistance"
+        }
+      },
+      {
+        "id": "n_54",
+        "type": "decision",
+        "scene_text": "Now it lands:\n\nWhat matters is not one visible effort.\nWhat matters is the remainder after opposition.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Good. Net force. That is the real number." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Use the compact rule with 40 and 20", "next_node": "n_57", "xp_bonus": 15 },
+          { "id": "b", "text": "Move to the angled-force problem", "next_node": "n_52", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Net force clearly shown as the remaining arrow after opposition is subtracted, clean visualization, workshop, warm light, clarity",
+          "ambient_sound": "understanding_calm"
+        }
+      },
+      {
+        "id": "n_52",
+        "type": "decision",
+        "scene_text": "The wind has shifted.\n\nThe pull is no longer cleanly horizontal.\n\nWilbur draws a slanted arrow.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Sometimes a push does two jobs at once." },
+          { "character": "wilbur", "text": "How much of this push is actually helping forward motion?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Treat all of it as forward", "next_node": "n_55", "hidden_tag": "angle_ignored", "xp_bonus": 5 },
+          { "id": "b", "text": "Split it into forward part and upward part", "next_node": "n_56", "hidden_tag": "decomposition_correct", "xp_bonus": 20 },
+          { "id": "c", "text": "Ignore the angle", "next_node": "n_55", "hidden_tag": "angle_ignored", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["vector_decomposition"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A slanted force arrow drawn at an angle, showing a push that goes both forward and upward, the dilemma of decomposition, workshop, warm light",
+          "ambient_sound": "wind_shift"
+        }
+      },
+      {
+        "id": "n_55",
+        "type": "scene",
+        "scene_text": "The machine behaves differently than your straight-line expectation.\n\nThe nose rises more than expected.\nThe forward gain is smaller.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "A slanted push cannot be treated as if all of it pointed one way." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Break the push into parts", "next_node": "n_56", "xp_bonus": 10 },
+          { "id": "b", "text": "Ask how engineers write that", "next_node": "n_58", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["vector_decomposition"],
+          "is_error_path": true,
+          "correction_text": "An angled force has components in multiple directions — each must be analyzed separately."
+        },
+        "media": {
+          "scene_image_prompt": "Machine nose rising unexpectedly, forward motion less than predicted, the consequence of ignoring angle, workshop, warm light",
+          "ambient_sound": "machine_tilting"
+        }
+      },
+      {
+        "id": "n_56",
+        "type": "decision",
+        "scene_text": "Orville draws the slanted arrow and separates it into two smaller arrows:\n\n— one forward\n— one upward\n\nOnly after this does he name them: forward component, vertical component.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Now each part can do one job." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Use the split to explain the machine's motion", "next_node": "n_59", "xp_bonus": 15 },
+          { "id": "b", "text": "Ask for the compact mathematical writing", "next_node": "n_58", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["vector_decomposition"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A slanted arrow being decomposed into horizontal and vertical components, drawn in sand, clear educational moment, workshop, warm light",
+          "ambient_sound": "sand_drawing"
+        }
+      },
+      {
+        "id": "n_57",
+        "type": "decision",
+        "scene_text": "Now you apply the compact rule again:\n\nNet effect = 40\nLoad = 20",
+        "character_dialogue": [],
+        "choices": [
+          { "id": "a", "text": "Response = 2", "next_node": "n_60", "hidden_tag": "correct", "xp_bonus": 25 },
+          { "id": "b", "text": "Response = 0.5", "next_node": "n_61", "hidden_tag": "inverted", "xp_bonus": 5 },
+          { "id": "c", "text": "Response = 20", "next_node": "n_61", "hidden_tag": "wrong_operation", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law", "net_force"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Numbers in sand: Net Force = 40, Mass = 20, question mark for acceleration, clean mathematical moment, warm light",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_58",
+        "type": "scene",
+        "scene_text": "Now, and only now, Orville writes:\n\nFx = F cos θ\nFy = F sin θ\n\nBut because you already used the split, the writing feels like shorthand, not theory dropped from the sky.",
+        "character_dialogue": [
+          { "character": "orville", "text": "This is just a faster way of writing what you already did." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue with the practical split", "next_node": "n_59", "xp_bonus": 15 },
+          { "id": "b", "text": "Move to summary", "next_node": "n_60", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["vector_decomposition"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Mathematical formulas Fx=Fcosθ and Fy=Fsinθ written in sand next to the decomposed force arrows, formalization moment, warm light, cinematic",
+          "ambient_sound": "formalization"
+        }
+      },
+      {
+        "id": "n_59",
+        "type": "scene",
+        "scene_text": "You now see why one angled push can partly move forward and partly lift upward.\n\nThe machine becomes more readable.",
+        "character_dialogue": [
+          { "character": "orville", "text": "Every angled force is really two forces cooperating." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to formal reveal", "next_node": "n_60", "xp_bonus": 10 },
+          { "id": "b", "text": "Revisit one prior example with the new lens", "next_node": "n_17", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["vector_decomposition"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "An angled force clearly split into two useful components, the machine now fully understood as a system, warm sunset light, clarity and mastery",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_60",
+        "type": "formalization",
+        "scene_text": "Only now do Wilbur and Orville gather everything and name it.\n\nNot before the problem. Not before the tool. Not before the consequence.\n\nNow.\n\nThey organize what you have already lived:\n\n• A force is not just how much — it is also which way.\n• What matters physically is the total effect of all relevant forces.\n• When that total effect is zero, motion does not change.\n• When that total effect is not zero, the machine accelerates.\n• The amount of acceleration depends on both the total effect and the mass.\n• Engineers compress that relationship as ΣF = m·a.\n• When a force is angled, it can be split into useful parts.\n• Interactions come in pairs — pushing air backward moves the machine forward.\n\nNow the theory does not interrupt the experience.\n\nIt completes it.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You did not learn physics today." },
+          { "character": "wilbur", "text": "You used physics today. The names just arrived late." }
+        ],
+        "choices": [
+          { "id": "a", "text": "End mission", "next_node": "n_end", "xp_bonus": 50 },
+          { "id": "b", "text": "Review your strongest path", "next_node": "n_62", "xp_bonus": 25 },
+          { "id": "c", "text": "Review where your mistakes changed your understanding", "next_node": "n_63", "xp_bonus": 25 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law", "first_law_inertia", "third_law", "vector_decomposition", "net_force", "equilibrium"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A grand moment of revelation, all the physics principles written together in sand at sunset, the flying machine ready in the background, golden hour, cinematic triumph, master shot",
+          "ambient_sound": "triumph_orchestral"
+        }
+      },
+      {
+        "id": "n_61",
+        "type": "scene",
+        "scene_text": "Your arithmetic or ratio failed, but your conceptual path is close.\n\nWilbur does not reset the lesson. He narrows the error.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "You are not confused about the machine anymore." },
+          { "character": "wilbur", "text": "You are only confused about how to express what it is doing." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Retry calculation", "next_node": "n_57", "xp_bonus": 10 },
+          { "id": "b", "text": "Return to pattern before number", "next_node": "n_35", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["second_law"],
+          "is_error_path": true,
+          "correction_text": "The concept is understood — only the arithmetic needs correction. a = ΣF / m"
+        },
+        "media": {
+          "scene_image_prompt": "A mentor reassuring a student that their understanding is correct but the math needs refinement, warm supportive moment, workshop, golden light",
+          "ambient_sound": "encouragement"
+        }
+      },
+      {
+        "id": "n_62",
+        "type": "recap",
+        "scene_text": "Your strongest path through this experience:\n\n✓ You noticed the mismatch between effort and result\n✓ You tested the relationship between force and mass\n✓ You accepted that direction matters as much as magnitude\n✓ You mapped the system with a force diagram\n✓ You understood balance and what breaks it\n✓ You corrected your intuition about inertia\n✓ You solved net force problems\n✓ You split an angled force into components\n✓ You earned the formula: ΣF = m·a\n\nYou did not learn physics today.\nYou used physics today.\nThe names just arrived late.",
+        "character_dialogue": [],
+        "choices": [
+          { "id": "a", "text": "End mission", "next_node": "n_end", "xp_bonus": 25 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A triumphant sunset over the Wright Brothers workshop, the flying machine silhouetted against golden sky, checklist of achievements floating, cinematic finale",
+          "ambient_sound": "triumph_quiet"
+        }
+      },
+      {
+        "id": "n_63",
+        "type": "recap",
+        "scene_text": "Your mistakes shaped your understanding:\n\n• Where you over-simplified — you learned that systems have multiple variables\n• Where friction distorted your intuition — you discovered that stopping requires a force, not that motion requires one\n• Where you ignored opposition — you learned to count net force, not gross force\n• Where you treated all angled force as forward — you learned to decompose into components\n• Where the tool corrected you — you learned that the machine does not lie\n\nEvery wrong answer created the right question.\nThat is how understanding actually works.",
+        "character_dialogue": [],
+        "choices": [
+          { "id": "a", "text": "End mission", "next_node": "n_end", "xp_bonus": 25 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A reflective sunset over the workshop, mistakes visualized as paths that led to understanding, warm empathetic light, growth and learning, cinematic",
+          "ambient_sound": "reflection_peaceful"
+        }
+      },
+      {
+        "id": "n_end",
+        "type": "end",
+        "scene_text": "The wind is still blowing across Kitty Hawk.\n\nThe machine is still unfinished.\n\nBut you are not the same person who answered the sign this morning.\n\nYou understand forces. You understand why things move and why they stop. You understand that every interaction has a partner.\n\nAnd somewhere in the sand behind you, a formula waits — not as a rule to memorize, but as a pattern you earned.\n\nΣF = m·a\n\nMission Complete.",
+        "character_dialogue": [
+          { "character": "wilbur", "text": "Come back tomorrow. We still need to make it fly." }
+        ],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Sunset at Kitty Hawk, the Wright Flyer silhouetted against an orange sky, the formula ΣF=ma glowing in the sand, person walking away into the light, epic cinematic finale",
+          "ambient_sound": "sunset_wind_beautiful"
+        }
+      }
+    ]
+  }
+}

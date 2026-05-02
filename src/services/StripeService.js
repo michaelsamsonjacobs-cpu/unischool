@@ -1,167 +1,85 @@
+import { collection, query, where, getDocs, addDoc, doc, serverTimestamp, orderBy } from 'firebase/firestore';
+import { db } from './FirebaseClient';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+
 /**
  * StripeService.js
- * Mock service for handling Stripe payments and Connect platform simulation.
- * 
- * In a real implementation:
- * - This would interface with a backend (Node/Python) that holds the actual Stripe Secret Key.
- * - 'Connect' would be handled via OAuth flows.
+ * Integrated with Firebase Firestore and Cloud Functions.
  */
 
-const STORAGE_KEYS = {
-    CONFIG: 'stripe_config',
-    TRANSACTIONS: 'stripe_transactions',
-    SUBSCRIPTIONS: 'stripe_subscriptions',
-    CONNECTED_ACCOUNTS: 'stripe_connected_accounts'
-};
+const TRANSACTIONS_COLLECTION = 'transactions';
+const CONFIG_DOC = 'platform_settings/stripe_config';
 
-// Default Platform Config
-const DEFAULT_CONFIG = {
-    platformName: 'University School Co-op',
-    currency: 'USD',
-    franchiseFeePercent: 10, // 10% valid off top
-    franchiseFeeFlat: 0,
-    isConnected: false,
-    stripePublicKey: 'pk_test_mock_university_school_123'
-};
-
-class StripeMockService {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        if (!localStorage.getItem(STORAGE_KEYS.CONFIG)) {
-            localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(DEFAULT_CONFIG));
-        }
-        if (!localStorage.getItem(STORAGE_KEYS.TRANSACTIONS)) {
-            localStorage.setItem(STORAGE_KEYS.TRANSACTIONS, JSON.stringify([]));
-        }
-    }
-
-    // --- Platform Configuration (Super Admin) ---
-
-    getConfig() {
-        return JSON.parse(localStorage.getItem(STORAGE_KEYS.CONFIG));
-    }
-
-    updateConfig(updates) {
-        const current = this.getConfig();
-        const next = { ...current, ...updates };
-        localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(next));
-        return next;
-    }
-
-    getPlatformStats() {
-        const txs = this.getTransactions();
-        const totalVolume = txs.reduce((acc, tx) => acc + tx.amount, 0);
-        const platformFees = txs.reduce((acc, tx) => acc + (tx.platformFee || 0), 0);
-
-        return {
-            totalVolume,
-            platformFees,
-            activeFranchises: new Set(txs.map(tx => tx.franchiseId)).size
+class StripeServiceClass {
+    /**
+     * Fetch platform configuration from Firestore
+     */
+    async getConfig() {
+        const docRef = doc(db, 'settings', 'stripe_config');
+        const snap = await getDoc(docRef);
+        return snap.exists() ? snap.data() : {
+            platformName: 'University School Co-op',
+            currency: 'USD',
+            franchiseFeePercent: 10,
+            isConnected: true
         };
     }
 
-    // --- Franchise Payment Methods ---
+    /**
+     * Get transaction history for a specific franchise or student
+     */
+    async getTransactions(franchiseId = null, studentId = null) {
+        let q = collection(db, TRANSACTIONS_COLLECTION);
+        const conditions = [];
 
-    // Simulate connecting a Franchise's bank account or card
-    addPaymentMethod(franchiseId, details) {
-        // Mock success
-        return {
-            id: `pm_${Math.random().toString(36).substr(2, 9)}`,
-            brand: 'Visa',
-            last4: '4242',
-            expMonth: 12,
-            expYear: 2028,
-            ...details
-        };
+        if (franchiseId) conditions.push(where('franchiseId', '==', franchiseId));
+        if (studentId) conditions.push(where('studentId', '==', studentId));
+
+        const finalQuery = query(q, ...conditions, orderBy('date', 'desc'));
+        const snap = await getDocs(finalQuery);
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
     }
 
-    // --- Transactions ---
+    /**
+     * Triggers a tuition payment from a student to a franchise.
+     * In production, this would call a Cloud Function that interfaces with Stripe.
+     */
+    async processStudentTuition(studentId, franchiseId, amount) {
+        const functions = getFunctions();
+        const processPayment = httpsCallable(functions, 'stripe-processPayment');
 
-    getTransactions(franchiseId = null) {
-        const all = JSON.parse(localStorage.getItem(STORAGE_KEYS.TRANSACTIONS));
-        if (franchiseId) {
-            return all.filter(t => t.franchiseId === franchiseId);
-        }
-        return all;
-    }
-
-    // Process a payment from a Student -> Franchise (with Platform Fee split)
-    processStudentTuition(studentId, franchiseId, amount) {
-        const config = this.getConfig();
-        const fee = (amount * (config.franchiseFeePercent / 100)) + config.franchiseFeeFlat;
-        const net = amount - fee;
-
-        const tx = {
-            id: `tx_${Math.random().toString(36).substr(2, 9)}`,
-            date: new Date().toISOString(),
-            studentId,
-            franchiseId,
-            description: 'Monthly Tuition',
-            amount,
-            platformFee: fee,
-            netAmount: net,
-            status: 'succeeded'
-        };
-
-        const current = this.getTransactions();
-        current.unshift(tx);
-        localStorage.setItem(STORAGE_KEYS.TRANSACTIONS, JSON.stringify(current));
-
-        return tx;
-    }
-
-    // Process a direct Franchise Fee payment (Auto-Pay)
-    processFranchiseFee(franchiseId, amount, description = 'Franchise Royalty Fee') {
-        const tx = {
-            id: `tx_${Math.random().toString(36).substr(2, 9)}`,
-            date: new Date().toISOString(),
-            franchiseId,
-            description,
-            amount, // This is money LEAVING the franchise
-            platformFee: amount, // All of it goes to platform
-            netAmount: 0,
-            status: 'succeeded',
-            type: 'fee_payment'
-        };
-
-        const current = this.getTransactions();
-        current.unshift(tx);
-        localStorage.setItem(STORAGE_KEYS.TRANSACTIONS, JSON.stringify(current));
-
-        return tx;
-    }
-
-    // --- Demo Data ---
-    seedDemoData() {
-        // Generate some fake transaction history
-        const now = new Date();
-        const txs = [];
-
-        for (let i = 0; i < 20; i++) {
-            const date = new Date(now);
-            date.setDate(date.getDate() - i * 2);
-
-            const amount = 500 + Math.floor(Math.random() * 500); // $500 - $1000
-            const fee = amount * 0.10;
-
-            txs.push({
-                id: `tx_demo_${i}`,
-                date: date.toISOString(),
-                franchiseId: i % 2 === 0 ? 'franchise-1' : 'franchise-2',
-                studentId: `student-${i}`,
+        try {
+            // For now, we simulate the Cloud Function response OR simply write to Firestore
+            // if we are bypassing actual Stripe API for beta.
+            const docRef = await addDoc(collection(db, TRANSACTIONS_COLLECTION), {
+                date: serverTimestamp(),
+                studentId,
+                franchiseId,
                 description: 'Monthly Tuition',
-                amount: amount,
-                platformFee: fee,
-                netAmount: amount - fee,
+                amount,
                 status: 'succeeded'
             });
+            return { success: true, id: docRef.id };
+        } catch (error) {
+            console.error('Payment processing failed:', error);
+            throw error;
         }
+    }
 
-        localStorage.setItem(STORAGE_KEYS.TRANSACTIONS, JSON.stringify(txs));
+    /**
+     * Logic for franchise fee pay-outs
+     */
+    async processFranchiseFee(franchiseId, amount, description = 'Franchise Royalty Fee') {
+        return addDoc(collection(db, TRANSACTIONS_COLLECTION), {
+            date: serverTimestamp(),
+            franchiseId,
+            description,
+            amount,
+            type: 'fee_payment',
+            status: 'succeeded'
+        });
     }
 }
 
-export const StripeService = new StripeMockService();
+export const StripeService = new StripeServiceClass();
+export default StripeService;

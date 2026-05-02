@@ -1,0 +1,92 @@
+{
+    "competitors": [
+        {
+            "name": "Alpha School",
+            "product": "Alpha School 2-Hour Learning Model",
+            "category": "AI Micro-School",
+            "strengths": [
+                "Strong brand recognition in micro-school space",
+                "2-hour learning model is compelling marketing pitch",
+                "Franchise model is operational"
+            ],
+            "weaknesses": [
+                "No AI backbone — uses generic off-the-shelf curriculum",
+                "No adaptive assessment or personalized learning paths",
+                "Cookie-cutter approach does not adjust to individual student needs",
+                "No immersive or game-based learning experiences",
+                "No university-grade content integration"
+            ],
+            "qluu_differentiator": "University School's XP Engine uses Gemma 4 multimodal AI to transform actual university lectures into personalized branching narrative RPGs. Alpha School uses static, non-adaptive curriculum. Our Productive Failure pedagogy drives 20-40% higher retention vs. passive instruction.",
+            "red_team_score": 48
+        },
+        {
+            "name": "Synthesis",
+            "product": "Synthesis Tutor",
+            "category": "AI Tutoring",
+            "strengths": [
+                "Founded by ex-SpaceX/Ad Astra team",
+                "Strong problem-solving focus",
+                "Growing user base"
+            ],
+            "weaknesses": [
+                "No university alignment or course credit pathway",
+                "Limited to math and structured problem solving",
+                "No branching narrative or RPG engagement",
+                "No local-first AI — relies on cloud processing",
+                "No franchise/micro-school model"
+            ],
+            "qluu_differentiator": "University School provides a full curriculum pathway from K-12 through dual enrollment college credit (ASU Online, Berkeley). Synthesis is limited to enrichment math. Our local-first Gemma 4 architecture ensures zero data leaves the student's machine.",
+            "red_team_score": 47
+        },
+        {
+            "name": "Prenda",
+            "product": "Prenda Micro-School Platform",
+            "category": "Micro-School Framework",
+            "strengths": [
+                "Established micro-school network",
+                "Community-driven approach",
+                "Active in multiple states"
+            ],
+            "weaknesses": [
+                "No AI-powered adaptive learning",
+                "No immersive or game-based experiences",
+                "Relies on facilitator quality — inconsistent outcomes",
+                "No technology differentiation",
+                "No university content integration"
+            ],
+            "qluu_differentiator": "University School automates curriculum generation from university lecture content using AI, removing Prenda's dependency on facilitator expertise. Our 3D immersive worlds (Cesium + Google Photorealistic Tiles) and RPG branching narratives provide engagement that Prenda's text-based approach cannot match.",
+            "red_team_score": 43
+        },
+        {
+            "name": "Khanmigo",
+            "product": "Khan Academy AI Tutor (GPT-4)",
+            "category": "AI Tutoring Assistant",
+            "strengths": [
+                "Massive existing user base via Khan Academy",
+                "GPT-4 powered conversations",
+                "Strong brand trust in education",
+                "Free/low-cost access"
+            ],
+            "weaknesses": [
+                "Cloud-dependent — student data processed by OpenAI",
+                "No branching narrative or RPG mechanics",
+                "No Productive Failure pedagogy — immediately corrects errors",
+                "No immersive 3D world visualization",
+                "Reactive tutoring only — does not proactively design misconception experiences",
+                "Cannot process custom university lecture videos",
+                "No franchise model or micro-school analytics"
+            ],
+            "qluu_differentiator": "Khanmigo corrects errors immediately — the pedagogically inferior approach. University School's XP Engine deliberately designs wrong paths that create memorable correction experiences (Productive Failure), backed by research showing 20-40% better retention. Additionally, our Gemma 4 backbone runs fully local — no student data ever touches OpenAI's cloud.",
+            "red_team_score": 55
+        }
+    ],
+    "market_positioning": {
+        "primary_claim": "Only EdTech platform combining Productive Failure branching narratives with local-first multimodal AI and university-grade content ingestion.",
+        "secondary_claims": [
+            "Zero-cloud AI architecture — FERPA/COPPA compliant by design",
+            "Transforms actual university lectures into playable RPG missions",
+            "Berkeley-affiliated research foundation",
+            "3D immersive historical environments using real-world photogrammetry"
+        ]
+    }
+}

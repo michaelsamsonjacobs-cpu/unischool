@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Star, Target, Zap, Clock, BookOpen, ChevronRight, Activity, Calendar, Award, TrendingUp, MapPin, GraduationCap, Compass, ExternalLink, Sparkles } from 'lucide-react';
+import { db } from '../services/FirebaseClient';
+import { doc, getDoc } from 'firebase/firestore';
+import { Trophy, Star, Target, Zap, Clock, BookOpen, ChevronRight, Activity, Calendar, Award, TrendingUp, MapPin, GraduationCap, Compass, ExternalLink, Sparkles, Gamepad2, Play } from 'lucide-react';
 import { SkillTree } from './SkillTree';
 import { QuestList } from './QuestCard';
 import { ContentService } from '../services/ContentService';
+import { LectureControlPanel } from './LectureControlPanel';
+import { DualCreditVisualizer } from './DualCreditVisualizer';
+import { PathwayHub } from './PathwayHub';
+
+const MOCK_STUDENT_ID = 'e7b1c3d9-4f8a-4c2b-9a1d-8e6f7b5c4d3a';
 
 // Sample skills (user progression) - still mocked locally for now
 const SAMPLE_SKILLS = {
@@ -32,25 +39,32 @@ const PathMilestone = ({ year, title, isComplete, isCurrent }) => (
     </div>
 );
 
-export const StudentCockpit = ({ studentName = "Navigator", onOpenChat }) => {
+export const StudentCockpit = ({ studentId = MOCK_STUDENT_ID, studentName = "Navigator", onOpenChat, onOpenXPMissions }) => {
+    const [stats, setStats] = useState(null);
     const [quests, setQuests] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [skills] = useState(SAMPLE_SKILLS);
 
-    // Fetch quests from "Remote" (simulated)
+    // Fetch student profile and quests from Firestore
     useEffect(() => {
-        const loadContent = async () => {
+        const loadStudentData = async () => {
             try {
+                // 1. Fetch user stats from Firestore
+                const userDoc = await getDoc(doc(db, 'users', studentId));
+                if (userDoc.exists()) {
+                    setStats(userDoc.data());
+                }
+
+                // 2. Fetch quests
                 const fetchedQuests = await ContentService.getQuests();
                 setQuests(fetchedQuests);
             } catch (err) {
-                console.error("Failed to load curriculum:", err);
+                console.error("Failed to load student data:", err);
             } finally {
                 setLoading(false);
             }
         };
-        loadContent();
-    }, []);
+        loadStudentData();
+    }, [studentId]);
 
     const handleAcceptQuest = (questId) => {
         setQuests(prev => prev.map(q =>
@@ -68,7 +82,11 @@ export const StudentCockpit = ({ studentName = "Navigator", onOpenChat }) => {
     };
 
     const activeQuests = quests.filter(q => q.status === 'active');
-    const totalXP = Object.values(skills).reduce((sum, s) => sum + s.xp + (s.level - 1) * 500, 0);
+
+    // Skills derived from Firestore or fallback to mock
+    const skills = stats?.skills || SAMPLE_SKILLS;
+    const totalXP = stats?.total_xp || 1250;
+    const displayName = stats?.full_name || studentName;
 
     return (
         <div className="h-full overflow-auto p-6 bg-[#FAF8F5] relative">
@@ -80,7 +98,7 @@ export const StudentCockpit = ({ studentName = "Navigator", onOpenChat }) => {
                             Student Operator
                         </div>
                         <h1 className="text-4xl font-serif font-bold text-[#2D2D2D]">
-                            Hello, {studentName}
+                            Hello, {displayName}
                         </h1>
                     </div>
                     <div className="flex items-center gap-6 text-sm text-[#5A5A5A]">
@@ -105,31 +123,75 @@ export const StudentCockpit = ({ studentName = "Navigator", onOpenChat }) => {
 
             {/* Main Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Left Column - Skill Tree */}
+                {/* Left Column - Academic & Pathways */}
                 <div className="lg:col-span-2 space-y-6">
-                    <SkillTree skills={skills} onSkillClick={(skill) => console.log('Skill clicked:', skill)} />
+                    {/* XP Missions Hero Card */}
+                    <div className="p-6 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#1a1a2e] text-white relative overflow-hidden shadow-lg">
+                        <div className="absolute inset-0 opacity-15">
+                            <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-[#C9B47C] blur-[80px]" />
+                            <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-[#8B2332] blur-[60px]" />
+                        </div>
+                        <div className="relative flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-[#7C3AED] to-[#5B21B6] shadow-lg shadow-purple-500/30">
+                                    <Gamepad2 size={28} />
+                                </div>
+                                <div>
+                                    <h2 className="text-xl font-bold font-serif">XP Missions</h2>
+                                    <p className="text-sm text-slate-400 mt-1">Interactive learning adventures — choose your path, discover concepts</p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={onOpenXPMissions}
+                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#8B2332] hover:bg-[#a02a3a] text-white font-bold text-sm transition-all shadow-[0_4px_14px_rgba(139,35,50,0.4)] hover:shadow-[0_6px_20px_rgba(139,35,50,0.5)] hover:-translate-y-0.5"
+                            >
+                                <Play size={16} />
+                                <span>Launch</span>
+                                <ChevronRight size={16} />
+                            </button>
+                        </div>
+                        {/* Available mission preview */}
+                        <div className="relative mt-4 p-3 rounded-xl bg-white/5 border border-white/10">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="text-2xl">⚡</div>
+                                    <div>
+                                        <p className="text-sm font-semibold">The Wright Problem</p>
+                                        <p className="text-xs text-slate-400">PHY-101 · Ch.4: Dynamics & Newton's Laws · 45 min</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#C9B47C]/15">
+                                    <Zap size={12} className="text-[#C9B47C]" />
+                                    <span className="text-xs font-bold text-[#C9B47C]">400+ XP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    {/* The new API-driven Academic Mapping Dashboard */}
+                    <DualCreditVisualizer />
+
+                    {/* The new Dynamic Career Pathways Module */}
+                    <PathwayHub />
+                    {/* AI Lecture Assistant Feed */}
+                    <div className="mt-8">
+                        <LectureControlPanel courseId="course-101" />
+                    </div>
+
+                    <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hidden">
                         <div className="flex items-center gap-3 mb-6">
                             <Target className="text-[#8B2332]" size={24} />
                             <h2 className="text-xl font-bold font-serif text-[#2D2D2D]">Active Quests</h2>
                         </div>
-                        {loading ? (
-                            <div className="text-center py-8 text-slate-500">Loading curriculum...</div>
-                        ) : (
-                            <QuestList
-                                quests={activeQuests}
-                                onAction={handleViewQuest}
-                            />
-                        )}
+                        {/* Hidden legacy quests */}
                     </div>
                 </div>
 
-                {/* Right Column - Path to Victory */}
+                {/* Right Column - University Progression */}
                 <div className="p-6 rounded-2xl space-y-6 bg-white border border-slate-200 shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
                         <Compass className="text-[#8B2332]" size={24} />
-                        <h2 className="text-xl font-bold font-serif text-[#2D2D2D]">Path to Victory</h2>
+                        <h2 className="text-xl font-bold font-serif text-[#2D2D2D]">University Trajectory</h2>
                     </div>
 
                     {/* Reach School Mode: Show Odds Calculator if targeting Ivy/Tier 1 Reach */}

@@ -42,26 +42,26 @@ export const LandingPage = ({ onNavigate }) => {
                                     <Trophy className="text-white" />
                                 </div>
                                 <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">I am an Ambitious Student</h3>
-                                <p className="text-slate-600 mb-6 text-base font-medium">Start your quest log, track your XP, and unlock your path to Berkeley, UCLA, and beyond.</p>
+                                <p className="text-slate-600 mb-6 text-base font-medium">Learn how University School hyper-accelerates your path to Berkeley, UCLA, and beyond.</p>
                                 <span className="inline-flex items-center gap-2 text-[#8B2332] font-bold text-sm group-hover:translate-x-1 transition-transform">
-                                    Start Your Game <ArrowRight size={16} />
+                                    Learn Our Process <ArrowRight size={16} />
                                 </span>
                             </div>
                         </button>
 
                         <button
-                            onClick={() => onNavigate('franchise')}
+                            onClick={() => onNavigate('basics')}
                             className="group relative overflow-hidden p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#C9B47C] transition-all hover:bg-[#C9B47C]/10 text-left shadow-lg hover:shadow-xl"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#C9B47C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="relative z-10">
-                                <div className="h-12 w-12 rounded-xl bg-[#C9B47C] flex items-center justify-center mb-4 shadow-lg shadow-[#C9B47C]/20 group-hover:scale-110 transition-transform">
-                                    <Map className="text-white" />
+                                <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-[9px] font-bold uppercase tracking-widest mb-4">
+                                    🎓 May 1, 2026
                                 </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">I am a Visionary Educator</h3>
-                                <p className="text-slate-600 mb-6 text-base font-medium">Open a University School enrichment center in your city. Empower high-agency youth.</p>
+                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">BASICS @ Berkeley Demo Day</h3>
+                                <p className="text-slate-600 mb-6 text-base font-medium">See our Spring 2026 cohort pitch live. Invest via Sydecar syndicates.</p>
                                 <span className="inline-flex items-center gap-2 text-[#C9B47C] font-bold text-sm group-hover:translate-x-1 transition-transform">
-                                    Explore Franchise <ArrowRight size={16} />
+                                    View Cohort & RSVP <ArrowRight size={16} />
                                 </span>
                             </div>
                         </button>
@@ -117,10 +117,10 @@ export const LandingPage = ({ onNavigate }) => {
                                 ))}
                             </ul>
                             <button
-                                onClick={() => onNavigate('students')}
-                                className="text-white border-b-2 border-[#C9B47C] pb-1 hover:text-[#C9B47C] transition-colors"
+                                onClick={() => onNavigate('process')}
+                                className="text-[#8B2332] border-b-2 border-[#C9B47C] pb-1 hover:text-[#C9B47C] transition-colors font-semibold"
                             >
-                                Meet the Navigator &rarr;
+                                See Our Process &rarr;
                             </button>
                         </div>
                         <div className="relative">

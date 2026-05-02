@@ -30,26 +30,32 @@ const saveMockUsers = (users) => {
 export const ROLES = {
     SUPER_ADMIN: 'super_admin',
     FRANCHISE_OWNER: 'franchise_owner',
+    CENTER_STAFF: 'center_staff',
     FACILITATOR: 'facilitator',
+    GUIDANCE_COUNSELOR: 'guidance_counselor',
     PARENT: 'parent',
     STUDENT: 'student',
 };
 
 export const ROLE_LABELS = {
-    [ROLES.SUPER_ADMIN]: 'Super Admin',
+    [ROLES.SUPER_ADMIN]: 'Platform Admin',
     [ROLES.FRANCHISE_OWNER]: 'Franchise Owner',
+    [ROLES.CENTER_STAFF]: 'Center Staff',
     [ROLES.FACILITATOR]: 'Academic Facilitator',
+    [ROLES.GUIDANCE_COUNSELOR]: 'Guidance Counselor',
     [ROLES.PARENT]: 'Parent/Guardian',
     [ROLES.STUDENT]: 'Student',
 };
 
 // Role permissions
 export const PERMISSIONS = {
-    [ROLES.SUPER_ADMIN]: ['manage_franchises', 'manage_facilitators', 'view_all_students', 'system_config'],
-    [ROLES.FRANCHISE_OWNER]: ['manage_students', 'manage_parents', 'view_franchise_analytics', 'onboard_students'],
-    [ROLES.FACILITATOR]: ['view_students', 'approve_transfers', 'modify_matrix', 'message_parents'],
-    [ROLES.PARENT]: ['view_child_progress', 'approve_major', 'message_facilitator'],
-    [ROLES.STUDENT]: ['view_quests', 'chat_navigator', 'view_matrix'],
+    [ROLES.SUPER_ADMIN]: ['manage_franchises', 'manage_facilitators', 'manage_institutions', 'view_all_students', 'system_config', 'manage_nce_scenarios', 'view_audit_log'],
+    [ROLES.FRANCHISE_OWNER]: ['manage_students', 'manage_parents', 'manage_center_staff', 'view_franchise_analytics', 'onboard_students', 'view_center_ops', 'view_tickets'],
+    [ROLES.CENTER_STAFF]: ['view_students', 'manage_attendance', 'view_tickets', 'resolve_tickets'],
+    [ROLES.FACILITATOR]: ['view_students', 'approve_transfers', 'modify_matrix', 'message_parents', 'view_tickets', 'resolve_tickets', 'manage_nce_scenarios'],
+    [ROLES.GUIDANCE_COUNSELOR]: ['view_students', 'manage_pathways', 'view_enrollments', 'message_parents', 'view_tickets'],
+    [ROLES.PARENT]: ['view_child_progress', 'view_child_enrollments', 'approve_major', 'message_facilitator'],
+    [ROLES.STUDENT]: ['view_quests', 'chat_navigator', 'view_matrix', 'view_enrollments', 'view_pathways', 'submit_artifacts'],
 };
 
 export const MagicLinkService = {

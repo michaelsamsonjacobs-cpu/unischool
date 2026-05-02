@@ -1,11 +1,11 @@
+import { collection, doc, getDoc, getDocs, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from './FirebaseClient';
+
 /**
- * ClassroomService - Manages Sovereign Classroom folder operations
+ * ClassroomService - Manages Sovereign Classroom data operations via Firestore
  */
-
-const CLASSROOM_CONFIG_FILE = '.springroll/config.json';
-
 export const ClassroomService = {
-    // Get stored classroom path
+    // Get stored classroom path (local for this device context)
     getClassroomPath() {
         return localStorage.getItem('springroll_classroom_path') || null;
     },
@@ -14,69 +14,53 @@ export const ClassroomService = {
         localStorage.setItem('springroll_classroom_path', path);
     },
 
-    // Get current user role
-    getRole() {
-        return localStorage.getItem('springroll_role') || 'user';
-    },
-
-    setRole(role) {
-        localStorage.setItem('springroll_role', role);
-    },
-
-    // Get student name (for student view)
-    getStudentName() {
-        return localStorage.getItem('springroll_student_name') || 'Student';
-    },
-
-    setStudentName(name) {
-        localStorage.setItem('springroll_student_name', name);
-    },
-
-    // Check if in team mode
-    isTeamMode() {
-        return !!this.getClassroomPath();
-    },
-
-    // Mock: Get students list (in real app, would scan /Students folder)
+    /**
+     * Fetch all students (from Firestore users collection with role=student)
+     */
     async getStudents() {
-        // Simulated data - in production would use Tauri to scan filesystem
-        return [
-            { id: 'alice', name: 'Alice Smith', folder: 'Alice_Smith', files: 3, progress: 80, lastActivity: '2 min ago' },
-            { id: 'bob', name: 'Bob Jones', folder: 'Bob_Jones', files: 1, progress: 40, lastActivity: '1 hr ago' },
-            { id: 'charlie', name: 'Charlie Lee', folder: 'Charlie_Lee', files: 2, progress: 30, lastActivity: '3 hrs ago' },
-            { id: 'diana', name: 'Diana Chen', folder: 'Diana_Chen', files: 4, progress: 95, lastActivity: '5 min ago' },
-            { id: 'evan', name: 'Evan Park', folder: 'Evan_Park', files: 2, progress: 60, lastActivity: '30 min ago' },
-        ];
+        const q = collection(db, 'users');
+        const snap = await getDocs(q); // In production, filter by franchise or role
+        return snap.docs
+            .map(d => ({ id: d.id, ...d.data() }))
+            .filter(u => u.role === 'student')
+            .map(u => ({
+                id: u.id,
+                name: u.full_name || u.name,
+                folder: u.full_name?.replace(/\s+/g, '_') || u.id,
+                files: 0,
+                progress: u.onboarding_complete ? 100 : 25,
+                lastActivity: 'Active'
+            }));
     },
 
-    // Mock: Get recent activity
+    // Mock: Get recent activity (in real app, this would be a Firestore collection)
     async getRecentActivity() {
         return [
             { type: 'upload', student: 'Alice Smith', file: 'FinalDraft.docx', time: '2 min ago' },
             { type: 'feedback', student: 'Bob Jones', file: 'Draft1.docx', time: '1 hr ago' },
-            { type: 'upload', student: 'Diana Chen', file: 'Research.pdf', time: '5 min ago' },
         ];
     },
 
-    // Save feedback for a student
-    async saveFeedback(studentFolder, content) {
-        // In production: Write to _feedback.md using Tauri fs API
-        console.log(`Saving feedback to ${studentFolder}/_feedback.md:`, content);
-        const feedbacks = JSON.parse(localStorage.getItem('springroll_feedbacks') || '{}');
-        feedbacks[studentFolder] = feedbacks[studentFolder] || [];
-        feedbacks[studentFolder].push({
+    /**
+     * Save feedback for a student
+     */
+    async saveFeedback(studentId, content, author = 'Admin') {
+        const feedbackRef = collection(db, 'users', studentId, 'feedback');
+        await addDoc(feedbackRef, {
             content,
-            date: new Date().toISOString(),
-            author: 'Admin'
+            author,
+            date: serverTimestamp()
         });
-        localStorage.setItem('springroll_feedbacks', JSON.stringify(feedbacks));
         return true;
     },
 
-    // Get feedback for a student
-    getFeedback(studentFolder) {
-        const feedbacks = JSON.parse(localStorage.getItem('springroll_feedbacks') || '{}');
-        return feedbacks[studentFolder] || [];
+    /**
+     * Get feedback history for a student
+     */
+    async getFeedback(studentId) {
+        const feedbackRef = collection(db, 'users', studentId, 'feedback');
+        const snap = await getDocs(feedbackRef);
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
     },
 
     // Clear team mode

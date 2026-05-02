@@ -1,0 +1,115 @@
+{
+    "company": "University School AI Inc.",
+    "dba": "University School",
+    "cage_code": "[NOT YET REGISTERED]",
+    "uei": "[PENDING]",
+    "naics_primary": "611710",
+    "naics_secondary": ["541511", "511210", "611420"],
+    "clearance": "Not applicable. Product is civilian EdTech — no classified data handling.",
+    "contact": {
+        "poc": "Michael Jacobs",
+        "title": "CEO & Co-Founder",
+        "email": "mike@universityschool.ai"
+    },
+    "trl": {
+        "software": 6,
+        "hardware": null,
+        "notes": "Software TRL-6: Functioning prototype demonstrated with real university course content (ASU Online Physics). Gemma 4 26B multimodal AI backbone operational for video ingestion, concept extraction, and narrative generation. Branching narrative XP Engine validated with Wright Brothers physics mission (40+ nodes, 10 AI-generated scene images). Hardware TRL: N/A — pure SaaS platform."
+    },
+    "deployment_status": "Prototype stage. XP Engine demonstrated with Wright Brothers physics mission (PHY-121). AI ingestion pipeline functional with Gemma 4 26B via Ollama. No large-scale classroom deployment to date.",
+    "university_affiliation": {
+        "institution": "University of California, Berkeley",
+        "department": "Cognitive Science Program / Department of Psychology",
+        "role": "Creator & Director, Cognitive Science Entrepreneurship Program",
+        "berkeley_pi": "Dr. David Whitney, Department of Psychology / Vision Science",
+        "sttr_eligible": true,
+        "potential_partners": [
+            "Berkeley Graduate School of Education",
+            "BIDS (Berkeley Institute for Data Science)",
+            "CITRIS (Center for Information Technology Research in the Interest of Society)",
+            "Dr. Whitney's Perception & Cognition Lab"
+        ]
+    },
+    "operations": {
+        "primary": "Los Angeles, CA",
+        "secondary": "Florida (partner operations)",
+        "states": ["CA", "FL"]
+    },
+    "core_competencies": [
+        "AI-Powered Adaptive Learning Platform (XP Engine)",
+        "Multimodal Content Ingestion (Gemma 4 — video, audio, image, document → concept graph)",
+        "Productive Failure Branching Narrative Engine (20-40% retention improvement)",
+        "Concept Graph Extraction with Bloom's Taxonomy Tagging",
+        "Local-First AI Architecture (zero cloud dependency, full data sovereignty)",
+        "Interactive RPG Curriculum Delivery for K-12 Students",
+        "3D Immersive World Visualization (Cesium + Google Photorealistic Tiles)",
+        "Franchise Micro-School Management Platform with Learning Analytics",
+        "FERPA/COPPA Compliant Student Data Handling"
+    ],
+    "past_performance": [
+        {
+            "contract_id": "USAI-INTERNAL-RND-001",
+            "agency": "Internal R&D",
+            "title": "XP Engine — AI-Powered Branching Narrative Learning System",
+            "value": "Self-Funded R&D",
+            "relevance": "Designed and developed the XP Engine platform: a branching-choice RPG that transforms university lecture content into interactive learning missions. Built Gemma 4 multimodal ingestion pipeline, concept graph extractor, and productive failure narrative generator. Demonstrated with Wright Brothers Physics mission (40+ narrative nodes, AI-generated scene artwork)."
+        },
+        {
+            "contract_id": "USAI-INTERNAL-RND-002",
+            "agency": "Internal R&D",
+            "title": "University School — K-12 Franchise Learning Platform",
+            "value": "Self-Funded R&D",
+            "relevance": "Built complete K-12 learning management platform with role-based dashboards (Student, Advisor, Franchise Owner, Parent, Admin), Stripe billing integration, quest-based curriculum tracking, and skill tree progression. Student Cockpit provides XP tracking, mission selection, and real-time concept mastery visualization."
+        },
+        {
+            "contract_id": "USAI-INTERNAL-RND-003",
+            "agency": "UC Berkeley / Internal",
+            "title": "UC Berkeley Cognitive Science Entrepreneurship Program",
+            "value": "University Program",
+            "relevance": "Created and directed the UC Berkeley Cognitive Science Entrepreneurship Program, establishing the intersection of cognitive science research and educational technology commercialization. This program provides the academic foundation for the XP Engine's pedagogical approach."
+        }
+    ],
+    "pedagogical_frameworks": [
+        {
+            "name": "Productive Failure",
+            "citation": "Kapur, M. (2008-2016)",
+            "description": "Students who attempt problems before receiving instruction show 20-40% better retention than those receiving direct instruction first.",
+            "implementation": "XP Engine branches deliberately include 'wrong' paths that provide memorable correction scenes."
+        },
+        {
+            "name": "Spaced Retrieval Practice",
+            "citation": "Roediger & Karpicke (2006)",
+            "description": "Spacing out retrieval attempts across time significantly improves long-term retention.",
+            "implementation": "Concept revisitation is spaced across narrative nodes with varied context."
+        },
+        {
+            "name": "Narrative Transport Theory",
+            "citation": "Green & Brock (2000)",
+            "description": "Embedding information within compelling narratives increases absorption and reduces resistance.",
+            "implementation": "Academic concepts are wrapped in historical and fictional narratives."
+        }
+    ],
+    "pricing_model": {
+        "student_seat_monthly": "$29",
+        "franchise_license_annual": "$15,000",
+        "enterprise_district": "Custom",
+        "research_pilot": "At cost"
+    },
+    "certifications": [],
+    "compliance": [
+        "FERPA compliant (student data encrypted at rest and in transit)",
+        "COPPA compliant (parental consent workflow for under-13)",
+        "Local-first AI (no student data sent to cloud)",
+        "SOC 2 architecture ready"
+    ],
+    "warnings": [
+        "Do NOT claim SOC 2, ISO, CMMI, or any certification University School does not hold.",
+        "Do NOT fabricate contract numbers or past performance.",
+        "Do NOT claim large-scale classroom deployment. All work is prototype-stage.",
+        "Always state TRL-6 for AI/software, TRL-3 for 3D visualization.",
+        "Always include UEI and CAGE when registered.",
+        "Always reference Berkeley affiliation accurately: 'Creator & Director, UC Berkeley Cognitive Science Entrepreneurship Program'.",
+        "Emphasize FERPA and COPPA compliance in every education proposal.",
+        "Do NOT overstate Berkeley's role without a formal STTR sub-award agreement."
+    ]
+}

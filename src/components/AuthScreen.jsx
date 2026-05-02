@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowRight, Mail, Loader2, AlertCircle } from 'lucide-react';
-import { MagicLinkService } from '../services/MagicLinkService';
+import { AuthService } from '../services/AuthService';
 
 export const AuthScreen = ({ onLogin, onGuest }) => {
     const [email, setEmail] = useState('');
@@ -20,37 +20,40 @@ export const AuthScreen = ({ onLogin, onGuest }) => {
         setError('');
 
         try {
-            // Simulate Magic Link Request
-            const result = await MagicLinkService.requestMagicLink(email);
+            const result = await AuthService.requestMagicLink(email);
             if (result.success) {
-                setDemoToken(result.demoToken);
+                // Determine step (passwordless might just say "check email", while demo might auto-login)
                 setStep('sent');
+            } else {
+                setError(result.error || 'Failed to send magic link. Please try again.');
             }
         } catch (err) {
-            setError('Failed to send magic link. Please try again.');
+            setError('An error occurred during sign in.');
         } finally {
             setIsLoading(false);
         }
     };
 
-    const handleVerifyToken = async (token) => {
+    const handleVerifyToken = async () => {
+        // Since we are moving to real Firebase Auth, the actual verification usually happens on a different route (e.g. /verify)
+        // For development/demo purposes without checking inbox, we can simulate an immediate sign-in with Google or a mock token
         setStep('verifying');
         try {
-            const result = await MagicLinkService.verifyMagicLink(token);
-            if (result.success) {
-                // Map Magic Link user to App user structure
+            // Using a generic sign in for demo if we want to bypass the email flow
+            const result = await AuthService.signInWithGoogle();
+            if (result.user) {
                 onLogin({
-                    name: result.user.name || 'Student',
+                    name: result.user.displayName || 'Student',
                     email: result.user.email,
-                    role: result.user.role || 'student',
-                    id: result.user.id
-                }, result.isNewUser);
+                    role: result.customClaims?.role || 'student',
+                    id: result.user.uid
+                }, false);
             } else {
-                setError(result.error);
+                setError('Google sign-in failed');
                 setStep('error');
             }
         } catch (err) {
-            setError('Verification failed');
+            setError('Sign-in failed');
             setStep('error');
         }
     };
@@ -126,11 +129,11 @@ export const AuthScreen = ({ onLogin, onGuest }) => {
 
                             {/* Demo Action */}
                             <button
-                                onClick={() => handleVerifyToken(demoToken)}
+                                onClick={handleVerifyToken}
                                 className="w-full py-3 bg-slate-50 border-2 border-dashed border-slate-300 text-slate-500 hover:text-[#8B2332] hover:border-[#8B2332] rounded-xl font-medium transition-colors mb-6 flex items-center justify-center gap-2"
                             >
                                 <span className="text-xs font-bold uppercase tracking-wider bg-slate-200 text-slate-600 px-2 py-0.5 rounded">Demo</span>
-                                Click to Simulate Login
+                                Bypass Email - Sign in with Google
                             </button>
 
                             <button onClick={() => setStep('email')} className="text-slate-400 hover:text-slate-600 text-sm font-medium">Use a different email</button>

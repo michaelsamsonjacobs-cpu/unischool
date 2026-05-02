@@ -1,0 +1,515 @@
+{
+  "course": {
+    "id": "PSY-101",
+    "title": "Introduction to Psychology",
+    "institution": "ASU Online",
+    "department": "Psychology"
+  },
+  "chapter": {
+    "id": "ch07-learning-conditioning",
+    "title": "Learning: Classical and Operant Conditioning",
+    "order": 7,
+    "canvas_module_ids": ["mod_7_1", "mod_7_2", "mod_7_3"],
+    "estimated_play_time": "30 min"
+  },
+  "narrative": {
+    "id": "xp_psy101_ch07_algorithm",
+    "title": "The Algorithm",
+    "subtitle": "Design an App. Discover You're the Product.",
+    "setting": "A sleek tech startup office in San Francisco, 2026. You've landed a summer UX design internship at Prism — a social media app with 200 million users. Your job: increase 'engagement.' The tools they give you are straight from a psychology textbook. By the end of the day, you'll realize you're not just designing an app — you're engineering human behavior. Including your own.",
+    "art_style": "Clean tech aesthetic, glassmorphism UI elements, soft neon gradients, dark mode interface with floating holographic metrics, Silicon Valley minimalism with unsettling undertones, notification glow effects",
+    "characters": [
+      {
+        "id": "vera",
+        "name": "Vera",
+        "role": "mentor",
+        "personality": "Head of Growth. Brilliant, morally ambiguous. Never tells you the full picture — lets you discover the ethical weight yourself. Speaks in data. Shows you graphs instead of giving lectures. Always has a metric open on her screen.",
+        "voice_id": "female_measured_intelligent"
+      },
+      {
+        "id": "sam",
+        "name": "Sam",
+        "role": "challenger",
+        "personality": "A fellow intern who quit a neuroscience PhD. Sees through the corporate language. Drops truth bombs about what the 'engagement metrics' actually mean. The conscience of the story. Speaks bluntly and asks uncomfortable questions.",
+        "voice_id": "male_direct_honest"
+      }
+    ],
+    "entry_node_id": "n_opening",
+    "exit_node_ids": ["n_end_ship", "n_end_refuse"],
+    "total_nodes": 20,
+    "estimated_play_time": "30 min",
+    "concept_map": [
+      { "concept": "Classical conditioning", "description": "Learning through association — a neutral stimulus becomes associated with an automatic response", "main_nodes": ["n_02", "n_03", "n_04", "n_05"] },
+      { "concept": "Operant conditioning", "description": "Learning through consequences — behaviors increase when reinforced, decrease when punished", "main_nodes": ["n_07", "n_08", "n_09", "n_10"] },
+      { "concept": "Reinforcement schedules", "description": "Fixed vs variable schedules of reinforcement and their effects on behavior", "main_nodes": ["n_11", "n_12", "n_13"] },
+      { "concept": "Extinction", "description": "Weakening of a conditioned response when reinforcement stops", "main_nodes": ["n_14", "n_15", "n_16"] },
+      { "concept": "Stimulus generalization", "description": "Responding to stimuli similar to the conditioned stimulus", "main_nodes": ["n_05", "n_06"] },
+      { "concept": "Ethical application", "description": "Understanding the responsibility of applying behavioral psychology", "main_nodes": ["n_17", "n_18", "n_form"] }
+    ],
+    "answer_map": {
+      "strongest_path": ["n_opening", "n_01", "n_02", "n_03", "n_07", "n_08", "n_11", "n_12", "n_14", "n_15", "n_17", "n_form", "n_end_refuse"],
+      "misconception_rich_path": ["n_opening", "n_01", "n_02", "n_04", "n_05", "n_06", "n_07", "n_09", "n_10", "n_11", "n_13", "n_14", "n_16", "n_17", "n_18", "n_form", "n_end_ship"],
+      "convergence_nodes": ["n_07", "n_11", "n_14", "n_17", "n_form"],
+      "formalization_nodes": ["n_08", "n_form"],
+      "total_concepts_covered": 6
+    },
+    "nodes": [
+      {
+        "id": "n_opening",
+        "type": "scene",
+        "scene_text": "The office doesn't look evil.\n\nGlass walls. Standing desks. A kombucha tap. Someone's golden retriever sleeps under a monitor showing real-time user data.\n\n200 million people are using this app right now. Right now, as you stand here on your first day.\n\nThe Head of Growth hands you a tablet with a single metric displayed:\n\nDAILY ACTIVE USERS: 200,412,847\nAVERAGE SESSION TIME: 38 minutes\n\nShe says one thing.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Your job this summer is to get that 38 to 55. Seventeen more minutes per user per day." },
+          { "character": "vera", "text": "That's 56 million additional hours of human attention. Per day. Do you know what that's worth?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_01", "xp_bonus": 0 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A sleek Silicon Valley tech office with glass walls, standing desks, a large dashboard showing 200 million active users, glassmorphism UI floating in the air, soft neon gradients, a woman in business casual presenting metrics, unsettlingly beautiful",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_01",
+        "type": "decision",
+        "scene_text": "Your first assignment: the notification system.\n\nVera pulls up a heat map of user behavior. There's a clear pattern — users check the app within 2 seconds of receiving a notification. Every time.\n\nShe asks you a question that sounds innocent.\n\nA fellow intern — Sam — looks up from his desk with an expression you'll come to understand later.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Why do you think users check their phone the instant they hear our notification sound?" },
+          { "character": "sam", "text": "Because we trained them to." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"They check because the notification might be something important.\"", "next_node": "n_02", "hidden_tag": "association_intuition", "xp_bonus": 15 },
+          { "id": "b", "text": "\"It's just habit — they don't even think about it.\"", "next_node": "n_04", "hidden_tag": "automatic_response", "xp_bonus": 10 },
+          { "id": "c", "text": "\"People are just naturally curious about their phones.\"", "next_node": "n_04", "hidden_tag": "nature_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["classical_conditioning"],
+          "misconception_tested": null,
+          "convergence_target": "n_07",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A heat map showing user behavior spikes after notifications, 2-second response time highlighted, phone notification bubbles floating in the air, tech office background, data visualization with soft neon glow",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_02",
+        "type": "decision",
+        "scene_text": "Vera nods.\n\n\"Might be something important.\" That's the key word. MIGHT.\n\nShe draws a timeline on the glass wall:\n\nIn the beginning, the notification sound was meaningless. Just a chime.\n\nThen we paired it with social rewards — likes, comments, messages from friends. Things that naturally trigger a dopamine response.\n\nAfter thousands of pairings: chime + social reward, chime + social reward, chime + social reward...\n\nNow the CHIME ALONE triggers the dopamine rush. Before they even look at the screen.\n\nSam watches your face as this registers.",
+        "character_dialogue": [
+          { "character": "vera", "text": "The chime used to mean nothing. Now it means dopamine. We built that association." },
+          { "character": "sam", "text": "There's a name for this. A Russian scientist figured it out with dogs 120 years ago." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"This is Pavlov's experiment — but with phones instead of bells.\"", "next_node": "n_03", "hidden_tag": "pavlov_correct", "xp_bonus": 25 },
+          { "id": "b", "text": "\"But people aren't dogs — they choose to check their phones.\"", "next_node": "n_05", "hidden_tag": "choice_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["classical_conditioning"],
+          "misconception_tested": "humans_choose_rationally",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A timeline drawn on a glass wall showing the pairing of notification sounds with social rewards, Pavlovian conditioning diagram reimagined for smartphones, chime icon paired with heart/like icons, dopamine molecule floating, tech office aesthetic",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_03",
+        "type": "scene",
+        "scene_text": "Exactly.\n\nPavlov's dog heard a bell, then received food. After enough pairings, the bell alone made the dog salivate.\n\nYour users hear a chime, then receive social validation. After enough pairings, the chime alone triggers anticipation and a dopamine spike.\n\nBELL → FOOD → SALIVATION (natural)\nBELL alone → SALIVATION (learned)\n\nCHIME → LIKES → DOPAMINE (natural)\nCHIME alone → DOPAMINE (learned)\n\nThe mechanism is identical. The technology is 120 years old. The platform is new.\n\nSam leans over.",
+        "character_dialogue": [
+          { "character": "sam", "text": "Pavlov's dog had no choice. It was automatic. Reflexive." },
+          { "character": "sam", "text": "Now ask yourself: do YOU choose to check your phone? Or does the chime make you?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the next design challenge", "next_node": "n_07", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["classical_conditioning"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Split comparison showing Pavlov's bell-and-dog experiment on the left and a smartphone notification triggering dopamine on the right, parallel conditioning diagrams, clean modern infographic style on glass, tech aesthetic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_04",
+        "type": "decision",
+        "scene_text": "Sam pushes back on your answer.\n\nHe opens his own phone. He plays the Prism notification sound.\n\nYour hand twitches toward your pocket. Involuntarily. Before your conscious mind even registers what happened.\n\nSam saw it.",
+        "character_dialogue": [
+          { "character": "sam", "text": "Did you choose to reach for your phone just now? Or did your hand move before you decided?" },
+          { "character": "sam", "text": "That twitch isn't 'curiosity.' It's a conditioned response. You've been trained." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"That's... an automatic response. Like Pavlov's dogs.\"", "next_node": "n_05", "hidden_tag": "pavlov_click", "xp_bonus": 20 },
+          { "id": "b", "text": "\"I was just startled by the sound.\"", "next_node": "n_05", "hidden_tag": "denial", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["classical_conditioning"],
+          "misconception_tested": "humans_are_rational",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person's hand involuntarily twitching toward their pocket when hearing a notification sound, the moment captured in slow motion, the gap between stimulus and conscious thought visualized, tech office, dramatic close-up",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_05",
+        "type": "decision",
+        "scene_text": "Vera shows you something worse.\n\nShe plays four different notification sounds: Prism's, Instagram's, Slack's, and iMessage.\n\nYour body responded to ALL of them. Different sound, same twitch.\n\nYou weren't conditioned to one specific chime. You were conditioned to notification sounds AS A CATEGORY.\n\nThe response generalized.",
+        "character_dialogue": [
+          { "character": "vera", "text": "This is called stimulus generalization. You learned to respond to one bell — and now all similar bells trigger the same response." },
+          { "character": "sam", "text": "Pavlov found the same thing. Dogs conditioned to a specific tone also salivated to similar tones." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the conditioning spreads beyond the original stimulus to anything similar.\"", "next_node": "n_06", "hidden_tag": "generalization_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"That's just because all notification sounds sound similar.\"", "next_node": "n_06", "hidden_tag": "dismissal", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["stimulus_generalization", "classical_conditioning"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Four different app notification icons floating in the air, each triggering the same dopamine response visualization, stimulus generalization diagram, multiple bells leading to one salivation response, tech glass wall aesthetic",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_06",
+        "type": "scene",
+        "scene_text": "Vera sees your face change. You're starting to see the design differently.\n\nEvery buzz, chime, and badge isn't a feature. It's a conditioned stimulus — an artificial bell designed to trigger a response that bypasses conscious choice.\n\nAnd if the response generalizes to ALL notifications, then every app benefits from every other app's conditioning.\n\nThe entire notification ecosystem is a Pavlovian machine running 24/7 in your pocket.",
+        "character_dialogue": [
+          { "character": "sam", "text": "You're not designing features. You're designing reflexes." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the next layer", "next_node": "n_07", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["stimulus_generalization"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A smartphone with multiple notification badges from different apps, each one a Pavlovian bell, the entire phone as a conditioning machine, seen from above with the user's hand reaching automatically, unsettling tech aesthetic",
+          "ambient_sound": "wind_shift"
+        }
+      },
+      {
+        "id": "n_07",
+        "type": "convergence",
+        "scene_text": "Afternoon.\n\nVera moves to the second system. \"Notifications get them in. But what keeps them scrolling?\"\n\nShe shows you the content feed algorithm. Every action the user takes — every like, comment, share, save — changes what the algorithm shows next.\n\nLike a post about cooking? More cooking content appears.\nSkip travel photos? Fewer travel photos shown.\n\nThe user's behavior is shaping their own experience. But not randomly — the algorithm is REINFORCING the behaviors that keep them engaged.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Classical conditioning gets them to open the app. The second system keeps them inside it." },
+          { "character": "vera", "text": "What do you think happens to a behavior when it's consistently followed by something the user enjoys?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The behavior increases — they do more of whatever got rewarded.\"", "next_node": "n_08", "hidden_tag": "reinforcement_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"They eventually get bored and stop.\"", "next_node": "n_09", "hidden_tag": "boredom_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["operant_conditioning"],
+          "misconception_tested": null,
+          "convergence_target": "n_11",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A content feed algorithm visualization showing user actions (like, comment, share) connected to reward signals, a behavior feedback loop rendered as a glowing cycle, glassmorphism UI, dark mode tech aesthetic",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_08",
+        "type": "formalization",
+        "scene_text": "Vera names it.\n\nOPERANT CONDITIONING.\n\nUnlike Pavlov's dogs, this isn't about automatic reflexes to stimuli. This is about VOLUNTARY behavior shaped by its consequences.\n\nBehavior → Consequence → Behavior changes.\n\nLike a post → Algorithm rewards with more content you enjoy → You like more posts.\nComment → You receive replies and engagement → You comment more.\nShare → Friends respond → You share more.\n\nEvery positive consequence is a REINFORCER. It strengthens the behavior that preceded it.\n\nB.F. Skinner mapped this in rats and pigeons in the 1930s. Now it runs every social media feed on earth.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Skinner's box was a cage with a lever. Press the lever, get food. The rat learns to press." },
+          { "character": "sam", "text": "Your phone is a Skinner box. The lever is the like button. The food is dopamine." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So every like button is a lever in a Skinner box.\"", "next_node": "n_11", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["operant_conditioning"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Split image: a Skinner box with a rat pressing a lever on the left, a smartphone with a thumb pressing a like button on the right, parallel operant conditioning, clean modern academic infographic on glass wall",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_09",
+        "type": "decision",
+        "scene_text": "Vera shows you the data that destroys the boredom theory.\n\nAverage session time isn't declining — it's INCREASING. Year over year. Users aren't getting bored. They're getting more engaged.\n\nWhy? Because the algorithm gets smarter. It learns what each user responds to and feeds them more of it. The reinforcement becomes more precise over time.\n\nThe rat doesn't get bored with the lever if you keep changing the flavor of the food.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Boredom happens when reinforcement is predictable and repetitive. We make sure it's neither." },
+          { "character": "sam", "text": "It's not that they don't get bored. It's that we adapt faster than their boredom can form." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the key to sustained engagement is varying the reward, not just repeating it.\"", "next_node": "n_10", "hidden_tag": "variable_reward_insight", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["operant_conditioning"],
+          "misconception_tested": "users_get_bored",
+          "is_error_path": true,
+          "correction_text": "Operant conditioning doesn't lead to boredom when reinforcement is varied and unpredictable. The algorithm continuously adapts the reward to maintain engagement — which is precisely why variable reinforcement schedules are more powerful than fixed ones."
+        },
+        "media": {
+          "scene_image_prompt": "A graph showing average session time increasing year over year, algorithm learning curve getting smarter, user engagement rising, the data contradicting the boredom theory, tech dashboard, neon data visualization",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_10",
+        "type": "scene",
+        "scene_text": "That insight leads directly to the most powerful weapon in the designer's toolkit.\n\nThe schedule of reinforcement.\n\nNot WHAT the reward is — but WHEN it arrives.",
+        "character_dialogue": [
+          { "character": "vera", "text": "This is where it gets dangerous." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_11", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["operant_conditioning", "reinforcement_schedules"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A clock and a reward icon connected by a question mark, the concept of WHEN rewards arrive, suspenseful design, glassmorphism floating UI elements, dark background with subtle neon, anticipatory mood",
+          "ambient_sound": "wind_shift"
+        }
+      },
+      {
+        "id": "n_11",
+        "type": "convergence",
+        "scene_text": "Vera presents two feed designs.\n\nDesign A: Every 5th scroll shows a post you love. Predictable. Reliable.\n\nDesign B: Sometimes it's the 3rd scroll. Sometimes the 12th. Sometimes two in a row. Sometimes nothing for 20 scrolls. Completely unpredictable.\n\nShe asks which one keeps users scrolling longer.",
+        "character_dialogue": [
+          { "character": "vera", "text": "One of these designs produces 3x more scroll time. Which one?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "Design B — the unpredictable one.", "next_node": "n_12", "hidden_tag": "variable_correct", "xp_bonus": 25 },
+          { "id": "b", "text": "Design A — reliable rewards keep people coming back.", "next_node": "n_13", "hidden_tag": "fixed_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["reinforcement_schedules"],
+          "misconception_tested": null,
+          "convergence_target": "n_14",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two phone screens side by side: Design A with evenly spaced heart icons (fixed schedule), Design B with randomly spaced hearts (variable schedule), A/B test comparison, clean tech aesthetic, which produces more engagement?",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_12",
+        "type": "scene",
+        "scene_text": "Correct. And it's not close.\n\nVariable reinforcement schedules produce dramatically more persistent behavior than fixed schedules. The unpredictability IS the hook.\n\nThis is why slot machines are addictive and vending machines are not. The vending machine gives you a predictable reward every time. The slot machine gives you random rewards at random intervals.\n\nInfinite scroll is a slot machine. Every swipe MIGHT show you something amazing. Or nothing. The uncertainty drives the behavior.\n\nSam says something that lands harder than anything Vera has said all day.",
+        "character_dialogue": [
+          { "character": "sam", "text": "This is the same mechanism as gambling addiction. Exact same neural pathway. Exact same schedule." },
+          { "character": "sam", "text": "We just don't call it gambling because there's no money involved. But the dopamine doesn't know the difference." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue", "next_node": "n_14", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["reinforcement_schedules"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A slot machine morphing into a smartphone with an infinite scroll feed, the same variable reinforcement mechanism shown in both, gambling addction paralleled with social media, split visual, unsettling tech aesthetic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_13",
+        "type": "scene",
+        "scene_text": "Vera shows you the data.\n\nDesign A (fixed schedule): Users scroll to the reward, get it, then stop. Average session: 4 minutes.\n\nDesign B (variable schedule): Users keep scrolling because the next reward MIGHT be one swipe away. Average session: 14 minutes.\n\nPredictable rewards satisfy. Unpredictable rewards create anticipation that never fully resolves.\n\nThis is why you can put your phone down after reading a specific text, but can't stop scrolling a feed. The text is a fixed reward. The feed is a slot machine.",
+        "character_dialogue": [
+          { "character": "vera", "text": "Skinner found the same thing in 1957. Pigeons on variable schedules pecked the lever thousands of times. Fixed-schedule pigeons stopped as soon as they were satisfied." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Variable reinforcement creates behavior that's harder to stop.\"", "next_node": "n_14", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["reinforcement_schedules"],
+          "misconception_tested": "predictable_rewards_are_better",
+          "is_error_path": true,
+          "correction_text": "Variable reinforcement schedules produce more persistent behavior than fixed schedules. The unpredictability prevents satiation and creates anticipation that drives continued engagement."
+        },
+        "media": {
+          "scene_image_prompt": "Bar chart comparing Design A (4 min) vs Design B (14 min) session times, 3.5x difference highlighted, the power of unpredictability visualized, tech dashboard, dramatic data comparison",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_14",
+        "type": "convergence",
+        "scene_text": "End of the day. Your designs are working. Session time is up 12% in A/B testing.\n\nVera is pleased. The metrics look great.\n\nThen Sam asks you a question:\n\n\"What happens if a user tries to quit?\"",
+        "character_dialogue": [
+          { "character": "sam", "text": "If we stop rewarding a behavior, does the behavior disappear? Classical conditioning, operant conditioning — what happens when the reinforcement stops?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The behavior slowly decreases — extinction.\"", "next_node": "n_15", "hidden_tag": "extinction_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"The behavior continues because the habit is already formed.\"", "next_node": "n_16", "hidden_tag": "permanent_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["extinction"],
+          "misconception_tested": null,
+          "convergence_target": "n_17",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person holding their phone with a finger hovering over the Delete App button, the question of what happens when reinforcement stops, sunset light through office windows, contemplative moment, tech meets introspection",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_15",
+        "type": "scene",
+        "scene_text": "Sam nods.\n\nExtinction. When the conditioned stimulus is no longer paired with the unconditioned stimulus — when the notification no longer leads to a reward — the conditioned response weakens.\n\nBut here's the terrible part:\n\nVariable reinforcement schedules are RESISTANT to extinction. Much more so than fixed schedules.\n\nThe slot machine player doesn't stop when they lose ten times in a row — because the schedule has taught them that a win COULD come at any moment. The dry spells are indistinguishable from the pattern.\n\nThis is why social media habits are so hard to break. The variable schedule makes the user believe the reward is always just one more scroll away.",
+        "character_dialogue": [
+          { "character": "sam", "text": "We didn't just make it engaging. We made it almost impossible to stop." },
+          { "character": "sam", "text": "Variable schedules resist extinction. That's not a feature. That's an ethical problem." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the final decision", "next_node": "n_17", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["extinction", "reinforcement_schedules"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "An extinction curve showing behavior decreasing slowly on variable schedule vs quickly on fixed, the resistance visualized, a person unable to put down their phone despite wanting to, split between data and human moment",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_16",
+        "type": "scene",
+        "scene_text": "Sam tests it.\n\nVera turns off all notifications on Sam's phone for a week. No chimes. No badges. No alerts.\n\nDay 1: Sam checks the app 34 times. Habit.\nDay 2: 28 times.\nDay 3: 19 times.\nDay 5: 8 times.\nDay 7: 2 times.\n\nThe behavior didn't last forever. Without reinforcement, it extinguished. Slowly, because variable schedules are resistant to extinction — but it still faded.\n\nConditioned responses require continued reinforcement or they weaken. No behavior is truly permanent.",
+        "character_dialogue": [
+          { "character": "sam", "text": "I thought I was addicted. Turns out I was conditioned. And conditioning can be undone." },
+          { "character": "vera", "text": "Which is exactly why we send re-engagement notifications. We don't let extinction happen." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the company actively prevents extinction to maintain engagement.\"", "next_node": "n_17", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["extinction"],
+          "misconception_tested": "conditioning_is_permanent",
+          "is_error_path": true,
+          "correction_text": "Conditioned responses are not permanent. Without continued reinforcement, both classically and operantly conditioned behaviors weaken over time — this is extinction. However, companies design re-engagement systems to prevent extinction from completing."
+        },
+        "media": {
+          "scene_image_prompt": "A graph showing app checks per day declining from 34 to 2 over one week without notifications, extinction curve in action, the behavior fading, clean data visualization, glass wall in tech office",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_17",
+        "type": "convergence",
+        "scene_text": "End of your first week.\n\nYour engagement designs are ready to ship. The session time increase is proven. Vera wants to push them to 200 million users on Monday.\n\nSam catches you in the elevator.\n\nHe asks the question that changes everything.",
+        "character_dialogue": [
+          { "character": "sam", "text": "You now know classical conditioning, operant conditioning, variable reinforcement, and extinction resistance." },
+          { "character": "sam", "text": "The psychology is real. The science works. But here's my question:" },
+          { "character": "sam", "text": "Just because you CAN engineer someone's behavior — should you?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The users chose to download the app. This is their choice.\"", "next_node": "n_18", "hidden_tag": "consent_justification", "xp_bonus": 10 },
+          { "id": "b", "text": "\"If the conditioning bypasses conscious choice, it's not really 'their choice.'\"", "next_node": "n_form", "hidden_tag": "ethical_realization", "xp_bonus": 25 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["ethical_application"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Two people in an elevator, one asking a difficult ethical question, the city visible through glass behind them, sunset, the weight of a moral decision, modern Silicon Valley building, cinematic contemplative moment",
+          "ambient_sound": "reflection_peaceful"
+        }
+      },
+      {
+        "id": "n_18",
+        "type": "scene",
+        "scene_text": "Sam doesn't argue. He just reminds you of what you learned today.\n\nThe notification response is automatic — the user doesn't choose it. (Classical conditioning.)\n\nThe scrolling behavior is reinforced — the algorithm shapes it without the user's awareness. (Operant conditioning.)\n\nThe variable schedule makes stopping nearly impossible. (Resistance to extinction.)\n\nAt what point is consent meaningful if every mechanism you designed specifically bypasses deliberate choice?\n\nThat's not a psychology question. That's an ethics question. And you're the one who has to answer it.",
+        "character_dialogue": [
+          { "character": "sam", "text": "Consent assumes awareness. We just spent the whole day designing systems that work BECAUSE users aren't aware of them." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to formalization", "next_node": "n_form", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["ethical_application"],
+          "misconception_tested": "users_always_consent",
+          "is_error_path": true,
+          "correction_text": "Classical and operant conditioning operate below the level of conscious choice. When behavioral engineering specifically targets automatic, non-conscious responses, traditional notions of 'informed consent' break down."
+        },
+        "media": {
+          "scene_image_prompt": "A person reflecting on the mechanisms they designed today, notification bells, Skinner box, variable schedules all floating around them as ghost images, the weight of the knowledge, sunset through glass walls, contemplative",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_form",
+        "type": "formalization",
+        "scene_text": "Monday morning.\n\nBefore the designs ship, you write down what you learned. Not for Vera. For yourself.\n\n—— CLASSICAL CONDITIONING ——\nNeutral stimulus (notification chime) + Unconditioned stimulus (social reward)\n→ Repeated pairing → Chime alone triggers anticipation (conditioned response)\nStimulus generalization: The response spreads to similar stimuli.\n\n—— OPERANT CONDITIONING ——\nBehavior (scrolling) → Consequence (rewarding content) → Behavior increases.\nPositive reinforcement: Adding a pleasant consequence to strengthen behavior.\n\n—— REINFORCEMENT SCHEDULES ——\nFixed: Predictable rewards → moderate engagement, easy to extinguish.\nVariable: Unpredictable rewards → high engagement, resistant to extinction.\nInfinite scroll = variable-ratio schedule = slot machine logic.\n\n—— EXTINCTION ——\nRemove reinforcement → behavior weakens over time.\nVariable schedules resist extinction. Companies prevent extinction with re-engagement.\n\nYou know the science now. What you do with it is your call.",
+        "character_dialogue": [
+          { "character": "vera", "text": "The designs are ready to ship. Your call." },
+          { "character": "sam", "text": "Whatever you decide — you'll never look at your phone the same way again." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Ship the designs — the engagement improvement is real and users want content they enjoy.", "next_node": "n_end_ship", "hidden_tag": "pragmatic", "xp_bonus": 15 },
+          { "id": "b", "text": "Refuse to ship — recommend ethical design alternatives with more user control.", "next_node": "n_end_refuse", "hidden_tag": "ethical_stand", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["classical_conditioning", "operant_conditioning", "reinforcement_schedules", "extinction", "ethical_application"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A comprehensive formalization diagram on a glass wall showing classical conditioning, operant conditioning, reinforcement schedules, and extinction, connected to smartphone UX examples, the complete psychological framework, modern academic infographic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_end_ship",
+        "type": "end",
+        "scene_text": "You ship the designs.\n\nSession time increases 17 minutes. Exactly what Vera asked for.\n\n56 million additional hours of human attention per day, captured by the systems you built.\n\nVera offers you a full-time position.\n\nIn the elevator that evening, you hear the Prism notification sound from three different phones around you. Every person reaches for their pocket automatically.\n\nYou designed that reflex.\n\nYou understand, now, that psychology is not just something that happens to other people. It is a tool. It is a weapon. And the person holding it decides what it becomes.\n\nYour phone buzzes. You reach for it.\n\nYou pause.\n\nFor the first time, you know exactly why your hand moved. And knowing is the beginning of choosing.",
+        "character_dialogue": [],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person in an elevator surrounded by people all reaching for their phones simultaneously at a notification sound, the designer watching them knowing they created this reflex, sunset through glass, bittersweet cinematic moment, the weight of knowledge",
+          "ambient_sound": "reflection_peaceful"
+        }
+      },
+      {
+        "id": "n_end_refuse",
+        "type": "end",
+        "scene_text": "You don't ship.\n\nInstead, you propose an alternative: transparent engagement design. Show users their own statistics. Let them set time limits. Make the reinforcement schedule visible.\n\n\"We can build engagement AND agency,\" you tell Vera.\n\nVera listens. She doesn't agree — but she doesn't fire you either.\n\nSam smiles for the first time all week.\n\nYou leave the office and your phone buzzes. You look at it — but this time, you notice the mechanism. The chime. The anticipation. The twitch.\n\nYou put the phone back in your pocket.\n\nNot because the conditioning disappeared. It didn't. But because you can see it now.\n\nAnd seeing it is the first step to being free of it.\n\nThat's what psychology gives you. Not control over others.\n\nControl over yourself.",
+        "character_dialogue": [],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": ["ethical_application"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A person walking out of a tech office into sunset, phone buzzing in pocket but not being checked, freedom and self-awareness, the choice to not be controlled by conditioning, cinematic wide shot, warm golden light, empowering closing image",
+          "ambient_sound": "triumph_orchestral"
+        }
+      }
+    ]
+  }
+}

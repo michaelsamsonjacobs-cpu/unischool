@@ -14,6 +14,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
         { id: 'about', label: 'About Us' },
         { id: 'partners', label: 'University Partners' },
         { id: 'franchise', label: 'Franchise Nodes' },
+        { id: 'basics', label: 'Demo Day', badge: 'May 1' },
     ];
 
     return (
@@ -56,19 +57,24 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <button
                                     key={link.id}
                                     onClick={() => onNavigate(link.id)}
-                                    className={`text-sm font-semibold transition-colors hover:text-[#8B2332] ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
+                                    className={`text-sm font-semibold transition-colors hover:text-[#8B2332] flex items-center gap-1.5 ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
                                         }`}
                                 >
                                     {link.label}
+                                    {link.badge && (
+                                        <span className="px-1.5 py-0.5 rounded-full bg-[#C9B47C]/15 text-[#C9B47C] text-[9px] font-bold uppercase tracking-wider border border-[#C9B47C]/20">
+                                            {link.badge}
+                                        </span>
+                                    )}
                                 </button>
                             ))}
-                            <button
-                                onClick={() => onNavigate('cockpit')}
+                            <a
+                                href="mailto:info@universityschool.ai"
                                 className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-2 group"
                             >
-                                Student Login
+                                Contact Us
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -91,18 +97,23 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                     onNavigate(link.id);
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className={`block w-full text-left py-2 text-base font-medium ${activePage === link.id ? 'text-[#C9B47C]' : 'text-slate-300'
+                                className={`block w-full text-left py-2 text-base font-medium flex items-center gap-2 ${activePage === link.id ? 'text-[#C9B47C]' : 'text-slate-300'
                                     }`}
                             >
                                 {link.label}
+                                {link.badge && (
+                                    <span className="px-1.5 py-0.5 rounded-full bg-[#C9B47C]/20 text-[#C9B47C] text-[9px] font-bold uppercase">
+                                        {link.badge}
+                                    </span>
+                                )}
                             </button>
                         ))}
-                        <button
-                            onClick={() => onNavigate('cockpit')}
-                            className="w-full bg-[#8B2332] text-white px-5 py-3 rounded-xl font-semibold mt-4"
+                        <a
+                            href="mailto:info@universityschool.ai"
+                            className="block w-full bg-[#8B2332] text-white px-5 py-3 rounded-xl font-semibold mt-4 text-center"
                         >
-                            Student Login
-                        </button>
+                            Contact Us
+                        </a>
                     </div>
                 )}
             </nav>
@@ -136,10 +147,10 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                         <div>
                             <h4 className="font-semibold text-[#2D2D2D] mb-4">Platform</h4>
                             <ul className="space-y-2 text-sm text-slate-600">
-                                <li><button onClick={() => onNavigate('students')} className="hover:text-[#8B2332] transition-colors">Student Cockpit</button></li>
+                                <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
                                 <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">Transfer Matrix</button></li>
                                 <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Center</button></li>
-                                <li><a href="#" className="hover:text-[#8B2332] transition-colors">University School OS</a></li>
+                                <li><button onClick={() => onNavigate('basics')} className="hover:text-[#8B2332] transition-colors">BASICS Demo Day</button></li>
                             </ul>
                         </div>
 

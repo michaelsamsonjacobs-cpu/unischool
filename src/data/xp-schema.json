@@ -1,0 +1,197 @@
+{
+  "$schema": "XP Engine Schema v1.0",
+  "entities": {
+    "XPCourse": {
+      "description": "A university course mapped to interactive XP missions",
+      "fields": {
+        "id": "string — unique course identifier (e.g., PHY-101)",
+        "title": "string — display name",
+        "institution": "string — source institution (e.g., ASU Online)",
+        "department": "string — academic department",
+        "chapters": "XPChapter[] — ordered list of chapters",
+        "metadata": {
+          "credit_hours": "number",
+          "canvas_course_id": "string | null — LMS course mapping",
+          "accreditation": "string — e.g., HLC",
+          "difficulty_level": "beginner | intermediate | advanced"
+        },
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      }
+    },
+    "XPChapter": {
+      "description": "A single chapter/module within a course",
+      "fields": {
+        "id": "string — unique chapter identifier",
+        "course_id": "string — parent course",
+        "title": "string",
+        "order": "number — sequence within course",
+        "source_materials": "SourceMaterial[]",
+        "concept_graph": "ConceptGraph",
+        "narrative_graph": "NarrativeGraph | null",
+        "pipeline_status": "ingested | concepts_extracted | narrative_generated | art_generated | published | archived",
+        "canvas_module_ids": "string[] — ASU Canvas module mappings",
+        "estimated_play_time": "string — e.g., 45 min"
+      }
+    },
+    "SourceMaterial": {
+      "description": "Raw content ingested from university sources",
+      "fields": {
+        "id": "string",
+        "type": "lecture_video | textbook_chapter | slides | syllabus",
+        "source_url": "string | null",
+        "file_path": "string | null",
+        "transcript": "string — extracted/transcribed text",
+        "timestamps": "TimestampEntry[] — for video sources",
+        "speakers": "SpeakerSegment[] — diarization results",
+        "slide_text": "SlideEntry[] — OCR from slides/video frames",
+        "metadata": {
+          "duration_seconds": "number | null",
+          "page_count": "number | null",
+          "language": "string — ISO 639-1",
+          "transcription_model": "string — e.g., whisper-large-v3-turbo"
+        }
+      }
+    },
+    "ConceptGraph": {
+      "description": "DAG of academic concepts extracted from source material",
+      "fields": {
+        "id": "string",
+        "chapter_id": "string",
+        "concepts": "Concept[]",
+        "edges": "ConceptEdge[]",
+        "generation_model": "string — LLM used for extraction",
+        "reviewed": "boolean — human-reviewed flag",
+        "reviewed_by": "string | null"
+      }
+    },
+    "Concept": {
+      "description": "A single academic concept",
+      "fields": {
+        "id": "string — e.g., c_newtons_first_law",
+        "name": "string — display name",
+        "description": "string — detailed explanation",
+        "prerequisites": "string[] — concept IDs required before this",
+        "misconceptions": "Misconception[]",
+        "bloom_level": "remember | understand | apply | analyze | evaluate | create",
+        "source_positions": "SourcePosition[]",
+        "assessment_criteria": "string — how to verify understanding",
+        "keywords": "string[]"
+      }
+    },
+    "Misconception": {
+      "description": "A common student misconception about a concept",
+      "fields": {
+        "id": "string",
+        "text": "string — the wrong intuition",
+        "correction": "string — the correct understanding",
+        "frequency": "common | occasional | rare"
+      }
+    },
+    "NarrativeGraph": {
+      "description": "The branching interactive experience for a chapter",
+      "fields": {
+        "id": "string",
+        "chapter_id": "string",
+        "title": "string — mission display name",
+        "setting": "string — narrative world/scenario description",
+        "characters": "Character[]",
+        "nodes": "NarrativeNode[]",
+        "entry_node_id": "string — starting node",
+        "exit_node_ids": "string[] — ending nodes",
+        "answer_map": "AnswerMap",
+        "total_nodes": "number",
+        "estimated_play_time": "string",
+        "generation_model": "string",
+        "art_style": "string — consistent art prompt prefix",
+        "reviewed": "boolean",
+        "published": "boolean"
+      }
+    },
+    "Character": {
+      "description": "An NPC in the narrative",
+      "fields": {
+        "id": "string",
+        "name": "string",
+        "role": "string — e.g., mentor, challenger, guide",
+        "portrait_url": "string | null",
+        "voice_id": "string | null — TTS voice identifier",
+        "personality": "string — character description for LLM consistency"
+      }
+    },
+    "NarrativeNode": {
+      "description": "A single scene/decision point in the branching narrative",
+      "fields": {
+        "id": "string — e.g., n_01",
+        "scene_text": "string — narrative description the student sees",
+        "character_dialogue": "DialogueLine[]",
+        "choices": "Choice[]",
+        "hidden_pedagogy": {
+          "concepts_covered": "string[] — concept IDs taught at this node",
+          "misconception_tested": "string | null — misconception ID being probed",
+          "convergence_target": "string | null — node ID all paths converge to",
+          "is_error_path": "boolean",
+          "correction_text": "string | null — shown after error choice"
+        },
+        "media": {
+          "scene_image_url": "string | null — pre-generated",
+          "scene_image_prompt": "string — for AI generation",
+          "audio_narration_url": "string | null",
+          "ambient_sound": "string | null — sound effect key",
+          "animation": "string | null — transition animation type"
+        },
+        "type": "scene | decision | convergence | formalization | recap | end"
+      }
+    },
+    "Choice": {
+      "description": "A player decision option within a narrative node",
+      "fields": {
+        "id": "string — a, b, c, etc.",
+        "text": "string — what the student sees",
+        "next_node": "string — target node ID",
+        "hidden_tag": "string | null — pedagogical classification",
+        "xp_bonus": "number — extra XP for correct-intuition paths"
+      }
+    },
+    "AnswerMap": {
+      "description": "Production key for the narrative — hidden from students",
+      "fields": {
+        "strongest_path": "string[] — node ID sequence for best conceptual route",
+        "misconception_rich_path": "string[] — path that hits the most error corrections",
+        "convergence_nodes": "string[] — nodes where all paths meet",
+        "formalization_nodes": "string[] — nodes where formal concepts are revealed",
+        "total_concepts_covered": "number"
+      }
+    },
+    "XPSession": {
+      "description": "A student's play-through of a narrative mission",
+      "fields": {
+        "id": "string",
+        "student_id": "string",
+        "narrative_id": "string",
+        "course_id": "string",
+        "chapter_id": "string",
+        "current_node": "string — where they are now",
+        "decision_history": "DecisionEntry[]",
+        "concept_coverage": "object — { concept_id: boolean }",
+        "misconception_hits": "string[] — misconception IDs triggered",
+        "confidence_trend": "number[] — rolling confidence score",
+        "xp_earned": "number",
+        "status": "in_progress | completed | abandoned",
+        "started_at": "timestamp",
+        "completed_at": "timestamp | null",
+        "total_time_seconds": "number",
+        "compliance_mapping": "object — { canvas_module_id: covered_bool }"
+      }
+    },
+    "DecisionEntry": {
+      "description": "A single decision made during a session",
+      "fields": {
+        "node_id": "string",
+        "choice_id": "string",
+        "timestamp": "timestamp",
+        "time_spent_seconds": "number — how long they deliberated"
+      }
+    }
+  }
+}

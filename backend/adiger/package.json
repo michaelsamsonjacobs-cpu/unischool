@@ -1,0 +1,27 @@
+{
+  "name": "unischool-adiger",
+  "version": "2.1.0",
+  "description": "A-DIGER EdTech: Education Grant & Contract Discovery Engine — Automated solicitation discovery, scoring, and proposal generation pipeline for University School.",
+  "private": true,
+  "scripts": {
+    "dev": "npx tsx server.ts",
+    "sweep": "npx tsx scripts/rfp_scraper.ts",
+    "draft": "npx tsx scripts/run_auto_draft.ts",
+    "sanitize": "npx tsx scripts/proposal_sanitizer.ts",
+    "setup": "npm install",
+    "start": "npx tsx server.ts"
+  },
+  "dependencies": {
+    "@fastify/multipart": "^9.0.0",
+    "@fastify/static": "^8.0.0",
+    "cheerio": "^1.0.0",
+    "fastify": "^5.2.0",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

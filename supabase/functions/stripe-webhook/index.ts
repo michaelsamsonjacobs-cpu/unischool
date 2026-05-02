@@ -1,5 +1,6 @@
-// Supabase Edge Function for Stripe Webhook
-// Deploy this to Supabase: supabase functions deploy stripe-webhook
+// Supabase Edge Function: Enhanced Stripe Webhook Handler
+// Handles subscription lifecycle + franchise revenue allocation
+// Deploy: supabase functions deploy stripe-webhook
 
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
@@ -18,7 +19,7 @@ serve(async (req) => {
     const signature = req.headers.get('stripe-signature')
     const body = await req.text()
 
-    let event
+    let event: Stripe.Event
     try {
         event = stripe.webhooks.constructEvent(
             body,
@@ -26,75 +27,123 @@ serve(async (req) => {
             Deno.env.get('STRIPE_WEBHOOK_SECRET') ?? ''
         )
     } catch (err) {
-        console.error('Webhook signature verification failed:', err.message)
+        console.error('Webhook signature verification failed:', (err as Error).message)
         return new Response(JSON.stringify({ error: 'Invalid signature' }), { status: 400 })
     }
 
-    console.log('Received event:', event.type)
+    console.log('Received Stripe event:', event.type)
 
     switch (event.type) {
         case 'checkout.session.completed': {
-            const session = event.data.object
+            const session = event.data.object as Stripe.Checkout.Session
             const userId = session.metadata?.user_id
-            const customerId = session.customer
-            const subscriptionId = session.subscription
+            const franchiseId = session.metadata?.franchise_id || null
+            const customerId = session.customer as string
+            const subscriptionId = session.subscription as string
 
             if (userId && subscriptionId) {
-                // Get subscription details
                 const subscription = await stripe.subscriptions.retrieve(subscriptionId)
                 const priceId = subscription.items.data[0]?.price.id
 
-                // Determine plan from price
-                let plan = 'pro' // Default
-                if (priceId === Deno.env.get('STRIPE_TEAM_PRICE_ID')) {
-                    plan = 'team'
-                }
+                // Determine plan dynamically from price metadata or env vars
+                let plan = 'student'
+                const proPriceId = Deno.env.get('STRIPE_PRO_PRICE_ID')
+                const teamPriceId = Deno.env.get('STRIPE_TEAM_PRICE_ID')
+                const enterprisePriceId = Deno.env.get('STRIPE_ENTERPRISE_PRICE_ID')
+
+                if (priceId === teamPriceId) plan = 'team'
+                else if (priceId === enterprisePriceId) plan = 'enterprise'
+                else if (priceId === proPriceId) plan = 'pro'
 
                 // Upsert subscription record
                 await supabase.from('subscriptions').upsert({
                     user_id: userId,
+                    franchise_id: franchiseId || null,
                     stripe_customer_id: customerId,
                     stripe_subscription_id: subscriptionId,
+                    stripe_price_id: priceId,
                     plan: plan,
                     status: subscription.status,
-                    current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-                    updated_at: new Date().toISOString()
+                    current_period_start: new Date((subscription as any).current_period_start * 1000).toISOString(),
+                    current_period_end: new Date((subscription as any).current_period_end * 1000).toISOString(),
+                    updated_at: new Date().toISOString(),
                 }, { onConflict: 'user_id' })
+
+                // Audit log
+                await supabase.from('audit_log').insert({
+                    actor_id: userId,
+                    action: 'subscription.created',
+                    resource_type: 'subscription',
+                    franchise_id: franchiseId || null,
+                    new_data: { plan, subscription_id: subscriptionId, price_id: priceId },
+                })
             }
             break
         }
 
         case 'customer.subscription.updated':
         case 'customer.subscription.deleted': {
-            const subscription = event.data.object
+            const subscription = event.data.object as Stripe.Subscription
             const subscriptionId = subscription.id
 
-            // Find and update the subscription
             const { data: existing } = await supabase
                 .from('subscriptions')
-                .select('user_id')
+                .select('user_id, franchise_id, status')
                 .eq('stripe_subscription_id', subscriptionId)
                 .single()
 
             if (existing) {
+                const oldStatus = existing.status
+                const newStatus = subscription.status
+
                 await supabase.from('subscriptions').update({
-                    status: subscription.status,
-                    current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
-                    updated_at: new Date().toISOString()
+                    status: newStatus,
+                    current_period_start: new Date((subscription as any).current_period_start * 1000).toISOString(),
+                    current_period_end: new Date((subscription as any).current_period_end * 1000).toISOString(),
+                    updated_at: new Date().toISOString(),
                 }).eq('stripe_subscription_id', subscriptionId)
+
+                // Audit
+                await supabase.from('audit_log').insert({
+                    actor_id: existing.user_id,
+                    action: event.type === 'customer.subscription.deleted'
+                        ? 'subscription.canceled'
+                        : 'subscription.updated',
+                    resource_type: 'subscription',
+                    franchise_id: existing.franchise_id,
+                    old_data: { status: oldStatus },
+                    new_data: { status: newStatus },
+                })
             }
             break
         }
 
         case 'invoice.payment_failed': {
-            const invoice = event.data.object
-            const subscriptionId = invoice.subscription
+            const invoice = event.data.object as Stripe.Invoice
+            const subscriptionId = invoice.subscription as string
 
             if (subscriptionId) {
                 await supabase.from('subscriptions').update({
                     status: 'past_due',
-                    updated_at: new Date().toISOString()
+                    updated_at: new Date().toISOString(),
                 }).eq('stripe_subscription_id', subscriptionId)
+
+                // Audit
+                const { data: sub } = await supabase
+                    .from('subscriptions')
+                    .select('user_id, franchise_id')
+                    .eq('stripe_subscription_id', subscriptionId)
+                    .single()
+
+                if (sub) {
+                    await supabase.from('audit_log').insert({
+                        actor_id: sub.user_id,
+                        action: 'subscription.payment_failed',
+                        resource_type: 'subscription',
+                        franchise_id: sub.franchise_id,
+                        new_data: { invoice_id: invoice.id },
+                    })
+                }
             }
             break
         }

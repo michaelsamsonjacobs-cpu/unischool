@@ -1,0 +1,501 @@
+{
+  "course": {
+    "id": "BIO-101",
+    "title": "Introduction to Biology",
+    "institution": "ASU Online",
+    "department": "Biology"
+  },
+  "chapter": {
+    "id": "ch06-cell-division",
+    "title": "Cell Division: Mitosis and the Cell Cycle",
+    "order": 6,
+    "canvas_module_ids": ["mod_6_1", "mod_6_2", "mod_6_3"],
+    "estimated_play_time": "35 min"
+  },
+  "narrative": {
+    "id": "xp_bio101_ch06_respawn",
+    "title": "Respawn",
+    "subtitle": "Die in the Game. Wake Up Inside Your Own Cells.",
+    "setting": "You flatline in a VR game — but instead of a game-over screen, you wake up INSIDE your own body at the molecular scale. You are now a molecular machine navigating the cell cycle from the inside. Every checkpoint you skip or pass determines whether the cell divides correctly — or becomes cancerous. The 'game over' IS the misconception.",
+    "art_style": "Bioluminescent neon aesthetic, microscopic world rendered at macro scale, translucent organelles glowing in deep blue and violet, DNA strands like fiber optic cables, cell membranes like aurora borealis, sci-fi internal body visualization",
+    "characters": [
+      {
+        "id": "helix",
+        "name": "Helix",
+        "role": "guide",
+        "personality": "An AI companion that materializes as a glowing double-helix shape. Speaks in calm, precise observations. Never lectures — just narrates what you're seeing and asks if you notice the pattern. Treats the cell like a spaceship and you like the navigator.",
+        "voice_id": "neutral_calm_precise"
+      },
+      {
+        "id": "rogue",
+        "name": "Rogue",
+        "role": "challenger",
+        "personality": "A corrupted duplicate of your avatar — the version of 'you' that makes wrong choices. Appears on error paths as a manifestation of what happens when checkpoints fail. Not evil — just broken. Represents cancer cells. Speaks in fragmented, glitchy half-sentences.",
+        "voice_id": "glitchy_distorted"
+      }
+    ],
+    "entry_node_id": "n_opening",
+    "exit_node_ids": ["n_end_correct", "n_end_cancer"],
+    "total_nodes": 21,
+    "estimated_play_time": "35 min",
+    "concept_map": [
+      { "concept": "Cell cycle phases", "description": "G1 → S → G2 → M phases and what happens in each", "main_nodes": ["n_02", "n_03", "n_05", "n_10", "n_14"] },
+      { "concept": "DNA replication", "description": "How DNA copies itself during S phase", "main_nodes": ["n_05", "n_06", "n_07"] },
+      { "concept": "Cell cycle checkpoints", "description": "G1, G2, and metaphase checkpoints that halt division if errors are detected", "main_nodes": ["n_03", "n_04", "n_09", "n_10", "n_11"] },
+      { "concept": "Mitosis stages", "description": "Prophase, metaphase, anaphase, telophase", "main_nodes": ["n_12", "n_13", "n_14", "n_15", "n_16"] },
+      { "concept": "Cytokinesis", "description": "Physical division of the cell into two daughter cells", "main_nodes": ["n_17", "n_18"] },
+      { "concept": "Cancer as checkpoint failure", "description": "Uncontrolled division from bypassed checkpoints", "main_nodes": ["n_04", "n_08", "n_11", "n_19"] }
+    ],
+    "answer_map": {
+      "strongest_path": ["n_opening", "n_01", "n_02", "n_03", "n_05", "n_06", "n_09", "n_10", "n_12", "n_13", "n_14", "n_17", "n_form", "n_end_correct"],
+      "misconception_rich_path": ["n_opening", "n_01", "n_02", "n_04", "n_05", "n_07", "n_08", "n_09", "n_11", "n_10", "n_12", "n_15", "n_16", "n_14", "n_17", "n_19", "n_form", "n_end_cancer"],
+      "convergence_nodes": ["n_05", "n_09", "n_12", "n_17", "n_form"],
+      "formalization_nodes": ["n_10", "n_form"],
+      "total_concepts_covered": 6
+    },
+    "nodes": [
+      {
+        "id": "n_opening",
+        "type": "scene",
+        "scene_text": "You die.\n\nNot dramatically. Not heroically. Your health bar hits zero in a VR dungeon and the screen goes black and—\n\nYou don't see the respawn menu.\n\nInstead, you open your eyes inside something vast and translucent. Walls that pulse with light. Structures floating in thick, luminous fluid. Filaments stretching in every direction like glowing cables.\n\nThis is not a game level.\n\nA voice speaks from a shape that twists in the fluid nearby — a double helix, spinning slowly, made of light.",
+        "character_dialogue": [
+          { "character": "helix", "text": "You are inside a human cell. Your cell. It is preparing to divide." },
+          { "character": "helix", "text": "If the division goes correctly, you respawn. If it doesn't..." },
+          { "character": "helix", "text": "You become something else." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Look around the cell", "next_node": "n_01", "xp_bonus": 0 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Interior of a human cell at molecular scale, bioluminescent organelles glowing in deep blue and violet, translucent cell membrane like aurora borealis, DNA strands like fiber optic cables, vast and alien, a small human figure floating inside, sci-fi cellular world",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_01",
+        "type": "decision",
+        "scene_text": "The cell is enormous at this scale. You float through the cytoplasm like an astronaut in a living spaceship.\n\nYou see:\n— The NUCLEUS: a massive sphere in the center, glowing with packed DNA\n— RIBOSOMES: tiny factories churning out protein chains\n— MITOCHONDRIA: pulsing energy stations\n— The MEMBRANE: a shimmering boundary that separates inside from outside\n\nEverything is active. Everything is building. The cell is growing.\n\nHelix drifts beside you.",
+        "character_dialogue": [
+          { "character": "helix", "text": "The cell is in G1 phase. Growing. Producing proteins. Preparing." },
+          { "character": "helix", "text": "Before it can divide, it must pass a checkpoint. What do you think the cell checks for?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Whether it's big enough and has enough resources to divide.\"", "next_node": "n_02", "hidden_tag": "g1_checkpoint_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"It doesn't check — it just divides when it's ready.\"", "next_node": "n_04", "hidden_tag": "no_checkpoint_misconception", "xp_bonus": 5 },
+          { "id": "c", "text": "\"Whether the DNA has already been copied.\"", "next_node": "n_03", "hidden_tag": "wrong_phase", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_phases"],
+          "misconception_tested": "cells_divide_randomly",
+          "convergence_target": "n_05",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Interior view of cell showing glowing nucleus, ribosomes producing protein chains, mitochondria pulsing with energy, all rendered at molecular scale with bioluminescent aesthetic, vast internal space",
+          "ambient_sound": "wind_calm"
+        }
+      },
+      {
+        "id": "n_02",
+        "type": "scene",
+        "scene_text": "Helix pulses with approval.\n\nAll around you, the cell is expanding. New organelles forming. Proteins accumulating. The cell is literally growing — preparing the raw materials it will need when it splits in two.\n\nBut not yet. First, the checkpoint.\n\nYou see it: a molecular complex near the nucleus flashes green. Size: adequate. Nutrients: sufficient. DNA integrity: no damage detected.\n\nThe G1 checkpoint PASSES.\n\nThe cell is cleared to proceed to the next phase: copying its DNA.",
+        "character_dialogue": [
+          { "character": "helix", "text": "G1 checkpoint passed. The cell is large enough and undamaged. It may now replicate its DNA." },
+          { "character": "helix", "text": "Without this checkpoint, damaged cells would divide. And damaged copies... multiply." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Proceed to DNA replication", "next_node": "n_05", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_checkpoints", "cell_cycle_phases"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A molecular checkpoint complex near a glowing nucleus flashing green, approval signals radiating outward, cell growing and expanding, bioluminescent cellular landscape, sci-fi checkpoint gate aesthetic",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_03",
+        "type": "scene",
+        "scene_text": "Helix corrects gently.\n\nDNA copying happens AFTER the G1 checkpoint — in S phase. Right now the cell hasn't copied anything yet. It's still growing and checking whether it should.\n\nThink of it like a pre-flight checklist. You don't copy the flight plan until you've confirmed the plane is airworthy.\n\nThe G1 checkpoint checks: Is the cell big enough? Is the DNA undamaged? Are growth signals present?\n\nOnly then does it proceed to copy.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Good instinct — DNA copying IS critical. But it comes after the first checkpoint, not before." },
+          { "character": "helix", "text": "The order matters: Grow → Check → Copy → Check again → Divide." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So each phase has its own job, and checkpoints are between them.\"", "next_node": "n_05", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_phases", "cell_cycle_checkpoints"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A timeline showing cell cycle phases G1-S-G2-M with checkpoints between each, glowing pathway through cellular space, the current position highlighted at G1, bioluminescent infographic",
+          "ambient_sound": "understanding_calm"
+        }
+      },
+      {
+        "id": "n_04",
+        "type": "scene",
+        "scene_text": "You skip the checkpoint. Why wait?\n\nThe cell lurches forward. DNA begins copying without verification.\n\nBut something is already wrong. There was unrepaired damage in the DNA — a mutation from UV exposure that the checkpoint would have caught.\n\nThe cell copies the damaged DNA faithfully. The error is now permanent.\n\nA glitchy version of your avatar materializes beside you. Its edges flicker. Its eyes don't focus correctly.",
+        "character_dialogue": [
+          { "character": "rogue", "text": "You... skipped... the check." },
+          { "character": "rogue", "text": "Now I exist. I am the copy of a mistake." },
+          { "character": "helix", "text": "This is what happens without checkpoints. Damaged DNA divides. Errors propagate. This is how cancer begins." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So checkpoints exist to PREVENT this — to catch errors before they copy.\"", "next_node": "n_05", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_checkpoints", "cancer_checkpoint_failure"],
+          "misconception_tested": "cells_divide_randomly",
+          "is_error_path": true,
+          "correction_text": "Cell cycle checkpoints are quality-control gates. The G1 checkpoint verifies cell size, DNA integrity, and growth signals before allowing DNA replication. Skipping checkpoints allows damaged DNA to be copied and passed to daughter cells — the first step toward cancer."
+        },
+        "media": {
+          "scene_image_prompt": "A glitchy corrupted avatar materializing inside a cell, DNA strands showing visible damage and errors, red warning signals, bioluminescent aesthetic with distortion effects, horror-meets-biology, cancer visualization",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_05",
+        "type": "convergence",
+        "scene_text": "You enter S phase. Synthesis.\n\nThe nucleus opens and you drift inside. The DNA unzips before your eyes — two strands peeling apart like a glowing zipper stretching across the entire nuclear landscape.\n\nBehind the unzipping point, molecular machines are assembling a perfect copy of each strand. Base by base. A-T, G-C. Billions of letters, copied with almost perfect accuracy.\n\nAlmost.\n\nYou are watching the most important copy job in the universe. Every cell in your body went through this. Every cell that will ever exist has to get this right.",
+        "character_dialogue": [
+          { "character": "helix", "text": "DNA replication. Two strands become four. One complete copy for each daughter cell." },
+          { "character": "helix", "text": "Watch the machines work. What do you notice about the copying?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Each strand serves as a template for its partner — A always pairs with T, G with C.\"", "next_node": "n_06", "hidden_tag": "complementary_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"The DNA is being built from scratch — new molecules forming randomly.\"", "next_node": "n_07", "hidden_tag": "random_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["dna_replication"],
+          "misconception_tested": null,
+          "convergence_target": "n_09",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "DNA double helix unzipping in real-time, molecular machines assembling complementary strands, base pairs glowing A-T in blue and G-C in gold, vast nuclear landscape, bioluminescent fiber optic aesthetic, awe-inspiring",
+          "ambient_sound": "wind_beautiful"
+        }
+      },
+      {
+        "id": "n_06",
+        "type": "scene",
+        "scene_text": "You see it clearly now.\n\nThe old strand stays intact — it's the template. The new strand is being built to match it, letter by letter. A always across from T. G always across from C.\n\nIt's not random. It's deterministic. The sequence of the original dictates the sequence of the copy.\n\nThis is why every cell in your body has the same DNA. It's not magic — it's complementary base pairing.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Semi-conservative replication. Each new DNA molecule has one old strand and one new strand." },
+          { "character": "helix", "text": "The old guides the new. That's how the information survives." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"What happens if the copy has an error?\"", "next_node": "n_09", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["dna_replication"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Close-up of complementary base pairing during DNA replication, A-T and G-C pairs snapping into place like puzzle pieces, one old strand glowing blue, new strand forming in gold, molecular precision, beautiful",
+          "ambient_sound": "moment_clarity"
+        }
+      },
+      {
+        "id": "n_07",
+        "type": "decision",
+        "scene_text": "You watch more carefully.\n\nThe molecules aren't assembling randomly. Every single new base is being SELECTED to match its partner on the old strand. Adenine across from thymine. Guanine across from cytosine.\n\nIf it were random, every cell would have different DNA. You'd be a different person in every cell.\n\nThe specificity IS the point.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Not random. Complementary. The old strand dictates the new one. A says T. G says C. No exceptions." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the information is preserved because each strand specifies its partner.\"", "next_node": "n_09", "hidden_tag": "complementary_accepted", "xp_bonus": 15 },
+          { "id": "b", "text": "\"What if a wrong base gets inserted?\"", "next_node": "n_08", "hidden_tag": "mutation_question", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["dna_replication"],
+          "misconception_tested": "random_assembly",
+          "is_error_path": true,
+          "correction_text": "DNA replication is not random — it follows strict complementary base pairing rules (A-T, G-C). Each strand serves as a template for its partner, ensuring genetic information is faithfully copied."
+        },
+        "media": {
+          "scene_image_prompt": "DNA base pairing shown in extreme close-up, A-T pairing highlighted with matching shapes, G-C pairing shown as complementary locks, precision molecular machinery, bioluminescent",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_08",
+        "type": "scene",
+        "scene_text": "You watch a wrong base get inserted. A where G should be.\n\nBut almost immediately, a proofreading enzyme slides over, detects the mismatch, removes it, and inserts the correct base.\n\nSelf-correction. Built into the system.\n\nBut the proofreading isn't perfect. About 1 in every billion bases slips through. That's a mutation.\n\nMost mutations do nothing. Some cause disease. A rare few are actually useful — evolution's raw material.\n\nRogue flickers at the edge of your vision. Mutations that escape proofreading are how Rogue was born.",
+        "character_dialogue": [
+          { "character": "helix", "text": "The copying machinery proofreads itself. But it's not perfect. 1 in 10 billion bases will be wrong." },
+          { "character": "rogue", "text": "I am the one... in ten billion..." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Continue to the next checkpoint", "next_node": "n_09", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["dna_replication", "cancer_checkpoint_failure"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A proofreading enzyme detecting and removing a mismatched DNA base, molecular repair in action, the corrupted avatar flickering in the background, bioluminescent cellular space, precision meets error",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_09",
+        "type": "convergence",
+        "scene_text": "S phase is complete. The DNA has been fully copied. Where there was one set of chromosomes, there are now two identical copies.\n\nBut before the cell divides, there's another checkpoint. G2.\n\nThis one is critical:\n— Was ALL the DNA copied completely?\n— Are there any remaining errors?\n— Are both copies intact?\n\nHere it is. The G2 checkpoint. A molecular gatekeeper that decides if the cell is READY to split.",
+        "character_dialogue": [
+          { "character": "helix", "text": "G2 checkpoint. The last inspection before division. If the DNA is incomplete or damaged, division is halted." },
+          { "character": "helix", "text": "What should the cell do if it finds damage at this point?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Halt division and repair the damage first.\"", "next_node": "n_10", "hidden_tag": "checkpoint_halt_correct", "xp_bonus": 20 },
+          { "id": "b", "text": "\"Divide anyway — fixing it later is faster.\"", "next_node": "n_11", "hidden_tag": "skip_checkpoint_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_checkpoints"],
+          "misconception_tested": null,
+          "convergence_target": "n_12",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "G2 checkpoint gate in cellular space, molecular scanner examining duplicated DNA for errors, green/red status indicators, two complete chromosome sets visible, bioluminescent checkpoint architecture",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_10",
+        "type": "formalization",
+        "scene_text": "The checkpoint scans. Green. Clear. Division authorized.\n\nHelix maps out where you've been:\n\nG1 → Cell grows, checkpoint checks size and DNA integrity\nS → DNA is replicated (copied)\nG2 → Checkpoint verifies the copy is complete and accurate\nM → Mitosis begins — the actual division\n\nFour phases. Three checkpoints. Each checkpoint asks a specific question. Each 'no' halts the cycle until the problem is fixed.\n\nEvery cell. Every time. For 3.8 billion years.\n\nThis is not a suggestion. It's a mandate.",
+        "character_dialogue": [
+          { "character": "helix", "text": "G1: Should we copy? S: Copy. G2: Did we copy correctly? M: Divide." },
+          { "character": "helix", "text": "The checkpoints are the reason you are not a tumor." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Enter mitosis", "next_node": "n_12", "xp_bonus": 20 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_phases", "cell_cycle_checkpoints"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A circular diagram of the cell cycle G1-S-G2-M rendered as a glowing pathway in cellular space, checkpoints marked as gates between each phase, current position at G2-to-M transition, bioluminescent infographic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_11",
+        "type": "scene",
+        "scene_text": "You push past the G2 checkpoint.\n\nThe cell divides with damaged DNA.\n\nBoth daughter cells inherit the error. They divide again. The error multiplies. Four cells. Eight. Sixteen. All carrying the same uncorrected mutation.\n\nRogue appears beside each one. Not one copy — sixteen copies. Growing exponentially.\n\nThis is cancer. Not a single event — a cascade of compounding errors from a single skipped checkpoint.",
+        "character_dialogue": [
+          { "character": "rogue", "text": "We are... many now... each division... unchecked..." },
+          { "character": "helix", "text": "One skipped checkpoint. Exponential consequences. This is why the cell cycle has brakes — removing them doesn't make division faster. It makes it lethal." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Checkpoints exist to prevent exactly this — exponential error propagation.\"", "next_node": "n_12", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cancer_checkpoint_failure", "cell_cycle_checkpoints"],
+          "misconception_tested": "fixing_later_is_fine",
+          "is_error_path": true,
+          "correction_text": "The G2 checkpoint exists because errors in DNA COMPOUND with every division. One uncorrected error becomes two, then four, then millions. Cancer is fundamentally a disease of failed checkpoints."
+        },
+        "media": {
+          "scene_image_prompt": "Multiple corrupted avatar copies multiplying exponentially inside a cell, 2 then 4 then 16 glitchy figures, cancer cell visualization, uncontrolled division, red warning cascade, bioluminescent horror",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_12",
+        "type": "convergence",
+        "scene_text": "Mitosis begins.\n\nThe cell transforms. The nucleus dissolves. The DNA — which you've been seeing as loose threads — suddenly condenses into thick, X-shaped structures. Chromosomes.\n\n46 of them. Each one a tightly wound bundle of DNA.\n\nThey glow. They move. Molecular cables called spindle fibers reach out from opposite ends of the cell, attaching to the center of each chromosome.\n\nIt looks like a starfield with 46 glowing X's being pulled by invisible strings.\n\nThis is prophase.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Prophase. DNA condenses into chromosomes. The nuclear envelope dissolves. Spindle fibers form." },
+          { "character": "helix", "text": "The chromosomes must line up correctly. If they don't align, the division will be unequal." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"So the chromosomes need to be arranged before they can be pulled apart?\"", "next_node": "n_13", "hidden_tag": "alignment_correct", "xp_bonus": 15 },
+          { "id": "b", "text": "\"Just pull them apart — alignment doesn't matter.\"", "next_node": "n_15", "hidden_tag": "alignment_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["mitosis_stages"],
+          "misconception_tested": null,
+          "convergence_target": "n_17",
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "46 glowing X-shaped chromosomes floating in a dissolved nuclear space, spindle fibers reaching from cell poles like fiber optic cables, prophase visualization, bioluminescent starfield aesthetic, awe-inspiring cellular architecture",
+          "ambient_sound": "wind_beautiful"
+        }
+      },
+      {
+        "id": "n_13",
+        "type": "decision",
+        "scene_text": "You watch the chromosomes migrate to the center of the cell. All 46 line up along a central plane — like soldiers in formation.\n\nEach chromosome is attached to spindle fibers from BOTH poles. This is critical: if a chromosome is only attached to one side, it will go entirely to one daughter cell, and the other cell will be missing a chromosome.\n\nThis is metaphase. The last checkpoint before the pull.\n\nHelix asks you to verify: are all chromosomes attached to fibers from BOTH sides?",
+        "character_dialogue": [
+          { "character": "helix", "text": "Metaphase checkpoint. Every chromosome must be connected to both poles before the pull." },
+          { "character": "helix", "text": "This is the final safety check. What happens if one chromosome is misattached?" }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"One daughter cell gets an extra chromosome. The other is missing one. Both are abnormal.\"", "next_node": "n_14", "hidden_tag": "nondisjunction_correct", "xp_bonus": 25 },
+          { "id": "b", "text": "\"Nothing too bad — one missing chromosome is fine.\"", "next_node": "n_16", "hidden_tag": "chromosome_misconception", "xp_bonus": 5 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["mitosis_stages", "cell_cycle_checkpoints"],
+          "misconception_tested": null,
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "46 chromosomes aligned perfectly along the cell's equator (metaphase plate), spindle fibers attached from both poles to each chromosome, perfect symmetry, bioluminescent alignment, precision visualization",
+          "ambient_sound": "thinking_silence"
+        }
+      },
+      {
+        "id": "n_14",
+        "type": "scene",
+        "scene_text": "ANAPHASE.\n\nThe pull begins.\n\nEach chromosome is split down the middle — the two copies of each chromosome, held together until now, are ripped apart by the spindle fibers.\n\n46 copies go left. 46 copies go right.\n\nWatching it happen is extraordinary. Perfect symmetry. Two identical sets of genetic information, separated in seconds.\n\nThe cell is becoming two.\n\nThen TELOPHASE: new nuclear envelopes form around each set. The chromosomes relax. Two nuclei now exist where one did before.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Anaphase: the pull. Telophase: the rebuild. Each daughter cell now has 46 chromosomes — a complete set." },
+          { "character": "helix", "text": "But the cell hasn't fully divided yet. The nuclei are separate, but the cytoplasm is still shared." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"What separates the two cells physically?\"", "next_node": "n_17", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["mitosis_stages"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Chromosomes being pulled apart during anaphase, spindle fibers contracting, 46 going to each pole, perfect symmetry, then new nuclear envelopes forming during telophase, two nuclei emerging, bioluminescent division in progress",
+          "ambient_sound": "triumph_quiet"
+        }
+      },
+      {
+        "id": "n_15",
+        "type": "scene",
+        "scene_text": "You skip the alignment check.\n\nThe spindle fibers pull. But chromosome 17 is only attached to ONE side.\n\nIt goes entirely to the left daughter cell.\n\nThe right daughter cell has 45 chromosomes. The left has 47.\n\nNeither is normal. This unequal division — nondisjunction — causes conditions like Down syndrome (trisomy 21) in meiosis, and contributes to cancer in mitosis.\n\nAlignment wasn't optional. It was the last line of defense.",
+        "character_dialogue": [
+          { "character": "rogue", "text": "Forty-five is... not enough. Forty-seven is... too much." },
+          { "character": "helix", "text": "Nondisjunction. When chromosome alignment fails, daughter cells receive unequal DNA. The consequences range from developmental disorders to cancer." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"The metaphase checkpoint exists to prevent exactly this.\"", "next_node": "n_14", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["mitosis_stages", "cell_cycle_checkpoints"],
+          "misconception_tested": "alignment_doesnt_matter",
+          "is_error_path": true,
+          "correction_text": "Chromosome alignment at the metaphase plate is critical — each chromosome MUST be attached to spindle fibers from BOTH poles. If not, nondisjunction occurs: daughter cells receive unequal numbers of chromosomes."
+        },
+        "media": {
+          "scene_image_prompt": "Chromosomes being pulled unevenly, one side getting 47 and the other 45, spindle fibers attached incorrectly, unequal division visualized in bioluminescent horror, error cascading, asymmetric cell division",
+          "ambient_sound": "correction_calm"
+        }
+      },
+      {
+        "id": "n_16",
+        "type": "scene",
+        "scene_text": "Helix shows you what 'one missing chromosome' actually means.\n\nChromosome 17 contains the TP53 gene — the most important tumor suppressor in your body. It's called 'the guardian of the genome.'\n\nLose that chromosome and you lose the ability to stop damaged cells from dividing.\n\nOne chromosome isn't 'just one.' Each one contains thousands of genes. Losing any of them can be catastrophic.",
+        "character_dialogue": [
+          { "character": "helix", "text": "There is no redundant chromosome. Each one is load-bearing." }
+        ],
+        "choices": [
+          { "id": "a", "text": "\"Every chromosome matters. Alignment prevents inequality.\"", "next_node": "n_14", "xp_bonus": 10 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["mitosis_stages", "cancer_checkpoint_failure"],
+          "misconception_tested": "missing_chromosome_is_fine",
+          "is_error_path": true,
+          "correction_text": "Every chromosome contains thousands of genes critical for cellular function. Losing even one chromosome can remove essential tumor suppressors (like TP53), leading to uncontrolled cell growth."
+        },
+        "media": {
+          "scene_image_prompt": "Chromosome 17 highlighted showing the TP53 gene glowing red as 'guardian of the genome', other critical genes labeled along its length, the importance of each chromosome visualized, bioluminescent detail",
+          "ambient_sound": "understanding_deep"
+        }
+      },
+      {
+        "id": "n_17",
+        "type": "convergence",
+        "scene_text": "Cytokinesis.\n\nThe cell membrane pinches inward from both sides, like an invisible hand squeezing the middle of a balloon.\n\nThe pinch deepens. The connection narrows. The two nuclei drift apart as the shared cytoplasm separates.\n\nAnd then — two cells.\n\nWhere there was one, there are now two. Each with 46 chromosomes. Each with a full set of organelles. Each capable of living independently.\n\nYou watch both cells start the G1 phase. Growing. Preparing. The cycle begins again.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Cytokinesis. The physical separation. The cycle is complete." },
+          { "character": "helix", "text": "You just watched one cell become two. Now each one will grow, check, copy, check, and divide again." }
+        ],
+        "choices": [
+          { "id": "a", "text": "See the full cycle one more time", "next_node": "n_form", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cytokinesis"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Cell membrane pinching inward during cytokinesis, cleavage furrow deepening, two daughter cells separating with complete chromosome sets visible inside each, bioluminescent division complete, two new cells glowing, moment of creation",
+          "ambient_sound": "triumph_quiet"
+        }
+      },
+      {
+        "id": "n_form",
+        "type": "formalization",
+        "scene_text": "Helix projects the complete map.\n\n—— THE CELL CYCLE ——\n\nINTERPHASE (growth + preparation):\n  G1 → Cell grows. Checkpoint: size, damage, signals.\n  S  → DNA replication. Complementary base pairing.\n  G2 → Checkpoint: was replication complete and accurate?\n\nMITOSIS (division):\n  Prophase    → DNA condenses. Nuclear envelope dissolves. Spindle forms.\n  Metaphase   → Chromosomes align at center. Checkpoint: all attached?\n  Anaphase    → Sister chromatids pulled apart to opposite poles.\n  Telophase   → Nuclear envelopes reform. Chromosomes decondense.\n\nCYTOKINESIS: Cell pinches in half. Two daughter cells.\n\nCHECKPOINTS: G1, G2, Metaphase — each prevents errors from propagating.\n\nCANCER: Checkpoint failure → uncontrolled division → error accumulation.\n\nYou lived every phase. You felt the consequence of every skipped checkpoint.\n\nThis is not memorization. This is experience.",
+        "character_dialogue": [
+          { "character": "helix", "text": "You navigated the cycle from the inside. Every wrong turn showed you why the system has brakes." },
+          { "character": "helix", "text": "Now you understand why cancer is not a disease of growth. It is a disease of failed quality control." }
+        ],
+        "choices": [
+          { "id": "a", "text": "Respawn — the division was successful", "next_node": "n_end_correct", "hidden_tag": "success", "xp_bonus": 25 },
+          { "id": "b", "text": "Reflect on the errors that could have been", "next_node": "n_end_cancer", "hidden_tag": "reflection", "xp_bonus": 15 }
+        ],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cell_cycle_phases", "dna_replication", "cell_cycle_checkpoints", "mitosis_stages", "cytokinesis", "cancer_checkpoint_failure"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "Complete cell cycle diagram rendered as a glowing circular pathway in cellular space, all phases labeled with their functions, checkpoints shown as molecular gates, mitosis stages detailed, comprehensive bioluminescent infographic",
+          "ambient_sound": "moment_revelation"
+        }
+      },
+      {
+        "id": "n_end_correct",
+        "type": "end",
+        "scene_text": "The division is complete.\n\nYou feel yourself pulled back — through the membrane, through the cytoplasm, past the molecular machinery that has been running this process for 3.8 billion years.\n\nThe respawn screen loads.\n\nYou're back in the game. Full health. New character. The system worked.\n\nBut now you know what 'respawn' really means. It's not magic. It's not code. It's trillions of cells, each one running the same cycle you just navigated — growing, checking, copying, checking, dividing.\n\nEvery second. Every cell. Your entire life.\n\nYou respawn because the checkpoints hold.",
+        "character_dialogue": [
+          { "character": "helix", "text": "Welcome back. You exist because this cycle worked. Every time. In every cell." }
+        ],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": [],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A VR game respawn screen loading successfully, transitioning from the cellular bioluminescent world back to a game interface, the words RESPAWN glowing, a bridge between biology and gaming, triumphant and beautiful",
+          "ambient_sound": "triumph_orchestral"
+        }
+      },
+      {
+        "id": "n_end_cancer",
+        "type": "end",
+        "scene_text": "Rogue dissolves into the cytoplasm.\n\nBut before disappearing, Helix shows you something different. A version where the checkpoints failed.\n\nOne cell divides without checking. Two become four. Four become eight. The errors compound. The cells press against healthy tissue. Blood vessels grow toward them because the tumor signals for nutrients.\n\nThis is not a game mechanic. This is what happens in a human body when the cell cycle loses its brakes.\n\nEvery cancer treatment — chemotherapy, radiation, immunotherapy — targets this cycle. Stops division. Forces checkpoints. Triggers cell death in cells that refuse to stop.\n\nThe biology you just learned IS the battlefield.\n\nYou respawn. But you know now that the cycle running silently inside you is the most important system you'll never see.\n\nUnless it breaks.",
+        "character_dialogue": [
+          { "character": "helix", "text": "You respawn because the checkpoints held. Remember what happens when they don't." }
+        ],
+        "choices": [],
+        "hidden_pedagogy": {
+          "concepts_covered": ["cancer_checkpoint_failure"],
+          "is_error_path": false
+        },
+        "media": {
+          "scene_image_prompt": "A cancer cell cluster growing uncontrollably, contrasted with a healthy dividing cell, the difference between regulated and unregulated division, blood vessels growing toward the tumor, educational but visceral, bioluminescent with warm warning colors, powerful closing image",
+          "ambient_sound": "reflection_peaceful"
+        }
+      }
+    ]
+  }
+}

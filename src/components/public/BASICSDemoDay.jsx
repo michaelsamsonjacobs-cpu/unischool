@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { ArrowRight, ExternalLink, Award, Calendar, MapPin, Users, Sparkles, Star, GraduationCap, TrendingUp, Rocket, FileText, User, Camera } from 'lucide-react';
-import { trackPageView, trackBASICSView, trackRSVP, trackSydecarClick } from '../../utils/trackingPixels';
+import { trackPageView, trackBASICSView, trackRSVP } from '../../utils/trackingPixels';
 
 /**
  * BASICS @ Berkeley — Spring 2026 Demo Day
- * Investor-targeted landing page with cohort company showcase & Sydecar syndicate links.
+ * Investor-targeted landing page with cohort company showcase & investment links.
  * 
  * BASICS = Berkeley Accelerator & Startup Incubator in Cognitive Science
  * Led by CogSci Lecturer Uri Korisky and BASICS Founder Mike Jacobs
@@ -12,125 +12,126 @@ import { trackPageView, trackBASICSView, trackRSVP, trackSydecarClick } from '..
  */
 
 // ─── Cohort Companies Data ────────────────────────────────────
-// Update this array with actual companies, logos, and Sydecar links
+// Update this array with actual companies, logos, and deal links
 const COHORT_COMPANIES = [
     {
         name: 'University School',
         slug: 'university-school',
         founder: 'Frank Barcellos',
         description: 'AI-powered, gamified educational platform that hyper-accelerates students into top universities 2 years early through sovereign AI mentorship.',
-        sydecarUrl: 'https://sydecar.io/deal/university-school',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20University%20School',
         isMentorCompany: true,
         mentorNote: 'Frank Barcellos, CEO of USAI, serves as BASICS mentor. University School is the official Mentor Company of the Spring 2026 cohort.',
         color: '#8B2332',
         logo: '/images/company-logos/usai-logo.png',
+        pitchPhoto: '/images/basics-spring-2026/group-cohort-1.jpg',
     },
     {
         name: 'NewNav',
         slug: 'newnav',
         founder: 'Mina Sonmez',
         description: 'AI college navigation platform for first-gen and immigrant high school students — the map they never had, from zero to acceptance.',
-        sydecarUrl: 'https://sydecar.io/deal/newnav',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20NewNav',
         isMentorCompany: false,
         color: '#3b82f6',
-        logo: '/images/company-logos/newnav-logo-0.jpeg',
+        logo: '/images/company-logos/newnav-logo.png',
     },
     {
         name: 'Lumina',
         slug: 'lumina',
         founder: 'Ellen Zhang',
         description: 'A STEM learning revolution — combining AI personalization with Tinder-style interactive knowledge exploration for self-learners.',
-        sydecarUrl: 'https://sydecar.io/deal/lumina',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Lumina',
         isMentorCompany: false,
         color: '#8b5cf6',
-        logo: '/images/company-logos/lumina-logo-0.jpeg',
+        logo: '/images/company-logos/lumina-logo.png',
     },
     {
         name: 'TheseDays',
         slug: 'thesedays',
         founder: 'Claudius Ma',
         description: 'Spotify for your memory — a new architecture that bridges love and self-actualization through AI-structured life journaling.',
-        sydecarUrl: 'https://sydecar.io/deal/thesedays',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20TheseDays',
         isMentorCompany: false,
         color: '#10b981',
-        logo: '/images/company-logos/thesedays-slide.png',
+        logo: '/images/company-logos/thesedays-logo.png',
     },
     {
         name: 'Breeze',
         slug: 'breeze',
         founder: 'Jessica Miller',
         description: 'AI-powered media bias detection that helps consumers and businesses take back control of the information they trust.',
-        sydecarUrl: 'https://sydecar.io/deal/breeze',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Breeze',
         isMentorCompany: false,
         color: '#f59e0b',
-        logo: '/images/company-logos/breeze-logo-0.jpeg',
+        logo: '/images/company-logos/breeze-logo.png',
     },
     {
         name: 'Cognitive Calendar',
         slug: 'cognitive-calendar',
         founder: 'Naomi Toubian',
         description: 'Neuroscience-backed scheduling that optimizes for cognition, not just time — reducing burnout and boosting productivity.',
-        sydecarUrl: 'https://sydecar.io/deal/cognitive-calendar',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Cognitive%20Calendar',
         isMentorCompany: false,
         color: '#0ea5e9',
-        logo: '/images/company-logos/cognitive-calendar-logo-0.jpeg',
+        logo: '/images/company-logos/cognitive-calendar-logo.png',
     },
     {
         name: 'Evardi Energy',
         slug: 'evardi-energy',
         founder: 'Aarya Borele, Evan Davis & Diva Shah',
         description: 'AI-powered demand intelligence for renewable energy grids — live across 3 continents with 92% forecast accuracy.',
-        sydecarUrl: 'https://sydecar.io/deal/evardi-energy',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Evardi%20Energy',
         isMentorCompany: false,
         color: '#22c55e',
-        logo: '/images/company-logos/evardi-logo-0.jpeg',
+        logo: '/images/company-logos/evardi-logo.png',
     },
     {
         name: 'BobbyPin',
         slug: 'bobbypin',
         founder: 'Maya Mitchell',
         description: 'Intelligent AI video content editor designed specifically for hair stylists — clip, cut, and curate social media content automatically.',
-        sydecarUrl: 'https://sydecar.io/deal/bobbypin',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20BobbyPin',
         isMentorCompany: false,
         color: '#ec4899',
-        logo: '/images/company-logos/bobbypin-logo-0.jpeg',
+        logo: '/images/company-logos/bobbypin-logo.png',
     },
     {
         name: 'YouLet',
         slug: 'youlet',
         founder: 'Kaho Furukawa',
         description: 'Human Relational Intelligence Layer — redesigning human relationships using AI to rebuild genuine social connections.',
-        sydecarUrl: 'https://sydecar.io/deal/youlet',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20YouLet',
         isMentorCompany: false,
         color: '#a855f7',
-        logo: '/images/company-logos/youlet-logo-0.jpeg',
+        logo: '/images/company-logos/youlet-logo.png',
     },
     {
         name: 'TradePath',
         slug: 'tradepath',
         founder: 'Chris Weiss',
         description: 'The neuroscience-backed discovery brand for the post-college generation — find your trade, build your life.',
-        sydecarUrl: 'https://sydecar.io/deal/tradepath',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20TradePath',
         isMentorCompany: false,
         color: '#f97316',
-        logo: '/images/company-logos/tradepath-slide.png',
+        logo: '/images/company-logos/tradepath-logo.png',
     },
     {
         name: 'Heirloom',
         slug: 'heirloom',
         founder: 'Yasmine Baker',
         description: 'Connecting artisans with consumers globally — authentic, ethically-sourced, culturally-accurate fashion and craftsmanship.',
-        sydecarUrl: 'https://sydecar.io/deal/heirloom',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Heirloom',
         isMentorCompany: false,
         color: '#b45309',
-        logo: '/images/company-logos/heirloom-logo-0.jpeg',
+        logo: '/images/company-logos/heirloom-logo.png',
     },
     {
         name: 'Qluu',
         slug: 'qluu',
-        founder: 'Mike Jacobs',
+        founder: 'Mike Jacobs & Arkadiy Okhman',
         description: 'AI-powered integrated air and missile defense platform — Titanium Dome. Full-spectrum threat interception at cost parity.',
-        sydecarUrl: 'https://sydecar.io/deal/qluu',
+        dealUrl: 'mailto:basics@universityschool.ai?subject=Interest%20in%20Qluu',
         isMentorCompany: false,
         color: '#dc2626',
         logo: '/images/company-logos/qluu-logo.png',
@@ -164,6 +165,9 @@ const INVESTOR_PANELISTS = [
     { name: 'Sudarshan Sridharan', firm: 'SF1' },
     { name: 'Andrey Karailiev', firm: 'Prima Mente' },
     { name: 'Tyler Bosmeny', firm: 'Y Combinator (Keynote Speaker)' },
+    { name: 'Oguzhan Aygoren', firm: 'Investor & Advisor', url: 'https://www.linkedin.com/in/oguzhanaygoren/' },
+    { name: 'Dr. David Whitney', firm: 'UC Berkeley Cognitive Science' },
+    { name: 'Elizabeth Redman Cleveland', firm: 'Berkeley Startup Cluster' },
 ];
 
 // ─── PARTIFUL URL ─────────────────────────────────────────────
@@ -187,10 +191,9 @@ export const BASICSDemoDay = ({ onNavigate }) => {
         window.open(PARTIFUL_URL, '_blank', 'noopener');
     };
 
-    const handleSydecarClick = (company) => {
-        trackSydecarClick(company.name);
+    const handleCompanyClick = (company) => {
         trackBASICSView(company.name);
-        window.open(company.sydecarUrl, '_blank', 'noopener');
+        window.location.href = company.dealUrl;
     };
 
     return (
@@ -373,13 +376,17 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                         </h3>
                         <p className="text-slate-500 text-sm">Our cohorts have pitched to leading Silicon Valley investors</p>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {INVESTOR_PANELISTS.map((person, i) => (
-                            <div key={i} className="px-4 py-3 rounded-xl bg-white border border-slate-200 text-center min-w-[180px] hover:shadow-md transition-shadow">
-                                <div className="font-bold text-[#2D2D2D] text-sm">{person.name}</div>
-                                <div className="text-xs text-slate-500">{person.firm}</div>
-                            </div>
-                        ))}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                        {INVESTOR_PANELISTS.map((person, i) => {
+                            const Tag = person.url ? 'a' : 'div';
+                            const linkProps = person.url ? { href: person.url, target: '_blank', rel: 'noopener noreferrer' } : {};
+                            return (
+                                <Tag key={i} {...linkProps} className={`px-4 py-3 rounded-xl bg-white border border-slate-200 text-center hover:shadow-md transition-shadow ${person.url ? 'cursor-pointer hover:border-[#003262]/30' : ''}`}>
+                                    <div className="font-bold text-[#2D2D2D] text-sm">{person.name}</div>
+                                    <div className="text-xs text-slate-500">{person.firm}</div>
+                                </Tag>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -396,18 +403,8 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                             Invest in the Next Generation
                         </h2>
                         <p className="text-slate-600 max-w-2xl mx-auto mb-6">
-                            Each company is raising through a <strong>Sydecar syndicate</strong>. Click to view the deal page and invest.
+                            Click any company to express interest and learn more about their mission.
                         </p>
-                        <a
-                            href="/docs/basics-demo-day-spring-2026.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#003262]/5 text-[#003262] text-sm font-bold border border-[#003262]/15 hover:bg-[#003262]/10 transition-all"
-                        >
-                            <FileText size={14} />
-                            View Full Pitch Day Deck
-                            <ExternalLink size={12} />
-                        </a>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -419,7 +416,7 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                                         ? 'bg-gradient-to-br from-[#8B2332]/5 to-[#C9B47C]/5 border-[#C9B47C]/30 ring-2 ring-[#C9B47C]/10'
                                         : 'bg-white border-slate-200 hover:border-slate-300'
                                 }`}
-                                onClick={() => handleSydecarClick(company)}
+                                onClick={() => handleCompanyClick(company)}
                                 onMouseEnter={() => trackBASICSView(company.name)}
                             >
                                 {/* Mentor badge */}
@@ -470,8 +467,8 @@ export const BASICSDemoDay = ({ onNavigate }) => {
 
                                 <div className="flex items-center gap-2 text-sm font-bold text-[#003262] group-hover:translate-x-1 transition-transform">
                                     <Sparkles size={14} className="text-[#C9B47C]" />
-                                    View Deal on Sydecar
-                                    <ExternalLink size={12} />
+                                    Support this Berkeley Company
+                                    <ArrowRight size={12} />
                                 </div>
                             </div>
                         ))}
@@ -548,21 +545,21 @@ export const BASICSDemoDay = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                INVEST VIA SYDECAR
+                SUPPORT BERKELEY COMPANIES
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-16 bg-white border-t border-slate-200">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <Sparkles size={32} className="mx-auto text-[#C9B47C] mb-4" />
                     <h2 className="text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-4"
                         style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Invest via Sydecar Syndicates
+                        Support Berkeley Companies
                     </h2>
                     <p className="text-slate-600 max-w-xl mx-auto mb-6 leading-relaxed">
-                        Each BASICS company is raising through a dedicated Sydecar syndicate.
-                        Click any company above to view their deal terms, thesis, and invest directly.
+                        Each BASICS company is building something remarkable.
+                        Click any company above to express interest and connect with the founding team.
                     </p>
                     <p className="text-xs text-slate-400 max-w-md mx-auto">
-                        Investments are available to accredited investors only. All deals are managed through Sydecar's SEC-compliant infrastructure.
+                        Investment opportunities are available to accredited investors. Contact us for details.
                     </p>
                 </div>
             </section>

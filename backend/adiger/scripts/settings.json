@@ -1,0 +1,32 @@
+{
+  "search_keywords": [
+    "education+technology",
+    "adaptive+learning",
+    "artificial+intelligence+education",
+    "personalized+learning",
+    "game-based+learning",
+    "STEM+education",
+    "K-12+technology",
+    "curriculum+development",
+    "educational+software",
+    "learning+analytics",
+    "tutoring+systems",
+    "digital+literacy",
+    "remote+learning",
+    "distance+education"
+  ],
+  "grants_gov_keywords": [
+    "SBIR education",
+    "STTR education",
+    "education innovation",
+    "learning technology",
+    "AI education",
+    "educational research",
+    "STEM K-12"
+  ],
+  "sam_gov_sources": true,
+  "grants_gov_sources": true,
+  "ies_sbir_monitor": true,
+  "nsf_sttr_monitor": true,
+  "training_data_path": "./server/training_data"
+}

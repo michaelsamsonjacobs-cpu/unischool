@@ -4,8 +4,12 @@ import {
     ChevronRight, Plus, Target, TrendingUp, Calendar, CheckCircle,
     Clock, AlertCircle, FileText, Wallet
 } from 'lucide-react';
-import { MagicLinkService, ROLES, ROLE_LABELS } from '../services/MagicLinkService';
+import { AuthService, ROLES, ROLE_LABELS } from '../services/AuthService';
+import { collection, query, where, getDocs, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../services/FirebaseClient';
 import { FranchiseBilling } from './FranchiseBilling';
+import { SupportTicketQueue } from './SupportTicketQueue';
+import { CenterOperationsCalendar } from './CenterOperationsCalendar';
 
 /**
  * FranchiseOwnerDashboard - Dashboard for Franchise Owners
@@ -93,40 +97,48 @@ const EnrollStudentModal = ({ isOpen, onClose, onEnroll, franchiseId }) => {
     const [error, setError] = useState('');
     const [step, setStep] = useState(1);
 
-    const handleEnroll = () => {
-        if (!studentEmail.includes('@') || !studentName) {
-            setError('Please fill in all required fields');
-            return;
-        }
+    // In a real environment with Firebase, we would use an Admin SDK or Cloud Function to provision users and set Custom Claims.
+    // For the client, we record the intent and send an email link.
+    AuthService.requestMagicLink(studentEmail).then(async (result) => {
+        if (result.success || !result.error) {
+            const uidMock = `stu_${Date.now()}`;
+            const newStudent = {
+                id: uidMock,
+                email: studentEmail,
+                full_name: studentName,
+                role: ROLES.STUDENT,
+                franchise_id: franchiseId,
+                onboardingComplete: false,
+                status: 'invited',
+                created_at: serverTimestamp()
+            };
 
-        // Create student
-        const studentResult = MagicLinkService.createUser(studentEmail, ROLES.STUDENT, franchiseId);
-        if (!studentResult.success) {
-            setError(studentResult.error);
-            return;
-        }
+            await setDoc(doc(db, 'users', uidMock), newStudent);
 
-        // Update student name
-        MagicLinkService.updateUser(studentResult.user.id, { name: studentName });
-
-        // Create parent if provided
-        if (parentEmail && parentEmail.includes('@')) {
-            const parentResult = MagicLinkService.createUser(parentEmail, ROLES.PARENT, franchiseId);
-            if (parentResult.success) {
-                MagicLinkService.linkParentToStudent(parentResult.user.id, studentResult.user.id);
+            if (parentEmail) {
+                const parentUid = `par_${Date.now()}`;
+                await setDoc(doc(db, 'users', parentUid), {
+                    email: parentEmail,
+                    role: ROLES.PARENT,
+                    franchise_id: franchiseId,
+                    child_uid: uidMock,
+                    status: 'invited',
+                    created_at: serverTimestamp()
+                });
+                AuthService.requestMagicLink(parentEmail);
             }
+
+            // Hydrate shape for UI
+            onEnroll({ ...newStudent, name: newStudent.full_name });
+            onClose();
+            setStudentEmail('');
+            setStudentName('');
+            setParentEmail('');
+            setStep(1);
+        } else {
+            setError(result.error);
         }
-
-        // Send magic link to student
-        MagicLinkService.requestMagicLink(studentEmail);
-
-        onEnroll(studentResult.user);
-        onClose();
-        setStudentEmail('');
-        setStudentName('');
-        setParentEmail('');
-        setStep(1);
-    };
+    });
 
     if (!isOpen) return null;
 
@@ -207,17 +219,33 @@ export const FranchiseOwnerDashboard = ({ ownerName, franchiseId = 'franchise-1'
     const [showEnrollModal, setShowEnrollModal] = useState(false);
 
     useEffect(() => {
-        // Load students for this franchise
-        const allUsers = MagicLinkService.getUsers({ role: ROLES.STUDENT });
-        const franchiseStudents = allUsers.filter(u => u.franchiseId === franchiseId);
+        const loadStudents = async () => {
+            try {
+                const q = query(
+                    collection(db, 'users'),
+                    where('franchise_id', '==', franchiseId),
+                    where('role', '==', ROLES.STUDENT)
+                );
+                const snap = await getDocs(q);
+                const allStudents = snap.docs.map(d => {
+                    const data = d.data();
+                    return {
+                        id: d.id,
+                        name: data.full_name,
+                        email: data.email,
+                        onboardingComplete: data.onboarding_complete,
+                        surveyData: data.survey_data,
+                        ...data
+                    };
+                });
+                setStudents(allStudents);
+            } catch (e) {
+                console.error("Failed to fetch franchise students", e);
+            }
+        };
 
-        if (franchiseStudents.length === 0) {
-            // Seed demo data
-            MagicLinkService.seedDemoData();
-            const refreshed = MagicLinkService.getUsers({ role: ROLES.STUDENT });
-            setStudents(refreshed.filter(u => u.franchiseId === franchiseId));
-        } else {
-            setStudents(franchiseStudents);
+        if (franchiseId) {
+            loadStudents();
         }
     }, [franchiseId]);
 
@@ -238,7 +266,7 @@ export const FranchiseOwnerDashboard = ({ ownerName, franchiseId = 'franchise-1'
     };
 
     const handleSendSurvey = (student) => {
-        MagicLinkService.requestMagicLink(student.email);
+        AuthService.requestMagicLink(student.email);
         alert(`Survey link sent to ${student.email}`);
     };
 
@@ -268,6 +296,12 @@ export const FranchiseOwnerDashboard = ({ ownerName, franchiseId = 'franchise-1'
                             Students
                         </button>
                         <button
+                            onClick={() => setActiveTab('escalations')}
+                            className={`px-4 py-2 rounded-xl text-sm transition-colors ${activeTab === 'escalations' ? 'bg-[#8B2332] text-white' : 'hover:bg-slate-800 text-slate-400'}`}
+                        >
+                            Escalations
+                        </button>
+                        <button
                             onClick={() => setActiveTab('billing')}
                             className={`px-4 py-2 rounded-xl text-sm transition-colors ${activeTab === 'billing' ? 'bg-[#8B2332] text-white' : 'hover:bg-slate-800 text-slate-400'}`}
                         >
@@ -286,8 +320,17 @@ export const FranchiseOwnerDashboard = ({ ownerName, franchiseId = 'franchise-1'
             <div className="max-w-7xl mx-auto px-6 py-8">
                 {activeTab === 'billing' ? (
                     <FranchiseBilling franchiseId={franchiseId} />
+                ) : activeTab === 'escalations' ? (
+                    <div className="max-w-4xl mx-auto">
+                        <SupportTicketQueue franchiseId={franchiseId} />
+                    </div>
                 ) : (
                     <>
+                        {/* Center Schedule */}
+                        <div className="mb-8">
+                            <CenterOperationsCalendar centerId="center-1" />
+                        </div>
+
                         {/* Stats */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                             <StatCard icon={Users} label="Total Students" value={stats.totalStudents} color="#C9B47C" />

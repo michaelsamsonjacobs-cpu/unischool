@@ -25,10 +25,11 @@ const LOCAL_PROVIDERS = {
         isBrowser: true
     },
     ollama: {
-        name: 'Ollama',
+        name: 'Ollama (Gemma 4)',
         defaultEndpoint: 'http://localhost:11434',
-        defaultModel: 'llama3.2',
-        description: 'Run open-source models locally with Ollama'
+        defaultModel: 'gemma4:26b',
+        description: 'Gemma 4 26B — multimodal (vision + video + audio). Runs locally via Ollama.',
+        capabilities: ['text', 'vision', 'video', 'audio'],
     },
     lmstudio: {
         name: 'LM Studio',
@@ -55,6 +56,75 @@ export const AIService = {
     // Get current provider setting
     getProvider() {
         return localStorage.getItem(STORAGE_KEYS.provider) || 'ollama';
+    },
+
+    /**
+     * Query method used by XP Engine services (ConceptExtractor, NarrativeGenerator).
+     * Provides a clean interface with options for systemPrompt, temperature, maxTokens.
+     */
+    async query(prompt, options = {}) {
+        const { systemPrompt = '', temperature = 0.7, maxTokens = 4096 } = options;
+
+        const provider = this.getProvider();
+
+        // For Ollama with Gemma 4 — use the chat API for better system prompt handling
+        if (!['gemini', 'groq', 'webgpu'].includes(provider)) {
+            try {
+                const endpoint = this.getLocalEndpoint();
+                const model = this.getLocalModel();
+
+                const response = await fetch(`${endpoint}/api/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: model,
+                        messages: [
+                            ...(systemPrompt ? [{ role: 'system', content: systemPrompt }] : []),
+                            { role: 'user', content: prompt }
+                        ],
+                        stream: false,
+                        options: {
+                            temperature: temperature,
+                            num_predict: maxTokens,
+                        }
+                    })
+                });
+
+                if (!response.ok) throw new Error(`Ollama error: ${response.status}`);
+                const data = await response.json();
+                return data.message?.content || data.response || '';
+            } catch (err) {
+                console.warn('[AIService.query] Local model failed, trying fallback:', err.message);
+            }
+        }
+
+        // Fallback to the general generate method
+        return await this.generate(prompt, systemPrompt);
+    },
+
+    /**
+     * Send an image (base64) to Gemma 4 for vision analysis.
+     * Used by IngestService for slide/frame OCR.
+     */
+    async analyzeImage(base64Image, prompt = 'Describe what you see in this image.') {
+        const endpoint = this.getLocalEndpoint();
+        const model = this.getLocalModel();
+
+        const response = await fetch(`${endpoint}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: model,
+                messages: [
+                    { role: 'user', content: prompt, images: [base64Image] }
+                ],
+                stream: false,
+            })
+        });
+
+        if (!response.ok) throw new Error(`Vision analysis error: ${response.status}`);
+        const data = await response.json();
+        return data.message?.content || '';
     },
 
     setProvider(provider) {
@@ -331,7 +401,8 @@ export const AIService = {
             isConnected: isConnected,
             endpoint: !isCloud ? this.getLocalEndpoint() : (provider === 'groq' ? 'Groq Cloud' : 'Gemini API'),
             model: !isCloud ? this.getLocalModel() : (provider === 'groq' ? (this.getLocalModel() || 'llama3-70b-8192') : 'gemini-1.5-flash'),
-            providerName: LOCAL_PROVIDERS[provider]?.name || provider
+            providerName: LOCAL_PROVIDERS[provider]?.name || provider,
+            capabilities: LOCAL_PROVIDERS[provider]?.capabilities || ['text'],
         };
     }
 };
