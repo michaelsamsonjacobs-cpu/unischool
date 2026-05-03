@@ -19,9 +19,7 @@ export const LandingPage = ({ onNavigate }) => {
                     </div>
 
                     <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-[#2D2D2D] tracking-tight mb-8 leading-[1.1]">
-                        The School of the <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Future</span>, Built on<br />
-                        Wisdom of the Past.
+                        Start college at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">14</span>.
                     </h1>
 
                     <p className="max-w-2xl mx-auto text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed font-medium">
@@ -50,18 +48,18 @@ export const LandingPage = ({ onNavigate }) => {
                         </button>
 
                         <button
-                            onClick={() => onNavigate('basics')}
+                            onClick={() => onNavigate('franchise')}
                             className="group relative overflow-hidden p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#C9B47C] transition-all hover:bg-[#C9B47C]/10 text-left shadow-lg hover:shadow-xl"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#C9B47C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="relative z-10">
                                 <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-[9px] font-bold uppercase tracking-widest mb-4">
-                                    🎓 Spring 2026
+                                    🏫 Now Enrolling
                                 </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">BASICS @ Berkeley Demo Day</h3>
-                                <p className="text-slate-600 mb-6 text-base font-medium">Our Spring 2026 cohort pitched live. Invest via Sydecar syndicates.</p>
+                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">Open a University School</h3>
+                                <p className="text-slate-600 mb-6 text-base font-medium">Launch a micro-school franchise powered by AI. Low overhead, high impact.</p>
                                 <span className="inline-flex items-center gap-2 text-[#C9B47C] font-bold text-sm group-hover:translate-x-1 transition-transform">
-                                    View Cohort & Invest <ArrowRight size={16} />
+                                    Learn About Franchising <ArrowRight size={16} />
                                 </span>
                             </div>
                         </button>

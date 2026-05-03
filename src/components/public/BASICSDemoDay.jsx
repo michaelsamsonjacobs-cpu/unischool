@@ -242,7 +242,7 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                     <div className="flex items-center justify-center gap-6 text-white/60 text-sm font-medium mb-10">
                         <span className="flex items-center gap-2">
                             <Calendar size={14} className="text-[#C9B47C]" />
-                            May 1, 2026
+                            Spring 2026
                         </span>
                         <span className="w-1 h-1 rounded-full bg-[#C9B47C]" />
                         <span className="flex items-center gap-2">
@@ -480,7 +480,7 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#003262]/5 border border-[#003262]/10 mb-4">
                             <Camera size={12} className="text-[#003262]" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#003262]">May 1, 2026</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#003262]">Spring 2026</span>
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-3"
                             style={{ fontFamily: "'Playfair Display', serif" }}>

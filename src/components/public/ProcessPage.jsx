@@ -120,6 +120,96 @@ export const ProcessPage = ({ onNavigate }) => {
                 </div>
             </section>
 
+            {/* ═══════════════════════════════════════════════════════════
+                LEARNING THROUGH PLAY — GAME-BASED APPROACH
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="py-24 bg-white border-b border-[#8B2332]/10">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <span className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase mb-2 block">Our Secret Weapon</span>
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">
+                            College Classes, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Disguised as Games.</span>
+                        </h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                            Kids don't want to sit through lectures. So we turned university coursework into
+                            interactive missions, boss battles, and skill trees. They're earning real college credit —
+                            they just don't realize how hard they're working.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        {[
+                            {
+                                emoji: '🎮',
+                                title: 'XP Missions',
+                                description: 'Every lecture becomes a playable mission. Students explore branching storylines where their choices determine what they learn next — like a choose-your-own-adventure textbook.',
+                                color: '#8B2332',
+                            },
+                            {
+                                emoji: '🌳',
+                                title: 'Skill Trees',
+                                description: 'Inspired by RPGs, students unlock abilities as they master subjects. Visual progress tracking makes it impossible to fall behind — and addictive to get ahead.',
+                                color: '#C9B47C',
+                            },
+                            {
+                                emoji: '⚔️',
+                                title: 'Boss Battles',
+                                description: 'Forget boring exams. Students face "Boss Battles" — challenging, high-stakes assessments designed to feel like a final boss fight, not a Scantron sheet.',
+                                color: '#3b82f6',
+                            },
+                            {
+                                emoji: '🧠',
+                                title: 'AI Navigator',
+                                description: 'A personal AI mentor adapts to each student\'s pace, identifies knowledge gaps in real-time, and reroutes their learning path — like GPS for education.',
+                                color: '#10b981',
+                            },
+                        ].map((feature, i) => (
+                            <div key={i} className="group p-6 rounded-2xl bg-[#FAF8F5] border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all">
+                                <div className="text-4xl mb-4">{feature.emoji}</div>
+                                <h3 className="text-xl font-serif font-bold text-[#2D2D2D] mb-2">{feature.title}</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* How it works in practice */}
+                    <div className="bg-[#FAF8F5] rounded-3xl border border-slate-200 p-8 md:p-12">
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-6">
+                                    How a 14-Year-Old Takes a UC Berkeley Physics Class
+                                </h3>
+                                <div className="space-y-4">
+                                    {[
+                                        { step: '1', text: 'Our AI watches the lecture and generates an interactive "XP Mission" with branching choices and embedded quiz checkpoints.' },
+                                        { step: '2', text: 'The student plays through the mission like a game — exploring concepts, making decisions, and earning XP for correct reasoning.' },
+                                        { step: '3', text: 'Wrong answers don\'t mean failure. The AI uses "Productive Failure" — routing students into harder paths that build deeper understanding.' },
+                                        { step: '4', text: 'At the end, they face a Boss Battle. Pass it, and the XP counts toward real transferable college credit.' },
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex gap-4 items-start">
+                                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B2332] text-white flex items-center justify-center font-bold text-sm shadow-md">
+                                                {item.step}
+                                            </div>
+                                            <p className="text-slate-600 text-sm leading-relaxed pt-1">{item.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-2xl blur-[80px] opacity-10" />
+                                <div className="relative bg-white border border-slate-200 rounded-2xl p-2 shadow-2xl">
+                                    <img
+                                        src="/images/app-student-cockpit.png"
+                                        alt="University School XP Mission Interface"
+                                        className="rounded-xl w-full h-auto"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* The Crimson Bot Section */}
             <section className="py-24 bg-[#FAF8F5]">
                 <div className="max-w-7xl mx-auto px-4">

@@ -14,7 +14,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
         { id: 'about', label: 'About Us' },
         { id: 'partners', label: 'University Partners' },
         { id: 'franchise', label: 'Franchise Nodes' },
-        { id: 'basics', label: 'Demo Day', badge: 'May 1' },
+        { id: 'basics', label: 'Demo Day' },
     ];
 
     return (

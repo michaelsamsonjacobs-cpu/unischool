@@ -14,8 +14,8 @@ export const FranchisePage = ({ onNavigate }) => {
                         University School Node Operator
                     </span>
                     <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-tight">
-                        Own the Infrastructure of <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Sovereign Education.</span>
+                        Own the Future of <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Education.</span>
                     </h1>
                     <p className="text-xl text-slate-600 max-w-2xl leading-relaxed mb-10">
                         The traditional school system is collapsing. We are building the replacement: a decentralized network of high-tech, high-agency micro-schools.
