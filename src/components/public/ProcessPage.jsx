@@ -15,7 +15,7 @@ export const ProcessPage = ({ onNavigate }) => {
                     </div>
                     <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-[1.05]">
                         100% of Our Students<br />
-                        <span className="text-[#8B2332]">Admitted to College.</span>
+                        <span className="text-[#8B2332]">Graduate from College.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                         Every student who completes our program is guaranteed admission to a top university.
