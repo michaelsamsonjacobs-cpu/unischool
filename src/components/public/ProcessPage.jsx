@@ -11,14 +11,15 @@ export const ProcessPage = ({ onNavigate }) => {
                 </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 z-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B2332]/10 border border-[#8B2332]/20 text-[#8B2332] text-xs font-bold uppercase tracking-widest mb-8 mx-auto">
-                        <Target size={12} /> The Barbell Strategy
+                        <Target size={12} /> Our Process
                     </div>
                     <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-[1.05]">
-                        The Master Strategy.
+                        100% of Our Students<br />
+                        <span className="text-[#8B2332]">Admitted to College.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                        We don't rely on luck. Our "Barbell Strategy" ensures you have a 100% guaranteed safety net
-                        while aggressively targeting the world's most elite institutions.
+                        Every student who completes our program is guaranteed admission to a top university.
+                        No lottery. No luck. Just a clear, proven pathway from age 14 to a college degree.
                     </p>
                 </div>
             </section>
