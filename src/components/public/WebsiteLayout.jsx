@@ -64,12 +64,6 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 </button>
                             ))}
                             <button
-                                onClick={() => onNavigate('cockpit')}
-                                className="text-sm font-semibold text-slate-600 hover:text-[#8B2332] transition-colors"
-                            >
-                                Log in
-                            </button>
-                            <button
                                 onClick={() => onNavigate('franchise')}
                                 className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-2 group"
                             >

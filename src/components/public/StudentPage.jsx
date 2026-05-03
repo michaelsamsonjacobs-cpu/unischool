@@ -145,14 +145,14 @@ export const StudentPage = ({ onNavigate }) => {
                     <div className="text-5xl mb-6">🚀</div>
                     <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Run?</h2>
                     <p className="text-white/80 text-xl mb-10 max-w-xl mx-auto">
-                        Create your Navigator, define your mission, and start earning XP today.
+                        Talk to our team to learn how you can start earning college credit at 14.
                     </p>
-                    <button
-                        onClick={() => onNavigate('cockpit')}
+                    <a
+                        href="mailto:info@universityschool.ai"
                         className="bg-white text-[#8B2332] px-10 py-5 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 transition-transform inline-flex items-center gap-3"
                     >
-                        Enter The Cockpit <ArrowRight size={20} />
-                    </button>
+                        Get Started <ArrowRight size={20} />
+                    </a>
                 </div>
             </section>
         </div>

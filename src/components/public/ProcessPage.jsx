@@ -244,12 +244,12 @@ export const ProcessPage = ({ onNavigate }) => {
                                         <span>Extracurricular "Spike" Recommendations</span>
                                     </li>
                                 </ul>
-                                <button
-                                    onClick={() => onNavigate('cockpit')}
-                                    className="bg-[#8B2332] text-white px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 shadow-lg flex items-center gap-2"
+                                <a
+                                    href="mailto:info@universityschool.ai"
+                                    className="bg-[#8B2332] text-white px-8 py-4 rounded-2xl font-bold transition-transform hover:scale-105 shadow-lg flex items-center gap-2"
                                 >
-                                    Log In to Run Analysis <ArrowRight size={18} />
-                                </button>
+                                    Get Your Analysis <ArrowRight size={18} />
+                                </a>
                             </div>
 
                             {/* AI Interface Mockup */}
