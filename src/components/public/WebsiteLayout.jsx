@@ -26,7 +26,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                         {/* Logo */}
                         <div
                             className="flex items-center gap-3 cursor-pointer group"
-                            onClick={() => onNavigate('home')}
+                            onClick={() => onNavigate('landing')}
                         >
                             <img
                                 src="/images/unischool-logo.png"
@@ -45,9 +45,6 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <h1 className="font-serif text-xl font-bold tracking-tight text-[#2D2D2D]">
                                     University School
                                 </h1>
-                                <p className="text-[10px] uppercase tracking-widest text-[#C9B47C] font-semibold">
-                                    Hyper-Accelerate
-                                </p>
                             </div>
                         </div>
 
@@ -56,7 +53,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                             {NAV_LINKS.map(link => (
                                 <button
                                     key={link.id}
-                                    onClick={() => onNavigate(link.id)}
+                                    onClick={() => onNavigate(link.id === 'home' ? 'landing' : link.id)}
                                     className={`text-sm font-semibold transition-colors hover:text-[#8B2332] ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
                                         }`}
                                 >
@@ -84,31 +81,26 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden bg-[#0f172a] border-b border-white/5 px-4 py-4 space-y-4">
+                    <div className="md:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-2 shadow-lg">
                         {NAV_LINKS.map(link => (
                             <button
                                 key={link.id}
                                 onClick={() => {
-                                    onNavigate(link.id);
+                                    onNavigate(link.id === 'home' ? 'landing' : link.id);
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className={`block w-full text-left py-2 text-base font-medium flex items-center gap-2 ${activePage === link.id ? 'text-[#C9B47C]' : 'text-slate-300'
+                                className={`block w-full text-left py-3 px-3 rounded-xl text-base font-semibold transition-colors ${activePage === link.id ? 'text-[#8B2332] bg-[#8B2332]/5' : 'text-slate-600 hover:bg-slate-50'
                                     }`}
                             >
                                 {link.label}
-                                {link.badge && (
-                                    <span className="px-1.5 py-0.5 rounded-full bg-[#C9B47C]/20 text-[#C9B47C] text-[9px] font-bold uppercase">
-                                        {link.badge}
-                                    </span>
-                                )}
                             </button>
                         ))}
-                        <a
-                            href="mailto:info@universityschool.ai"
-                            className="block w-full bg-[#8B2332] text-white px-5 py-3 rounded-xl font-semibold mt-4 text-center"
+                        <button
+                            onClick={() => { onNavigate('franchise'); setIsMobileMenuOpen(false); }}
+                            className="block w-full bg-[#8B2332] text-white px-5 py-3 rounded-xl font-bold mt-2 text-center"
                         >
-                            Contact Us
-                        </a>
+                            Get Involved
+                        </button>
                     </div>
                 )}
             </nav>

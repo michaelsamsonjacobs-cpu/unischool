@@ -264,13 +264,26 @@ export const LandingPage = ({ onNavigate }) => {
                             </button>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-2xl blur-2xl opacity-20" />
-                            <div className="relative bg-slate-900 border border-slate-700 rounded-2xl p-2 shadow-2xl">
-                                <img
-                                    src="/images/app-student-cockpit.png"
-                                    alt="University School Student Cockpit"
-                                    className="rounded-xl w-full h-auto shadow-2xl"
-                                />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-3xl blur-2xl opacity-15" />
+                            <div className="relative bg-[#FAF8F5] border border-slate-200 rounded-3xl p-8 shadow-xl">
+                                <div className="text-center mb-6">
+                                    <span className="text-xs font-bold text-[#C9B47C] uppercase tracking-widest">How It Feels</span>
+                                </div>
+                                <div className="space-y-4">
+                                    {[
+                                        { emoji: '🗺️', label: 'Side Quests', desc: 'Replace homework with real-world missions' },
+                                        { emoji: '⚔️', label: 'Boss Battles', desc: 'Replace exams with skill demonstrations' },
+                                        { emoji: '🌳', label: 'Skill Trees', desc: 'Track progress like a strategy game' },
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-slate-100 hover:border-[#C9B47C]/30 hover:shadow-md transition-all">
+                                            <div className="text-3xl">{item.emoji}</div>
+                                            <div>
+                                                <div className="font-bold text-[#2D2D2D] text-sm">{item.label}</div>
+                                                <div className="text-xs text-slate-500">{item.desc}</div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

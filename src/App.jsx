@@ -235,7 +235,7 @@ function App() {
 
     // Effect to handle redirection if rendering state is invalid
     useEffect(() => {
-        if (isAuthenticated && (activeView === 'cockpit' || activeView === 'landing')) {
+        if (isAuthenticated && activeView === 'cockpit') {
             if (user?.role === ROLES.SUPER_ADMIN) {
                 setActiveView('super_admin');
             } else if (user?.role === ROLES.FRANCHISE_OWNER) {
@@ -390,16 +390,16 @@ function App() {
         );
     }
 
-    // 3. Auth Screen (The Gate)
-    // If we are here, the view is NOT a public page. So it must be a private page.
-    // If we are not authenticated, show Auth.
-    // Also handle specific 'cockpit' entry point from public site.
+    // 3. Internal platform is not public yet — redirect everything else to landing
     if (!isAuthenticated || activeView === 'cockpit') {
+        // Force back to public landing page — internal platform not yet public
+        if (activeView !== 'landing') {
+            setActiveView('landing');
+        }
         return (
-            <AuthScreen
-                onLogin={(u) => handleLogin({ ...u, role: 'student' })}
-                onGuest={() => handleLogin({ name: 'Guest', role: 'student' })}
-            />
+            <WebsiteLayout activePage={'home'} onNavigate={setActiveView}>
+                <LandingPage onNavigate={setActiveView} />
+            </WebsiteLayout>
         );
     }
 
