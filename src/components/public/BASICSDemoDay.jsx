@@ -129,7 +129,7 @@ const COHORT_COMPANIES = [
     {
         name: 'Qluu',
         slug: 'qluu',
-        founder: 'Mike Jacobs & Arkadiy Okhman',
+        founder: 'Arkadiy Okhman',
         description: 'AI-powered integrated air and missile defense platform — Titanium Dome. Full-spectrum threat interception at cost parity.',
         dealUrl: 'https://sydecar.io/deal/qluu',
         isMentorCompany: false,
@@ -169,6 +169,8 @@ const INVESTOR_PANELISTS = [
     { name: 'Dr. David Whitney', firm: 'UC Berkeley Cognitive Science', url: 'https://www.linkedin.com/in/david-whitney-b084454/' },
     { name: 'Elizabeth Redman Cleveland', firm: 'Berkeley Startup Cluster', url: 'https://www.linkedin.com/in/elizabethredmancleveland/' },
     { name: 'Jeremy Fiance', firm: 'The House Fund', url: 'https://www.linkedin.com/in/jeremyfiance/' },
+    { name: 'Techstars', firm: 'Accelerator Network', url: 'https://www.techstars.com/' },
+    { name: 'Berkeley Haas IBI', firm: 'Institute for Business Innovation', url: 'https://haas.berkeley.edu/ibi/' },
 ];
 
 export const BASICSDemoDay = ({ onNavigate }) => {
@@ -263,7 +265,9 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                             <ArrowRight size={16} />
                         </a>
                         <a
-                            href="mailto:basics@universityschool.ai"
+                            href="https://app.sydecar.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border border-white/20 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                         >
                             Investor Inquiries
@@ -421,12 +425,12 @@ export const BASICSDemoDay = ({ onNavigate }) => {
 
                                 {/* Company logo */}
                                 {company.logo ? (
-                                    <div className="w-14 h-14 rounded-xl overflow-hidden mb-4 shadow-lg bg-white border border-slate-100 flex items-center justify-center p-1">
+                                    <div className="w-20 h-20 rounded-2xl overflow-hidden mb-4 shadow-md bg-white border border-slate-200 flex items-center justify-center p-2">
                                         <img src={company.logo} alt={`${company.name} logo`} className="w-full h-full object-contain" />
                                     </div>
                                 ) : (
                                     <div
-                                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg text-white font-bold text-xl"
+                                        className="w-20 h-20 rounded-2xl flex items-center justify-center mb-4 shadow-md text-white font-bold text-2xl"
                                         style={{
                                             background: `linear-gradient(135deg, ${company.color}, ${company.color}dd)`,
                                             fontFamily: "'Playfair Display', serif",
@@ -490,13 +494,13 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                     {/* Pitching Shots */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                         {[
-                            { src: 'pitch-mina-newnav.jpg', label: 'Mina Sonmez — NewNav' },
+                            { src: 'pitch-evardi.jpg', label: 'Berkeley Startup Cluster' },
                             { src: 'pitch-ellen-lumina.jpg', label: 'Ellen Zhang — Lumina' },
                             { src: 'pitch-claudius-thesedays.jpg', label: 'Claudius Ma — TheseDays' },
                             { src: 'pitch-jessica-breeze.jpg', label: 'Jessica Miller — Breeze' },
                             { src: 'pitch-naomi-cogcal.jpg', label: 'Naomi Toubian — Cognitive Calendar' },
-                            { src: 'pitch-evardi.jpg', label: 'Evardi Energy Team' },
-                            { src: 'pitch-yasmine-heirloom.jpg', label: 'Yasmine Baker — Heirloom' },
+                            { src: 'pitch-yasmine-heirloom.jpg', label: 'Evardi Energy Team' },
+                            { src: 'pitch-mina-newnav.jpg', label: 'Yasmine Baker — Heirloom' },
                             { src: 'pitch-mike-qluu.jpg', label: 'Mike Jacobs — Qluu' },
                         ].map((photo, i) => (
                             <div key={i} className="break-inside-avoid rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group relative">
@@ -586,7 +590,9 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                             <ArrowRight size={16} />
                         </a>
                         <a
-                            href="mailto:basics@universityschool.ai"
+                            href="https://app.sydecar.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border border-white/20 px-10 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                         >
                             Investor Inquiries
