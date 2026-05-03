@@ -501,7 +501,7 @@ export const BASICSDemoDay = ({ onNavigate }) => {
                             { src: 'pitch-naomi-cogcal.jpg', label: 'Naomi Toubian — Cognitive Calendar' },
                             { src: 'pitch-yasmine-heirloom.jpg', label: 'Evardi Energy Team' },
                             { src: 'pitch-mina-newnav.jpg', label: 'Yasmine Baker — Heirloom' },
-                            { src: 'pitch-mike-qluu.jpg', label: 'Mike Jacobs — Qluu' },
+                            { src: 'pitch-mike-qluu.jpg', label: 'Uri Korisky — Qluu' },
                         ].map((photo, i) => (
                             <div key={i} className="break-inside-avoid rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group relative">
                                 <img
