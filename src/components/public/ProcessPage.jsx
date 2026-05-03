@@ -5,13 +5,18 @@ export const ProcessPage = ({ onNavigate }) => {
     return (
         <div className="flex flex-col pt-20">
             {/* Hero */}
-            <section className="bg-[#FAF8F5] py-24 border-b border-[#8B2332]/10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/strategy-bg.png')] opacity-5" />
-                <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-                    <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8">
+            <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+                <div className="absolute inset-0 bg-[#FAF8F5]">
+                    <div className="absolute inset-0 bg-[url('/images/strategy-bg.png')] opacity-5" />
+                </div>
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B2332]/10 border border-[#8B2332]/20 text-[#8B2332] text-xs font-bold uppercase tracking-widest mb-8 mx-auto">
+                        <Target size={12} /> The Barbell Strategy
+                    </div>
+                    <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-[1.05]">
                         The Master Strategy.
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                         We don't rely on luck. Our "Barbell Strategy" ensures you have a 100% guaranteed safety net
                         while aggressively targeting the world's most elite institutions.
                     </p>

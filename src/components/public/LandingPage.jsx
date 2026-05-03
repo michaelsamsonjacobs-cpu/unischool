@@ -127,20 +127,10 @@ export const LandingPage = ({ onNavigate }) => {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#C9B47C]/5 via-transparent to-[#C9B47C]/5" />
 
                 <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* SVG curved golden path */}
-                    <svg className="absolute top-1/2 left-0 right-0 w-full h-4 -translate-y-1/2 hidden md:block" viewBox="0 0 1000 20" preserveAspectRatio="none">
-                        <path d="M 0 10 Q 125 0, 250 10 Q 375 20, 500 10 Q 625 0, 750 10 Q 875 20, 1000 10" stroke="#C9B47C" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
-                        <path d="M 0 10 Q 125 0, 250 10 Q 375 20, 500 10 Q 625 0, 750 10 Q 875 20, 1000 10" stroke="url(#goldGrad)" strokeWidth="3" fill="none" strokeLinecap="round" strokeDasharray="8 4" />
-                        <defs>
-                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#C9B47C" />
-                                <stop offset="50%" stopColor="#A89560" />
-                                <stop offset="100%" stopColor="#C9B47C" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                    {/* Golden connecting line (desktop only) */}
+                    <div className="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#C9B47C]/20 via-[#C9B47C]/40 to-[#C9B47C]/20 -translate-y-1/2" />
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 relative">
                         {[
                             { label: "Partner Universities", value: "60+", icon: GraduationCap },
                             { label: "Transfer Guarantee", value: "100%", icon: Target },
@@ -148,23 +138,15 @@ export const LandingPage = ({ onNavigate }) => {
                             { label: "Tuition Saved", value: "$80k+", icon: Sparkles },
                         ].map((stat, i) => (
                             <div key={i} className="text-center relative group">
-                                {/* Level Up node */}
-                                <div className="hidden md:flex absolute -top-8 left-1/2 -translate-x-1/2 items-center justify-center">
-                                    <div className="w-6 h-6 rounded-full bg-[#C9B47C] border-4 border-white shadow-lg group-hover:scale-125 transition-transform" />
+                                {/* Gold dot connector */}
+                                <div className="hidden md:flex absolute -top-3 left-1/2 -translate-x-1/2 items-center justify-center z-10">
+                                    <div className="w-5 h-5 rounded-full bg-[#C9B47C] border-[3px] border-white shadow-md group-hover:scale-125 transition-transform" />
                                 </div>
-                                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#C9B47C]/15 hover:border-[#C9B47C]/40 hover:shadow-lg transition-all">
-                                    <stat.icon size={24} className="mx-auto text-[#C9B47C] mb-3" />
-                                    <div className="text-4xl lg:text-5xl font-bold text-[#2D2D2D] mb-2 font-serif">{stat.value}</div>
-                                    <div className="text-xs font-bold text-[#8B2332] uppercase tracking-wider">{stat.label}</div>
+                                <div className="bg-[#FAF8F5] rounded-2xl p-6 pt-8 border border-[#C9B47C]/15 hover:border-[#C9B47C]/40 hover:shadow-lg transition-all">
+                                    <stat.icon size={22} className="mx-auto text-[#C9B47C] mb-3" />
+                                    <div className="text-3xl lg:text-4xl font-bold text-[#2D2D2D] mb-2 font-serif">{stat.value}</div>
+                                    <div className="text-[10px] font-bold text-[#8B2332] uppercase tracking-wider">{stat.label}</div>
                                 </div>
-                                {/* Level Up label */}
-                                {i < 3 && (
-                                    <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10">
-                                        <span className="px-2 py-1 rounded-full bg-[#C9B47C]/15 text-[#C9B47C] text-[8px] font-bold uppercase tracking-widest border border-[#C9B47C]/25 whitespace-nowrap">
-                                            Level Up
-                                        </span>
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>

@@ -35,16 +35,16 @@ export const TransferPartners = () => {
     const elite = filtered.filter(uni => !uni.guaranteedSupport);
 
     const UniversityCard = ({ uni }) => (
-        <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#8B2332] transition-all group shadow-sm hover:shadow-lg flex flex-col h-full">
+        <div className="bg-[#FAF8F5] border border-slate-200 rounded-2xl p-6 hover:border-[#8B2332]/30 transition-all group shadow-sm hover:shadow-lg flex flex-col h-full">
             <div className="flex justify-between items-start mb-4">
                 {uni.logo ? (
                     <img src={uni.logo} alt={uni.name} className="h-12 w-auto object-contain max-w-[60px]" />
                 ) : (
-                    <div className="h-12 w-12 bg-[#8B2332]/5 rounded-lg flex items-center justify-center font-serif font-bold text-[#8B2332] text-xl border border-[#8B2332]/10">
+                    <div className="h-12 w-12 bg-white rounded-xl flex items-center justify-center font-serif font-bold text-[#8B2332] text-xl border border-[#8B2332]/10 shadow-sm">
                         {uni.name.charAt(0)}
                     </div>
                 )}
-                <span className={`px-2 py-1 rounded text-xs font-bold ${uni.tier === 'P0' ? 'bg-[#8B2332]/10 text-[#8B2332]' :
+                <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${uni.tier === 'P0' ? 'bg-[#8B2332]/10 text-[#8B2332]' :
                     uni.tier.includes('Ivy') || uni.tier.includes('Reach') ? 'bg-purple-100 text-purple-700' :
                         uni.tier.includes('Tier 1') ? 'bg-blue-50 text-blue-600' : 'bg-slate-100 text-slate-500'
                     }`}>
@@ -92,37 +92,39 @@ export const TransferPartners = () => {
     return (
         <div className="flex flex-col pt-20 pb-32">
             {/* Header */}
-            <section className="bg-white py-16 border-b border-[#8B2332]/10">
-                <div className="max-w-7xl mx-auto px-4">
-                    <span className="text-[#8B2332] font-bold tracking-widest text-xs uppercase mb-2 block">Legally Binding Transfer Agreements</span>
-                    <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">
+            <section className="relative min-h-[40vh] flex items-center overflow-hidden">
+                <div className="absolute inset-0 bg-white" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B2332]/10 border border-[#8B2332]/20 text-[#8B2332] text-xs font-bold uppercase tracking-widest mb-8">
+                        <Award size={12} /> Legally Binding Transfer Agreements
+                    </div>
+                    <h1 className="font-serif text-5xl md:text-6xl font-bold text-[#2D2D2D] mb-6 leading-[1.05]">
                         Admissions is No Longer a <br />
                         <span className="text-[#8B2332]">Lottery.</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-3xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
                         These are not "likely" schools. These are <strong>100% guaranteed</strong> admissions pathways.
                         If you complete the Navigator's Quest Log for these universities, they <em>must</em> accept you.
-                        University School's Admissions AI guides you into these guaranteed Tier 1 and 2 universities.
                     </p>
                 </div>
             </section>
 
             {/* Search & Filter */}
-            <section className="py-8 bg-[#FAF8F5] border-b border-[#8B2332]/10 sticky top-20 z-40 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row gap-4">
+            <section className="py-6 bg-[#FAF8F5] border-b border-[#8B2332]/10 sticky top-20 z-40 shadow-sm">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row gap-3">
                         <div className="relative flex-1">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input
                                 type="text"
                                 placeholder="Search universities (e.g. UC Davis, ASU)..."
-                                className="w-full bg-white border border-slate-200 text-[#2D2D2D] pl-12 pr-4 py-3 rounded-xl focus:border-[#8B2332] outline-none shadow-sm"
+                                className="w-full bg-white border border-slate-200 text-[#2D2D2D] pl-11 pr-4 py-3 rounded-2xl focus:border-[#8B2332] outline-none shadow-sm text-sm"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />
                         </div>
                         <select
-                            className="bg-white border border-slate-200 text-[#2D2D2D] px-4 py-3 rounded-xl outline-none shadow-sm focus:border-[#8B2332]"
+                            className="bg-white border border-slate-200 text-[#2D2D2D] px-4 py-3 rounded-2xl outline-none shadow-sm focus:border-[#8B2332] text-sm"
                             value={stateFilter}
                             onChange={(e) => setStateFilter(e.target.value)}
                         >
@@ -130,7 +132,7 @@ export const TransferPartners = () => {
                             {states.map(s => <option key={s} value={s}>{s}</option>)}
                         </select>
                         <select
-                            className="bg-white border border-slate-200 text-[#2D2D2D] px-4 py-3 rounded-xl outline-none shadow-sm focus:border-[#8B2332]"
+                            className="bg-white border border-slate-200 text-[#2D2D2D] px-4 py-3 rounded-2xl outline-none shadow-sm focus:border-[#8B2332] text-sm"
                             value={tierFilter}
                             onChange={(e) => setTierFilter(e.target.value)}
                         >
