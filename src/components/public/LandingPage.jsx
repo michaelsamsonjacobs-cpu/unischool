@@ -1,10 +1,12 @@
 import React from 'react';
-import { ArrowRight, ChevronRight, Map, Trophy, Users, Zap } from 'lucide-react';
+import { ArrowRight, ChevronRight, Map, Trophy, Users, Zap, Sparkles, GraduationCap, BookOpen, Brain, Target, Star } from 'lucide-react';
 
 export const LandingPage = ({ onNavigate }) => {
     return (
-        <div className="flex flex-col pb-32">
-            {/* Hero Section */}
+        <div className="flex flex-col pb-20">
+            {/* ═══════════════════════════════════════════════════════════
+                HERO SECTION — "Start college at 14."
+                ═══════════════════════════════════════════════════════════ */}
             <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-[#FAF8F5]">
@@ -13,81 +15,239 @@ export const LandingPage = ({ onNavigate }) => {
                     <div className="absolute bottom-0 inset-x-0 h-[20vh] bg-gradient-to-t from-[#FAF8F5] to-transparent" />
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 w-full">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-xs font-bold uppercase tracking-widest mb-8 animate-fade-in-up">
-                        <Zap size={12} /> Project Hyper-Accelerate
-                    </div>
-
-                    <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-[#2D2D2D] tracking-tight mb-8 leading-[1.1]">
-                        Start college at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">14</span>.
-                    </h1>
-
-                    <p className="max-w-2xl mx-auto text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed font-medium">
-                        Traditional school is a conveyor belt. We built a spaceship.
-                        Join an educational strategy game designed to launch you into
-                        the world's top universities 2 years early.
-                    </p>
-
-                    {/* Split Funnel */}
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <button
-                            onClick={() => onNavigate('students')}
-                            className="group relative overflow-hidden p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#8B2332] transition-all hover:bg-[#8B2332]/5 text-left shadow-lg hover:shadow-xl"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#8B2332]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="relative z-10">
-                                <div className="h-12 w-12 rounded-xl bg-[#8B2332] flex items-center justify-center mb-4 shadow-lg shadow-[#8B2332]/20 group-hover:scale-110 transition-transform">
-                                    <Trophy className="text-white" />
-                                </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">I am an Ambitious Student</h3>
-                                <p className="text-slate-600 mb-6 text-base font-medium">Learn how University School hyper-accelerates your path to Berkeley, UCLA, and beyond.</p>
-                                <span className="inline-flex items-center gap-2 text-[#8B2332] font-bold text-sm group-hover:translate-x-1 transition-transform">
-                                    Learn Our Process <ArrowRight size={16} />
-                                </span>
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        {/* Left: Copy */}
+                        <div className="text-left">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-xs font-bold uppercase tracking-widest mb-8 animate-fade-in-up">
+                                <Sparkles size={12} /> Project Hyper-Accelerate
                             </div>
-                        </button>
 
-                        <button
-                            onClick={() => onNavigate('franchise')}
-                            className="group relative overflow-hidden p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#C9B47C] transition-all hover:bg-[#C9B47C]/10 text-left shadow-lg hover:shadow-xl"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#C9B47C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="relative z-10">
-                                <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-[9px] font-bold uppercase tracking-widest mb-4">
-                                    🏫 Now Enrolling
-                                </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#2D2D2D] mb-2">Open a University School</h3>
-                                <p className="text-slate-600 mb-6 text-base font-medium">Launch a micro-school franchise powered by AI. Low overhead, high impact.</p>
-                                <span className="inline-flex items-center gap-2 text-[#C9B47C] font-bold text-sm group-hover:translate-x-1 transition-transform">
-                                    Learn About Franchising <ArrowRight size={16} />
-                                </span>
+                            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-[#2D2D2D] tracking-tight mb-8 leading-[1.05]">
+                                Start college<br />
+                                at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">14</span>.
+                            </h1>
+
+                            <p className="max-w-lg text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium">
+                                Traditional school is a conveyor belt. We built a spaceship.
+                                Join an educational strategy game designed to launch you into
+                                the world's top universities 2 years early.
+                            </p>
+
+                            {/* Split CTAs */}
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button
+                                    onClick={() => onNavigate('students')}
+                                    className="group relative overflow-hidden bg-[#8B2332] hover:bg-[#a62b3d] text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-3"
+                                >
+                                    <Trophy size={18} />
+                                    I am an Ambitious Student
+                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button
+                                    onClick={() => onNavigate('franchise')}
+                                    className="group bg-white hover:bg-[#C9B47C]/10 border-2 border-[#C9B47C]/30 hover:border-[#C9B47C] text-[#2D2D2D] px-8 py-4 rounded-2xl font-bold transition-all shadow-sm hover:shadow-lg flex items-center gap-3"
+                                >
+                                    <GraduationCap size={18} className="text-[#C9B47C]" />
+                                    Open a University School
+                                    <ArrowRight size={16} className="text-[#C9B47C] group-hover:translate-x-1 transition-transform" />
+                                </button>
                             </div>
-                        </button>
+                        </div>
+
+                        {/* Right: Floating Navigator Preview Card */}
+                        <div className="hidden lg:block relative">
+                            {/* Glow behind card */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#C9B47C]/20 to-[#8B2332]/10 rounded-3xl blur-[60px]" />
+
+                            {/* Main glassmorphic card */}
+                            <div className="relative bg-white/80 backdrop-blur-xl border border-white/60 rounded-3xl p-6 shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                                <div className="flex items-center gap-3 mb-5 pb-4 border-b border-slate-200/60">
+                                    <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#8B2332] to-[#C9B47C] flex items-center justify-center shadow-lg">
+                                        <Zap size={18} className="text-white" />
+                                    </div>
+                                    <div>
+                                        <div className="font-bold text-[#2D2D2D] text-sm">Navigator Dashboard</div>
+                                        <div className="text-xs text-[#C9B47C] font-semibold">Guest Preview</div>
+                                    </div>
+                                    <div className="ml-auto flex gap-1.5">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#C9B47C]" />
+                                        <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+                                    </div>
+                                </div>
+
+                                {/* Mini skill tree preview */}
+                                <div className="grid grid-cols-3 gap-3 mb-4">
+                                    {[
+                                        { label: 'Physics I', xp: '2,400 XP', pct: 85, color: '#8B2332' },
+                                        { label: 'Calculus AB', xp: '1,800 XP', pct: 72, color: '#C9B47C' },
+                                        { label: 'English 1A', xp: '3,100 XP', pct: 95, color: '#10b981' },
+                                    ].map((skill, i) => (
+                                        <div key={i} className="bg-[#FAF8F5] rounded-xl p-3 border border-slate-100">
+                                            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">{skill.label}</div>
+                                            <div className="text-sm font-bold text-[#2D2D2D]">{skill.xp}</div>
+                                            <div className="h-1.5 bg-slate-200 rounded-full mt-2 overflow-hidden">
+                                                <div className="h-full rounded-full transition-all duration-1000" style={{ width: `${skill.pct}%`, backgroundColor: skill.color }} />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Progress summary */}
+                                <div className="bg-gradient-to-r from-[#8B2332]/5 to-[#C9B47C]/5 rounded-xl p-4 border border-[#C9B47C]/20">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs font-bold text-[#8B2332] uppercase tracking-wider">Transfer Progress</span>
+                                        <span className="text-sm font-bold text-[#2D2D2D]">67%</span>
+                                    </div>
+                                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                        <div className="h-full rounded-full bg-gradient-to-r from-[#8B2332] to-[#C9B47C] w-[67%]" />
+                                    </div>
+                                    <div className="text-[10px] text-slate-500 mt-2">18 of 27 units completed → UC Santa Barbara guaranteed</div>
+                                </div>
+                            </div>
+
+                            {/* Floating accent badges */}
+                            <div className="absolute -top-4 -right-4 bg-[#C9B47C] text-white px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg animate-bounce" style={{ animationDuration: '3s' }}>
+                                ⚡ Level 12
+                            </div>
+                            <div className="absolute -bottom-3 -left-3 bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-full text-[10px] font-bold shadow-lg">
+                                🏆 3 Boss Battles Won
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Stats Band */}
-            <div className="border-y border-[#8B2332]/10 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* ═══════════════════════════════════════════════════════════
+                GOLDEN LEVEL-UP PATH — Stats Band
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="relative py-20 bg-white border-y border-[#C9B47C]/20 overflow-hidden">
+                {/* Subtle golden gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C9B47C]/5 via-transparent to-[#C9B47C]/5" />
+
+                <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* SVG curved golden path */}
+                    <svg className="absolute top-1/2 left-0 right-0 w-full h-4 -translate-y-1/2 hidden md:block" viewBox="0 0 1000 20" preserveAspectRatio="none">
+                        <path d="M 0 10 Q 125 0, 250 10 Q 375 20, 500 10 Q 625 0, 750 10 Q 875 20, 1000 10" stroke="#C9B47C" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.4" />
+                        <path d="M 0 10 Q 125 0, 250 10 Q 375 20, 500 10 Q 625 0, 750 10 Q 875 20, 1000 10" stroke="url(#goldGrad)" strokeWidth="3" fill="none" strokeLinecap="round" strokeDasharray="8 4" />
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#C9B47C" />
+                                <stop offset="50%" stopColor="#A89560" />
+                                <stop offset="100%" stopColor="#C9B47C" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
                         {[
-                            { label: "Partner Universities", value: "60+" },
-                            { label: "Transfer Guarantee", value: "100%" },
-                            { label: "Avg. Graduation Age", value: "19" },
-                            { label: "Tuition Saved", value: "$80k+" }
+                            { label: "Partner Universities", value: "60+", icon: GraduationCap },
+                            { label: "Transfer Guarantee", value: "100%", icon: Target },
+                            { label: "Avg. Graduation Age", value: "19", icon: Star },
+                            { label: "Tuition Saved", value: "$80k+", icon: Sparkles },
                         ].map((stat, i) => (
-                            <div key={i} className="text-center">
-                                <div className="text-5xl lg:text-6xl font-bold text-[#2D2D2D] mb-3 font-serif">{stat.value}</div>
-                                <div className="text-sm font-bold text-[#8B2332] uppercase tracking-wider">{stat.label}</div>
+                            <div key={i} className="text-center relative group">
+                                {/* Level Up node */}
+                                <div className="hidden md:flex absolute -top-8 left-1/2 -translate-x-1/2 items-center justify-center">
+                                    <div className="w-6 h-6 rounded-full bg-[#C9B47C] border-4 border-white shadow-lg group-hover:scale-125 transition-transform" />
+                                </div>
+                                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#C9B47C]/15 hover:border-[#C9B47C]/40 hover:shadow-lg transition-all">
+                                    <stat.icon size={24} className="mx-auto text-[#C9B47C] mb-3" />
+                                    <div className="text-4xl lg:text-5xl font-bold text-[#2D2D2D] mb-2 font-serif">{stat.value}</div>
+                                    <div className="text-xs font-bold text-[#8B2332] uppercase tracking-wider">{stat.label}</div>
+                                </div>
+                                {/* Level Up label */}
+                                {i < 3 && (
+                                    <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10">
+                                        <span className="px-2 py-1 rounded-full bg-[#C9B47C]/15 text-[#C9B47C] text-[8px] font-bold uppercase tracking-widest border border-[#C9B47C]/25 whitespace-nowrap">
+                                            Level Up
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Philosophy Section */}
+            {/* ═══════════════════════════════════════════════════════════
+                MEET YOUR AI NAVIGATORS — Persona Cards
+                ═══════════════════════════════════════════════════════════ */}
             <section className="py-24 bg-[#FAF8F5]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <span className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase mb-3 block">Your Navigator</span>
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">
+                            Meet Your AI Navigators
+                        </h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                            Choose your mentor personality. Each Navigator uses a different teaching philosophy
+                            to guide you through university coursework — like having a personal professor who never sleeps.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        {[
+                            {
+                                name: 'Socrates',
+                                style: 'Socratic Inquiry',
+                                description: 'Answers questions with deeper questions. Guides students to discover concepts through dialogue, contradiction, and self-reflection — never giving the answer directly.',
+                                color: '#8B2332',
+                                gradient: 'from-[#8B2332] to-[#601a25]',
+                                emoji: '🏛️',
+                                traits: ['Critical Thinking', 'Deep Analysis', 'Self-Discovery'],
+                            },
+                            {
+                                name: 'Jarvis',
+                                style: 'Strategic Planning',
+                                description: 'An ultra-efficient AI strategist who builds personalized learning roadmaps, optimizes study schedules, and ensures zero wasted effort on the path to transfer.',
+                                color: '#C9B47C',
+                                gradient: 'from-[#C9B47C] to-[#A89560]',
+                                emoji: '🤖',
+                                traits: ['Efficiency', 'Goal Setting', 'Time Optimization'],
+                            },
+                            {
+                                name: 'Mentor',
+                                style: 'Industry Insider',
+                                description: 'A warm, experienced guide who connects academic concepts to real-world careers. Shares industry stories, professional skills, and practical wisdom beyond the textbook.',
+                                color: '#2D2D2D',
+                                gradient: 'from-[#2D2D2D] to-[#4a4a4a]',
+                                emoji: '🎓',
+                                traits: ['Career Focus', 'Real-World Skills', 'Networking'],
+                            },
+                        ].map((nav, i) => (
+                            <div key={i} className="group relative bg-white rounded-3xl border border-slate-200 hover:border-slate-300 p-8 hover:shadow-xl transition-all overflow-hidden">
+                                {/* Accent top bar */}
+                                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${nav.gradient}`} />
+
+                                {/* Avatar */}
+                                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${nav.gradient} flex items-center justify-center text-4xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                                    {nav.emoji}
+                                </div>
+
+                                <h3 className="font-serif text-2xl font-bold text-[#2D2D2D] mb-1">{nav.name}</h3>
+                                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: nav.color }}>{nav.style}</p>
+                                <p className="text-slate-600 text-sm leading-relaxed mb-6">{nav.description}</p>
+
+                                {/* Trait tags */}
+                                <div className="flex flex-wrap gap-2">
+                                    {nav.traits.map((trait, j) => (
+                                        <span key={j} className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border" style={{ color: nav.color, borderColor: `${nav.color}30`, backgroundColor: `${nav.color}08` }}>
+                                            {trait}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════════════════════
+                PHILOSOPHY — The Navigator Is Not a Teacher
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div>

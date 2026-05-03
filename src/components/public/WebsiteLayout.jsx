@@ -11,10 +11,10 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
     const NAV_LINKS = [
         { id: 'home', label: 'Home' },
         { id: 'process', label: 'Our Process' },
-        { id: 'about', label: 'About Us' },
         { id: 'partners', label: 'University Partners' },
-        { id: 'franchise', label: 'Franchise Nodes' },
+        { id: 'franchise', label: 'Franchise' },
         { id: 'basics', label: 'Demo Day' },
+        { id: 'about', label: 'About' },
     ];
 
     return (
@@ -52,29 +52,30 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                         </div>
 
                         {/* Desktop Nav */}
-                        <div className="hidden md:flex items-center gap-8">
+                        <div className="hidden md:flex items-center gap-6">
                             {NAV_LINKS.map(link => (
                                 <button
                                     key={link.id}
                                     onClick={() => onNavigate(link.id)}
-                                    className={`text-sm font-semibold transition-colors hover:text-[#8B2332] flex items-center gap-1.5 ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
+                                    className={`text-sm font-semibold transition-colors hover:text-[#8B2332] ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
                                         }`}
                                 >
                                     {link.label}
-                                    {link.badge && (
-                                        <span className="px-1.5 py-0.5 rounded-full bg-[#C9B47C]/15 text-[#C9B47C] text-[9px] font-bold uppercase tracking-wider border border-[#C9B47C]/20">
-                                            {link.badge}
-                                        </span>
-                                    )}
                                 </button>
                             ))}
-                            <a
-                                href="mailto:info@universityschool.ai"
-                                className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-2 group"
+                            <button
+                                onClick={() => onNavigate('cockpit')}
+                                className="text-sm font-semibold text-slate-600 hover:text-[#8B2332] transition-colors"
                             >
-                                Contact Us
+                                Log in
+                            </button>
+                            <button
+                                onClick={() => onNavigate('franchise')}
+                                className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-2 group"
+                            >
+                                Get Involved
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </a>
+                            </button>
                         </div>
 
                         {/* Mobile Menu Button */}
