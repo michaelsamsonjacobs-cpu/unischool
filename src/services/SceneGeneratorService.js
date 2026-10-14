@@ -135,13 +135,22 @@ export function speakText(text, options = {}) {
     }
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = options.rate || 0.9;
-    utterance.pitch = options.pitch || 1.0;
+    utterance.rate = options.rate || 0.96;
+    utterance.pitch = options.pitch || 1.04;
 
+    const voices = window.speechSynthesis.getVoices();
     if (options.voice) {
-        const voices = window.speechSynthesis.getVoices();
         const match = voices.find(v => v.name.includes(options.voice));
         if (match) utterance.voice = match;
+    } else if (voices && voices.length > 0) {
+        const preferredFemale = ['Ava', 'Jenny', 'Aria', 'Emma', 'Michelle', 'Sara', 'Samantha', 'Victoria', 'Karen', 'Zira', 'Google US English'];
+        for (const name of preferredFemale) {
+            const found = voices.find(v => v.lang && v.lang.startsWith('en') && v.name.includes(name));
+            if (found) {
+                utterance.voice = found;
+                break;
+            }
+        }
     }
 
     window.speechSynthesis.speak(utterance);
