@@ -103,8 +103,8 @@ export const TransferPartners = () => {
                         <span className="text-[#8B2332]">Lottery.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
-                        These are not "likely" schools. These are <strong>100% guaranteed</strong> admissions pathways.
-                        If you complete the Navigator's Quest Log for these universities, they <em>must</em> accept you.
+                        These are not &ldquo;likely&rdquo; schools. These are <strong>100% guaranteed</strong> admissions pathways.
+                        If you complete the Narrator&apos;s Quest Log for these universities, they <em>must</em> accept you.
                     </p>
                 </div>
             </section>

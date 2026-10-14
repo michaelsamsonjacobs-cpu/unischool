@@ -41,7 +41,7 @@ export const StudentPage = ({ onNavigate }) => {
                                 icon: Target,
                                 emoji: '🎯',
                                 title: "Choose Your Path",
-                                desc: "Select your target university (e.g. UC Berkeley). The Matrix reverse-engineers every step from age 14 to admission."
+                                desc: "Select your target university (e.g. UC Berkeley). Our platform maps every step from age 11 to admission."
                             },
                             {
                                 icon: BookOpen,
@@ -52,8 +52,8 @@ export const StudentPage = ({ onNavigate }) => {
                             {
                                 icon: Shield,
                                 emoji: '🛡️',
-                                title: "Transfer Guarantee",
-                                desc: "Hit the requirements and get GUARANTEED admission to top universities. No lottery, just logic."
+                                title: "Transfer Pathways",
+                                desc: "Meet the requirements and follow proven transfer pathways to top universities. No lottery, just a clear plan."
                             }
                         ].map((feature, i) => (
                             <div key={i} className="group bg-[#FAF8F5] border border-slate-200 p-8 rounded-3xl hover:border-[#8B2332]/30 hover:shadow-xl transition-all">
@@ -99,7 +99,7 @@ export const StudentPage = ({ onNavigate }) => {
                     <div className="flex items-center justify-between mb-12">
                         <div>
                             <span className="text-[#8B2332] font-bold tracking-widest text-xs uppercase mb-2 block">The Transfer Matrix</span>
-                            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-2">Guaranteed Admissions</h2>
+                            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-2">Transfer Pathways</h2>
                             <p className="text-slate-600 text-lg">Just a few of our 60+ university partners.</p>
                         </div>
                         <button
@@ -145,7 +145,7 @@ export const StudentPage = ({ onNavigate }) => {
                     <div className="text-5xl mb-6">🚀</div>
                     <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Run?</h2>
                     <p className="text-white/80 text-xl mb-10 max-w-xl mx-auto">
-                        Talk to our team to learn how you can start earning college credit at 14.
+                        Talk to our team to learn how you can start earning college credit at 11.
                     </p>
                     <a
                         href="mailto:info@universityschool.ai"

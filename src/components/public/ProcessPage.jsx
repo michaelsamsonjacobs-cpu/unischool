@@ -14,12 +14,12 @@ export const ProcessPage = ({ onNavigate }) => {
                         <Target size={12} /> Our Process
                     </div>
                     <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-[1.05]">
-                        100% of Our Students<br />
+                        Our Students <br />
                         <span className="text-[#8B2332]">Graduate from College.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                        Every student who completes our program is guaranteed admission to a top university.
-                        No lottery. No luck. Just a clear, proven pathway from age 14 to a college degree.
+                        Every student who completes our program earns university credit.
+                        A clear, proven pathway from age 11 to a college degree.
                     </p>
                 </div>
             </section>
@@ -29,23 +29,22 @@ export const ProcessPage = ({ onNavigate }) => {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid md:grid-cols-3 gap-8 relative">
                         {/* Path 1: The Guarantee */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#8B2332] shadow-sm hover:shadow-xl transition-all group">
+                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#8B2332] shadow-sm hover:shadow-xl transition-all group flex flex-col">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-14 w-14 rounded-2xl bg-[#8B2332]/10 flex items-center justify-center text-[#8B2332] group-hover:scale-110 transition-transform">
                                     <Shield size={28} />
                                 </div>
                                 <div>
-                                    <div className="text-[#8B2332] font-bold tracking-widest text-[10px] uppercase mb-1">The Foundation</div>
                                     <h2 className="text-2xl font-serif font-bold text-[#2D2D2D]">The Guarantee</h2>
                                 </div>
                             </div>
-                            <p className="text-slate-600 text-sm mb-6 h-20">
+                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
                                 Reverse-engineer the transfer contracts for top public universities. Hit the GPA, take the classes, sign the paper.
-                                It is legally impossible for them to reject you.
+                                Admission becomes a formality, not a lottery. 100% guarantee when you meet the requirement.
                             </p>
-                            <ul className="space-y-3 mb-6">
+                            <ul className="space-y-3 mb-6 mt-auto">
                                 {[
-                                    "UC Santa Barbara (100% Guaranteed)",
+                                    "UC Santa Barbara (Transfer Pathway)",
                                     "Top State Colleges (e.g. NY)",
                                     "All 23 Cal State Universities"
                                 ].map((item, i) => (
@@ -55,27 +54,23 @@ export const ProcessPage = ({ onNavigate }) => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="px-3 py-1.5 bg-green-50 border border-green-200 rounded-lg text-green-700 text-xs inline-flex items-center gap-2">
-                                <Shield size={12} /> Risk: 0% (Mathematical)
-                            </div>
                         </div>
 
-                        {/* Path 2: The Spike */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#C9B47C] shadow-sm hover:shadow-xl transition-all group">
+                        {/* Path 2: The Moonshot */}
+                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#C9B47C] shadow-sm hover:shadow-xl transition-all group flex flex-col">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-14 w-14 rounded-2xl bg-[#C9B47C]/10 flex items-center justify-center text-[#C9B47C] group-hover:scale-110 transition-transform">
                                     <Trophy size={28} />
                                 </div>
                                 <div>
-                                    <div className="text-[#C9B47C] font-bold tracking-widest text-[10px] uppercase mb-1">The Moonshot</div>
-                                    <h2 className="text-2xl font-serif font-bold text-[#2D2D2D]">The Elite Spike</h2>
+                                    <div className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase">The Moonshot</div>
                                 </div>
                             </div>
-                            <p className="text-slate-600 text-sm mb-6 h-20">
-                                Target Ivy League & Stanford. We build a specialized "Spike" project—a published book,
-                                patent, or nonprofit—to force admissions officers to pay attention.
+                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                                Target Ivy League &amp; Stanford. We build a specialized &ldquo;Spike&rdquo; project—a published book,
+                                a patent, or a nonprofit to make admissions officers notice.
                             </p>
-                            <ul className="space-y-3 mb-6">
+                            <ul className="space-y-3 mb-6 mt-auto">
                                 {[
                                     "Stanford, Harvard, MIT",
                                     "Building a 'Hook' Narrative",
@@ -87,29 +82,29 @@ export const ProcessPage = ({ onNavigate }) => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="px-3 py-1.5 bg-orange-50 border border-orange-200 rounded-lg text-orange-600 text-xs inline-flex items-center gap-2">
-                                <Zap size={12} /> Strategy: High Risk
+                            <div>
+                                <div className="px-3 py-1.5 bg-orange-50 border border-orange-200 rounded-lg text-orange-600 text-xs inline-flex items-center gap-2 font-semibold">
+                                    <Zap size={12} /> High Risk / High Reward
+                                </div>
                             </div>
                         </div>
 
-                        {/* Path 3: The Sovereign Degree */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-sm hover:shadow-xl transition-all group">
+                        {/* Path 3: The Direct Path */}
+                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-sm hover:shadow-xl transition-all group flex flex-col">
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-14 w-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
                                     <Award size={28} />
                                 </div>
                                 <div>
-                                    <div className="text-blue-500 font-bold tracking-widest text-[10px] uppercase mb-1">The Direct Path</div>
-                                    <h2 className="text-2xl font-serif font-bold text-[#2D2D2D]">Sovereign Degree</h2>
+                                    <div className="text-blue-500 font-bold tracking-widest text-xs uppercase">The Direct Path</div>
                                 </div>
                             </div>
-                            <p className="text-slate-600 text-sm mb-6 h-20">
-                                Graduate directly from our center. No dorms, no debt. We partner with accredited universities to let you
-                                earn a Bachelor's degree entirely on-site or remote.
+                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                                No dorms, no debt. We partner with accredited universities to let you
+                                earn a Bachelor&apos;s degree entirely on-site or remote.
                             </p>
-                            <ul className="space-y-3 mb-6">
+                            <ul className="space-y-3 mb-6 mt-auto">
                                 {[
-                                    "Brigham Young University (BYU)",
                                     "Arizona State University",
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-2 text-slate-600 text-sm">
@@ -118,8 +113,10 @@ export const ProcessPage = ({ onNavigate }) => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-600 text-xs inline-flex items-center gap-2">
-                                <Award size={12} /> Speed: 2-3 Years Total
+                            <div>
+                                <div className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-600 text-xs inline-flex items-center gap-2 font-semibold">
+                                    <Award size={12} /> Speed: 2-3 Years Total
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -137,42 +134,32 @@ export const ProcessPage = ({ onNavigate }) => {
                             College Classes, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Disguised as Games.</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                            Kids don't want to sit through lectures. So we turned university coursework into
-                            interactive missions, boss battles, and skill trees. They're earning real college credit —
-                            they just don't realize how hard they're working.
+                            Students don&apos;t want to sit through lectures. So we turned university coursework into
+                            side quests and skill trees. They&apos;re earning real college credit &mdash;
+                            they just don&apos;t realize how hard they&apos;re working.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div className="grid md:grid-cols-3 gap-6 mb-16">
                         {[
                             {
-                                emoji: '🎮',
-                                title: 'XP Missions',
+                                title: 'Side Quests',
                                 description: 'Every lecture becomes a playable mission. Students explore branching storylines where their choices determine what they learn next — like a choose-your-own-adventure textbook.',
                                 color: '#8B2332',
                             },
                             {
-                                emoji: '🌳',
                                 title: 'Skill Trees',
-                                description: 'Inspired by RPGs, students unlock abilities as they master subjects. Visual progress tracking makes it impossible to fall behind — and addictive to get ahead.',
+                                description: 'Inspired by RPGs, students unlock abilities as they master subjects. Visual progress tracking makes it impossible to fall behind — and hooked to get ahead.',
                                 color: '#C9B47C',
                             },
                             {
-                                emoji: '⚔️',
-                                title: 'Boss Battles',
-                                description: 'Forget boring exams. Students face "Boss Battles" — challenging, high-stakes assessments designed to feel like a final boss fight, not a Scantron sheet.',
-                                color: '#3b82f6',
-                            },
-                            {
-                                emoji: '🧠',
-                                title: 'AI Navigator',
-                                description: 'A personal AI mentor adapts to each student\'s pace, identifies knowledge gaps in real-time, and reroutes their learning path — like GPS for education.',
+                                title: 'AI Narrator',
+                                description: 'Adapts to each student\'s pace, identifies knowledge gaps in real-time, and reroutes their learning path — like GPS for education.',
                                 color: '#10b981',
                             },
                         ].map((feature, i) => (
-                            <div key={i} className="group p-6 rounded-2xl bg-[#FAF8F5] border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all">
-                                <div className="text-4xl mb-4">{feature.emoji}</div>
-                                <h3 className="text-xl font-serif font-bold text-[#2D2D2D] mb-2">{feature.title}</h3>
+                            <div key={i} className="group p-8 rounded-2xl bg-[#FAF8F5] border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all">
+                                <h3 className="text-xl font-serif font-bold text-[#2D2D2D] mb-3">{feature.title}</h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
                             </div>
                         ))}
@@ -183,14 +170,14 @@ export const ProcessPage = ({ onNavigate }) => {
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-6">
-                                    How a 14-Year-Old Takes a UC Berkeley Physics Class
+                                    How an 11-Year-Old Takes a UC Berkeley Physics Class
                                 </h3>
                                 <div className="space-y-4">
                                     {[
-                                        { step: '1', text: 'Our AI watches the lecture and generates an interactive "XP Mission" with branching choices and embedded quiz checkpoints.' },
+                                        { step: '1', text: 'Our AI watches the lecture and generates an interactive "Side Quest" with branching choices and embedded quiz checkpoints.' },
                                         { step: '2', text: 'The student plays through the mission like a game — exploring concepts, making decisions, and earning XP for correct reasoning.' },
                                         { step: '3', text: 'Wrong answers don\'t mean failure. The AI uses "Productive Failure" — routing students into harder paths that build deeper understanding.' },
-                                        { step: '4', text: 'At the end, they face a Boss Battle. Pass it, and the XP counts toward real transferable college credit.' },
+                                        { step: '4', text: 'At the end they take the real exam and earn the credit that counts.' },
                                     ].map((item, i) => (
                                         <div key={i} className="flex gap-4 items-start">
                                             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B2332] text-white flex items-center justify-center font-bold text-sm shadow-md">
@@ -205,8 +192,8 @@ export const ProcessPage = ({ onNavigate }) => {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-2xl blur-[80px] opacity-10" />
                                 <div className="relative bg-white border border-slate-200 rounded-2xl p-2 shadow-2xl">
                                     <img
-                                        src="/images/app-student-cockpit.png"
-                                        alt="University School XP Mission Interface"
+                                        src="/images/storyboard/8_experience_first_concept_second.png"
+                                        alt="University School Side Quest Interface"
                                         className="rounded-xl w-full h-auto"
                                     />
                                 </div>

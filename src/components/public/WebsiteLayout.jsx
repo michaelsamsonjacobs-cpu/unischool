@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Shield, Globe, Menu, X, ArrowRight } from 'lucide-react';
+import { GraduationCap, Shield, Globe, Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
 /**
  * WebsiteLayout - Main wrapper for all public-facing University School pages
@@ -14,6 +14,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
         { id: 'partners', label: 'University Partners' },
         { id: 'franchise', label: 'Franchise' },
         { id: 'basics', label: 'Demo Day' },
+        { id: 'asu-demo', label: 'ASU Demo' },
         { id: 'about', label: 'About' },
     ];
 
@@ -54,9 +55,15 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <button
                                     key={link.id}
                                     onClick={() => onNavigate(link.id === 'home' ? 'landing' : link.id)}
-                                    className={`text-sm font-semibold transition-colors hover:text-[#8B2332] ${activePage === link.id ? 'text-[#8B2332]' : 'text-slate-600'
-                                        }`}
+                                    className={`text-sm font-semibold transition-all hover:text-[#8B2332] flex items-center gap-1 ${
+                                        link.id === 'asu-demo'
+                                            ? 'px-3 py-1.5 rounded-full bg-[#8B2332]/10 border border-[#8B2332]/25 text-[#8B2332] hover:bg-[#8B2332] hover:text-white shadow-sm'
+                                            : activePage === link.id
+                                            ? 'text-[#8B2332]'
+                                            : 'text-slate-600'
+                                    }`}
                                 >
+                                    {link.id === 'asu-demo' && <Sparkles size={12} className="text-[#C9B47C] animate-pulse" />}
                                     {link.label}
                                 </button>
                             ))}
@@ -89,9 +96,15 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                     onNavigate(link.id === 'home' ? 'landing' : link.id);
                                     setIsMobileMenuOpen(false);
                                 }}
-                                className={`block w-full text-left py-3 px-3 rounded-xl text-base font-semibold transition-colors ${activePage === link.id ? 'text-[#8B2332] bg-[#8B2332]/5' : 'text-slate-600 hover:bg-slate-50'
-                                    }`}
+                                className={`w-full text-left py-3 px-3 rounded-xl text-base font-semibold transition-all flex items-center gap-2 ${
+                                    link.id === 'asu-demo'
+                                        ? 'bg-[#8B2332]/10 border border-[#8B2332]/20 text-[#8B2332]'
+                                        : activePage === link.id
+                                        ? 'text-[#8B2332] bg-[#8B2332]/5'
+                                        : 'text-slate-600 hover:bg-slate-50'
+                                }`}
                             >
+                                {link.id === 'asu-demo' && <Sparkles size={14} className="text-[#C9B47C] animate-pulse" />}
                                 {link.label}
                             </button>
                         ))}
@@ -136,7 +149,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                             <ul className="space-y-2 text-sm text-slate-600">
                                 <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
                                 <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">Transfer Matrix</button></li>
-                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Center</button></li>
+                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Node</button></li>
                                 <li><button onClick={() => onNavigate('basics')} className="hover:text-[#8B2332] transition-colors">BASICS Demo Day</button></li>
                             </ul>
                         </div>
