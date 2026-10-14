@@ -100,6 +100,66 @@ export const AboutPage = ({ onNavigate }) => {
                     </div>
                 </div>
             </section>
+
+            {/* ═══════════════════════════════════════════════════════════
+                MEET THE FOUNDERS
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="py-24 bg-[#FAF8F5] border-t border-[#C9B47C]/20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <span className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase mb-3 block">Leadership</span>
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">Meet the Founders</h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                            University School is led by a team with deep expertise in education, technology, and academic counseling.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {/* Dave */}
+                        <div className="bg-white rounded-3xl border border-slate-200 p-8 hover:shadow-xl transition-all">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#8B2332] to-[#C9B47C] flex items-center justify-center text-white text-2xl font-serif font-bold shadow-lg">D</div>
+                                <div>
+                                    <h3 className="font-serif text-xl font-bold text-[#2D2D2D]">Dr. Dave</h3>
+                                    <p className="text-[#8B2332] text-sm font-bold">Co-Founder &amp; Academic Director</p>
+                                </div>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                With a Ph.D. from Harvard University, Dave brings world-class academic credentials and research expertise
+                                to University School&apos;s curriculum design and academic partnerships.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 rounded-full bg-[#8B2332]/10 text-[#8B2332] text-[10px] font-bold uppercase tracking-wider">Ph.D., Harvard</span>
+                                <span className="px-3 py-1 rounded-full bg-[#C9B47C]/10 text-[#C9B47C] text-[10px] font-bold uppercase tracking-wider">Academic Strategy</span>
+                            </div>
+                        </div>
+                        {/* Frank */}
+                        <div className="bg-white rounded-3xl border border-slate-200 p-8 hover:shadow-xl transition-all">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#C9B47C] to-[#A89560] flex items-center justify-center text-white text-2xl font-serif font-bold shadow-lg">F</div>
+                                <div>
+                                    <h3 className="font-serif text-xl font-bold text-[#2D2D2D]">Frank</h3>
+                                    <p className="text-[#C9B47C] text-sm font-bold">Co-Founder &amp; Education Director</p>
+                                </div>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                With over 20 years of experience in education, Frank has developed Canadian Offshore K-12 schools internationally.
+                                Canada is consistently recognized as one of the highest-performing English-speaking education systems in the world
+                                based on PISA results.
+                            </p>
+                            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                Frank was honored to receive the Noble Partner in Education Medal from the Government of Canada during the
+                                celebration of Canada&apos;s 150th anniversary. He also holds the ASCA U Career Development Specialist and
+                                College Admissions Specialist designations from the American School Counselor Association (ASCA).
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 rounded-full bg-[#C9B47C]/10 text-[#C9B47C] text-[10px] font-bold uppercase tracking-wider">20+ Years Education</span>
+                                <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-[10px] font-bold uppercase tracking-wider">Noble Partner Medal</span>
+                                <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-[10px] font-bold uppercase tracking-wider">ASCA Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
