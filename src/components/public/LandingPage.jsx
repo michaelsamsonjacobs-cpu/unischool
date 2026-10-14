@@ -28,6 +28,7 @@ import {
 import { FAQSection } from './FAQSection';
 import { StudentSuccessStories } from './StudentSuccessStories';
 import { CLEPSection } from './CLEPSection';
+import { ClaudeMotionShowcase, VectorAirfoilCanvas } from './ClaudeMotionShowcase';
 
 const HERO_SCHOOL_CARDS = [
     {
@@ -462,14 +463,23 @@ export const LandingPage = ({ onNavigate }) => {
                             </div>
                         </div>
 
-                        {/* Right Column: Clean Cropped Visual Scene */}
+                        {/* Right Column: Clean Studio Scene or Interactive 60fps Airfoil Canvas on Step 5 */}
                         <div className="lg:col-span-7 relative min-h-[360px] bg-black flex items-center justify-center overflow-hidden">
-                            <img
-                                src={KITTY_HAWK_SCENES[activeScene].image}
-                                alt={KITTY_HAWK_SCENES[activeScene].title}
-                                className="w-full h-full object-cover"
-                            />
+                            {activeScene === 4 ? (
+                                <VectorAirfoilCanvas />
+                            ) : (
+                                <img
+                                    src={KITTY_HAWK_SCENES[activeScene].image}
+                                    alt={KITTY_HAWK_SCENES[activeScene].title}
+                                    className="w-full h-full object-cover"
+                                />
+                            )}
                         </div>
+                    </div>
+
+                    {/* Live Claude Motion 60fps Spring-Physics Interactive Showcase */}
+                    <div className="mt-12">
+                        <ClaudeMotionShowcase />
                     </div>
                 </div>
             </section>
@@ -637,11 +647,11 @@ export const LandingPage = ({ onNavigate }) => {
                         </h2>
                     </div>
 
-                    {/* Clean Collaborative Table Photo from Landing Page 2.jpg */}
+                    {/* Clean Studio Micro-Campus Wind Tunnel Center Photo */}
                     <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-xl border border-slate-200 mb-14">
                         <img
-                            src="/images/storyboard/center_collaborative.jpg"
-                            alt="Students collaborating around a table at a University School Center"
+                            src="/images/visuals/channel_centers.jpg"
+                            alt="Students collaborating around an aerodynamics wind tunnel table at a University School Center"
                             className="w-full h-auto object-cover"
                         />
                     </div>
@@ -867,12 +877,23 @@ export const LandingPage = ({ onNavigate }) => {
                             ))}
                         </div>
 
-                        <div className="rounded-2xl overflow-hidden border border-[#E6C687]/25">
-                            <img
-                                src="/images/visuals/timeline_progression_strip.jpg"
-                                alt="Age 11 to College Progression"
-                                className="w-full h-auto object-cover"
-                            />
+                        <div className="rounded-2xl bg-[#140709] border border-[#E6C687]/30 p-6">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
+                                {[
+                                    { age: 'AGE 11', stage: 'First Historical Lab', detail: 'Wright 1903 · Curie · Tesla' },
+                                    { age: 'AGE 13', stage: '15+ Transfer Credits', detail: 'Verified CLEP & Partner Courses' },
+                                    { age: 'AGE 15', stage: 'Sophomore Standing', detail: '30–45 Credits · Micro-Campus Projects' },
+                                    { age: 'AGE 17+', stage: 'University Ready', detail: 'Up to 60 Credits · $80k+ Tuition Saved' },
+                                ].map((step, idx) => (
+                                    <div key={idx} className="relative bg-[#1F0B10] border border-[#E6C687]/25 rounded-xl p-4 text-center">
+                                        <div className="inline-block px-3 py-0.5 rounded-full bg-[#E6C687]/15 border border-[#E6C687]/40 text-[#E6C687] text-[11px] font-bold tracking-widest mb-2">
+                                            {step.age}
+                                        </div>
+                                        <div className="font-serif font-bold text-white text-base mb-1">{step.stage}</div>
+                                        <div className="text-xs text-slate-300">{step.detail}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
