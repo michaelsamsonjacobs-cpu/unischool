@@ -190,12 +190,24 @@ export const ProcessPage = ({ onNavigate }) => {
                             </div>
                             <div className="relative">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-2xl blur-[80px] opacity-10" />
-                                <div className="relative bg-white border border-slate-200 rounded-2xl p-2 shadow-2xl">
+                                <div className="relative bg-white border border-slate-200 rounded-2xl p-4 shadow-2xl">
                                     <img
-                                        src="/images/storyboard/8_experience_first_concept_second.png"
+                                        src="/images/app-student-cockpit.png"
                                         alt="University School Side Quest Interface"
-                                        className="rounded-xl w-full h-auto"
+                                        className="rounded-xl w-full h-auto border border-slate-100"
                                     />
+                                    <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                                        {[
+                                            { k: '1. Experience', v: 'Kitty Hawk 1903' },
+                                            { k: '2. Concept', v: 'Newton’s Laws' },
+                                            { k: '3. Outcome', v: 'UC Berkeley Credit' },
+                                        ].map((b, idx) => (
+                                            <div key={idx} className="bg-[#FAF8F5] rounded-lg p-2 border border-slate-200/70">
+                                                <div className="text-[10px] font-bold uppercase text-[#8B2332]">{b.k}</div>
+                                                <div className="text-xs font-semibold text-[#2D2D2D]">{b.v}</div>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -39,12 +39,31 @@ export const FranchisePage = ({ onNavigate }) => {
                         </div>
 
                         <div className="lg:col-span-5 flex justify-center lg:justify-end">
-                            <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 max-w-sm w-full">
-                                <img
-                                    src="/images/storyboard/centers_card.jpg"
-                                    alt="University School Centers"
-                                    className="w-full h-auto object-cover"
-                                />
+                            <div className="bg-[#FAF8F5] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 max-w-md w-full p-5">
+                                <div className="rounded-2xl overflow-hidden h-52 mb-4 relative">
+                                    <img
+                                        src="/images/commons-lounge.jpg"
+                                        alt="University School Node Collaborative Workspace"
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0A1628]/85 backdrop-blur-md text-[#C9B47C] text-[10px] font-bold uppercase tracking-widest">
+                                        University School Nodes
+                                    </div>
+                                </div>
+                                <h3 className="font-serif text-xl font-bold text-[#2D2D2D] mb-1">
+                                    Learn Anywhere. Belong Somewhere.
+                                </h3>
+                                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                                    High-agency local hubs where students collaborate at workshop tables, build hardware projects, and find their peers by passion.
+                                </p>
+                                <div className="grid grid-cols-2 gap-2 text-xs">
+                                    <div className="bg-white rounded-xl p-2.5 border border-slate-200/80 font-semibold text-[#2D2D2D] flex items-center gap-2">
+                                        <CheckCircle size={14} className="text-[#8B2332]" /> 1,200 Sq. Ft. Footprint
+                                    </div>
+                                    <div className="bg-white rounded-xl p-2.5 border border-slate-200/80 font-semibold text-[#2D2D2D] flex items-center gap-2">
+                                        <CheckCircle size={14} className="text-[#8B2332]" /> 30-Student Cohort
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
