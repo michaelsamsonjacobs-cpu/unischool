@@ -220,20 +220,27 @@ export const LandingPage = ({ onNavigate }) => {
                                 Starts at 11. Goes as far as you do.
                             </p>
 
-                            <div className="flex flex-wrap items-center gap-4">
+                            <div className="flex flex-wrap items-center gap-3.5">
                                 <button
                                     onClick={() => onNavigate('students')}
-                                    className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-8 py-4 rounded-2xl font-bold text-base sm:text-lg shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-3"
+                                    className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base sm:text-lg shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
                                 >
                                     Start at 11
                                     <ArrowRight size={19} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button
+                                    onClick={() => onNavigate('asu-demo')}
+                                    className="group bg-[#8B2332]/90 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all flex items-center gap-2.5"
+                                >
+                                    <Sparkles size={16} className="text-[#E6C687]" />
+                                    Try Live 1903 Sim Demo
+                                </button>
+                                <button
                                     onClick={scrollToHowItWorks}
-                                    className="group bg-black/45 hover:bg-black/65 backdrop-blur-md border border-[#E6C687]/40 text-white px-6 py-4 rounded-2xl font-semibold text-sm sm:text-base transition-all flex items-center gap-2.5"
+                                    className="group bg-black/45 hover:bg-black/65 backdrop-blur-md border border-[#E6C687]/40 text-white px-5 py-4 rounded-2xl font-semibold text-sm sm:text-base transition-all flex items-center gap-2"
                                 >
                                     <Play size={16} className="text-[#E6C687] fill-[#E6C687]" />
-                                    Watch How It Works
+                                    Watch 90s Film
                                 </button>
                             </div>
                         </div>
