@@ -372,6 +372,59 @@ export const LandingPage = ({ onNavigate }) => {
                 ═══════════════════════════════════════════════════════════ */}
             <section id="how-it-works" className="py-20 bg-[#140B0E] text-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* 90-Second University School Explainer Film Player */}
+                    <div className="mb-14 bg-[#1B090E] border border-[#E6C687]/35 rounded-3xl p-5 sm:p-7 shadow-2xl">
+                        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <div>
+                                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] px-3 py-1 rounded-full bg-[#8B2332] text-[#E6C687] border border-[#E6C687]/40 mb-2">
+                                    <Play size={11} className="fill-[#E6C687]" /> 90-Second Explainer Film
+                                </span>
+                                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                                    Watch How University School Works <span className="text-[#E6C687]">(1:30)</span>
+                                </h3>
+                            </div>
+                            <div className="flex flex-wrap gap-1.5">
+                                {[
+                                    ['0:00 Problem', 0],
+                                    ['0:10 Live It', 10],
+                                    ['0:20 Kitty Hawk', 20],
+                                    ['0:32 Physics', 32],
+                                    ['0:44 4 Schools', 44],
+                                    ['0:56 68% Mastery', 56],
+                                    ['1:08 4 Channels', 68],
+                                    ['1:18 Outcomes', 78],
+                                    ['1:25 Enroll', 85],
+                                ].map(([lbl, sec]) => (
+                                    <button
+                                        key={lbl}
+                                        onClick={() => {
+                                            const v = document.getElementById('usai-explainer-video');
+                                            if (v) {
+                                                v.currentTime = sec;
+                                                v.muted = false;
+                                                v.play();
+                                            }
+                                        }}
+                                        className="text-xs font-semibold px-2.5 py-1 rounded-lg border border-white/15 bg-black/40 text-slate-200 hover:border-[#E6C687] hover:text-[#E6C687] transition-colors"
+                                    >
+                                        {lbl}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="rounded-2xl overflow-hidden border border-[#E6C687]/30 bg-black shadow-xl">
+                            <video
+                                id="usai-explainer-video"
+                                controls
+                                playsInline
+                                preload="metadata"
+                                poster="/images/visuals/hero_mentors_scene.jpg"
+                                className="w-full aspect-video block"
+                                src="/videos/usai_school_90s_explainer.mp4"
+                            />
+                        </div>
+                    </div>
+
                     {/* Section Header & Step Tabs */}
                     <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
                         <div>
