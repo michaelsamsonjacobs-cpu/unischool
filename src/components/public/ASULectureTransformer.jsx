@@ -128,6 +128,112 @@ const UNIVERSITY_SKILL_TREE = [
     },
 ];
 
+const SYLLABUS_CAMPAIGN_EPISODES = [
+    {
+        ep: 'Episode 1',
+        weeks: 'Weeks 1–3 · Lectures 1–6',
+        syllabusUnit: '1D & 2D Kinematics, Relative Velocity & Vector Addition',
+        storyTitle: '1900 Kitty Hawk Tethered Kite Trials',
+        kidNarrative:
+            'Arrive on the Outer Banks sand dunes with Wilbur & Orville. Decompose coastal headwind vectors and tether tension angles to keep the 1900 test kite stable in a 25 mph gale.',
+        asuDeliverable: 'ASU PHY 121 Problem Sets #1–2 + Quiz 1',
+        status: 'completed',
+        asuScore: '96% (A)',
+        xp: '+250 XP',
+    },
+    {
+        ep: 'Episode 2',
+        weeks: 'Weeks 4–6 · Lectures 7–12',
+        syllabusUnit: 'Newton’s Three Laws, Free-Body Diagrams & Force Equilibrium',
+        storyTitle: '1901 Glider Nose-Pitch Mystery',
+        kidNarrative:
+            'When the 1901 glider pitches nose-down over Kill Devil Hills, balance the four fundamental forces—Lift, Weight, Thrust, and Drag—until net vertical acceleration reaches equilibrium.',
+        asuDeliverable: 'ASU PHY 121 Problem Set #3 + Proctored Midterm 1',
+        status: 'completed',
+        asuScore: '94% (A)',
+        xp: '+300 XP',
+    },
+    {
+        ep: 'Episode 3',
+        weeks: 'Weeks 7–9 · Lectures 13–18',
+        syllabusUnit: 'Fluid Continuity, Bernoulli Pressure Differential & Boundary-Layer Stall',
+        storyTitle: '1901 Dayton Wind Tunnel & Dec 17, 1903 Launch Rail',
+        kidNarrative:
+            'Lilienthal’s published tables are wrong! Step into the 1901 Dayton bicycle-shop wind tunnel to test 200 miniature brass wing ribs, discover the 1:20 camber sweet spot, cure the 14.5° stall, and fly 120 feet at Kitty Hawk.',
+        asuDeliverable: 'ASU PHY 121 Problem Set #4 + Module 4 Exam (Active)',
+        status: 'active',
+        asuScore: 'In Progress (Struggle Detected @ 14:22)',
+        xp: '+450 XP Quest',
+    },
+    {
+        ep: 'Episode 4',
+        weeks: 'Weeks 10–12 · Lectures 19–24',
+        syllabusUnit: 'Rotational Kinematics, Torque, Moment of Inertia & Angular Momentum',
+        storyTitle: '1904 Huffman Prairie Banked Turn & Wing-Warping Control',
+        kidNarrative:
+            'Flying straight isn’t enough—now you have to turn without spinning in! Use pulley cables to warp the wingtips and coordinate rudder torque across all 3 rotational axes.',
+        asuDeliverable: 'ASU PHY 121 Problem Set #5 + Proctored Midterm 2',
+        status: 'upcoming',
+        asuScore: 'Unlocks after Episode 3',
+        xp: '+400 XP',
+    },
+    {
+        ep: 'Episode 5',
+        weeks: 'Weeks 13–15 · Lectures 25–30',
+        syllabusUnit: 'Work, Mechanical Energy, Power, Conservation Laws & Capstone',
+        storyTitle: '1905 Wright Flyer III 39-Minute Endurance Capstone',
+        kidNarrative:
+            'Optimize twin-chain propeller mechanical work and engine shaft power to keep the 1905 Flyer airborne for 24 miles over Dayton—completing your full semester narrative arc.',
+        asuDeliverable: 'ASU PHY 121 Proctored Final Exam → 4.0 Transferable Credits',
+        status: 'upcoming',
+        asuScore: 'Capstone Boss Trial',
+        xp: '+600 XP + 4.0 Credits',
+    },
+];
+
+const ASU_EXAM_COMPANION_PROBLEMS = [
+    {
+        id: 'prob-1',
+        asuHeader: 'ASU Online · PHY 121 Homework #4, Question 4 (10 pts)',
+        formalQuestion:
+            'Using the Continuity Equation and Bernoulli’s Principle (P₁ + ½ρv₁² = P₂ + ½ρv₂²), explain why a cambered airfoil at α = 7.5° generates net upward lift, whereas increasing α to 14.5° causes a sudden loss of lift.',
+        kidTranslation:
+            'Remember what you just saw in the 1901 Dayton Wind Tunnel! Upper-surface golden streamlines vs. lower-surface cyan streamlines, and what happened when you cranked the Angle of Attack slider past 11.5°.',
+        socraticHint:
+            'Look at your Wind Tunnel log: at 1:20 camber and 7.5° AoA, upper air sped up to 1.31× freestream velocity (faster air = lower pressure P_top < P_bottom). What happened to the top streamlines when you pushed α to 14.5°?',
+        options: [
+            'A. Steeper angle of attack always increases laminar streamline velocity without limit.',
+            'B. Camber accelerates upper streamlines (lowering P_top below P_bottom via Bernoulli), while exceeding α_crit ≈ 11.5° detaches the boundary layer into a turbulent stall wake.',
+            'C. Air density ρ drops to zero on the bottom surface of a flat plate.',
+        ],
+        correctIdx: 1,
+    },
+    {
+        id: 'prob-2',
+        asuHeader: 'ASU Online · PHY 121 Module 4 Proctored Exam Prep, Question 7 (15 pts)',
+        formalQuestion:
+            'Given dynamic pressure q = ½ρv² at a 35 mph Kitty Hawk relative headwind (27 mph wind + 8 mph launch rail) and gross aircraft weight W = 605 lbs, which wing configuration satisfies the vertical takeoff condition L = q·S·C_L(α) > W with L/D > 5.2?',
+        kidTranslation:
+            'In university physics, "vertical takeoff condition L > W" just means your green Lift arrow in the wind tunnel must beat the 605 lb weight of the Flyer + Orville without stalling!',
+        socraticHint:
+            'Compare your two test flights at Kitty Hawk: 1:12 Lilienthal camber had too much drag, and 14.5° AoA stalled at 34 feet. Which camber and angle gave you 692 lbs of lift (> 605 lbs) and a 120-foot flight?',
+        options: [
+            'A. Flat plate camber (1:30) at α = 16.0° (stalled wake, L = 410 lbs < 605 lbs).',
+            'B. Wright 1:20 camber ratio at α = 7.5° (attached laminar flow, L = 692 lbs > 605 lbs, L/D = 7.5:1).',
+            'C. Deep 1:12 camber at α = 0° (insufficient net lift, L = 485 lbs < 605 lbs).',
+        ],
+        correctIdx: 1,
+    },
+];
+
+const DEFAULT_SYLLABUS_TEXT = `ARIZONA STATE UNIVERSITY · PHY 121: UNIVERSITY PHYSICS I: MECHANICS (4.0 CREDITS)
+Catalog Description: Principles of Newtonian mechanics, kinematics, force vectors, fluid dynamics, rotational torque, work, and conservation of energy.
+• Weeks 1–3 (Lectures 1–6): 1D/2D Kinematics, Vector Decomposition & Relative Velocity (HW 1–2, Quiz 1)
+• Weeks 4–6 (Lectures 7–12): Newton's Laws of Motion, Free-Body Equilibrium & Drag Forces (HW 3, Midterm 1)
+• Weeks 7–9 (Lectures 13–18): Fluid Continuity, Bernoulli Pressure Differential & Boundary-Layer Stall (HW 4, Module 4 Exam)
+• Weeks 10–12 (Lectures 19–24): Rotational Kinematics, Torque, Moment of Inertia & 3-Axis Control (HW 5, Midterm 2)
+• Weeks 13–15 (Lectures 25–30): Mechanical Work, Power, Energy Conservation & Comprehensive Final Exam`;
+
 const SCHOOLS_SPRINGBOARD = [
     {
         id: 'engineering',
@@ -142,6 +248,7 @@ const SCHOOLS_SPRINGBOARD = [
         sceneBg: '/images/visuals/kitty_hawk_2_decision.jpg',
         flightBg: '/images/visuals/kitty_hawk_1_live.jpg',
         credits: '4.0 ASU / CLEP Transferable Credits',
+        campaignTitle: 'The 1900–1905 Wright Aero-Engineering Campaign (5 Connected Episodes)',
     },
     {
         id: 'biomedics',
@@ -156,6 +263,7 @@ const SCHOOLS_SPRINGBOARD = [
         sceneBg: '/images/visuals/school_portrait_biomedics.jpg',
         flightBg: '/images/visuals/school_portrait_biomedics.jpg',
         credits: '4.0 ASU / CLEP Transferable Credits',
+        campaignTitle: 'The 1898–1914 Paris Radium & Cellular Biophysics Campaign (5 Connected Episodes)',
     },
     {
         id: 'business',
@@ -170,6 +278,7 @@ const SCHOOLS_SPRINGBOARD = [
         sceneBg: '/images/visuals/school_portrait_business.jpg',
         flightBg: '/images/visuals/school_portrait_business.jpg',
         credits: '3.0 ASU / CLEP Transferable Credits',
+        campaignTitle: 'The 1908–1915 Highland Park Industrial Scaling Campaign (5 Connected Episodes)',
     },
     {
         id: 'law',
@@ -184,14 +293,23 @@ const SCHOOLS_SPRINGBOARD = [
         sceneBg: '/images/visuals/school_portrait_law.jpg',
         flightBg: '/images/visuals/school_portrait_law.jpg',
         credits: '3.0 ASU / CLEP Transferable Credits',
+        campaignTitle: 'The 1787–1865 Constitutional Crisis & Republic Campaign (5 Connected Episodes)',
     },
 ];
 
 export const ASULectureTransformer = ({ onNavigate }) => {
-    // 4 Acts: 'asu-struggle' -> 'immersive-lab' -> 'concept-mastery' -> 'skill-tree'
-    const [stage, setStage] = useState('asu-struggle');
+    // 5 Acts: 'syllabus-campaign' -> 'asu-struggle' -> 'immersive-lab' -> 'concept-mastery' -> 'skill-tree'
+    const [stage, setStage] = useState('syllabus-campaign');
     const [selectedSchoolIdx, setSelectedSchoolIdx] = useState(0);
     const activeSchool = SCHOOLS_SPRINGBOARD[selectedSchoolIdx];
+
+    // Act 0: Syllabus-to-Cohesive-Campaign Transformer State
+    const [syllabusInput, setSyllabusInput] = useState(DEFAULT_SYLLABUS_TEXT);
+    const [isTransformingSyllabus, setIsTransformingSyllabus] = useState(false);
+    const [campaignGenerated, setCampaignGenerated] = useState(true);
+    const [activeExamProbIdx, setActiveExamProbIdx] = useState(0);
+    const [revealedHint, setRevealedHint] = useState(true);
+    const [solvedProblems, setSolvedProblems] = useState({});
 
     // RPG Character Class, XP, Action Points (AP), Mastery Powers & Co-Op Squad State
     const [selectedRoleIdx, setSelectedRoleIdx] = useState(0);
@@ -717,16 +835,26 @@ export const ASULectureTransformer = ({ onNavigate }) => {
         return () => cancelAnimationFrame(raf);
     }, [stage, simMode, camberRatio, aoaDeg, windMph, flightRunning, aero.canFly, aero.isStalled, aero.liftLbs, activePowers]);
 
+    const handleTransformSyllabus = () => {
+        setIsTransformingSyllabus(true);
+        setTimeout(() => {
+            setIsTransformingSyllabus(false);
+            setCampaignGenerated(true);
+        }, 450);
+    };
+
     const handleCompleteConceptCheck = (idx) => {
         setSelectedAnswer(idx);
-        if (idx === 1) {
+        const currentProb = ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx];
+        if (idx === currentProb.correctIdx) {
+            setSolvedProblems((prev) => ({ ...prev, [currentProb.id]: true }));
             setQuizAttemptStatus('mastered');
             setProgressPct(88);
             setAsuSynced(true);
             setStudentXp(3290);
             setStudentLevel(15);
             setSquadBannerMsg(
-                'LEVEL UP! Alex reached LVL 15 Lead Aerodynamicist (+450 XP) · ASU PHY 121 Module 4 Verified & Node 4 Unlocked!'
+                'LEVEL UP! Alex reached LVL 15 Lead Aerodynamicist (+450 XP) · ASU PHY 121 Homework #4 & Exam Prep Verified Properly!'
             );
         }
     };
@@ -749,26 +877,27 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                         <img src="/images/unischool-logo.png" alt="University School" className="w-8 h-8 rounded-lg" />
                         <div>
                             <div className="font-serif font-bold text-base text-white leading-none">
-                                University School <span className="text-[#E6C687]">Immersive Springboard</span>
+                                University School <span className="text-[#E6C687]">Syllabus-to-Immersive Engine</span>
                             </div>
                             <div className="text-[11px] text-slate-300 mt-0.5">
-                                Live Demo: ASU Struggle Detection &rarr; Co-Op RPG Squad &amp; 60fps Historical Sim &rarr; University Credit
+                                Any University Syllabus &rarr; Cohesive Story Episodes &rarr; Socratic Help to Pass ASU Exams Properly
                             </div>
                         </div>
                     </div>
 
-                    {/* 4-Act Stage Switcher */}
-                    <div className="flex flex-wrap items-center gap-2">
+                    {/* 5-Act Stage Switcher */}
+                    <div className="flex flex-wrap items-center gap-1.5">
                         {[
-                            { id: 'asu-struggle', label: '1. ASU Portal (Struggle Detected)' },
-                            { id: 'immersive-lab', label: '2. Live It: 1903 Wind Tunnel & Squad Sim' },
-                            { id: 'concept-mastery', label: '3. Concept Second & ASU Credit Sync' },
-                            { id: 'skill-tree', label: '4. RPG Skill Tree & Guild Roles' },
+                            { id: 'syllabus-campaign', label: '1. Syllabus → Story Campaign' },
+                            { id: 'asu-struggle', label: '2. ASU Struggle Detected' },
+                            { id: 'immersive-lab', label: '3. Live Episode: 1903 Sim' },
+                            { id: 'concept-mastery', label: '4. Pass ASU HW & Exams Properly' },
+                            { id: 'skill-tree', label: '5. RPG Skill Tree' },
                         ].map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setStage(tab.id)}
-                                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                                     stage === tab.id
                                         ? 'bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] text-[#23090D] shadow-lg'
                                         : 'bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10'
@@ -787,7 +916,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                     {/* Left: Knowledge School Track Switcher */}
                     <div className="flex flex-wrap items-center gap-2">
                         <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E6C687] mr-1">
-                            Track:
+                            Course Syllabus:
                         </span>
                         {SCHOOLS_SPRINGBOARD.map((s, idx) => {
                             const Icon = s.icon;
@@ -850,6 +979,160 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                     </div>
                 </div>
             </div>
+
+            {/* ═══════════════════════════════════════════════════════════════
+                ACT 0: TRANSFORM ANY SYLLABUS INTO A COHESIVE IMMERSIVE CAMPAIGN
+               ═══════════════════════════════════════════════════════════════ */}
+            {stage === 'syllabus-campaign' && (
+                <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 grid lg:grid-cols-12 gap-8 items-start">
+                    {/* Left 5 Columns: University Syllabus Input & Concept-Graph Ingestion */}
+                    <div className="lg:col-span-5 bg-[#1B080D] border border-[#E6C687]/40 rounded-3xl p-6 shadow-2xl space-y-5">
+                        <div>
+                            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E6C687]">
+                                Step 1 · Syllabus-to-Narrative Engine
+                            </span>
+                            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+                                Transform Any University Syllabus Into a Cohesive Story Campaign.
+                            </h2>
+                            <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                Instead of forcing an 11–14 year old to watch 30 disconnected 50-minute lectures, our engine extracts every prerequisite concept from the university syllabus and weaves the entire semester into <strong>one continuous historical adventure</strong>.
+                            </p>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between text-xs font-bold text-[#E6C687]">
+                                <span>Official University Syllabus Input ({activeSchool.asuCourse.split('·')[0].trim()})</span>
+                                <span className="text-[10px] text-emerald-300 font-mono">15 Weeks · 30 Lectures</span>
+                            </div>
+                            <textarea
+                                value={syllabusInput}
+                                onChange={(e) => setSyllabusInput(e.target.value)}
+                                rows={8}
+                                className="w-full rounded-2xl bg-black/55 border border-[#E6C687]/35 p-3.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-[#E6C687]"
+                            />
+                        </div>
+
+                        <button
+                            onClick={handleTransformSyllabus}
+                            className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all"
+                        >
+                            <Sparkles size={17} />
+                            {isTransformingSyllabus
+                                ? 'Extracting Concept Graph & Building Story Arc...'
+                                : 'Transform Syllabus into 5-Episode Immersive Campaign'}
+                        </button>
+
+                        {/* Pipeline Guarantee Box */}
+                        <div className="p-4 rounded-2xl bg-black/40 border border-white/10 space-y-2 text-xs text-slate-300">
+                            <div className="font-bold text-[#E6C687] uppercase tracking-wider text-[11px]">
+                                How It Helps Kids Pass ASU Online Properly:
+                            </div>
+                            <p className="leading-relaxed">
+                                1. <strong>Cohesive Multi-Lecture Arc:</strong> Every syllabus week becomes a playable chapter with the same historical mentors.<br />
+                                2. <strong>Struggle Intercept:</strong> If a student gets stuck on the ASU site, we launch the exact episode for that module.<br />
+                                3. <strong>Acceptable Exam &amp; HW Companion:</strong> Socratic memory bridges help the student solve official ASU assignments and proctored exams <em>themselves</em>—with zero answer-giving.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Right 7 Columns: The Cohesive 5-Episode Historical Narrative Arc */}
+                    <div className="lg:col-span-7 bg-[#16070B] border border-[#E6C687]/35 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-5">
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+                            <div>
+                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E6C687]">
+                                    Generated Semester Narrative Arc · {activeSchool.credits}
+                                </span>
+                                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mt-0.5">
+                                    {activeSchool.campaignTitle}
+                                </h3>
+                            </div>
+                            <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold">
+                                100% Syllabus Coverage ✓
+                            </span>
+                        </div>
+
+                        <div className="space-y-3.5">
+                            {SYLLABUS_CAMPAIGN_EPISODES.map((ep, idx) => {
+                                const isCurrent = ep.status === 'active';
+                                const isDone = ep.status === 'completed';
+                                return (
+                                    <div
+                                        key={ep.ep}
+                                        className={`p-4 rounded-2xl border transition-all ${
+                                            isCurrent
+                                                ? 'bg-gradient-to-r from-[#8B2332]/55 to-[#260910] border-[#E6C687] shadow-xl'
+                                                : isDone
+                                                ? 'bg-emerald-950/25 border-emerald-500/35'
+                                                : 'bg-black/35 border-white/10 opacity-85'
+                                        }`}
+                                    >
+                                        <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                                            <div className="flex items-center gap-2">
+                                                <span className="px-2.5 py-0.5 rounded-full bg-black/50 border border-[#E6C687]/40 text-[#E6C687] text-[11px] font-bold">
+                                                    {ep.ep} · {ep.weeks}
+                                                </span>
+                                                <span className="text-xs font-bold text-amber-300">{ep.xp}</span>
+                                            </div>
+                                            <span
+                                                className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                                                    isDone
+                                                        ? 'bg-emerald-500/20 text-emerald-300'
+                                                        : isCurrent
+                                                        ? 'bg-amber-500/25 text-amber-200 animate-pulse'
+                                                        : 'bg-white/10 text-slate-300'
+                                                }`}
+                                            >
+                                                {ep.asuScore}
+                                            </span>
+                                        </div>
+
+                                        <div className="font-serif font-bold text-base sm:text-lg text-white">
+                                            {ep.storyTitle}
+                                        </div>
+                                        <div className="text-xs font-semibold text-[#E6C687] mt-0.5">
+                                            Syllabus Lectures: {ep.syllabusUnit}
+                                        </div>
+                                        <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                                            {ep.kidNarrative}
+                                        </p>
+
+                                        <div className="mt-3 pt-2.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs">
+                                            <span className="text-slate-300">
+                                                <strong>ASU Online Target:</strong> {ep.asuDeliverable}
+                                            </span>
+                                            <div className="flex items-center gap-2">
+                                                {isCurrent ? (
+                                                    <>
+                                                        <button
+                                                            onClick={() => setStage('asu-struggle')}
+                                                            className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs"
+                                                        >
+                                                            See ASU Struggle
+                                                        </button>
+                                                        <button
+                                                            onClick={() => setStage('immersive-lab')}
+                                                            className="px-3.5 py-1.5 rounded-xl bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] text-[#23090D] font-bold text-xs flex items-center gap-1 shadow"
+                                                        >
+                                                            Play Episode 3 Sim <ChevronRight size={14} />
+                                                        </button>
+                                                    </>
+                                                ) : (
+                                                    <button
+                                                        onClick={() => setStage('immersive-lab')}
+                                                        className="text-[#E6C687] hover:underline font-bold text-xs"
+                                                    >
+                                                        Preview Episode &rarr;
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* ═══════════════════════════════════════════════════════════════
                 ACT 1: ASU PORTAL WITH REAL-TIME STRUGGLE DETECTION
@@ -974,7 +1257,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             </div>
 
                             <p className="text-sm text-slate-200 italic font-serif leading-relaxed">
-                                &ldquo;Memorizing $C_L(\alpha)$ from a whiteboard won&apos;t show you why a wing stalls. Bring your 4-person Discovery Squad into our 1901 Dayton wind tunnel and Kitty Hawk launch rail—let&apos;s bend the camber and fly it yourself.&rdquo;
+                                &ldquo;Memorizing $C_L(\alpha)$ from a whiteboard won&apos;t show you why a wing stalls. Bring your 4-person Discovery Squad into Episode 3 of our campaign—our 1901 Dayton wind tunnel and Kitty Hawk launch rail—so you can experience it first and then ace your ASU assignment properly.&rdquo;
                             </p>
 
                             <button
@@ -982,7 +1265,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] font-bold text-base shadow-xl flex items-center justify-center gap-3 transition-all"
                             >
                                 <Sparkles size={18} />
-                                Springboard into 1903 Kitty Hawk Lab (+450 XP Quest)
+                                Launch Episode 3: 1903 Kitty Hawk Lab (+450 XP)
                                 <ChevronRight size={18} />
                             </button>
                         </div>
@@ -1002,12 +1285,12 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             <div className="px-5 py-3.5 bg-[#220A10] border-b border-[#E6C687]/25 flex flex-wrap items-center justify-between gap-3">
                                 <div className="flex items-center gap-2">
                                     <span className="px-3 py-1 rounded-full bg-[#E6C687]/15 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold">
-                                        Iteration #{iterationCount}
+                                        Episode 3 · Iteration #{iterationCount}
                                     </span>
                                     <span className="font-serif font-bold text-base text-white">
                                         {simMode === 'wind-tunnel'
-                                            ? 'Step 2: 1901 Dayton Wind Tunnel — Tune Camber & Angle of Attack'
-                                            : 'Step 3 & 4: Kitty Hawk Dunes — Real Consequence & Iteration'}
+                                            ? '1901 Dayton Wind Tunnel — Tune Camber & Angle of Attack'
+                                            : 'December 17, 1903 Kitty Hawk Dunes — Real Consequence & Iteration'}
                                     </span>
                                 </div>
 
@@ -1220,7 +1503,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 onClick={() => setStage('concept-mastery')}
                                 className="w-full py-3.5 px-5 rounded-2xl bg-[#8B2332] hover:bg-[#A3293B] border border-[#E6C687]/50 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all"
                             >
-                                Step 5: Connect to Formal Physics &amp; Sync ASU Portal
+                                Step 4: Pass ASU Assignment &amp; Exam Properly
                                 <ChevronRight size={16} />
                             </button>
                         </div>
@@ -1229,51 +1512,93 @@ export const ASULectureTransformer = ({ onNavigate }) => {
             )}
 
             {/* ═══════════════════════════════════════════════════════════════
-                ACT 3: CONCEPT SECOND + LIVE ASU PORTAL & 68%->88% MASTERY SYNC
+                ACT 3: ACCEPTABLE SOCRATIC ASU ASSIGNMENT & EXAM COMPANION
                ═══════════════════════════════════════════════════════════════ */}
             {stage === 'concept-mastery' && (
                 <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 grid lg:grid-cols-12 gap-8 items-start">
-                    {/* Left 6 Cols: Experience First -> Concept Second Verification */}
-                    <div className="lg:col-span-6 bg-[#1C0A0F] border border-[#E6C687]/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-                        <div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#E6C687]">
-                                Step 5 · Experience First. Concept Second.
+                    {/* Left 7 Cols: Official ASU Online Homework & Exam Window + Acceptable Socratic Bridge */}
+                    <div className="lg:col-span-7 bg-[#1C0A0F] border border-[#E6C687]/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+                            <div>
+                                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#E6C687]">
+                                    Step 4 · Academic-Integrity Socratic Exam &amp; HW Companion
+                                </span>
+                                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+                                    Helping Kids Pass ASU Online Properly.
+                                </h3>
+                            </div>
+                            <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] font-bold flex items-center gap-1.5">
+                                <Shield size={13} /> Zero Direct Answers · Socratic Bridge
                             </span>
-                            <h3 className="font-serif text-3xl font-bold text-white mt-1">
-                                Turn What You Lived Into University Credit.
-                            </h3>
-                            <p className="text-sm text-slate-300 mt-2 leading-relaxed">
-                                Now that you cured the stall in the 1901 wind tunnel and flew 120 feet over Kitty Hawk, resolve the exact ASU PHY 121 question you struggled with earlier:
+                        </div>
+
+                        {/* Problem Switcher */}
+                        <div className="flex flex-wrap gap-2">
+                            {ASU_EXAM_COMPANION_PROBLEMS.map((prob, idx) => (
+                                <button
+                                    key={prob.id}
+                                    onClick={() => {
+                                        setActiveExamProbIdx(idx);
+                                        setSelectedAnswer(null);
+                                    }}
+                                    className={`px-3.5 py-2 rounded-xl text-xs font-bold border transition-all flex items-center gap-2 ${
+                                        activeExamProbIdx === idx
+                                            ? 'bg-[#8B2332] text-white border-[#E6C687]'
+                                            : 'bg-black/40 text-slate-300 border-white/10 hover:bg-white/10'
+                                    }`}
+                                >
+                                    <span>{idx === 0 ? 'ASU Homework #4 Q4' : 'ASU Module 4 Exam Prep Q7'}</span>
+                                    {solvedProblems[prob.id] && <CheckCircle2 size={13} className="text-emerald-400" />}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* The Socratic Memory Bridge (Translates University Notation -> Lived 1903 Sim) */}
+                        <div className="p-4 rounded-2xl bg-gradient-to-r from-[#2D0E17] to-[#1A080C] border border-[#E6C687]/50 space-y-2.5">
+                            <div className="flex items-center justify-between">
+                                <span className="text-[11px] font-bold uppercase tracking-wider text-[#E6C687]">
+                                    🧭 Socratic Memory Bridge (Connects Your 1903 Flight to University Notation)
+                                </span>
+                                <span className="text-[10px] text-emerald-300 font-semibold">Acceptable Academic Support ✓</span>
+                            </div>
+                            <p className="text-xs text-slate-200 leading-relaxed">
+                                <strong>Kid-Friendly Notation Translation:</strong> {ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].kidTranslation}
+                            </p>
+                            <p className="text-xs text-[#FDE68A] font-serif italic leading-relaxed">
+                                <strong>Wilbur’s Socratic Prompt:</strong> &ldquo;{ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].socraticHint}&rdquo;
                             </p>
                         </div>
 
-                        <div className="p-5 rounded-2xl bg-black/40 border border-[#E6C687]/30 space-y-3">
-                            <div className="text-xs font-bold uppercase tracking-wider text-[#E6C687]">
-                                ASU PHY 121 · Module 4 Mastery Verification (+450 XP Quest Reward)
+                        {/* Official ASU Online Question Box */}
+                        <div className="p-5 rounded-2xl bg-white text-slate-900 border-2 border-[#8C1D40]/30 space-y-3 shadow-inner">
+                            <div className="flex items-center justify-between text-xs font-bold text-[#8C1D40]">
+                                <span>{ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].asuHeader}</span>
+                                <span className="px-2 py-0.5 rounded bg-amber-100 text-[#8C1D40] text-[10px]">
+                                    Student Solves Independently
+                                </span>
                             </div>
-                            <p className="text-sm text-white font-medium">
-                                Why did setting the Wright Flyer wing to a 1:20 camber at $\alpha = 7.5^\circ$ produce 692 lbs of lift, whereas cranking $\alpha$ to $14.5^\circ$ caused the Flyer to stall at 34 feet?
+                            <p className="text-sm text-slate-900 font-semibold leading-relaxed">
+                                {ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].formalQuestion}
                             </p>
                             <div className="space-y-2.5 pt-2">
-                                {[
-                                    'A. Steeper angle of attack always increases laminar streamline speed without limit.',
-                                    'B. A 1:20 camber accelerates upper-surface streamlines (lower Bernoulli pressure P_top < P_bottom), while exceeding ~11.5° AoA causes boundary-layer flow separation and turbulent wake.',
-                                    'C. Air density at Kitty Hawk only supports flat uncambered wings.',
-                                ].map((opt, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => handleCompleteConceptCheck(idx)}
-                                        className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all ${
-                                            selectedAnswer === idx
-                                                ? idx === 1
-                                                    ? 'bg-emerald-950/80 border-emerald-400 text-emerald-100 font-semibold'
-                                                    : 'bg-red-950/80 border-red-400 text-red-100'
-                                                : 'bg-white/5 border-white/10 text-slate-200 hover:bg-white/10'
-                                        }`}
-                                    >
-                                        {opt}
-                                    </button>
-                                ))}
+                                {ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].options.map((opt, idx) => {
+                                    const isCorrect = idx === ASU_EXAM_COMPANION_PROBLEMS[activeExamProbIdx].correctIdx;
+                                    return (
+                                        <button
+                                            key={idx}
+                                            onClick={() => handleCompleteConceptCheck(idx)}
+                                            className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-all ${
+                                                selectedAnswer === idx
+                                                    ? isCorrect
+                                                        ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold'
+                                                        : 'bg-red-50 border-red-500 text-red-900'
+                                                    : 'bg-slate-50 border-slate-300 text-slate-800 hover:bg-slate-100'
+                                            }`}
+                                        >
+                                            {opt}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
 
@@ -1281,14 +1606,14 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             <div className="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 text-emerald-200 text-xs sm:text-sm flex items-center gap-3">
                                 <CheckCircle2 size={22} className="text-emerald-400 shrink-0" />
                                 <div>
-                                    <strong>ASU PHY 121 Struggle Resolved &amp; Skill Node Unlocked!</strong> Alex leveled up to <strong>LVL 15 Lead Aerodynamicist (3,290 XP)</strong>, and your University School Mastery Card + ASU Instructor Portal are now synced.
+                                    <strong>ASU PHY 121 Assignment &amp; Exam Check Passed Properly!</strong> Alex solved the formal university problem using their lived 1903 wind-tunnel intuition, leveled up to <strong>LVL 15 (3,290 XP)</strong>, and synced 88% Mastery back to ASU Online.
                                 </div>
                             </div>
                         )}
                     </div>
 
-                    {/* Right 6 Cols: The Native University School Progress Card (68% -> 88%) + ASU Sync */}
-                    <div className="lg:col-span-6 bg-[#161416] border border-[#C9B47C]/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                    {/* Right 5 Cols: The Native University School Progress Card (68% -> 88%) + ASU Sync */}
+                    <div className="lg:col-span-5 bg-[#161416] border border-[#C9B47C]/40 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-6">
                         <div className="flex items-center justify-between border-b border-white/10 pb-4">
                             <div className="flex items-center gap-3">
                                 <img src="/images/unischool-logo.png" alt="University School" className="w-9 h-9 rounded-lg" />
@@ -1298,7 +1623,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 </div>
                             </div>
                             <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-bold">
-                                {asuSynced ? 'ASU PORTAL SYNCED ✓' : 'LIVE TELEMETRY'}
+                                {asuSynced ? 'ASU GRADEBOOK: 96% (A) ✓' : 'LIVE TELEMETRY'}
                             </span>
                         </div>
 
@@ -1306,7 +1631,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                         <div className="bg-[#EFE9DF] text-[#222222] rounded-2xl p-5 sm:p-6">
                             <div className="grid sm:grid-cols-12 gap-6 items-center">
                                 <div className="sm:col-span-5 flex flex-col items-center justify-center">
-                                    <div className="relative w-36 h-36 flex items-center justify-center">
+                                    <div className="relative w-32 h-32 flex items-center justify-center">
                                         <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
                                             <circle cx="60" cy="60" r="48" fill="none" stroke="#D8CDBB" strokeWidth="10" />
                                             <circle
@@ -1330,15 +1655,15 @@ export const ASULectureTransformer = ({ onNavigate }) => {
 
                                 <div className="sm:col-span-7 space-y-2.5 text-sm">
                                     {[
-                                        { label: 'Concepts Mastered', val: asuSynced ? '10 / 12' : '8 / 12' },
-                                        { label: 'Experiences Completed', val: asuSynced ? '4 / 5' : '3 / 5' },
+                                        { label: 'Syllabus Episodes Lived', val: asuSynced ? '3 / 5 Complete' : '2 / 5 Complete' },
+                                        { label: 'ASU Assignments Passed', val: asuSynced ? '4 / 4 (96% A)' : '3 / 4' },
                                         { label: 'RPG Guild Level & XP', val: `LVL ${studentLevel} (${studentXp.toLocaleString()} XP)` },
                                         { label: 'ASU Struggle Points Cleared', val: asuSynced ? '1 / 1 ✓' : 'Pending' },
                                         { label: 'Transfer Credit Track', val: activeSchool.credits },
                                     ].map((row, i) => (
                                         <div key={i} className="flex items-center justify-between pb-2 border-b border-black/10 last:border-b-0 last:pb-0">
-                                            <span className="font-medium text-[#222222] text-xs sm:text-sm">{row.label}</span>
-                                            <span className="font-bold text-[#141414] text-xs sm:text-sm">{row.val}</span>
+                                            <span className="font-medium text-[#222222] text-xs">{row.label}</span>
+                                            <span className="font-bold text-[#141414] text-xs">{row.val}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -1353,10 +1678,10 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 View Accredited RPG Skill Tree &rarr;
                             </button>
                             <button
-                                onClick={() => onNavigate('students')}
-                                className="px-6 py-3 rounded-xl bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] text-[#23090D] font-bold text-xs sm:text-sm shadow-lg"
+                                onClick={() => setStage('syllabus-campaign')}
+                                className="px-5 py-2.5 rounded-xl bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] text-[#23090D] font-bold text-xs shadow-lg"
                             >
-                                Explore Full Student Curriculum &rarr;
+                                Next Syllabus Episode &rarr;
                             </button>
                         </div>
                     </div>
