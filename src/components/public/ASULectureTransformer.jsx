@@ -884,30 +884,30 @@ export const ASULectureTransformer = ({ onNavigate }) => {
             {/* ═══════════════════════════════════════════════════════════════
                 TOP BAR: UNIVERSITY SCHOOL × ASU SPRINGBOARD CONTROLLER
                ═══════════════════════════════════════════════════════════════ */}
-            <header className="sticky top-0 z-40 bg-[#1B070C]/95 backdrop-blur-md border-b border-[#E6C687]/30 px-4 sm:px-8 py-3.5">
-                <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <header className="relative z-20 bg-[#1B070C]/95 backdrop-blur-md border-b border-[#E6C687]/30 px-4 sm:px-8 py-3.5">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-3.5">
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => onNavigate('landing')}
-                            className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 flex items-center gap-1.5 text-xs font-semibold transition-colors"
+                            className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 flex items-center gap-1.5 text-xs font-semibold transition-colors shrink-0"
                         >
-                            <ArrowLeft size={15} /> Back to University School
+                            <ArrowLeft size={15} /> Back
                         </button>
                         <div className="h-6 w-px bg-white/15 hidden sm:block" />
-                        <img src="/images/unischool-logo.png" alt="University School" className="w-8 h-8 rounded-lg" />
-                        <div>
-                            <div className="font-serif font-bold text-base text-white leading-tight">
+                        <img src="/images/unischool-logo.png" alt="University School" className="w-8 h-8 rounded-lg shrink-0" />
+                        <div className="min-w-0">
+                            <div className="font-serif font-bold text-sm sm:text-base text-white leading-tight">
                                 University School
-                                <span className="block text-[#E6C687] text-sm">Interactive Course Transformer Demo</span>
+                                <span className="block text-[#E6C687] text-xs sm:text-sm">Interactive Course Transformer Demo</span>
                             </div>
-                            <div className="text-[11px] text-slate-300 mt-0.5">
+                            <div className="text-[11px] text-slate-300 mt-0.5 hidden sm:block">
                                 Real University Syllabus &rarr; Gamified Story Quests &amp; XP &rarr; Socratic Help to Pass College Exams
                             </div>
                         </div>
                     </div>
 
-                    {/* 5-Act Stage Switcher */}
-                    <div className="flex flex-wrap items-center gap-1.5">
+                    {/* 5-Act Stage Switcher (horizontally scrollable on mobile phones) */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 sm:flex-wrap no-scrollbar -mx-1 px-1">
                         {[
                             { id: 'syllabus-campaign', label: '1. Syllabus → Story Campaign' },
                             { id: 'asu-struggle', label: '2. Lecture Struggle Detected' },
@@ -918,7 +918,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             <button
                                 key={tab.id}
                                 onClick={() => setStage(tab.id)}
-                                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                                className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 transition-all ${
                                     stage === tab.id
                                         ? 'bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] text-[#23090D] shadow-lg'
                                         : 'bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10'
@@ -1238,7 +1238,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                     </span>
                                 </div>
                                 <p className="text-xs text-slate-700 leading-relaxed mb-3">
-                                    <strong>Question:</strong> Using $L = \frac{1}{2}\rho v^2 S C_L(\alpha)$, why did early glider tests fail when pilots increased wing angle $\alpha$ above $14^\circ$ with a flat plate, even though airspeed $v$ remained constant?
+                                    <strong>Question:</strong> Using L = ½ ρ v² S · C_L(α), why did early glider tests fail when pilots increased wing angle α above 14° with a flat plate, even though airspeed v remained constant?
                                 </p>
                                 <div className="p-3 rounded-xl bg-white border border-red-200 text-xs text-red-800 flex items-center justify-between">
                                     <span>
@@ -1298,7 +1298,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             </div>
 
                             <p className="text-sm text-slate-200 italic font-serif leading-relaxed">
-                                &ldquo;Memorizing $C_L(\alpha)$ from a whiteboard won&apos;t show you why a wing stalls. Bring your 4-person Discovery Squad into Episode 3 of our campaign—our 1901 Dayton wind tunnel and Kitty Hawk launch rail—so you can experience it first and then ace your ASU assignment properly.&rdquo;
+                                &ldquo;Memorizing C_L(α) from a whiteboard won&apos;t show you why a wing stalls. Bring your 4-person Discovery Squad into Episode 3 of our campaign—our 1901 Dayton wind tunnel and Kitty Hawk launch rail—so you can experience it first and then ace your ASU assignment properly.&rdquo;
                             </p>
 
                             <button
@@ -1388,7 +1388,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                             setCamberRatio(parseInt(e.target.value, 10));
                                             setSimMode('wind-tunnel');
                                         }}
-                                        className="w-full accent-[#E6C687] cursor-pointer"
+                                        className="w-full h-6 accent-[#E6C687] cursor-pointer touch-pan-x"
                                     />
                                     <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                                         <span>1:12 (Deep Drag)</span>
@@ -1415,7 +1415,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                             setAoaDeg(parseFloat(e.target.value));
                                             setSimMode('wind-tunnel');
                                         }}
-                                        className="w-full accent-[#E6C687] cursor-pointer"
+                                        className="w-full h-6 accent-[#E6C687] cursor-pointer touch-pan-x"
                                     />
                                     <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                                         <span>0° (Low Lift)</span>

@@ -8,6 +8,10 @@ import { GraduationCap, Shield, Globe, Menu, X, ArrowRight, Sparkles } from 'luc
 export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
+    React.useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, [activePage]);
+
     const NAV_LINKS = [
         { id: 'home', label: 'Home' },
         { id: 'students', label: 'Knowledge Schools' },
@@ -150,7 +154,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <li><button onClick={() => onNavigate('students')} className="hover:text-[#8B2332] transition-colors">Knowledge Schools</button></li>
                                 <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
                                 <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">University Partners</button></li>
-                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Launch a Center (Franchise)</button></li>
+                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Launch a Center</button></li>
                                 <li><button onClick={() => onNavigate('asu-demo')} className="hover:text-[#8B2332] transition-colors">Interactive Course Demo</button></li>
                             </ul>
                         </div>
@@ -161,7 +165,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <li>Privacy Policy</li>
                                 <li>Terms of Service</li>
                                 <li>Student Safety</li>
-                                <li>Franchise Disclosure (FDD)</li>
+                                <li>Center &amp; Pod Guidelines</li>
                             </ul>
                         </div>
                     </div>

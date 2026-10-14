@@ -174,10 +174,16 @@ export const LandingPage = ({ onNavigate }) => {
     const [activeScene, setActiveScene] = useState(0);
     const [selectedConcept, setSelectedConcept] = useState(0);
     const [isVideoMuted, setIsVideoMuted] = useState(false);
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     const scrollToHowItWorks = () => {
         const el = document.getElementById('how-it-works');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
+        const v = document.getElementById('usai-explainer-video');
+        if (v) {
+            const p = v.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        }
     };
 
     return (
@@ -383,17 +389,17 @@ export const LandingPage = ({ onNavigate }) => {
             <section id="how-it-works" className="py-20 bg-[#140B0E] text-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* 90-Second University School Explainer Film Player */}
-                    <div className="mb-14 bg-[#1B090E] border border-[#E6C687]/35 rounded-3xl p-5 sm:p-7 shadow-2xl">
-                        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div className="mb-14 bg-[#1B090E] border border-[#E6C687]/35 rounded-3xl p-4 sm:p-7 shadow-2xl">
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4">
                             <div>
                                 <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] px-3 py-1 rounded-full bg-[#8B2332] text-[#E6C687] border border-[#E6C687]/40 mb-2">
                                     <Play size={11} className="fill-[#E6C687]" /> 90-Second Explainer Film
                                 </span>
-                                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                                <h3 className="font-serif text-xl sm:text-3xl font-bold text-white">
                                     Watch How University School Works <span className="text-[#E6C687]">(1:30)</span>
                                 </h3>
                             </div>
-                            <div className="flex flex-wrap items-center gap-1.5">
+                            <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 sm:pb-0 sm:flex-wrap no-scrollbar -mx-1 px-1">
                                 <button
                                     onClick={() => {
                                         const v = document.getElementById('usai-explainer-video');
@@ -402,7 +408,7 @@ export const LandingPage = ({ onNavigate }) => {
                                             setIsVideoMuted(v.muted);
                                         }
                                     }}
-                                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border border-[#E6C687]/50 bg-[#8B2332] text-[#FAF8F5] hover:bg-[#A3293B] transition-colors mr-1"
+                                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border border-[#E6C687]/50 bg-[#8B2332] text-[#FAF8F5] hover:bg-[#A3293B] transition-colors mr-1 shrink-0 whitespace-nowrap"
                                 >
                                     {isVideoMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
                                     {isVideoMuted ? 'Unmute' : 'Mute'}
@@ -424,27 +430,55 @@ export const LandingPage = ({ onNavigate }) => {
                                             const v = document.getElementById('usai-explainer-video');
                                             if (v) {
                                                 v.currentTime = sec;
-                                                v.play();
+                                                const p = v.play();
+                                                if (p && typeof p.catch === 'function') p.catch(() => {});
                                             }
                                         }}
-                                        className="text-xs font-semibold px-2.5 py-1 rounded-lg border border-white/15 bg-black/40 text-slate-200 hover:border-[#E6C687] hover:text-[#E6C687] transition-colors"
+                                        className="text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-white/15 bg-black/40 text-slate-200 hover:border-[#E6C687] hover:text-[#E6C687] transition-colors shrink-0 whitespace-nowrap"
                                     >
                                         {lbl}
                                     </button>
                                 ))}
                             </div>
                         </div>
-                        <div className="rounded-2xl overflow-hidden border border-[#E6C687]/30 bg-black shadow-xl">
+                        <div className="relative rounded-2xl overflow-hidden border border-[#E6C687]/30 bg-black shadow-xl group">
                             <video
                                 id="usai-explainer-video"
                                 controls
                                 playsInline
+                                webkit-playsinline="true"
                                 preload="metadata"
+                                onPlay={() => setIsVideoPlaying(true)}
+                                onPause={() => setIsVideoPlaying(false)}
+                                onEnded={() => setIsVideoPlaying(false)}
                                 onVolumeChange={(e) => setIsVideoMuted(e.currentTarget.muted)}
                                 poster="/images/visuals/hero_mentors_scene.jpg"
-                                className="w-full aspect-video block"
+                                className="w-full aspect-video block bg-black"
                                 src="/videos/usai_school_90s_explainer.mp4"
-                            />
+                            >
+                                <source src="/videos/usai_school_90s_explainer.mp4" type="video/mp4" />
+                            </video>
+                            {!isVideoPlaying && (
+                                <button
+                                    type="button"
+                                    aria-label="Play 90-Second Explainer Film"
+                                    onClick={() => {
+                                        const v = document.getElementById('usai-explainer-video');
+                                        if (v) {
+                                            const p = v.play();
+                                            if (p && typeof p.catch === 'function') p.catch(() => {});
+                                        }
+                                    }}
+                                    className="absolute inset-0 flex items-center justify-center bg-black/25 hover:bg-black/35 transition-colors cursor-pointer"
+                                >
+                                    <div className="px-5 py-3.5 sm:px-7 sm:py-4 rounded-2xl bg-[#8B2332]/95 border-2 border-[#E6C687] text-white font-serif font-bold text-sm sm:text-lg shadow-2xl flex items-center gap-3 group-hover:scale-105 transition-transform">
+                                        <span className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#E6C687] text-[#23090D] flex items-center justify-center shrink-0">
+                                            <Play size={18} className="fill-[#23090D] ml-0.5" />
+                                        </span>
+                                        <span>Tap to Watch 90-Second Film</span>
+                                    </div>
+                                </button>
+                            )}
                         </div>
                     </div>
 

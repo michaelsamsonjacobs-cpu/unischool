@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
     Map,
-    TrendingUp,
     Cpu,
     Building,
     Users,
@@ -12,11 +11,11 @@ import {
     Sparkles,
     Laptop,
     Compass,
-    ClipboardCheck,
-    DollarSign,
-    Calendar,
     Send,
     ShieldCheck,
+    BookOpen,
+    Home,
+    GraduationCap,
 } from 'lucide-react';
 
 const CENTER_PILLAR_TILES = [
@@ -46,58 +45,104 @@ const CENTER_PILLAR_TILES = [
     },
 ];
 
-const FRANCHISE_STEPS = [
+const CENTER_LAUNCH_STEPS = [
     {
-        step: 'STEP 01 · WEEKS 1–2',
-        title: 'Territory Discovery & Qualification',
-        desc: 'Submit your target city or suburb below. Meet with our Founding Center Team to review local student demographics, territory exclusivity, and unit economics. Ideal for educators, entrepreneurs, existing tutoring/micro-school owners, and community leaders.',
-        deliverable: 'Exclusive Territory Hold & Franchise Prospectus',
+        step: 'STEP 01 · EXPLORE & ALIGN',
+        title: 'Choose Your Community Format',
+        desc: 'Connect with our Center Partnerships team to select the model that best serves your families—from an intimate Homeschool Co-Op Learning Pod (4–12 scholars) to a dedicated Neighborhood Micro-School (12–30 scholars) or an Enrichment Studio.',
+        deliverable: 'Customized Center Blueprint & Curriculum Overview',
     },
     {
-        step: 'STEP 02 · WEEKS 3–6',
-        title: 'Site Selection & Turnkey Studio Kit',
-        desc: 'Secure a 1,200–1,800 sq. ft. commercial, retail, or campus-adjacent space. We ship your turnkey Center-in-a-Box hardware package: 4-person Co-Op discovery tables, desktop laminar wind tunnels, 4K seminar displays, and proctored testing stations.',
-        deliverable: 'Architectural Layout & Hardware Delivery',
+        step: 'STEP 02 · PREPARE YOUR SPACE',
+        title: 'Set Up Your Collaborative Studio',
+        desc: 'Transform a welcoming room, community annex, or dedicated micro-campus into an active discovery studio arranged around 4-person Co-Op tables, hands-on experiment stations, and quiet assessment nooks.',
+        deliverable: 'Studio Layout Guide & Lab Equipment Checklist',
     },
     {
-        step: 'STEP 03 · WEEKS 7–10',
-        title: 'Director Certification & Cohort Launch',
-        desc: 'Complete our 2-week University School OS Director Certification. Because our AI Narrator and partner university syllabi handle 100% of curriculum instruction, you hire warm college-graduate facilitators (1:15 ratio) and run our turnkey local enrollment playbook.',
-        deliverable: 'Certified Staff & Founding 15–30 Student Cohort',
+        step: 'STEP 03 · FACILITATOR ONBOARDING',
+        title: 'Facilitator Orientation & Platform Provisioning',
+        desc: 'Because our AI Narrator and accredited partner university syllabi handle 100% of formal lecture instruction and Socratic coaching, local facilitators don’t need to write lesson plans—you focus on mentorship, group discussion, and encouragement.',
+        deliverable: 'Center OS Dashboard & Facilitator Certification',
     },
     {
-        step: 'STEP 04 · WEEK 12',
-        title: 'Grand Opening & Recurring Tuition',
-        desc: 'Open your doors. Students aged 11+ attend full-time or after-school in 4-person discovery squads, earning XP and official university credits while you manage community growth through the University School Center Operating System.',
-        deliverable: '$360k–$720k+ Target Annual Recurring Tuition',
+        step: 'STEP 04 · LAUNCH YOUR COHORT',
+        title: 'Welcome Scholars & Begin Quests',
+        desc: 'Organize your learners (ages 11+) into 4-person Discovery Squads. Together they step into historical simulations, build real-world projects, and complete university assessments toward official college credit.',
+        deliverable: 'Active Discovery Squads & Official Credit Tracking',
+    },
+];
+
+const CENTER_FORMATS = [
+    {
+        id: 'Learning Pod / Homeschool Co-Op (4–12 Scholars)',
+        badge: '4–12 Scholars · 1–3 Discovery Squads',
+        title: 'Collaborative Learning Pod & Homeschool Co-Op',
+        icon: Home,
+        summary:
+            'Designed for homeschooling families and parent-educators uniting a small cohort of middle- and high-school learners to experience accredited university courses, hands-on STEM labs, and Socratic seminars together.',
+        highlights: [
+            'Flexible 2-to-5 day weekly co-op schedules',
+            'Zero lesson-planning burden—AI Narrator & university syllabi guide every session',
+            'Turns solo homeschooling into a vibrant 4-person team quest',
+        ],
+    },
+    {
+        id: 'Independent Micro-School (12–30 Scholars)',
+        badge: '12–30 Scholars · 3–8 Discovery Squads',
+        title: 'Neighborhood Micro-School',
+        icon: Building,
+        summary:
+            'A dedicated small-school learning community where scholars aged 11+ replace passive lecture classrooms with interactive historical simulations, peer seminars, and early-college degree pathways.',
+        highlights: [
+            'Full-time or hybrid micro-campus operating model',
+            'Multi-age squads across Engineering, Biomedics, Business & Law',
+            'Integrated parent progress portfolios & proctored university credit exams',
+        ],
+    },
+    {
+        id: 'Existing School / Enrichment Studio',
+        badge: 'Flexible Cohorts · After-School or Integrated',
+        title: 'Private School & Community Enrichment Studio',
+        icon: GraduationCap,
+        summary:
+            'Built for independent schools, tutoring academies, libraries, and youth organizations adding University School’s interactive lab quests and accredited early-college credit tracks to their existing campus.',
+        highlights: [
+            'Plug-and-play honors & early-college elective tracks',
+            'Complete Center OS telemetry for academic directors',
+            'Co-branded community showcase & capstone events',
+        ],
     },
 ];
 
 export const FranchisePage = ({ onNavigate }) => {
-    const [studentCount, setStudentCount] = useState(30);
-    const [monthlyTuition, setMonthlyTuition] = useState(1250);
+    const [selectedFormat, setSelectedFormat] = useState(CENTER_FORMATS[0].id);
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         phone: '',
         cityState: '',
-        background: 'Educator / School Leader',
-        timeline: 'Within 3–6 Months',
-        capitalTier: '$75k – $150k Ready',
+        role: 'Parent / Homeschool Co-Op Organizer',
+        cohortSize: '4–12 Scholars (Learning Pod / Co-Op)',
+        timeline: 'Upcoming Term (Within 90 Days)',
         notes: '',
     });
     const [submitted, setSubmitted] = useState(false);
-
-    const annualRevenue = studentCount * monthlyTuition * 12;
-    const mentorCount = Math.max(1, Math.ceil(studentCount / 15));
-    const estOperatingCost = mentorCount * 62000 + 48000; // Facilitators + lease/ops estimate
-    const estNetIncome = Math.max(0, annualRevenue - estOperatingCost);
-    const recommendedSqFt = studentCount <= 25 ? '1,200' : studentCount <= 40 ? '1,600' : '2,200';
 
     const scrollToId = (id) => {
         const el = document.getElementById(id);
         if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const handleSelectFormat = (formatId) => {
+        setSelectedFormat(formatId);
+        if (formatId.includes('4–12')) {
+            setFormData((prev) => ({ ...prev, cohortSize: '4–12 Scholars (Learning Pod / Co-Op)' }));
+        } else if (formatId.includes('12–30')) {
+            setFormData((prev) => ({ ...prev, cohortSize: '12–30 Scholars (Micro-School)' }));
+        } else {
+            setFormData((prev) => ({ ...prev, cohortSize: 'Flexible / Existing Campus Program' }));
         }
     };
 
@@ -109,7 +154,7 @@ export const FranchisePage = ({ onNavigate }) => {
     return (
         <div className="flex flex-col pb-20 bg-[#FAF8F5]">
             {/* ═══════════════════════════════════════════════════════════
-                1. FULL-BLEED DARK BURGUNDY & GOLD HERO (MATCHES LANDING TILES)
+                1. FULL-BLEED DARK BURGUNDY & GOLD HERO
                 ═══════════════════════════════════════════════════════════ */}
             <section className="relative bg-[#1F070B] text-white overflow-hidden border-b border-[#C9B47C]/30">
                 <div className="relative min-h-[560px] flex flex-col justify-between">
@@ -126,7 +171,7 @@ export const FranchisePage = ({ onNavigate }) => {
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8 w-full">
                         <div className="max-w-2xl">
                             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B2332]/90 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-[0.2em] mb-5">
-                                <Building size={14} /> Become a Center Franchisee · Global Micro-Campus Network
+                                <Building size={14} /> Micro-Schools · Homeschool Co-Ops · Local Learning Centers
                             </div>
 
                             <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.03] mb-5 drop-shadow-lg">
@@ -135,7 +180,7 @@ export const FranchisePage = ({ onNavigate }) => {
                             </h1>
 
                             <p className="text-base sm:text-lg text-slate-100/95 leading-relaxed mb-6 max-w-xl drop-shadow">
-                                Launch an accredited <strong className="text-[#E6C687]">University School Center</strong> in your community. We provide the AI-powered Interactive XP curriculum, 60+ university credit pathways, and turnkey hardware studio&mdash;you build the local community and recurring tuition business.
+                                Bring a <strong className="text-[#E6C687]">University School Learning Center</strong> to your neighborhood. Whether you are organizing a homeschool co-op pod, launching an independent micro-school, or hosting a local study hub, we provide the complete interactive curriculum, Socratic AI coaching, and accredited university credit pathways.
                             </p>
 
                             <div className="flex flex-wrap items-center gap-3.5">
@@ -143,7 +188,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                     onClick={() => scrollToId('franchise-application')}
                                     className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
                                 >
-                                    Apply to Launch a Center
+                                    Learn More &amp; Start a Center
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button
@@ -151,13 +196,13 @@ export const FranchisePage = ({ onNavigate }) => {
                                     className="bg-[#8B2332]/90 hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all flex items-center gap-2"
                                 >
                                     <Map size={17} className="text-[#E6C687]" />
-                                    How to Become a Franchisee (4 Steps)
+                                    How to Run a Local Center
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    {/* 4 Docked Center Feature Tiles (Matches First Tiles on Landing Page) */}
+                    {/* 4 Docked Center Feature Tiles */}
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 w-full">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                             {CENTER_PILLAR_TILES.map((tile, i) => (
@@ -195,25 +240,25 @@ export const FranchisePage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                2. HOW TO BECOME A FRANCHISEE — THE 4-STEP LAUNCH ROADMAP
+                2. HOW TO RUN A CENTER — THE 4-STEP LAUNCH ROADMAP
                 ═══════════════════════════════════════════════════════════ */}
             <section id="how-to-launch" className="py-20 bg-white border-b border-[#8B2332]/10 scroll-mt-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <span className="text-[#8B2332] font-bold tracking-[0.22em] text-xs uppercase mb-3 block">
-                            How to Become a Franchisee · 90-Day Turnkey Launch
+                            Small-Group Learning Pods · Homeschool Co-Ops · Micro-Schools
                         </span>
                         <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4 leading-tight">
-                            <span className="block">How to Launch a</span>
+                            <span className="block">How to Launch &amp; Run a</span>
                             <span className="block text-[#8B2332] mt-1">University School Center.</span>
                         </h2>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            You don&apos;t need to build a curriculum or hire university professors. We provide the entire accredited academic engine, interactive simulations, and Center Operating System so you can launch in 12 weeks.
+                            You don&apos;t need to write college syllabi or teach advanced physics on your own. We provide the complete accredited academic engine, interactive simulations, and Center Operating System so parents and educators can focus on building an inspiring small-group community.
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        {FRANCHISE_STEPS.map((st, i) => (
+                        {CENTER_LAUNCH_STEPS.map((st, i) => (
                             <div
                                 key={i}
                                 className="bg-[#18070B] text-white rounded-3xl p-6 border border-[#E6C687]/35 shadow-xl flex flex-col justify-between"
@@ -230,7 +275,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                     </p>
                                 </div>
                                 <div className="pt-3 border-t border-[#E6C687]/20">
-                                    <div className="text-[10px] uppercase tracking-wider text-slate-400">Milestone Deliverable</div>
+                                    <div className="text-[10px] uppercase tracking-wider text-slate-400">What You Receive</div>
                                     <div className="text-xs font-bold text-[#E6C687] mt-0.5">{st.deliverable}</div>
                                 </div>
                             </div>
@@ -241,7 +286,7 @@ export const FranchisePage = ({ onNavigate }) => {
                     <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                         <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-3xl p-7 border border-[#C9B47C] shadow-lg">
                             <div className="text-xs font-bold uppercase tracking-widest text-[#8B2332] mb-2">
-                                Turnkey Corporate Support
+                                Complete Academic &amp; Platform Support
                             </div>
                             <h3 className="font-serif text-2xl font-bold text-[#1F070B] mb-4">
                                 What University School Provides
@@ -251,8 +296,8 @@ export const FranchisePage = ({ onNavigate }) => {
                                     'Full Interactive XP Curriculum & 60fps Historical Simulations',
                                     '60+ Accredited University Credit, Certificate & Degree Pathways',
                                     'Socratic AI Homework & Exam Companion (24/7 Student Coaching)',
-                                    'Center OS Dashboard: Attendance, XP Telemetry & Parent Reports',
-                                    'Architectural Blueprints, Wind-Tunnel Lab Specs & Launch Marketing',
+                                    'Center OS Dashboard: Squad Progress, XP Telemetry & Parent Reports',
+                                    'Hands-On Lab Guides, Co-Op Seminar Prompts & Facilitator Training',
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-2.5">
                                         <CheckCircle2 size={17} className="text-[#8B2332] shrink-0 mt-0.5" />
@@ -264,18 +309,18 @@ export const FranchisePage = ({ onNavigate }) => {
 
                         <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-lg">
                             <div className="text-xs font-bold uppercase tracking-widest text-[#8B2332] mb-2">
-                                Local Franchisee Role
+                                Local Community &amp; Facilitation
                             </div>
                             <h3 className="font-serif text-2xl font-bold text-[#2D2D2D] mb-4">
                                 What You Focus On Locally
                             </h3>
                             <ul className="space-y-2.5 text-sm font-medium text-slate-700">
                                 {[
-                                    'Secure a 1,200–1,800 sq. ft. safe, inspiring local studio space',
-                                    'Host local Parent Open Houses & Demo Nights (1903 Wind Tunnel)',
-                                    'Hire & lead 1–2 passionate college-graduate learning facilitators',
-                                    'Guide daily 4-student Co-Op Squad check-ins & project showcases',
-                                    'Proctor official university credit assessments & celebrate milestones',
+                                    'Host a welcoming learning environment (co-op studio, micro-school, or campus room)',
+                                    'Organize scholars (ages 11+) into collaborative 4-person Discovery Squads',
+                                    'Facilitate daily goal-setting, Socratic group discussions & hands-on builds',
+                                    'Coordinate family showcase nights & project demonstrations',
+                                    'Provide a quiet, supportive setting for proctored university credit assessments',
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-2.5">
                                         <Sparkles size={17} className="text-[#8B2332] shrink-0 mt-0.5" />
@@ -302,7 +347,7 @@ export const FranchisePage = ({ onNavigate }) => {
                             <span className="block text-[#8B2332]">Passion.</span>
                         </h2>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            University School Centers are not lecture halls. They are warm, studio-grade workshops designed for 4-student discovery squads, hands-on engineering builds, Socratic debate, and accredited university progress.
+                            University School Centers are not lecture halls. Whether you run a small-group homeschool co-op or a neighborhood micro-school, each space is a warm, studio-grade workshop designed for 4-student discovery squads, hands-on engineering builds, Socratic debate, and accredited university progress.
                         </p>
                     </div>
 
@@ -355,7 +400,7 @@ export const FranchisePage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                4. UNIT ECONOMICS & NATIVE CENTER OPERATING SYSTEM
+                4. NATIVE CENTER OPERATING SYSTEM & SMALL-SCHOOL ARCHITECTURE
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-20 bg-[#19090D] text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -368,17 +413,17 @@ export const FranchisePage = ({ onNavigate }) => {
                             <span className="block text-[#E6C687]">Center Model.</span>
                         </h2>
                         <p className="text-slate-300 text-lg">
-                            High impact. Compact footprint. Powered end-to-end by the University School Operating System.
+                            Intimate small-group belonging combined with world-class university rigor—powered end-to-end by the University School Operating System.
                         </p>
                     </div>
 
-                    {/* 4 Economic Tiles */}
+                    {/* 4 Community & Learning Architecture Tiles */}
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                         {[
-                            { icon: TrendingUp, value: '$450k', label: 'Target Annual Revenue', sub: 'Based on 30-student local cohort' },
-                            { icon: Users, value: '1 : 15', label: 'Mentor Ratio', sub: 'University-graduate facilitators' },
-                            { icon: Building, value: '1,200', label: 'Sq. Ft. Footprint', sub: 'High-efficiency studio layout' },
-                            { icon: Cpu, value: '100%', label: 'AI Curriculum Engine', sub: 'Automated syllabus transformation' },
+                            { icon: Users, value: '4-Scholar', label: 'Discovery Squads', sub: 'Collaborative peer teams in every course' },
+                            { icon: Home, value: '4 to 30', label: 'Flexible Cohort Size', sub: 'From homeschool pods to micro-schools' },
+                            { icon: BookOpen, value: '60+ Unis', label: 'Accredited Pathways', sub: 'Real college credits starting at age 11+' },
+                            { icon: Cpu, value: '100%', label: 'Turnkey Academic OS', sub: 'AI Narrator & Socratic coaching built in' },
                         ].map((stat, i) => (
                             <div
                                 key={i}
@@ -401,15 +446,15 @@ export const FranchisePage = ({ onNavigate }) => {
                                 Powered by University School OS
                             </span>
                             <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
-                                A Complete &ldquo;School-in-a-Box&rdquo; Operating System.
+                                A Complete &ldquo;School-in-a-Box&rdquo; for Local Facilitators.
                             </h3>
                             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                                Center Directors focus on community, mentorship, and hands-on group labs while our platform handles syllabus-to-story transformation, XP mastery telemetry, parent reporting, and partner university credit tracking.
+                                Whether you are a parent leading a homeschool co-op or an educator directing a micro-school, you focus on mentorship and hands-on group labs while our platform handles syllabus-to-story transformation, XP mastery telemetry, parent reporting, and university credit tracking.
                             </p>
                             <ul className="space-y-3">
                                 {[
-                                    'Real-time cohort progress across all 4 Knowledge Schools',
-                                    'Turnkey hardware specs for wind-tunnel, robotics & biomedical labs',
+                                    'Real-time squad progress across all 4 Knowledge Schools',
+                                    'Step-by-step facilitation guides for wind-tunnel, robotics & biomedical labs',
                                     'Integrated Parent Portal & Official University Credit Ledger',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-sm text-slate-200 font-medium">
@@ -434,7 +479,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                             University School Center OS · Cohort Command
                                         </div>
                                         <div className="text-[11px] text-[#E6C687]">
-                                            30 Active Students · Ages 11–17 · 4 Knowledge Schools
+                                            Active Discovery Squads · Ages 11–17 · 4 Knowledge Schools
                                         </div>
                                     </div>
                                 </div>
@@ -445,27 +490,27 @@ export const FranchisePage = ({ onNavigate }) => {
 
                             <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-5 border border-[#C9B47C] mb-5">
                                 <div className="text-xs font-bold uppercase tracking-wider text-[#8B2332] mb-3">
-                                    Active Today at Your Center
+                                    Active Today in Your Learning Center
                                 </div>
                                 <div className="grid sm:grid-cols-2 gap-3 text-xs">
                                     {[
                                         {
-                                            squad: 'Engineering Squad Alpha (4 Students)',
+                                            squad: 'Engineering Squad Alpha (4 Scholars)',
                                             lab: '1903 Wright Wind Tunnel · PHY 121',
                                             status: '88% Mastery · 3.0 Credits',
                                         },
                                         {
-                                            squad: 'Biomedics Squad Curie (4 Students)',
+                                            squad: 'Biomedics Squad Curie (4 Scholars)',
                                             lab: 'Cellular Diagnostics Lab · BIO 181',
                                             status: '82% Mastery · 4.0 Credits',
                                         },
                                         {
-                                            squad: 'Business Squad Detroit (4 Students)',
+                                            squad: 'Business Squad Detroit (4 Scholars)',
                                             lab: 'Assembly Line Economics · ECN 212',
                                             status: '91% Mastery · 3.0 Credits',
                                         },
                                         {
-                                            squad: 'Law & Policy Squad Lincoln (4 Students)',
+                                            squad: 'Law & Policy Squad Lincoln (4 Scholars)',
                                             lab: 'Constitutional Moot Court · POS 110',
                                             status: '85% Mastery · 3.0 Credits',
                                         },
@@ -484,7 +529,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                     <Globe size={15} className="text-[#E6C687]" />
                                     <span>Official Selection: BETT Brazil 2026 Education Showcase</span>
                                 </div>
-                                <span className="text-[#E6C687] font-bold">Avg. 18.5 Credits / Student / Year</span>
+                                <span className="text-[#E6C687] font-bold">Avg. 18.5 Credits / Scholar / Year</span>
                             </div>
                         </div>
                     </div>
@@ -492,109 +537,100 @@ export const FranchisePage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                5. INTERACTIVE FRANCHISE ROI ESTIMATOR & CENTER APPLICATION FORM
+                5. FLEXIBLE CENTER FORMATS & LEARN MORE / START A CENTER INQUIRY
                 ═══════════════════════════════════════════════════════════ */}
             <section id="franchise-application" className="py-20 bg-[#FAF8F5] scroll-mt-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <span className="text-[#8B2332] font-bold tracking-[0.22em] text-xs uppercase mb-3 block">
-                            Reserve Your Territory &amp; Model Your Center
+                            Learn More &amp; Run a Local Center
                         </span>
                         <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4 leading-tight">
-                            <span className="block">Launch a University School Center</span>
-                            <span className="block text-[#8B2332] mt-1">In Your Community.</span>
+                            <span className="block">Built for Small Schools,</span>
+                            <span className="block text-[#8B2332] mt-1">Homeschool Co-Ops &amp; Local Pods.</span>
                         </h2>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            Use the interactive cohort calculator on the left to model your center&apos;s annual economics, then submit your territory inquiry on the right to receive the Franchise Prospectus and schedule your Founding Director call.
+                            Select the community model that fits your group on the left, then request our Center Starter Guide on the right to learn how to bring University School to your learners.
                         </p>
                     </div>
 
                     <div className="grid lg:grid-cols-12 gap-8 items-start">
-                        {/* Left 5 Cols: Interactive Center Cohort & Economics Calculator */}
-                        <div className="lg:col-span-5 bg-[#18070B] text-white rounded-3xl p-7 sm:p-8 border border-[#E6C687]/40 shadow-2xl space-y-6">
-                            <div>
-                                <span className="text-xs font-bold uppercase tracking-widest text-[#E6C687] block mb-1">
-                                    Interactive Unit Economics Estimator
-                                </span>
-                                <h3 className="font-serif text-2xl font-bold text-white">
-                                    Model Your Local Cohort
-                                </h3>
-                            </div>
+                        {/* Left 5 Cols: Three Flexible Center Models (Pods / Co-Ops / Micro-Schools) */}
+                        <div className="lg:col-span-5 space-y-4">
+                            {CENTER_FORMATS.map((fmt) => {
+                                const isSelected = selectedFormat === fmt.id;
+                                const IconComp = fmt.icon;
+                                return (
+                                    <div
+                                        key={fmt.id}
+                                        onClick={() => handleSelectFormat(fmt.id)}
+                                        className={`cursor-pointer rounded-3xl p-6 transition-all border ${
+                                            isSelected
+                                                ? 'bg-[#18070B] text-white border-[#E6C687] shadow-2xl'
+                                                : 'bg-white text-[#1F070B] border-[#C9B47C]/50 hover:border-[#8B2332] shadow-md'
+                                        }`}
+                                    >
+                                        <div className="flex items-start justify-between gap-3 mb-2.5">
+                                            <span
+                                                className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
+                                                    isSelected
+                                                        ? 'bg-[#8B2332] text-[#E6C687] border-[#E6C687]/40'
+                                                        : 'bg-[#F5EBDC] text-[#8B2332] border-[#C9B47C]'
+                                                }`}
+                                            >
+                                                {fmt.badge}
+                                            </span>
+                                            <div
+                                                className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                                                    isSelected
+                                                        ? 'bg-[#E6C687]/15 text-[#E6C687] border border-[#E6C687]/40'
+                                                        : 'bg-[#8B2332]/10 text-[#8B2332]'
+                                                }`}
+                                            >
+                                                <IconComp size={18} />
+                                            </div>
+                                        </div>
 
-                            {/* Student Count Slider */}
-                            <div className="space-y-2">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-slate-300 font-medium">Target Enrolled Students</span>
-                                    <span className="font-bold text-[#E6C687]">{studentCount} Students ({Math.ceil(studentCount / 4)} Squads)</span>
-                                </div>
-                                <input
-                                    type="range"
-                                    min="15"
-                                    max="60"
-                                    step="5"
-                                    value={studentCount}
-                                    onChange={(e) => setStudentCount(Number(e.target.value))}
-                                    className="w-full accent-[#E6C687] cursor-pointer"
-                                />
-                                <div className="flex justify-between text-[11px] text-slate-400">
-                                    <span>15 (Micro-Studio)</span>
-                                    <span>30 (Standard Center)</span>
-                                    <span>60 (Flagship Hub)</span>
-                                </div>
-                            </div>
+                                        <h3
+                                            className={`font-serif text-xl font-bold mb-2 ${
+                                                isSelected ? 'text-white' : 'text-[#1F070B]'
+                                            }`}
+                                        >
+                                            {fmt.title}
+                                        </h3>
 
-                            {/* Monthly Membership Slider */}
-                            <div className="space-y-2">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-slate-300 font-medium">Monthly Center Tuition / Student</span>
-                                    <span className="font-bold text-[#E6C687]">${monthlyTuition.toLocaleString()} / mo</span>
-                                </div>
-                                <input
-                                    type="range"
-                                    min="950"
-                                    max="1650"
-                                    step="50"
-                                    value={monthlyTuition}
-                                    onChange={(e) => setMonthlyTuition(Number(e.target.value))}
-                                    className="w-full accent-[#E6C687] cursor-pointer"
-                                />
-                                <div className="flex justify-between text-[11px] text-slate-400">
-                                    <span>$950/mo (Suburban)</span>
-                                    <span>$1,250/mo (Standard)</span>
-                                    <span>$1,650/mo (Metro)</span>
-                                </div>
-                            </div>
+                                        <p
+                                            className={`text-xs sm:text-sm leading-relaxed mb-4 ${
+                                                isSelected ? 'text-slate-300' : 'text-slate-600'
+                                            }`}
+                                        >
+                                            {fmt.summary}
+                                        </p>
 
-                            {/* Calculated Outputs Box */}
-                            <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-5 border border-[#C9B47C] space-y-3">
-                                <div className="flex items-center justify-between pb-2.5 border-b border-[#2B0A10]/15">
-                                    <span className="text-xs font-bold uppercase tracking-wider text-[#8B2332]">
-                                        Projected Annual Gross Revenue
-                                    </span>
-                                    <span className="font-serif text-2xl font-bold text-[#1F070B]">
-                                        ${annualRevenue.toLocaleString()}
-                                    </span>
-                                </div>
-                                <div className="flex items-center justify-between text-xs">
-                                    <span className="text-[#2B0A10]/80 font-medium">Est. Net Operating Income</span>
-                                    <span className="font-bold text-emerald-800">${estNetIncome.toLocaleString()} / yr</span>
-                                </div>
-                                <div className="flex items-center justify-between text-xs">
-                                    <span className="text-[#2B0A10]/80 font-medium">Facilitator Staffing (1:15 Ratio)</span>
-                                    <span className="font-bold text-[#1F070B]">{mentorCount} Learning Facilitator{mentorCount > 1 ? 's' : ''}</span>
-                                </div>
-                                <div className="flex items-center justify-between text-xs">
-                                    <span className="text-[#2B0A10]/80 font-medium">Recommended Studio Footprint</span>
-                                    <span className="font-bold text-[#1F070B]">{recommendedSqFt} sq. ft.</span>
-                                </div>
-                            </div>
-
-                            <div className="text-[11px] text-slate-400 leading-relaxed">
-                                *Estimates are for planning illustration based on standard 12-month cohort enrollment. Full financial disclosures are provided during Step 01 Territory Qualification.
-                            </div>
+                                        <ul className="space-y-1.5">
+                                            {fmt.highlights.map((hl, i) => (
+                                                <li
+                                                    key={i}
+                                                    className={`flex items-start gap-2 text-xs font-medium ${
+                                                        isSelected ? 'text-[#F5EBDC]' : 'text-slate-700'
+                                                    }`}
+                                                >
+                                                    <CheckCircle2
+                                                        size={14}
+                                                        className={`shrink-0 mt-0.5 ${
+                                                            isSelected ? 'text-[#E6C687]' : 'text-[#8B2332]'
+                                                        }`}
+                                                    />
+                                                    <span>{hl}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                            })}
                         </div>
 
-                        {/* Right 7 Cols: Actionable Franchisee & Center Launch Application Form */}
+                        {/* Right 7 Cols: Learn More & Request the Center Starter Guide Form */}
                         <div className="lg:col-span-7 bg-white rounded-3xl p-7 sm:p-10 border border-[#C9B47C]/50 shadow-xl">
                             {submitted ? (
                                 <div className="py-8 text-center space-y-5">
@@ -602,30 +638,30 @@ export const FranchisePage = ({ onNavigate }) => {
                                         <ShieldCheck size={32} />
                                     </div>
                                     <span className="inline-block px-3.5 py-1 rounded-full bg-[#8B2332]/10 text-[#8B2332] text-xs font-bold uppercase tracking-widest">
-                                        Step 01 Initiated · Territory Inquiry Received
+                                        Center Starter Guide Requested
                                     </span>
                                     <h3 className="font-serif text-3xl font-bold text-[#1F070B]">
-                                        Welcome to the Founding Center Pipeline, {formData.fullName || 'Partner'}.
+                                        Thank You, {formData.fullName || 'Partner'}.
                                     </h3>
                                     <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                                        We have logged your territory request for <strong>{formData.cityState || 'your community'}</strong> (modeled for a <strong>{studentCount}-student cohort</strong> at <strong>${annualRevenue.toLocaleString()}/yr</strong> projected gross tuition).
+                                        We have received your inquiry to launch a <strong>{formData.cohortSize}</strong> in <strong>{formData.cityState || 'your community'}</strong>.
                                     </p>
 
                                     <div className="bg-[#FAF8F5] border border-[#C9B47C]/50 rounded-2xl p-6 text-left max-w-lg mx-auto space-y-3">
                                         <div className="text-xs font-bold uppercase tracking-wider text-[#8B2332]">
-                                            Your Immediate Next Steps:
+                                            What Happens Next:
                                         </div>
                                         <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
                                             <CheckCircle2 size={16} className="text-[#8B2332] shrink-0 mt-0.5" />
-                                            <span><strong>1. Territory Availability Check:</strong> Our Founding Center Team is verifying zip-code exclusivity for {formData.cityState || 'your target market'}.</span>
+                                            <span><strong>1. Center &amp; Co-Op Starter Guide:</strong> Sent to <strong>{formData.email || 'your email'}</strong> with sample weekly schedules for homeschool co-ops, learning pods, and micro-schools.</span>
                                         </div>
                                         <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
                                             <CheckCircle2 size={16} className="text-[#8B2332] shrink-0 mt-0.5" />
-                                            <span><strong>2. Prospectus &amp; Floorplan Kit:</strong> Sent to <strong>{formData.email || 'your email'}</strong> with hardware specs for Zone 01 (Commons) and Zone 02 (Wind-Tunnel &amp; Proctoring Lab).</span>
+                                            <span><strong>2. 1-on-1 Onboarding Call:</strong> A Center Partnerships Advisor will reach out to walk through curriculum tracks, group facilitation, and setup for {formData.cityState || 'your area'}.</span>
                                         </div>
                                         <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
                                             <CheckCircle2 size={16} className="text-[#8B2332] shrink-0 mt-0.5" />
-                                            <span><strong>3. Interactive Curriculum Walkthrough:</strong> Test the live course transformer below before your Founding Director call.</span>
+                                            <span><strong>3. Experience a Live Lab Quest:</strong> Explore the interactive course demo below to see what your students will experience together.</span>
                                         </div>
                                     </div>
 
@@ -640,7 +676,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                             onClick={() => setSubmitted(false)}
                                             className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-5 py-3.5 rounded-xl font-bold text-sm transition-all"
                                         >
-                                            Edit Territory Inquiry
+                                            Update Inquiry Details
                                         </button>
                                     </div>
                                 </div>
@@ -648,10 +684,10 @@ export const FranchisePage = ({ onNavigate }) => {
                                 <form onSubmit={handleFormSubmit} className="space-y-5">
                                     <div className="border-b border-slate-100 pb-4">
                                         <span className="text-xs font-bold uppercase tracking-widest text-[#8B2332] block mb-1">
-                                            Step 01 · Franchisee &amp; Center Director Application
+                                            Learn More · Start a Pod, Co-Op, or Micro-School
                                         </span>
                                         <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1F070B]">
-                                            Request Your Territory &amp; Launch Guide
+                                            Request the Center Starter Guide
                                         </h3>
                                     </div>
 
@@ -665,7 +701,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                                 required
                                                 value={formData.fullName}
                                                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                                                placeholder="Dr. Sarah Jenkins"
+                                                placeholder="Sarah Jenkins"
                                                 className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] focus:outline-none focus:border-[#8B2332]"
                                             />
                                         </div>
@@ -700,7 +736,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                         </div>
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                                                Target City, State / Country *
+                                                City &amp; State / Country *
                                             </label>
                                             <input
                                                 type="text"
@@ -716,60 +752,58 @@ export const FranchisePage = ({ onNavigate }) => {
                                     <div className="grid sm:grid-cols-3 gap-4">
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                                                Your Background
+                                                Your Role
                                             </label>
                                             <select
-                                                value={formData.background}
-                                                onChange={(e) => setFormData({ ...formData, background: e.target.value })}
+                                                value={formData.role}
+                                                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                                                 className="w-full px-3.5 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] bg-white focus:outline-none focus:border-[#8B2332]"
                                             >
-                                                <option>Educator / School Leader</option>
-                                                <option>Entrepreneur / Operator</option>
-                                                <option>Existing Tutoring / Micro-School</option>
-                                                <option>Parent / Community Founder</option>
-                                                <option>Real Estate / Multi-Unit Partner</option>
+                                                <option>Parent / Homeschool Co-Op Organizer</option>
+                                                <option>Educator / Micro-School Founder</option>
+                                                <option>Private School / Academic Director</option>
+                                                <option>Community / Youth Program Leader</option>
                                             </select>
                                         </div>
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                                                Launch Timeline
+                                                Center Format
+                                            </label>
+                                            <select
+                                                value={formData.cohortSize}
+                                                onChange={(e) => setFormData({ ...formData, cohortSize: e.target.value })}
+                                                className="w-full px-3.5 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] bg-white focus:outline-none focus:border-[#8B2332]"
+                                            >
+                                                <option>4–12 Scholars (Learning Pod / Co-Op)</option>
+                                                <option>12–30 Scholars (Micro-School)</option>
+                                                <option>Flexible / Existing Campus Program</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                                Target Timeline
                                             </label>
                                             <select
                                                 value={formData.timeline}
                                                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                                                 className="w-full px-3.5 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] bg-white focus:outline-none focus:border-[#8B2332]"
                                             >
-                                                <option>Immediate (Within 90 Days)</option>
+                                                <option>Upcoming Term (Within 90 Days)</option>
                                                 <option>Within 3–6 Months</option>
-                                                <option>6–12 Months (Next Academic Term)</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                                                Capital &amp; Space Readiness
-                                            </label>
-                                            <select
-                                                value={formData.capitalTier}
-                                                onChange={(e) => setFormData({ ...formData, capitalTier: e.target.value })}
-                                                className="w-full px-3.5 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] bg-white focus:outline-none focus:border-[#8B2332]"
-                                            >
-                                                <option>$75k – $150k Ready</option>
-                                                <option>$150k+ (Multi-Center Territory)</option>
-                                                <option>Have Existing Facility / Space</option>
-                                                <option>Exploring Financing &amp; Options</option>
+                                                <option>Next Academic Year</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div>
                                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                                            Tell Us About Your Community or Vision (Optional)
+                                            Tell Us About Your Learners or Community Vision (Optional)
                                         </label>
                                         <textarea
                                             rows={3}
                                             value={formData.notes}
                                             onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                            placeholder="Share any details about your target neighborhood, existing student community, or questions for our Founding Center Team..."
+                                            placeholder="Share a bit about the students or families you hope to serve, your ideal weekly schedule, or any questions for our team..."
                                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-[#1F070B] focus:outline-none focus:border-[#8B2332]"
                                         />
                                     </div>
@@ -779,7 +813,7 @@ export const FranchisePage = ({ onNavigate }) => {
                                         className="w-full bg-gradient-to-r from-[#8B2332] to-[#601620] hover:from-[#A3293B] hover:to-[#7A1C29] text-white py-4 px-6 rounded-2xl font-bold text-base shadow-xl flex items-center justify-center gap-2.5 transition-all"
                                     >
                                         <Send size={18} className="text-[#E6C687]" />
-                                        Submit Franchisee Territory Application &amp; Get Launch Kit
+                                        Request Center Starter Guide &amp; Schedule an Intro Call
                                     </button>
                                 </form>
                             )}
@@ -790,4 +824,3 @@ export const FranchisePage = ({ onNavigate }) => {
         </div>
     );
 };
-

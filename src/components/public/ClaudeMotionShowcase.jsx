@@ -182,7 +182,7 @@ export const VectorAirfoilCanvas = () => {
                 height={380}
                 className="w-full h-auto rounded-xl border border-[#E6C687]/30"
             />
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-2 py-2 rounded-xl bg-white/5 border border-white/10">
+            <div className="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#E6C687]">
                     Interactive 1901 Wind-Tunnel Camber Test: Angle of Attack (α = {aoa.toFixed(1)}°)
                 </span>
@@ -193,7 +193,7 @@ export const VectorAirfoilCanvas = () => {
                     step="0.5"
                     value={aoa}
                     onChange={(e) => setAoa(parseFloat(e.target.value))}
-                    className="w-44 accent-[#E6C687] cursor-pointer"
+                    className="w-full sm:w-48 h-6 accent-[#E6C687] cursor-pointer touch-pan-x"
                 />
             </div>
         </div>
