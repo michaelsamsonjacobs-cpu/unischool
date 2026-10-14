@@ -47,7 +47,8 @@ export const FAQSection = () => {
                         Common Questions
                     </span>
                     <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-                        Frequently Asked <span className="text-[#E6C687]">Questions</span>
+                        Frequently Asked
+                        <span className="block text-[#E6C687]">Questions</span>
                     </h2>
                     <p className="text-slate-300 max-w-2xl mx-auto text-lg">
                         Everything parents and students need to know about earning accredited university credits, certificates, and degrees starting at age 11.

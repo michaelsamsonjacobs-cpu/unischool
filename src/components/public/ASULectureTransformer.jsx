@@ -249,6 +249,11 @@ const SCHOOLS_SPRINGBOARD = [
         flightBg: '/images/visuals/kitty_hawk_1_live.jpg',
         credits: '4.0 ASU / CLEP Transferable Credits',
         campaignTitle: 'The 1900–1905 Wright Aero-Engineering Campaign (5 Connected Episodes)',
+        syllabusPreview: `Weeks 1–3 (Lectures 1–6): 1D/2D Kinematics, Vector Decomposition & Relative Velocity (HW 1–2, Quiz 1)
+Weeks 4–6 (Lectures 7–12): Newton's Laws of Motion, Free-Body Equilibrium & Drag Forces (HW 3, Midterm 1)
+Weeks 7–9 (Lectures 13–18): Fluid Continuity, Bernoulli Pressure Differential & Boundary-Layer Stall (HW 4, Module 4 Exam)
+Weeks 10–12 (Lectures 19–24): Rotational Kinematics, Torque, Moment of Inertia & 3-Axis Control (HW 5, Midterm 2)
+Weeks 13–15 (Lectures 25–30): Mechanical Work, Power, Energy Conservation & Comprehensive Final Exam`,
     },
     {
         id: 'biomedics',
@@ -264,6 +269,11 @@ const SCHOOLS_SPRINGBOARD = [
         flightBg: '/images/visuals/school_portrait_biomedics.jpg',
         credits: '4.0 ASU / CLEP Transferable Credits',
         campaignTitle: 'The 1898–1914 Paris Radium & Cellular Biophysics Campaign (5 Connected Episodes)',
+        syllabusPreview: `Weeks 1–3 (Lectures 1–6): Cellular Ultrastructure, Membrane Transport & Ion Gradients (HW 1–2, Quiz 1)
+Weeks 4–6 (Lectures 7–12): Enzyme Kinetics, Metabolic Free Energy & ATP Coupling (HW 3, Midterm 1)
+Weeks 7–9 (Lectures 13–18): Radioisotope Decay Kinetics, Half-Life Math & Cellular Dose-Response (HW 4, Module 6 Exam)
+Weeks 10–12 (Lectures 19–24): DNA Replication Fidelity, Repair Pathways & Mutation Thresholds (HW 5, Midterm 2)
+Weeks 13–15 (Lectures 25–30): Systems Physiology, Homeostatic Feedback & Comprehensive Final Exam`,
     },
     {
         id: 'business',
@@ -279,6 +289,11 @@ const SCHOOLS_SPRINGBOARD = [
         flightBg: '/images/visuals/school_portrait_business.jpg',
         credits: '3.0 ASU / CLEP Transferable Credits',
         campaignTitle: 'The 1908–1915 Highland Park Industrial Scaling Campaign (5 Connected Episodes)',
+        syllabusPreview: `Weeks 1–3 (Lectures 1–6): Scarcity, Opportunity Cost, Comparative Advantage & Supply-Demand (HW 1–2, Quiz 1)
+Weeks 4–6 (Lectures 7–12): Price Elasticity of Demand, Consumer Surplus & Market Equilibrium (HW 3, Midterm 1)
+Weeks 7–9 (Lectures 13–18): Fixed vs. Marginal Cost Curves, Assembly Throughput & Economies of Scale (HW 4, Module 3 Exam)
+Weeks 10–12 (Lectures 19–24): Capital Allocation, Wage Productivity & Vertical Integration (HW 5, Midterm 2)
+Weeks 13–15 (Lectures 25–30): Macroeconomic Growth, Monetary Policy & Comprehensive Final Exam`,
     },
     {
         id: 'law',
@@ -294,6 +309,11 @@ const SCHOOLS_SPRINGBOARD = [
         flightBg: '/images/visuals/school_portrait_law.jpg',
         credits: '3.0 ASU / CLEP Transferable Credits',
         campaignTitle: 'The 1787–1865 Constitutional Crisis & Republic Campaign (5 Connected Episodes)',
+        syllabusPreview: `Weeks 1–3 (Lectures 1–6): Constitutional Convention, Federalist Papers & Separation of Powers (HW 1–2, Quiz 1)
+Weeks 4–6 (Lectures 7–12): Article I Legislative Authority, Commerce Clause & Federalism (HW 3, Midterm 1)
+Weeks 7–9 (Lectures 13–18): Article II Executive War Powers, Habeas Corpus & Due Process (HW 4, Module 5 Exam)
+Weeks 10–12 (Lectures 19–24): Judicial Review, Supreme Court Precedent & Reconstruction Amendments (HW 5, Midterm 2)
+Weeks 13–15 (Lectures 25–30): Civil Liberties, Equal Protection Doctrine & Comprehensive Final Exam`,
     },
 ];
 
@@ -871,16 +891,17 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             onClick={() => onNavigate('landing')}
                             className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 flex items-center gap-1.5 text-xs font-semibold transition-colors"
                         >
-                            <ArrowLeft size={15} /> Back to usai.school
+                            <ArrowLeft size={15} /> Back to University School
                         </button>
                         <div className="h-6 w-px bg-white/15 hidden sm:block" />
                         <img src="/images/unischool-logo.png" alt="University School" className="w-8 h-8 rounded-lg" />
                         <div>
-                            <div className="font-serif font-bold text-base text-white leading-none">
-                                University School <span className="text-[#E6C687]">Syllabus-to-Immersive Engine</span>
+                            <div className="font-serif font-bold text-base text-white leading-tight">
+                                University School
+                                <span className="block text-[#E6C687] text-sm">Interactive Course Transformer Demo</span>
                             </div>
                             <div className="text-[11px] text-slate-300 mt-0.5">
-                                Any University Syllabus &rarr; Cohesive Story Episodes &rarr; Socratic Help to Pass ASU Exams Properly
+                                Real University Syllabus &rarr; Gamified Story Quests &amp; XP &rarr; Socratic Help to Pass College Exams
                             </div>
                         </div>
                     </div>
@@ -889,10 +910,10 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                     <div className="flex flex-wrap items-center gap-1.5">
                         {[
                             { id: 'syllabus-campaign', label: '1. Syllabus → Story Campaign' },
-                            { id: 'asu-struggle', label: '2. ASU Struggle Detected' },
-                            { id: 'immersive-lab', label: '3. Live Episode: 1903 Sim' },
-                            { id: 'concept-mastery', label: '4. Pass ASU HW & Exams Properly' },
-                            { id: 'skill-tree', label: '5. RPG Skill Tree' },
+                            { id: 'asu-struggle', label: '2. Lecture Struggle Detected' },
+                            { id: 'immersive-lab', label: '3. Interactive Physics Lab' },
+                            { id: 'concept-mastery', label: '4. Pass College Exams Properly' },
+                            { id: 'skill-tree', label: '5. Accredited XP Skill Tree' },
                         ].map((tab) => (
                             <button
                                 key={tab.id}
@@ -949,7 +970,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                     {SQUAD_ROLES[selectedRoleIdx].student} · <span className="text-[#E6C687]">{SQUAD_ROLES[selectedRoleIdx].roleTitle}</span>
                                 </div>
                                 <div className="text-[10px] text-slate-300 mt-0.5">
-                                    {SQUAD_ROLES[selectedRoleIdx].guild} · Accredited Quest Active
+                                    {SQUAD_ROLES[selectedRoleIdx].guild} · Gamified College Quest Active
                                 </div>
                             </div>
                         </div>
@@ -957,13 +978,13 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                         <div className="h-5 w-px bg-white/15 hidden sm:block" />
 
                         {/* XP Progress Pill */}
-                        <div className="flex items-center gap-1.5 text-xs">
+                        <div className="flex items-center gap-1.5 text-xs" title="Experience Points (XP) reward active experimentation, wind-tunnel iterations, and solving real college problems.">
                             <Flame size={14} className="text-amber-400" />
                             <span className="font-mono font-bold text-[#E6C687]">{studentXp.toLocaleString()} XP</span>
                         </div>
 
                         {/* Action Points (AP) Pill */}
-                        <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg bg-[#8B2332]/50 border border-[#E6C687]/35">
+                        <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg bg-[#8B2332]/50 border border-[#E6C687]/35" title="Action Points (AP) let your 4-player Co-Op Squad activate diagnostic powers inside the physics lab.">
                             <Zap size={13} className="text-[#E6C687]" />
                             <span className="font-mono font-bold text-white">{actionPoints} AP</span>
                         </div>
@@ -974,7 +995,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-[#E6C687]/40 text-[11px] font-bold text-[#E6C687] flex items-center gap-1 transition-all"
                         >
                             <Layers size={12} />
-                            {stage === 'skill-tree' ? 'Back to Sim' : 'Skill Tree (5 Nodes)'}
+                            {stage === 'skill-tree' ? 'Back to Lab' : 'XP Skill Tree (5 Nodes)'}
                         </button>
                     </div>
                 </div>
@@ -989,13 +1010,14 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                     <div className="lg:col-span-5 bg-[#1B080D] border border-[#E6C687]/40 rounded-3xl p-6 shadow-2xl space-y-5">
                         <div>
                             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E6C687]">
-                                Step 1 · Syllabus-to-Narrative Engine
+                                Step 1 · Why We Gamify the College Experience
                             </span>
-                            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
-                                Transform Any University Syllabus Into a Cohesive Story Campaign.
+                            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1 leading-tight">
+                                Transform Any University Syllabus
+                                <span className="block text-[#E6C687]">Into a Cohesive Story Campaign.</span>
                             </h2>
                             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                                Instead of forcing an 11–14 year old to watch 30 disconnected 50-minute lectures, our engine extracts every prerequisite concept from the university syllabus and weaves the entire semester into <strong>one continuous historical adventure</strong>.
+                                Why do we use <strong>XP, Levels, Co-Op Squads, and Skill Trees</strong>? Because 11–14 year olds are brilliant enough for university ideas, but passive 50-minute video lectures put them to sleep. We turn every college syllabus into a playable historical campaign where <strong>XP rewards real experimentation</strong> and every Skill Tree node maps 1-to-1 to transferable university credit.
                             </p>
                         </div>
 
@@ -1003,7 +1025,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-[#E6C687]">
                                 <span className="flex items-center gap-1.5">
                                     <BookOpen size={14} />
-                                    Example from ASU ({activeSchool.asuCourse.split('·')[0].trim()})
+                                    Example Syllabus ({activeSchool.asuCourse.split('·')[0].trim()})
                                 </span>
                                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-mono">
                                     Any University Class Transformed · 15 Weeks
@@ -1017,10 +1039,10 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                         {activeSchool.asuCourse}
                                     </span>
                                     <span className="text-[10px] text-slate-400 font-semibold">
-                                        Official ASU Catalog Example
+                                        15-Week University Syllabus
                                     </span>
                                 </div>
-                                {activeSchool.syllabusPreview.split('\n').map((line, i) => (
+                                {(activeSchool.syllabusPreview || DEFAULT_SYLLABUS_TEXT).split('\n').map((line, i) => (
                                     <div
                                         key={i}
                                         className="text-xs font-mono text-slate-200 leading-relaxed bg-white/[0.03] border border-white/5 rounded-xl px-3 py-2"

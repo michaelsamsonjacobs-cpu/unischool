@@ -14,7 +14,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
         { id: 'process', label: 'Our Process' },
         { id: 'partners', label: 'University Partners' },
         { id: 'franchise', label: 'Centers' },
-        { id: 'asu-demo', label: '1903 Sim Demo' },
+        { id: 'asu-demo', label: 'Interactive Course Demo' },
         { id: 'about', label: 'About' },
     ];
 
@@ -151,7 +151,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
                                 <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">University Partners</button></li>
                                 <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Node</button></li>
-                                <li><button onClick={() => onNavigate('asu-demo')} className="hover:text-[#8B2332] transition-colors">ASU Course Demo</button></li>
+                                <li><button onClick={() => onNavigate('asu-demo')} className="hover:text-[#8B2332] transition-colors">Interactive Course Demo</button></li>
                             </ul>
                         </div>
 

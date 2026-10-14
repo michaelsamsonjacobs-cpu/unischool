@@ -246,10 +246,10 @@ export const ClaudeMotionShowcase = () => {
             }
             ctx.fillStyle = '#D4AF37';
             ctx.font = '700 14px Inter, sans-serif';
-            ctx.fillText('UNIVERSITY SCHOOL · USAI.SCHOOL', 72, 37);
+            ctx.fillText('UNIVERSITY SCHOOL', 72, 37);
             ctx.fillStyle = 'rgba(250,247,242,0.65)';
             ctx.font = '500 12px Inter, sans-serif';
-            ctx.fillText('Starts at 11 · Real University Credit', 72, 53);
+            ctx.fillText('Starts at 11 · Accredited University Credits & Degrees', 72, 53);
         };
 
         const renderScene0 = (ctx, t) => {
@@ -668,7 +668,7 @@ export const ClaudeMotionShowcase = () => {
             const cards = [
                 {
                     title: '03 · University Credit',
-                    sub: 'Transferable credit before 18',
+                    sub: 'Accredited credits & degrees',
                     badge: 'STEP 03 · TRANSCRIPTED',
                     col: '#10B981',
                     damp: 0.85,

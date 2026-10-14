@@ -139,7 +139,8 @@ export const FranchisePage = ({ onNavigate }) => {
                             The Physical Micro-Campus Layer
                         </span>
                         <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4">
-                            Find Your People by <span className="text-[#8B2332]">Passion.</span>
+                            Find Your People by
+                            <span className="block text-[#8B2332]">Passion.</span>
                         </h2>
                         <p className="text-slate-600 text-lg leading-relaxed">
                             University School Centers are not lecture halls. They are warm, studio-grade workshops designed for 4-student discovery squads, hands-on engineering builds, Socratic debate, and accredited university progress.
@@ -205,7 +206,8 @@ export const FranchisePage = ({ onNavigate }) => {
                             Turnkey Micro-Campus Architecture
                         </span>
                         <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-                            The University School <span className="text-[#E6C687]">Center Model.</span>
+                            The University School
+                            <span className="block text-[#E6C687]">Center Model.</span>
                         </h2>
                         <p className="text-slate-300 text-lg">
                             High impact. Compact footprint. Powered end-to-end by the University School Operating System.

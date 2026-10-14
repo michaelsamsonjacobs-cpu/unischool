@@ -84,7 +84,7 @@ export const AboutPage = ({ onNavigate }) => {
                                     onClick={() => onNavigate && onNavigate('asu-demo')}
                                     className="bg-[#8B2332]/90 hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all"
                                 >
-                                    Try Live 1903 Sim Demo
+                                    Try Interactive Course Demo
                                 </button>
                             </div>
                         </div>
@@ -137,7 +137,8 @@ export const AboutPage = ({ onNavigate }) => {
                                 Why We Built University School
                             </span>
                             <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-6 leading-tight">
-                                Don&apos;t Just Learn It. <span className="text-[#8B2332]">Live It.</span>
+                                Don&apos;t Just Learn It.
+                                <span className="block text-[#8B2332]">Live It.</span>
                             </h2>
                             <p className="text-slate-600 text-lg mb-5 leading-relaxed">
                                 Traditional online courses and lecture halls ask students to sit through hours of video and memorize abstract chapters before ever touching a real problem.
@@ -205,7 +206,8 @@ export const AboutPage = ({ onNavigate }) => {
                             Leadership
                         </span>
                         <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-                            Meet the <span className="text-[#E6C687]">Founders</span>
+                            Meet the
+                            <span className="block text-[#E6C687]">Founders</span>
                         </h2>
                         <p className="text-slate-300 max-w-2xl mx-auto text-lg">
                             University School is led by educators and researchers with decades of international K-12 and higher-education leadership.

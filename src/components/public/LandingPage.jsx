@@ -236,7 +236,7 @@ export const LandingPage = ({ onNavigate }) => {
                                     className="group bg-[#8B2332]/90 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all flex items-center gap-2.5"
                                 >
                                     <Sparkles size={16} className="text-[#E6C687]" />
-                                    Try Live 1903 Sim Demo
+                                    Try Interactive Course Demo
                                 </button>
                                 <button
                                     onClick={scrollToHowItWorks}
@@ -410,10 +410,10 @@ export const LandingPage = ({ onNavigate }) => {
                                 {[
                                     ['0:00 Problem', 0],
                                     ['0:10 Syllabus → Story', 10],
-                                    ['0:20 ASU Struggle → Sim', 20],
+                                    ['0:20 Lecture → Sim', 20],
                                     ['0:32 1903 Airfoil Physics', 32],
-                                    ['0:44 RPG Squad & Skills', 44],
-                                    ['0:56 Pass ASU Exams', 56],
+                                    ['0:44 Why We Gamify with XP', 44],
+                                    ['0:56 Pass University Exams', 56],
                                     ['1:08 88% Mastery', 68],
                                     ['1:18 Outcomes', 78],
                                     ['1:25 Enroll', 85],
@@ -454,8 +454,9 @@ export const LandingPage = ({ onNavigate }) => {
                             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#E6C687] block mb-2">
                                 How University School Works · First-Person Experience
                             </span>
-                            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-                                Experience First. <span className="text-[#E6C687]">Concept Second.</span>
+                            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight">
+                                <span className="block">Experience First.</span>
+                                <span className="block text-[#E6C687]">Concept Second.</span>
                             </h2>
                         </div>
 
@@ -695,8 +696,9 @@ export const LandingPage = ({ onNavigate }) => {
                                 />
                             </div>
                             <div>
-                                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
-                                    Your actions <span className="text-[#E6C687]">create progress.</span>
+                                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">
+                                    <span className="block">Your actions</span>
+                                    <span className="block text-[#E6C687]">create progress.</span>
                                 </h3>
                                 <p className="text-slate-300 text-sm leading-relaxed">
                                     Complete experiences. Build real skills. Every choice turns curiosity into measurable university capability.
@@ -734,8 +736,9 @@ export const LandingPage = ({ onNavigate }) => {
 
                     {/* 4 Photographic Learning Channels (Slide 12: Centers, Tablet, Computer, TV App) */}
                     <div className="text-center mb-10">
-                        <h3 className="font-serif text-2xl sm:text-4xl font-bold text-[#2D2D2D]">
-                            Learn anywhere. <span className="text-[#8B2332]">Belong somewhere.</span>
+                        <h3 className="font-serif text-2xl sm:text-4xl font-bold text-[#2D2D2D] leading-tight">
+                            <span className="block">Learn anywhere.</span>
+                            <span className="block text-[#8B2332]">Belong somewhere.</span>
                         </h3>
                         <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mt-2">
                             Real University Learning · Starting at 11
@@ -835,8 +838,9 @@ export const LandingPage = ({ onNavigate }) => {
                                 </div>
 
                                 <div className="text-center mt-5">
-                                    <div className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                                        Real university learning. <span className="text-[#E6C687]">Starting at 11.</span>
+                                    <div className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
+                                        <span className="block">Real university learning.</span>
+                                        <span className="block text-[#E6C687] mt-1">Starting at 11.</span>
                                     </div>
                                 </div>
                             </div>
@@ -873,8 +877,9 @@ export const LandingPage = ({ onNavigate }) => {
                         <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#E6C687] block mb-3">
                             Choose Your Knowledge School
                         </span>
-                        <h2 className="font-serif text-4xl sm:text-6xl font-bold text-white mb-5">
-                            Meet Your AI Narrator. <span className="text-[#E6C687]">Explore your future.</span>
+                        <h2 className="font-serif text-4xl sm:text-6xl font-bold text-white mb-5 leading-tight">
+                            <span className="block">Meet Your AI Narrator.</span>
+                            <span className="block text-[#E6C687] mt-1">Explore your future.</span>
                         </h2>
                         <p className="text-slate-300 max-w-3xl mx-auto text-lg leading-relaxed">
                             Your AI Narrator guides you through the story &mdash; Marie Curie, the Wright Brothers, Amelia Earhart, Henry Ford, or Abraham Lincoln.
@@ -927,12 +932,10 @@ export const LandingPage = ({ onNavigate }) => {
                     {/* Starts at 11. A Bigger Future, Sooner (Slide 11 Visual Progression) */}
                     <div className="bg-[#240B10] rounded-3xl border border-[#E6C687]/30 p-8 sm:p-10 shadow-2xl">
                         <div className="text-center mb-8">
-                            <h3 className="font-serif text-4xl sm:text-5xl font-bold text-white">
-                                Starts at <span className="text-[#E6C687]">11.</span>
+                            <h3 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight">
+                                <span className="block">Starts at 11.</span>
+                                <span className="block text-[#E6C687] mt-1">A Bigger Future, Sooner.</span>
                             </h3>
-                            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-slate-300 mt-2">
-                                A Bigger Future, Sooner.
-                            </p>
                         </div>
 
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -976,19 +979,79 @@ export const LandingPage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                9. PHILOSOPHY — The Narrator is Not a Professor
-                   (Interactive XP Model vs. Traditional Chapter-Based Instruction)
+                9. WHY WE GAMIFY THE EXPERIENCE — XP, Quests, Squads & Skill Trees
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-24 bg-[#FAF8F5] border-b border-[#8B2332]/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Top Story Header: Why We Use XP & Game Mechanics for College */}
+                    <div className="max-w-3xl mx-auto text-center mb-14">
+                        <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-3">
+                            Why We Gamify the College Experience
+                        </span>
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-5 leading-tight">
+                            <span className="block">Why XP, Quests &amp; Skill Trees</span>
+                            <span className="block text-[#8B2332] mt-1">Unlock Real College Mastery.</span>
+                        </h2>
+                        <p className="text-slate-600 text-lg leading-relaxed">
+                            11-to-14-year-olds already love mastering complex systems when they play great games&mdash;what they hate is sitting alone watching 30 hours of passive video lectures. We gamify the university experience so every experiment earns <strong>Experience Points (XP)</strong>, friends collaborate in <strong>4-Player Discovery Squads</strong>, and every <strong>Skill Tree node</strong> maps 1-to-1 to accredited university credit.
+                        </p>
+                    </div>
+
+                    {/* 4 Pillars of Gamified University Learning */}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                        {[
+                            {
+                                badge: '1. Story Quests',
+                                title: '30 Lectures → 5 Playable Episodes',
+                                desc: 'Instead of isolated chapters, our engine weaves an entire 15-week college syllabus into a continuous first-person historical campaign alongside the Wright Brothers, Amelia Earhart, and Marie Curie.',
+                            },
+                            {
+                                badge: '2. Experience Points (XP)',
+                                title: 'XP Rewards Real Iteration',
+                                desc: 'Students never earn XP for passively watching videos. They earn XP by testing wing camber in the wind tunnel, recovering from a stall, and solving real university problems.',
+                            },
+                            {
+                                badge: '3. Co-Op Squads & AP',
+                                title: '4-Player Discovery Squads',
+                                desc: 'Students team up in 4-person squads with specialist roles (Aerodynamicist, Flight Test Engineer, Systems Analyst, Socratic Scholar) and spend Action Points (AP) to unlock lab insights together.',
+                            },
+                            {
+                                badge: '4. Accredited Skill Trees',
+                                title: '1-to-1 College Credit Mapping',
+                                desc: 'Every node on a student’s RPG Skill Tree corresponds directly to an official university competency—turning game progression into transferable college credits, certificates, and degrees.',
+                            },
+                        ].map((pillar, idx) => (
+                            <div
+                                key={idx}
+                                className="bg-white rounded-3xl p-6 border border-[#C9B47C]/40 shadow-lg flex flex-col justify-between"
+                            >
+                                <div>
+                                    <span className="inline-block px-3 py-1 rounded-full bg-[#8B2332]/10 text-[#8B2332] text-[11px] font-bold uppercase tracking-wider mb-3">
+                                        {pillar.badge}
+                                    </span>
+                                    <h3 className="font-serif text-xl font-bold text-[#1F070B] mb-2">
+                                        {pillar.title}
+                                    </h3>
+                                    <p className="text-slate-600 text-sm leading-relaxed">
+                                        {pillar.desc}
+                                    </p>
+                                </div>
+                                <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold uppercase tracking-wider text-[#8B2332]">
+                                    Active Agency · Real Rigor
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                     <div className="grid lg:grid-cols-12 gap-12 items-center">
                         <div className="lg:col-span-5">
                             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-3">
                                 Interactive XP Curriculum Model
                             </span>
-                            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6 leading-tight">
-                                The Narrator is Not a Professor.
-                            </h2>
+                            <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-6 leading-tight">
+                                <span className="block">The Narrator is</span>
+                                <span className="block text-[#8B2332]">Not a Professor.</span>
+                            </h3>
                             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
                                 Traditional courses hand you chapters of equations first and hope you remember them for an exam.
                                 University School reverses the sequence: you enter the historical workshop first, test real variables,
@@ -1078,7 +1141,7 @@ export const LandingPage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                10. ASU DEMO CALLOUT — "Experience the Transformation"
+                10. INTERACTIVE COURSE DEMO CALLOUT — "Experience the Transformation"
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-20 bg-gradient-to-br from-[#1F070B] via-[#2B0A10] to-[#140508] text-white relative overflow-hidden border-t border-[#C9B47C]/30">
                 <div className="absolute inset-0 opacity-15">
@@ -1089,18 +1152,19 @@ export const LandingPage = ({ onNavigate }) => {
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6C687]/15 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-widest mb-6">
                         <Sparkles size={12} /> Interactive University Syllabus Demo
                     </div>
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-                        See Any University Syllabus Become an <span className="text-[#E6C687]">Immersive Story</span>
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <span className="block text-white">See Any University Syllabus</span>
+                        <span className="block text-[#E6C687] mt-1">Become an Immersive Story.</span>
                     </h2>
                     <p className="text-slate-200 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Explore how University School transforms an accredited Arizona State University engineering course into a hands-on 1903 Wright Brothers aerodynamic lab and Socratic exam prep starting at age 11.
+                        Try our live interactive course transformer: see how a 15-week university syllabus is gamified into 5 story episodes, an interactive wind-tunnel physics lab, Co-Op Squad powers, and a Socratic exam companion.
                     </p>
                     <button
                         onClick={() => onNavigate('asu-demo')}
                         className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-8 py-4 rounded-2xl font-bold transition-all shadow-xl inline-flex items-center gap-3 active:scale-[0.98]"
                     >
                         <Zap size={18} className="text-[#8B2332]" />
-                        Launch Interactive 1903 Course Demo
+                        Launch Interactive Course Demo
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>

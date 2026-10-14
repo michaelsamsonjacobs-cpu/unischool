@@ -333,7 +333,7 @@ export const TransferPartners = ({ onNavigate }) => {
                                     className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
                                 >
                                     <Sparkles size={18} className="text-[#8B2332]" />
-                                    See ASU 1903 Course Transformation
+                                    See Interactive Course Demo
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button

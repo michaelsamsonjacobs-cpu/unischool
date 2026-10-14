@@ -174,7 +174,7 @@ export const ProcessPage = ({ onNavigate }) => {
                                     className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
                                 >
                                     <Zap size={18} className="text-[#8B2332]" />
-                                    Try Live 1903 Wright Brothers Lab
+                                    Try Interactive Course Demo
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button
@@ -234,13 +234,14 @@ export const ProcessPage = ({ onNavigate }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-2">
-                            Curriculum Transformation · Dynamics Through the Wright Brothers
+                            Curriculum Transformation · Why We Gamify With XP &amp; Quests
                         </span>
-                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4">
-                            Traditional Chapter Instruction vs. <span className="text-[#8B2332]">Interactive XP Model</span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4 leading-tight">
+                            <span className="block">Traditional Chapter Instruction vs.</span>
+                            <span className="block text-[#8B2332] mt-1">Interactive XP Model.</span>
                         </h2>
                         <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                            Select any university physics &amp; engineering module below to see how University School transforms standard chapter-based coursework into a first-person 1903 mission.
+                            Select any university physics &amp; engineering module below to see how University School transforms standard chapter-based coursework into a gamified first-person mission where XP rewards real experimental discovery.
                         </p>
                     </div>
 
@@ -388,8 +389,9 @@ export const ProcessPage = ({ onNavigate }) => {
                         <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#E6C687] block mb-2">
                             Academic Integrity &amp; Real Mastery
                         </span>
-                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-                            How Students Ace Accredited <span className="text-[#E6C687]">University Exams.</span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+                            <span className="block">How Students Ace Accredited</span>
+                            <span className="block text-[#E6C687] mt-1">University Exams.</span>
                         </h2>
                         <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
                             Our AI Narrator never does the work for the student. Instead, it bridges every historical mission directly to the university&apos;s official problem sets, labs, and proctored exams so students earn their college degrees with genuine mastery.
@@ -442,7 +444,7 @@ export const ProcessPage = ({ onNavigate }) => {
                             className="bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-9 py-4 rounded-2xl font-bold text-base shadow-xl inline-flex items-center gap-3 transition-all"
                         >
                             <Sparkles size={18} className="text-[#8B2332]" />
-                            Test the 1903 Wright Flyer &amp; Socratic Exam Coach
+                            Launch Interactive Course &amp; Socratic Exam Demo
                             <ArrowRight size={18} />
                         </button>
                     </div>

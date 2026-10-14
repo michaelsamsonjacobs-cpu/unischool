@@ -206,7 +206,7 @@ export const StudentPage = ({ onNavigate }) => {
                                     className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
                                 >
                                     <Sparkles size={18} className="text-[#8B2332]" />
-                                    Launch 1903 Wright Flyer Sim
+                                    Try Interactive Course Demo
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                                 <button
@@ -403,13 +403,14 @@ export const StudentPage = ({ onNavigate }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-14">
                         <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#E6C687] block mb-3">
-                            Inside the University School Experience
+                            Why We Gamify the College Experience
                         </span>
-                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-                            Your Story Campaign &amp; <span className="text-[#E6C687]">Degree Ledger.</span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+                            <span className="block">Your Story Campaign, XP &amp;</span>
+                            <span className="block text-[#E6C687] mt-1">Accredited Degree Ledger.</span>
                         </h2>
                         <p className="text-slate-300 text-lg leading-relaxed">
-                            No passive video queues. Students navigate interactive historical chapters, collaborate in 4-person discovery squads, and lock in real university credits toward their degree.
+                            Why use XP, Quests, and Co-Op Squads for college? Because 11–14 year olds thrive when every experiment earns Experience Points (XP), friends collaborate in 4-person discovery squads, and every skill node locks in real university credits toward their degree.
                         </p>
                     </div>
 
@@ -512,7 +513,7 @@ export const StudentPage = ({ onNavigate }) => {
                                                 onClick={() => onNavigate('asu-demo')}
                                                 className="bg-[#8B2332] hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all"
                                             >
-                                                Open Sim
+                                                Open Course Demo
                                             </button>
                                         </div>
                                         <div className="w-full h-2.5 rounded-full bg-black/50 overflow-hidden mb-2">
@@ -565,8 +566,9 @@ export const StudentPage = ({ onNavigate }) => {
                         <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-2">
                             Direct Degree Progression
                         </span>
-                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D]">
-                            From First Historical Lab at 11 to a <span className="text-[#8B2332]">College Degree.</span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] leading-tight">
+                            <span className="block">From First Historical Lab at 11</span>
+                            <span className="block text-[#8B2332] mt-1">To a College Degree.</span>
                         </h2>
                     </div>
 
@@ -620,11 +622,12 @@ export const StudentPage = ({ onNavigate }) => {
                     </div>
 
                     <div className="bg-gradient-to-br from-[#2B0A10] to-[#1A0508] text-white rounded-3xl p-8 sm:p-12 border border-[#C9B47C]/40 shadow-2xl text-center">
-                        <h3 className="font-serif text-3xl sm:text-4xl font-bold mb-4">
-                            Ready to Start Your First Historical Experience?
+                        <h3 className="font-serif text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+                            <span className="block">Ready to Start Your First</span>
+                            <span className="block text-[#E6C687] mt-1">Historical Course Experience?</span>
                         </h3>
                         <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-base sm:text-lg">
-                            Try our interactive 1903 Wright Brothers aerodynamic simulation and see how University School turns accredited university courses into unforgettable mastery.
+                            Try our interactive course transformer demo and see how University School turns accredited university syllabi into gamified quests, wind-tunnel simulations, and unforgettable mastery.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <button
@@ -632,7 +635,7 @@ export const StudentPage = ({ onNavigate }) => {
                                 className="bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-8 py-4 rounded-2xl font-bold text-base shadow-xl inline-flex items-center gap-2.5 transition-all"
                             >
                                 <Sparkles size={18} className="text-[#8B2332]" />
-                                Try Live 1903 Sim Demo
+                                Try Interactive Course Demo
                                 <ArrowRight size={18} />
                             </button>
                             <button

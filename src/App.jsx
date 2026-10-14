@@ -373,7 +373,7 @@ function App() {
                 {activeView === 'landing' && <LandingPage onNavigate={setActiveView} />}
                 {activeView === 'students' && <StudentPage onNavigate={setActiveView} />}
                 {activeView === 'franchise' && <FranchisePage onNavigate={setActiveView} />}
-                {activeView === 'partners' && <TransferPartners />}
+                {activeView === 'partners' && <TransferPartners onNavigate={setActiveView} />}
                 {activeView === 'about' && <AboutPage onNavigate={setActiveView} />}
                 {activeView === 'process' && <ProcessPage onNavigate={setActiveView} />}
                 {activeView === 'asu-demo' && <ASULectureTransformer onNavigate={setActiveView} />}
