@@ -71,7 +71,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 onClick={() => onNavigate('franchise')}
                                 className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-2 group"
                             >
-                                Get Involved
+                                Launch a Center
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
@@ -112,7 +112,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                             onClick={() => { onNavigate('franchise'); setIsMobileMenuOpen(false); }}
                             className="block w-full bg-[#8B2332] text-white px-5 py-3 rounded-xl font-bold mt-2 text-center"
                         >
-                            Get Involved
+                            Launch a Center
                         </button>
                     </div>
                 )}
@@ -150,7 +150,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 <li><button onClick={() => onNavigate('students')} className="hover:text-[#8B2332] transition-colors">Knowledge Schools</button></li>
                                 <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
                                 <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">University Partners</button></li>
-                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Node</button></li>
+                                <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Launch a Center (Franchise)</button></li>
                                 <li><button onClick={() => onNavigate('asu-demo')} className="hover:text-[#8B2332] transition-colors">Interactive Course Demo</button></li>
                             </ul>
                         </div>
