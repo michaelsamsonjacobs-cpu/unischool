@@ -999,17 +999,36 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             </p>
                         </div>
 
-                        <div className="space-y-2">
-                            <div className="flex items-center justify-between text-xs font-bold text-[#E6C687]">
-                                <span>Official University Syllabus Input ({activeSchool.asuCourse.split('·')[0].trim()})</span>
-                                <span className="text-[10px] text-emerald-300 font-mono">15 Weeks · 30 Lectures</span>
+                        <div className="space-y-2.5">
+                            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-[#E6C687]">
+                                <span className="flex items-center gap-1.5">
+                                    <BookOpen size={14} />
+                                    Example from ASU ({activeSchool.asuCourse.split('·')[0].trim()})
+                                </span>
+                                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-mono">
+                                    Any University Class Transformed · 15 Weeks
+                                </span>
                             </div>
-                            <textarea
-                                value={syllabusInput}
-                                onChange={(e) => setSyllabusInput(e.target.value)}
-                                rows={8}
-                                className="w-full rounded-2xl bg-black/55 border border-[#E6C687]/35 p-3.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-[#E6C687]"
-                            />
+
+                            {/* Read-Only Official ASU Example Syllabus Card (No Freeform User Text Input) */}
+                            <div className="w-full rounded-2xl bg-black/55 border border-[#E6C687]/35 p-4 space-y-2 select-none">
+                                <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-1">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider text-amber-200">
+                                        {activeSchool.asuCourse}
+                                    </span>
+                                    <span className="text-[10px] text-slate-400 font-semibold">
+                                        Official ASU Catalog Example
+                                    </span>
+                                </div>
+                                {activeSchool.syllabusPreview.split('\n').map((line, i) => (
+                                    <div
+                                        key={i}
+                                        className="text-xs font-mono text-slate-200 leading-relaxed bg-white/[0.03] border border-white/5 rounded-xl px-3 py-2"
+                                    >
+                                        {line}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
                         <button

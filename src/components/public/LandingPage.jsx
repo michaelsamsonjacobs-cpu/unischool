@@ -24,6 +24,8 @@ import {
     BookOpen,
     Award,
     Settings,
+    Volume2,
+    VolumeX,
 } from 'lucide-react';
 import { FAQSection } from './FAQSection';
 import { StudentSuccessStories } from './StudentSuccessStories';
@@ -171,6 +173,7 @@ const LEARNING_CHANNELS = [
 export const LandingPage = ({ onNavigate }) => {
     const [activeScene, setActiveScene] = useState(0);
     const [selectedConcept, setSelectedConcept] = useState(0);
+    const [isVideoMuted, setIsVideoMuted] = useState(false);
 
     const scrollToHowItWorks = () => {
         const el = document.getElementById('how-it-works');
@@ -390,15 +393,28 @@ export const LandingPage = ({ onNavigate }) => {
                                     Watch How University School Works <span className="text-[#E6C687]">(1:30)</span>
                                 </h3>
                             </div>
-                            <div className="flex flex-wrap gap-1.5">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                                <button
+                                    onClick={() => {
+                                        const v = document.getElementById('usai-explainer-video');
+                                        if (v) {
+                                            v.muted = !v.muted;
+                                            setIsVideoMuted(v.muted);
+                                        }
+                                    }}
+                                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border border-[#E6C687]/50 bg-[#8B2332] text-[#FAF8F5] hover:bg-[#A3293B] transition-colors mr-1"
+                                >
+                                    {isVideoMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                                    {isVideoMuted ? 'Unmute' : 'Mute'}
+                                </button>
                                 {[
                                     ['0:00 Problem', 0],
-                                    ['0:10 Live It', 10],
-                                    ['0:20 Kitty Hawk', 20],
-                                    ['0:32 Physics', 32],
-                                    ['0:44 4 Schools', 44],
-                                    ['0:56 68% Mastery', 56],
-                                    ['1:08 4 Channels', 68],
+                                    ['0:10 Syllabus → Story', 10],
+                                    ['0:20 ASU Struggle → Sim', 20],
+                                    ['0:32 1903 Airfoil Physics', 32],
+                                    ['0:44 RPG Squad & Skills', 44],
+                                    ['0:56 Pass ASU Exams', 56],
+                                    ['1:08 88% Mastery', 68],
                                     ['1:18 Outcomes', 78],
                                     ['1:25 Enroll', 85],
                                 ].map(([lbl, sec]) => (
@@ -408,7 +424,6 @@ export const LandingPage = ({ onNavigate }) => {
                                             const v = document.getElementById('usai-explainer-video');
                                             if (v) {
                                                 v.currentTime = sec;
-                                                v.muted = false;
                                                 v.play();
                                             }
                                         }}
@@ -425,6 +440,7 @@ export const LandingPage = ({ onNavigate }) => {
                                 controls
                                 playsInline
                                 preload="metadata"
+                                onVolumeChange={(e) => setIsVideoMuted(e.currentTarget.muted)}
                                 poster="/images/visuals/hero_mentors_scene.jpg"
                                 className="w-full aspect-video block"
                                 src="/videos/usai_school_90s_explainer.mp4"
