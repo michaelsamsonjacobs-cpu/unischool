@@ -21,7 +21,7 @@ import WebLLMService from './services/WebLLMService';
 import { GrantAgentDashboard } from './components/GrantAgentDashboard';
 import FeedbackService from './services/FeedbackService';
 import { ShareWorkspaceModal } from './components/ShareWorkspaceModal';
-import { StudentCockpit } from './components/StudentCockpit';
+import { StudentCockpit } from './components/StudentCockpit_v2';
 import { StudentPortfolio } from './components/StudentPortfolio';
 
 // XP Engine Components
@@ -72,6 +72,7 @@ import { TransferPartners } from './components/public/TransferPartners';
 import { AboutPage } from './components/public/AboutPage';
 import { ProcessPage } from './components/public/ProcessPage';
 import { BASICSDemoDay } from './components/public/BASICSDemoDay';
+import { ASULectureTransformer } from './components/public/ASULectureTransformer';
 import { AdvisorDashboard } from './components/AdvisorDashboard';
 import { HelpCenter } from './components/HelpCenter';
 
@@ -81,8 +82,11 @@ import { BASICSCourse } from './components/basics/BASICSCourse';
 import { BASICSDataRoom } from './components/basics/BASICSDataRoom';
 import { BASICSVideoRecorder } from './components/basics/BASICSVideoRecorder';
 import { BASICSIncorporation } from './components/basics/BASICSIncorporation';
+import { BASICSFundraising } from './components/basics/BASICSFundraising';
 import { BASICSInvestorPortal } from './components/basics/BASICSInvestorPortal';
 import { BASICSMeetingGate } from './components/basics/BASICSMeetingGate';
+import { BASICSLandingPage } from './components/basics/BASICSLandingPage';
+import { BASICSAdminDashboard } from './components/basics/BASICSAdminDashboard';
 
 function App() {
     // Auth State
@@ -111,6 +115,12 @@ function App() {
         }
         if (window.location.pathname.startsWith('/play')) {
             return 'play';
+        }
+        if (window.location.pathname.startsWith('/asu-demo')) {
+            return 'asu-demo';
+        }
+        if (window.location.pathname.startsWith('/basics-fyi')) {
+            return 'basics-fyi';
         }
         return 'landing';
     });
@@ -283,7 +293,7 @@ function App() {
     }
 
     // 2.5 BASICS Accelerator Platform Routes
-    const basicsViews = ['basics_auth', 'basics_course', 'basics_dataroom', 'basics_incorporate', 'basics_investor'];
+    const basicsViews = ['basics_auth', 'basics_course', 'basics_dataroom', 'basics_incorporate', 'basics_fundraising', 'basics_investor', 'basics_admin'];
     if (basicsViews.includes(activeView)) {
         return (
             <>
@@ -292,7 +302,9 @@ function App() {
                         onLogin={(u) => {
                             setBasicsUser(u);
                             localStorage.setItem('basics_user', JSON.stringify(u));
-                            setActiveView(u.role === 'basics_investor' ? 'basics_investor' : 'basics_course');
+                            if (u.role === 'basics_admin') setActiveView('basics_admin');
+                            else if (u.role === 'basics_investor') setActiveView('basics_investor');
+                            else setActiveView('basics_course');
                         }}
                         onBack={() => setActiveView('basics')}
                     />
@@ -311,6 +323,7 @@ function App() {
                         student={basicsUser}
                         companyName={basicsUser?.companyName}
                         onOpenRecorder={() => setShowVideoRecorder(true)}
+                        onComplete={() => setActiveView('basics_incorporate')}
                         onBack={() => setActiveView('basics_course')}
                     />
                 )}
@@ -321,12 +334,28 @@ function App() {
                             const updated = { ...basicsUser, incorporated: true, companyName: data.companyName };
                             setBasicsUser(updated);
                             localStorage.setItem('basics_user', JSON.stringify(updated));
-                            setActiveView('basics_dataroom');
+                            setActiveView('basics_fundraising');
                         }}
-                        onBack={() => setActiveView('basics_course')}
+                        onBack={() => setActiveView('basics_dataroom')}
                     />
                 )}
-                {activeView === 'basics_investor' && (
+                {activeView === 'basics_fundraising' && (
+                    <BASICSFundraising
+                        student={basicsUser}
+                        onBack={() => setActiveView('basics_dataroom')}
+                    />
+                )}
+        
+        {/* --- BASICS Admin --- */}
+        {basicsUser?.role === 'basics_admin' && (
+            <BASICSAdminDashboard 
+                adminUser={basicsUser} 
+                onBack={() => { setBasicsUser(null); setActiveView('basics-fyi'); }} 
+            />
+        )}
+
+        {/* --- BASICS Investor Flow --- */}
+        {activeView === 'basics_investor' && (
                     <BASICSInvestorPortal
                         investor={basicsUser}
                         onBack={() => setActiveView('basics')}
@@ -366,7 +395,7 @@ function App() {
 
     // 3. Public Pages (Accessible when NOT authenticated, or strictly navigation)
     // If not authenticated, force public pages or auth screen
-    const publicPages = ['landing', 'students', 'franchise', 'partners', 'about', 'process', 'basics', 'play'];
+    const publicPages = ['landing', 'students', 'franchise', 'partners', 'about', 'process', 'play', 'asu-demo'];
     if (publicPages.includes(activeView)) {
         return (
             <WebsiteLayout activePage={activeView === 'landing' ? 'home' : activeView} onNavigate={setActiveView}>
@@ -376,7 +405,7 @@ function App() {
                 {activeView === 'partners' && <TransferPartners />}
                 {activeView === 'about' && <AboutPage onNavigate={setActiveView} />}
                 {activeView === 'process' && <ProcessPage onNavigate={setActiveView} />}
-                {activeView === 'basics' && <BASICSDemoDay onNavigate={setActiveView} />}
+                {activeView === 'asu-demo' && <ASULectureTransformer onNavigate={setActiveView} />}
                 {activeView === 'play' && (
                     <div className="fixed inset-0 z-50">
                         <XPGame3D
@@ -502,6 +531,10 @@ function App() {
                             studentName={user?.name || "Guest"}
                             onOpenChat={() => setActiveView('agent')}
                             onOpenXPMissions={() => setActiveView('xp_missions')}
+                            onLaunchMission={(missionId, sessionId) => {
+                                if (missionId) window.__xp_active_mission = { mission_id: missionId, session_id: sessionId };
+                                setActiveView('xp_player');
+                            }}
                         />
                     )}
 
