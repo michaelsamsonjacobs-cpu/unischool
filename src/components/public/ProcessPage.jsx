@@ -1,121 +1,377 @@
-import React from 'react';
-import { Shield, Trophy, ArrowRight, Target, Zap, AlertCircle, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+    ArrowRight,
+    Sparkles,
+    BookOpen,
+    Compass,
+    Users,
+    Award,
+    CheckCircle2,
+    Zap,
+    Wind,
+    Settings,
+    GraduationCap,
+    Laptop,
+    Tablet,
+    Tv,
+    Building2,
+} from 'lucide-react';
+
+const PROCESS_PILLAR_TILES = [
+    {
+        step: 'Step 01',
+        name: 'Accredited Syllabus',
+        tagline: 'Start with a real partner university course.',
+        image: '/images/visuals/student_campus_lookup.jpg',
+        icon: BookOpen,
+    },
+    {
+        step: 'Step 02',
+        name: 'Live the Story Lab',
+        tagline: 'Test real physics with the Wrights & Earhart.',
+        image: '/images/visuals/kitty_hawk_1_live.jpg',
+        icon: Compass,
+    },
+    {
+        step: 'Step 03',
+        name: 'Co-Op Discovery Squad',
+        tagline: 'Solve problems in 4-student teams.',
+        image: '/images/visuals/channel_centers.jpg',
+        icon: Users,
+    },
+    {
+        step: 'Step 04',
+        name: 'Earn Credits & Degrees',
+        tagline: 'Pass university exams & stack credentials.',
+        image: '/images/visuals/kitty_hawk_3_flight.jpg',
+        icon: Award,
+    },
+];
+
+const CURRICULUM_COMPARISON_MODULES = [
+    {
+        id: 'module-1',
+        topic: 'Module 1: Forces, Equilibrium & Newton’s Laws',
+        traditional: {
+            heading: 'Chapter 1.1–1.2: Kinematics & Newton’s Second Law',
+            format: 'Lecture Video (45 min) + Textbook Reading (pp. 1–38)',
+            content:
+                'Students begin by memorizing vector notation, free-body diagram conventions, and the formula ΣF = m · a in abstract Cartesian coordinates before seeing any physical engineering application.',
+            assignment: 'Complete End-of-Chapter Problem Set #1–18 on a blank worksheet alone.',
+            outcome: 'High cognitive fatigue; equations feel disconnected from physical reality.',
+        },
+        interactiveXP: {
+            era: 'Dayton, Ohio · Wright Cycle Company (1899)',
+            notice: 'HELP WANTED — Mechanical Assistance Needed',
+            prompt:
+                'You step into Wilbur and Orville Wright’s bicycle shop. Their early glider pitches violently in gusting winds. Before touching a single formula, you adjust wing surface area, pilot position, and tether tension on the workbench.',
+            decisionOptions: [
+                'Option A: Increase wing surface area without shifting center of gravity (Glider stalls)',
+                'Option B: Balance lift center with pilot mass & add forward elevator control (+250 XP)',
+                'Option C: Add heavier oak framing for strength (Weight exceeds Lift)',
+            ],
+            formalUnlock:
+                'Once your glider stabilizes in the wind tunnel, the AI Narrator reveals the exact university physics you just discovered: ΣF = m · a and rotational torque equilibrium.',
+            reward: '+250 Engineering XP · Unlocks ASU PHY 121 Module 1 Mastery',
+            image: '/images/visuals/kitty_hawk_1_live.jpg',
+        },
+    },
+    {
+        id: 'module-2',
+        topic: 'Module 2: Fluid Dynamics, Camber & Aerodynamic Lift',
+        traditional: {
+            heading: 'Chapter 2.1–2.4: Bernoulli’s Equation & Lift Coefficients',
+            format: 'Slide Deck (62 slides) + Derivation Handout',
+            content:
+                'Students are presented with L = ½ · ρ · v² · S · C_L and asked to plug numbers into pressure differential equations without ever testing how wing curvature behaves in real airflow.',
+            assignment: 'Memorize airfoil terminology and complete a timed multiple-choice quiz.',
+            outcome: 'Students can plug numbers into a formula today, but forget why it works next week.',
+        },
+        interactiveXP: {
+            era: 'Dayton Wind Tunnel Lab · 1901 (With Wilbur Wright & Amelia Earhart)',
+            notice: 'WIND TUNNEL TRIALS — 200 Miniature Brass Airfoils',
+            prompt:
+                'Published lift tables from Lilienthal are wrong—the 1901 glider is only producing one-third of its predicted lift! Alongside Wilbur Wright and aviation pioneer Amelia Earhart, you build a 6-foot wooden wind tunnel to test camber ratios directly.',
+            decisionOptions: [
+                'Option A: Use high-camber 1-in-12 thick curvature (High drag at speed)',
+                'Option B: Test 1-in-20 parabolically cambered airfoil at 5° angle of attack (+350 XP)',
+                'Option C: Pitch nose above 18° to force climb (Boundary layer separation / stall)',
+            ],
+            formalUnlock:
+                'After watching laminar smoke streamlines curve over your brass wing, you derive L = ½ · ρ · v² · S · C_L directly from your own wind-tunnel telemetry.',
+            reward: '+350 Engineering XP · Unlocks ASU FSE 100 Aerodynamics Lab Credit',
+            image: '/images/visuals/kitty_hawk_2_decision.jpg',
+        },
+    },
+    {
+        id: 'module-3',
+        topic: 'Module 3: Propulsion, Drag & Powered Flight Integration',
+        traditional: {
+            heading: 'Chapter 3.1–3.5: Work, Energy, Thrust & Drag Polar Curves',
+            format: 'Recorded Whiteboard Lecture + Midterm Exam',
+            content:
+                'Thrust, mechanical efficiency, and induced drag are taught as isolated algebraic chapters. Students never experience how changing one subsystem cascades across an entire aircraft.',
+            assignment: 'Midterm exam covering Chapters 1–3 with zero hands-on synthesis.',
+            outcome: 'High drop-out rate in freshman engineering courses.',
+        },
+        interactiveXP: {
+            era: 'Kill Devil Hills, Kitty Hawk · December 17, 1903',
+            notice: 'FIRST POWERED FLIGHT — Launch Rail Configuration',
+            prompt:
+                'Freezing 27 mph headwinds sweep across the Carolina dunes. Your 4-person Co-Op Discovery Squad must balance the custom 12-horsepower aluminum engine, counter-rotating twin propellers, and wing-warping controls for the 120-foot flight.',
+            decisionOptions: [
+                'Option A: Single propeller with high RPM (Torque roll pulls wingtip into sand)',
+                'Option B: Counter-rotating twin chains + hip-cradle wing warping (+500 XP · Flight Success!)',
+                'Option C: Launch downwind for higher ground speed (Insufficient airspeed over wings)',
+            ],
+            formalUnlock:
+                'Your Flyer lifts off the rail and covers 852 feet on its fourth trial. You now complete the Socratic University Exam Prep and lock in 3.0 accredited university credits.',
+            reward: '+500 Engineering XP · Ready for Proctored University Credit Exam',
+            image: '/images/visuals/kitty_hawk_3_flight.jpg',
+        },
+    },
+];
 
 export const ProcessPage = ({ onNavigate }) => {
+    const [activeModuleIdx, setActiveModuleIdx] = useState(0);
+    const activeModule = CURRICULUM_COMPARISON_MODULES[activeModuleIdx];
+
     return (
-        <div className="flex flex-col pt-20">
-            {/* Hero */}
-            <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-                <div className="absolute inset-0 bg-[#FAF8F5]">
-                    <div className="absolute inset-0 bg-[url('/images/strategy-bg.png')] opacity-5" />
-                </div>
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B2332]/10 border border-[#8B2332]/20 text-[#8B2332] text-xs font-bold uppercase tracking-widest mb-8 mx-auto">
-                        <Target size={12} /> Our Process
+        <div className="flex flex-col pb-20 bg-[#FAF8F5]">
+            {/* ═══════════════════════════════════════════════════════════
+                1. FULL-BLEED DARK BURGUNDY & GOLD HERO (MATCHES LANDING TILES)
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="relative bg-[#1F070B] text-white overflow-hidden border-b border-[#C9B47C]/30">
+                <div className="relative min-h-[560px] flex flex-col justify-between">
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src="/images/visuals/hero_mentors_scene.jpg"
+                            alt="University School student learning with Orville & Wilbur Wright, Albert Einstein, Nikola Tesla, and Amelia Earhart"
+                            className="w-full h-full object-cover object-right-top opacity-90"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#1F070B] via-[#1F070B]/90 sm:via-[#1F070B]/65 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#190508] via-[#190508]/90 to-transparent" />
                     </div>
-                    <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#2D2D2D] mb-8 leading-[1.05]">
-                        Our Students <br />
-                        <span className="text-[#8B2332]">Graduate from College.</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                        Every student who completes our program earns university credit.
-                        A clear, proven pathway from age 11 to a college degree.
-                    </p>
+
+                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8 w-full">
+                        <div className="max-w-2xl">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B2332]/90 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-[0.2em] mb-5">
+                                <Sparkles size={14} /> The University School Pedagogical Engine
+                            </div>
+
+                            <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.03] mb-5 drop-shadow-lg">
+                                Experience First.<br />
+                                <span className="text-[#E6C687]">Equations Second.</span>
+                            </h1>
+
+                            <p className="text-base sm:text-lg text-slate-100/95 leading-relaxed mb-6 max-w-xl drop-shadow">
+                                How does an 11-year-old master university-level engineering, biomedics, business, or law? By replacing passive chapter memorization with our <strong className="text-[#E6C687]">Interactive XP Curriculum Model</strong>&mdash;living the breakthrough moments first, then acing the university exams to earn real college degrees.
+                            </p>
+
+                            <div className="flex flex-wrap items-center gap-3.5">
+                                <button
+                                    onClick={() => onNavigate && onNavigate('asu-demo')}
+                                    className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
+                                >
+                                    <Zap size={18} className="text-[#8B2332]" />
+                                    Try Live 1903 Wright Brothers Lab
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button
+                                    onClick={() => onNavigate && onNavigate('students')}
+                                    className="bg-[#8B2332]/90 hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all"
+                                >
+                                    Explore 4 Knowledge Schools
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 4 Docked Process Pillar Tiles (Matches First Tiles on Landing Page) */}
+                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 w-full">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {PROCESS_PILLAR_TILES.map((tile, i) => (
+                                <div
+                                    key={i}
+                                    className="group relative rounded-2xl overflow-hidden border border-[#E6C687]/35 bg-[#140709]/95 text-left shadow-xl"
+                                >
+                                    <div className="h-28 w-full overflow-hidden relative">
+                                        <img
+                                            src={tile.image}
+                                            alt={tile.name}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#140709] via-[#140709]/35 to-transparent" />
+                                        <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-[#8B2332] border border-[#E6C687]/50 text-[#E6C687] text-[10px] font-bold uppercase tracking-wider">
+                                            {tile.step}
+                                        </span>
+                                    </div>
+                                    <div className="px-4 pb-4 pt-1.5 flex items-center gap-3">
+                                        <div className="w-9 h-9 rounded-xl bg-[#E6C687]/15 border border-[#E6C687]/40 flex items-center justify-center text-[#E6C687] shrink-0">
+                                            <tile.icon size={18} />
+                                        </div>
+                                        <div>
+                                            <div className="font-serif font-bold text-white text-base leading-tight">
+                                                {tile.name}
+                                            </div>
+                                            <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                                                {tile.tagline}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            {/* The Dual Path Visualizer */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid md:grid-cols-3 gap-8 relative">
-                        {/* Path 1: The Guarantee */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#8B2332] shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="h-14 w-14 rounded-2xl bg-[#8B2332]/10 flex items-center justify-center text-[#8B2332] group-hover:scale-110 transition-transform">
-                                    <Shield size={28} />
+            {/* ═══════════════════════════════════════════════════════════
+                2. SIDE-BY-SIDE CURRICULUM ARCHITECTURE
+                   (Frank's Traditional Chapter Model vs. Interactive XP Model)
+                ═══════════════════════════════════════════════════════════ */}
+            <section className="py-20 bg-[#FAF8F5] border-b border-[#8B2332]/10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-2">
+                            Curriculum Transformation · Dynamics Through the Wright Brothers
+                        </span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[#2D2D2D] mb-4">
+                            Traditional Chapter Instruction vs. <span className="text-[#8B2332]">Interactive XP Model</span>
+                        </h2>
+                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                            Select any university physics &amp; engineering module below to see how University School transforms standard chapter-based coursework into a first-person 1903 mission.
+                        </p>
+                    </div>
+
+                    {/* Module Tabs */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-10">
+                        {CURRICULUM_COMPARISON_MODULES.map((mod, idx) => (
+                            <button
+                                key={mod.id}
+                                onClick={() => setActiveModuleIdx(idx)}
+                                className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all border ${
+                                    activeModuleIdx === idx
+                                        ? 'bg-[#1F070B] text-[#E6C687] border-[#E6C687] shadow-xl'
+                                        : 'bg-white text-slate-700 border-slate-200 hover:border-[#8B2332]/40'
+                                }`}
+                            >
+                                {mod.topic}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Side-by-Side Comparison Cards */}
+                    <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+                        {/* Left 5 Cols: Traditional Chapter-Based Model */}
+                        <div className="lg:col-span-5 bg-white rounded-3xl p-7 border border-slate-200 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest mb-4">
+                                    Traditional Chapter-Based Instruction
                                 </div>
-                                <div>
-                                    <h2 className="text-2xl font-serif font-bold text-[#2D2D2D]">The Guarantee</h2>
+                                <h3 className="font-serif text-2xl font-bold text-slate-800 mb-2">
+                                    {activeModule.traditional.heading}
+                                </h3>
+                                <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-5">
+                                    {activeModule.traditional.format}
+                                </div>
+
+                                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-5">
+                                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                                        How Traditional Courses Teach It:
+                                    </div>
+                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                        {activeModule.traditional.content}
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                                        Standard Assignment:
+                                    </div>
+                                    <p className="text-sm text-slate-600">
+                                        {activeModule.traditional.assignment}
+                                    </p>
                                 </div>
                             </div>
-                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                                Reverse-engineer the transfer contracts for top public universities. Hit the GPA, take the classes, sign the paper.
-                                Admission becomes a formality, not a lottery. 100% guarantee when you meet the requirement.
-                            </p>
-                            <ul className="space-y-3 mb-6 mt-auto">
-                                {[
-                                    "UC Santa Barbara (Transfer Pathway)",
-                                    "Top State Colleges (e.g. NY)",
-                                    "All 23 Cal State Universities"
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-2 text-slate-600 text-sm">
-                                        <div className="h-1.5 w-1.5 rounded-full bg-[#8B2332]" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
+
+                            <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 italic">
+                                Result: {activeModule.traditional.outcome}
+                            </div>
                         </div>
 
-                        {/* Path 2: The Moonshot */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-[#C9B47C] shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="h-14 w-14 rounded-2xl bg-[#C9B47C]/10 flex items-center justify-center text-[#C9B47C] group-hover:scale-110 transition-transform">
-                                    <Trophy size={28} />
-                                </div>
-                                <div>
-                                    <div className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase">The Moonshot</div>
-                                </div>
-                            </div>
-                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                                Target Ivy League &amp; Stanford. We build a specialized &ldquo;Spike&rdquo; project—a published book,
-                                a patent, or a nonprofit to make admissions officers notice.
-                            </p>
-                            <ul className="space-y-3 mb-6 mt-auto">
-                                {[
-                                    "Stanford, Harvard, MIT",
-                                    "Building a 'Hook' Narrative",
-                                    "National Competition Strategy"
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-2 text-slate-600 text-sm">
-                                        <div className="h-1.5 w-1.5 rounded-full bg-[#C9B47C]" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div>
-                                <div className="px-3 py-1.5 bg-orange-50 border border-orange-200 rounded-lg text-orange-600 text-xs inline-flex items-center gap-2 font-semibold">
-                                    <Zap size={12} /> High Risk / High Reward
+                        {/* Right 7 Cols: University School Interactive XP Model */}
+                        <div className="lg:col-span-7 bg-[#1F070B] text-white rounded-3xl overflow-hidden border border-[#E6C687]/45 shadow-2xl flex flex-col justify-between">
+                            <div className="h-52 relative overflow-hidden">
+                                <img
+                                    src={activeModule.interactiveXP.image}
+                                    alt={activeModule.interactiveXP.era}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#1F070B] via-[#1F070B]/40 to-transparent" />
+                                <div className="absolute top-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B2332] border border-[#E6C687]/50 text-[#E6C687] text-[10px] font-bold uppercase tracking-widest">
+                                        <Sparkles size={11} /> University School Interactive XP Model
+                                    </span>
+                                    <span className="px-3 py-1 rounded-full bg-black/70 border border-[#E6C687]/40 text-white text-[10px] font-bold">
+                                        {activeModule.interactiveXP.era}
+                                    </span>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Path 3: The Direct Path */}
-                        <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-slate-200 hover:border-blue-500 shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="h-14 w-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
-                                    <Award size={28} />
+                            <div className="p-7 flex-1 flex flex-col justify-between space-y-5">
+                                {/* Notice Box */}
+                                <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-5 border border-[#C9B47C] shadow-inner">
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-[#8B2332] mb-1">
+                                        Historical Mission Dispatch
+                                    </div>
+                                    <h3 className="font-serif text-xl font-bold text-[#1F070B] mb-2">
+                                        &ldquo;{activeModule.interactiveXP.notice}&rdquo;
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-[#2B0A10]/90 leading-relaxed">
+                                        {activeModule.interactiveXP.prompt}
+                                    </p>
                                 </div>
+
+                                {/* First-Person Decisions */}
                                 <div>
-                                    <div className="text-blue-500 font-bold tracking-widest text-xs uppercase">The Direct Path</div>
+                                    <div className="text-xs font-bold uppercase tracking-wider text-[#E6C687] mb-2.5">
+                                        First-Person Engineering Decisions:
+                                    </div>
+                                    <div className="space-y-2">
+                                        {activeModule.interactiveXP.decisionOptions.map((opt, i) => (
+                                            <div
+                                                key={i}
+                                                className={`px-4 py-2.5 rounded-xl text-xs font-medium border ${
+                                                    i === 1
+                                                        ? 'bg-[#8B2332]/40 border-[#E6C687] text-white font-bold'
+                                                        : 'bg-black/30 border-white/10 text-slate-300'
+                                                }`}
+                                            >
+                                                {opt}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                                No dorms, no debt. We partner with accredited universities to let you
-                                earn a Bachelor&apos;s degree entirely on-site or remote.
-                            </p>
-                            <ul className="space-y-3 mb-6 mt-auto">
-                                {[
-                                    "Arizona State University",
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-2 text-slate-600 text-sm">
-                                        <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div>
-                                <div className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-600 text-xs inline-flex items-center gap-2 font-semibold">
-                                    <Award size={12} /> Speed: 2-3 Years Total
+
+                                {/* Concept Second Unlock */}
+                                <div className="bg-black/35 border border-[#E6C687]/30 rounded-2xl p-4">
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-[#E6C687] mb-1">
+                                        Experience First &rarr; Formal University Physics Second
+                                    </div>
+                                    <p className="text-xs text-slate-200 leading-relaxed">
+                                        {activeModule.interactiveXP.formalUnlock}
+                                    </p>
+                                </div>
+
+                                <div className="pt-3 border-t border-[#E6C687]/20 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-[#E6C687]">
+                                    <span>{activeModule.interactiveXP.reward}</span>
+                                    <button
+                                        onClick={() => onNavigate && onNavigate('asu-demo')}
+                                        className="underline hover:text-white transition-colors"
+                                    >
+                                        Launch Interactive Lab &rarr;
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -124,170 +380,71 @@ export const ProcessPage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                LEARNING THROUGH PLAY — GAME-BASED APPROACH
+                3. SOCRATIC UNIVERSITY EXAM PREP & DEGREE COMPLETION
                 ═══════════════════════════════════════════════════════════ */}
-            <section className="py-24 bg-white border-b border-[#8B2332]/10">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase mb-2 block">Our Secret Weapon</span>
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">
-                            College Classes, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9B47C] to-[#A89560]">Disguised as Games.</span>
+            <section className="py-20 bg-[#19090D] text-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-14">
+                        <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#E6C687] block mb-2">
+                            Academic Integrity &amp; Real Mastery
+                        </span>
+                        <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+                            How Students Ace Accredited <span className="text-[#E6C687]">University Exams.</span>
                         </h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                            Students don&apos;t want to sit through lectures. So we turned university coursework into
-                            side quests and skill trees. They&apos;re earning real college credit &mdash;
-                            they just don&apos;t realize how hard they&apos;re working.
+                        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+                            Our AI Narrator never does the work for the student. Instead, it bridges every historical mission directly to the university&apos;s official problem sets, labs, and proctored exams so students earn their college degrees with genuine mastery.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    <div className="grid md:grid-cols-3 gap-6 mb-12">
                         {[
                             {
-                                title: 'Side Quests',
-                                description: 'Every lecture becomes a playable mission. Students explore branching storylines where their choices determine what they learn next — like a choose-your-own-adventure textbook.',
-                                color: '#8B2332',
+                                step: 'Phase 1',
+                                title: 'Historical Intuition',
+                                desc: 'Build physical intuition by testing wing camber, molecular diagnostics, industrial supply chains, or constitutional briefs in first person.',
                             },
                             {
-                                title: 'Skill Trees',
-                                description: 'Inspired by RPGs, students unlock abilities as they master subjects. Visual progress tracking makes it impossible to fall behind — and hooked to get ahead.',
-                                color: '#C9B47C',
+                                step: 'Phase 2',
+                                title: 'Socratic Equation Bridge',
+                                desc: 'Connect every experimental outcome to the university syllabus formulas, guided step-by-step by Socratic hints rather than spoon-fed answers.',
                             },
                             {
-                                title: 'AI Narrator',
-                                description: 'Adapts to each student\'s pace, identifies knowledge gaps in real-time, and reroutes their learning path — like GPS for education.',
-                                color: '#10b981',
+                                step: 'Phase 3',
+                                title: 'University Transcript Credit',
+                                desc: "Complete the partner university's official exams and assignments to lock in accredited credits toward certificates, associate degrees, and bachelor's degrees.",
                             },
-                        ].map((feature, i) => (
-                            <div key={i} className="group p-8 rounded-2xl bg-[#FAF8F5] border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all">
-                                <h3 className="text-xl font-serif font-bold text-[#2D2D2D] mb-3">{feature.title}</h3>
-                                <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+                        ].map((card, i) => (
+                            <div
+                                key={i}
+                                className="bg-[#140709] border border-[#E6C687]/35 rounded-3xl p-7 shadow-xl flex flex-col justify-between"
+                            >
+                                <div>
+                                    <span className="inline-block px-3 py-1 rounded-full bg-[#8B2332] border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-widest mb-4">
+                                        {card.step}
+                                    </span>
+                                    <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        {card.desc}
+                                    </p>
+                                </div>
+                                <div className="mt-6 pt-4 border-t border-[#E6C687]/20 text-xs font-bold text-[#E6C687] flex items-center gap-2">
+                                    <CheckCircle2 size={15} /> Verified University Mastery
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* How it works in practice */}
-                    <div className="bg-[#FAF8F5] rounded-3xl border border-slate-200 p-8 md:p-12">
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#2D2D2D] mb-6">
-                                    How an 11-Year-Old Takes a UC Berkeley Physics Class
-                                </h3>
-                                <div className="space-y-4">
-                                    {[
-                                        { step: '1', text: 'Our AI watches the lecture and generates an interactive "Side Quest" with branching choices and embedded quiz checkpoints.' },
-                                        { step: '2', text: 'The student plays through the mission like a game — exploring concepts, making decisions, and earning XP for correct reasoning.' },
-                                        { step: '3', text: 'Wrong answers don\'t mean failure. The AI uses "Productive Failure" — routing students into harder paths that build deeper understanding.' },
-                                        { step: '4', text: 'At the end they take the real exam and earn the credit that counts.' },
-                                    ].map((item, i) => (
-                                        <div key={i} className="flex gap-4 items-start">
-                                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B2332] text-white flex items-center justify-center font-bold text-sm shadow-md">
-                                                {item.step}
-                                            </div>
-                                            <p className="text-slate-600 text-sm leading-relaxed pt-1">{item.text}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-2xl blur-[80px] opacity-10" />
-                                <div className="relative bg-white border border-slate-200 rounded-2xl p-4 shadow-2xl">
-                                    <img
-                                        src="/images/app-student-cockpit.png"
-                                        alt="University School Side Quest Interface"
-                                        className="rounded-xl w-full h-auto border border-slate-100"
-                                    />
-                                    <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-                                        {[
-                                            { k: '1. Experience', v: 'Kitty Hawk 1903' },
-                                            { k: '2. Concept', v: 'Newton’s Laws' },
-                                            { k: '3. Outcome', v: 'UC Berkeley Credit' },
-                                        ].map((b, idx) => (
-                                            <div key={idx} className="bg-[#FAF8F5] rounded-lg p-2 border border-slate-200/70">
-                                                <div className="text-[10px] font-bold uppercase text-[#8B2332]">{b.k}</div>
-                                                <div className="text-xs font-semibold text-[#2D2D2D]">{b.v}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* The Crimson Bot Section */}
-            <section className="py-24 bg-[#FAF8F5]">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="bg-white border border-slate-200 rounded-3xl p-1 md:p-12 overflow-hidden relative shadow-lg">
-                        <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/images/noise.png')] opacity-10 mix-blend-multiply" />
-
-                        <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center px-8 py-8 md:py-0">
-                            <div>
-                                <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#2D2D2D] mb-6">
-                                    Meet Your Elite Admissions AI.
-                                </h2>
-                                <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                                    We trained a specialized AI on 50,000+ accepted Ivy League essays and profiles.
-                                    It analyzes your current stats and "Spike" project to give you a real-time probability score for elite admission.
-                                </p>
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-center gap-3 text-slate-700">
-                                        <Target size={20} className="text-[#8B2332]" />
-                                        <span>Instant "Chance Me" Probability</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 text-slate-700">
-                                        <Target size={20} className="text-[#8B2332]" />
-                                        <span>Essay Narrative Optimization</span>
-                                    </li>
-                                    <li className="flex items-center gap-3 text-slate-700">
-                                        <Target size={20} className="text-[#8B2332]" />
-                                        <span>Extracurricular "Spike" Recommendations</span>
-                                    </li>
-                                </ul>
-                                <a
-                                    href="mailto:info@universityschool.ai"
-                                    className="bg-[#8B2332] text-white px-8 py-4 rounded-2xl font-bold transition-transform hover:scale-105 shadow-lg flex items-center gap-2"
-                                >
-                                    Get Your Analysis <ArrowRight size={18} />
-                                </a>
-                            </div>
-
-                            {/* AI Interface Mockup */}
-                            <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-2xl skew-x-[-2deg] hover:skew-x-0 transition-transform duration-500 relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#8B2332]/5 to-transparent rounded-xl" />
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
-                                        <div className="h-8 w-8 rounded-full bg-[#8B2332] flex items-center justify-center">
-                                            <Zap size={16} className="text-white" />
-                                        </div>
-                                        <div>
-                                            <div className="text-[#2D2D2D] font-bold text-sm">University School AI</div>
-                                            <div className="text-xs text-[#C9B47C] font-semibold">Analysis Complete</div>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <div className="bg-slate-50 rounded-lg p-3 text-slate-600 text-xs font-mono border border-slate-100">
-                                            Analyzing applicant profile...
-                                            <br />&gt; GPA: 4.0 [Top 1%]
-                                            <br />&gt; Spike: Launched autonomous drone startup
-                                            <br />&gt; Awards: ISEF Finalist
-                                        </div>
-                                        <div className="bg-[#8B2332]/5 border border-[#8B2332]/20 rounded-lg p-4">
-                                            <div className="text-xs text-[#8B2332] font-bold uppercase mb-1">Stanford Probability</div>
-                                            <div className="text-2xl font-bold text-[#2D2D2D]">18.4%</div>
-                                            <div className="text-[10px] text-slate-500 mt-1">
-                                                (3.6x higher than baseline 5.1%)
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-2">
-                                            <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full bg-[#8B2332] w-[18%]" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="text-center">
+                        <button
+                            onClick={() => onNavigate && onNavigate('asu-demo')}
+                            className="bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-9 py-4 rounded-2xl font-bold text-base shadow-xl inline-flex items-center gap-3 transition-all"
+                        >
+                            <Sparkles size={18} className="text-[#8B2332]" />
+                            Test the 1903 Wright Flyer &amp; Socratic Exam Coach
+                            <ArrowRight size={18} />
+                        </button>
                     </div>
                 </div>
             </section>

@@ -3,91 +3,86 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const FAQ_DATA = [
     {
-        q: "Is this accredited?",
-        a: "University School partners with fully accredited universities and course providers. While we are not directly accredited ourselves, the courses students take through our partner institutions carry accredited credits that are recognized by universities nationwide."
+        q: 'How do students earn real university credits and degrees starting at age 11?',
+        a: 'Students enroll in real, accredited university courses offered through our partner universities (such as Arizona State University) and CLEP credit-by-exam sequences. University School transforms those syllabi into interactive first-person historical campaigns, and upon completing the university assessments, the partner university issues official transcript credits that stack toward undergraduate certificates, associate degrees, and full bachelor’s degrees.',
     },
     {
-        q: "How do transfer credits work?",
-        a: "Students earn credits through our partner universities' accredited online courses. These credits transfer to other institutions through established transfer agreements, such as TAG (Transfer Admission Guarantee) programs with the UC system and articulation agreements with hundreds of colleges."
+        q: 'Are the credits, certificates, and degrees fully accredited?',
+        a: 'Yes. The courses, certificates, and degrees are issued directly by regionally accredited partner universities. Credits appear on an official university transcript and are recognized by over 60 public and private universities nationwide.',
     },
     {
-        q: "Does this replace high school?",
-        a: "No. University School supplements a student's high school education by allowing them to simultaneously earn college credits. Students continue their high school coursework while accelerating their college pathway."
+        q: 'How does the Interactive XP Curriculum Model work?',
+        a: 'Instead of starting with dry textbook chapters and passive video lectures, students enter a historical breakthrough moment first—such as answering the 1899 "HELP WANTED — Mechanical Assistance Needed" notice at the Wright Cycle Company in Dayton, Ohio. Students test wing camber, thrust, and weight in first person, and only after building physical intuition do they connect their discoveries to formal university equations and exams.',
     },
     {
-        q: "How many hours per day?",
-        a: "Most students spend 1-2 hours per day on University School coursework, depending on the number of college courses they're taking. Our AI-driven gamified approach makes study time more efficient and engaging than traditional lecture-based learning."
+        q: 'Who are the AI Historical Mentors?',
+        a: 'Each of our 4 Knowledge Schools pairs students with AI-powered historical pioneers: Orville & Wilbur Wright, Amelia Earhart, Nikola Tesla, and Albert Einstein in Engineering; Marie Curie in Biomedics; Henry Ford in Business; and Abraham Lincoln in Law & Public Service. College graduates and subject-matter mentors oversee every course.',
     },
     {
-        q: "Is this for homeschoolers only?",
-        a: "Not at all. University School is designed for all ambitious students — whether they attend public school, private school, or are homeschooled. Any motivated student aged 11+ can benefit from earning college credits early."
+        q: 'How does University School help students pass real university exams?',
+        a: 'Our Socratic Exam & Assignment Coach bridges every interactive historical lab directly to the partner university’s formal problem sets and proctored assessments. It never gives away answers—instead, it guides students step-by-step using the experiments they just completed so they pass university exams with genuine mastery.',
     },
     {
-        q: "Can international students participate?",
-        a: "Yes! Our platform is accessible globally. International students can earn transferable college credits through our U.S.-based partner universities, giving them a head start before applying to American colleges or universities in other countries that accept U.S. transfer credits."
+        q: 'Does this replace middle school or high school?',
+        a: 'University School can either supplement a student’s existing public, private, or homeschool education (1–2 hours per day) or serve as their primary accelerated academic pathway at a local University School Center, allowing them to earn college credits, certificates, and degrees years early.',
     },
     {
-        q: "What universities are involved?",
-        a: "We partner with over 60 accredited universities and community colleges across the United States, including institutions in the UC system, Cal State system, and many more. Our transfer pathways cover a wide range of top public and private universities."
+        q: 'How do 4-Student Co-Op Discovery Squads and Centers work?',
+        a: 'Students never learn in isolation. Whether collaborating online or in person at a local University School Center, students are grouped by passion into 4-person discovery squads to run wind-tunnel trials, debate constitutional cases, and build capstone projects together.',
     },
     {
-        q: "What age should students start?",
-        a: "Students can begin as early as 11 years old. Starting with interactive first-person missions at 11 builds foundational mastery and transferable college credits early, giving students maximum flexibility and tuition savings."
+        q: 'Can international students earn U.S. university credits and degrees?',
+        a: 'Yes! Students anywhere in the world can access University School across Computer, Tablet, TV App, and international Learning Centers to earn official U.S. university credits, certificates, and degrees.',
     },
-    {
-        q: "How does the AI Narrator work?",
-        a: "Each course is guided by an AI Narrator — historical and scientific figures like Einstein or the Wright Brothers who fit the subject. You play in first person making real decisions, learning by getting it wrong, while college graduates oversee every subject."
-    },
-    {
-        q: "How do Local Nodes work?",
-        a: "University School Nodes are physical microschool locations where students can collaborate in person, build in robotics and science labs, and receive guidance from university-graduate facilitators alongside their online coursework."
-    },
-    {
-        q: "What is the role of parents?",
-        a: "Parents have full visibility into their child's progress through our Parent Dashboard. They can track course completion, XP progress, and upcoming milestones while our AI Narrator and subject-matter college graduates guide the coursework."
-    },
-    {
-        q: "Are credits guaranteed to transfer?",
-        a: "Credits earned through our accredited partner universities are widely accepted. However, transfer credit acceptance ultimately depends on the receiving institution's policies. We help students target courses with the highest transfer compatibility for their desired universities."
-    }
 ];
 
 export const FAQSection = () => {
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <section className="py-24 bg-white border-t border-slate-200">
+        <section className="py-24 bg-[#140709] text-white border-t border-[#C9B47C]/30">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <span className="text-[#C9B47C] font-bold tracking-widest text-xs uppercase mb-3 block">Common Questions</span>
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6">
-                        Frequently Asked Questions
+                    <span className="text-[#E6C687] font-bold tracking-[0.22em] text-xs uppercase mb-3 block">
+                        Common Questions
+                    </span>
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+                        Frequently Asked <span className="text-[#E6C687]">Questions</span>
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        Everything parents and students need to know about University School.
+                    <p className="text-slate-300 max-w-2xl mx-auto text-lg">
+                        Everything parents and students need to know about earning accredited university credits, certificates, and degrees starting at age 11.
                     </p>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-3.5">
                     {FAQ_DATA.map((item, i) => (
-                        <div key={i} className="bg-[#FAF8F5] border border-slate-200 rounded-2xl overflow-hidden hover:border-[#C9B47C]/40 transition-colors">
+                        <div
+                            key={i}
+                            className="bg-[#1F0B10] border border-[#E6C687]/30 rounded-2xl overflow-hidden hover:border-[#E6C687] transition-colors shadow-lg"
+                        >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                                 className="w-full flex items-center justify-between p-6 text-left"
                             >
-                                <div className="flex items-center gap-3">
-                                    <HelpCircle size={18} className="text-[#8B2332] flex-shrink-0" />
-                                    <span className="font-bold text-[#2D2D2D] text-sm md:text-base">{item.q}</span>
+                                <div className="flex items-center gap-3.5">
+                                    <HelpCircle size={19} className="text-[#E6C687] flex-shrink-0" />
+                                    <span className="font-serif font-bold text-white text-base md:text-lg">
+                                        {item.q}
+                                    </span>
                                 </div>
                                 <ChevronDown
                                     size={18}
-                                    className={`text-slate-400 transition-transform duration-300 flex-shrink-0 ml-4 ${openIndex === i ? 'rotate-180' : ''}`}
+                                    className={`text-[#E6C687] transition-transform duration-300 flex-shrink-0 ml-4 ${
+                                        openIndex === i ? 'rotate-180' : ''
+                                    }`}
                                 />
                             </button>
                             <div
-                                className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                className={`overflow-hidden transition-all duration-300 ${
+                                    openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                }`}
                             >
-                                <p className="px-6 pb-6 text-slate-600 text-sm leading-relaxed pl-12">
+                                <p className="px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed pl-14">
                                     {item.a}
                                 </p>
                             </div>

@@ -123,7 +123,7 @@ const KNOWLEDGE_SCHOOL_PORTRAITS = [
     {
         name: 'Engineering',
         tagline: 'From ideas to what moves the world.',
-        mentor: 'Orville & Wilbur Wright · Tesla · Einstein',
+        mentor: 'Orville & Wilbur Wright · Amelia Earhart · Tesla · Einstein',
         image: '/images/visuals/school_portrait_engineering.jpg',
         icon: Settings,
     },
@@ -191,7 +191,7 @@ export const LandingPage = ({ onNavigate }) => {
                     <div className="absolute inset-0 z-0">
                         <img
                             src="/images/visuals/hero_mentors_scene.jpg"
-                            alt="University School student working with Orville & Wilbur Wright, Albert Einstein, Nikola Tesla, and Henry Ford"
+                            alt="University School student working with Orville & Wilbur Wright, Albert Einstein, Nikola Tesla, and Amelia Earhart"
                             className="w-full h-full object-cover object-right-top opacity-95"
                         />
                         {/* Smooth Left & Bottom Vignettes so native typography & cards read crisply */}
@@ -319,7 +319,7 @@ export const LandingPage = ({ onNavigate }) => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 relative">
                         {[
                             { label: 'Partner Universities', value: '60+', icon: GraduationCap },
-                            { label: 'Credits Transferable', value: '100%', icon: Target },
+                            { label: 'Accredited Credits & Degrees', value: '100%', icon: Target },
                             { label: 'Start Age', value: '11+', icon: Star },
                             { label: 'Tuition Saved', value: '$80k+', icon: Sparkles },
                         ].map((stat, i) => (
@@ -877,7 +877,7 @@ export const LandingPage = ({ onNavigate }) => {
                             Meet Your AI Narrator. <span className="text-[#E6C687]">Explore your future.</span>
                         </h2>
                         <p className="text-slate-300 max-w-3xl mx-auto text-lg leading-relaxed">
-                            Your AI Narrator guides you through the story &mdash; Marie Curie, the Wright Brothers, Henry Ford, or Abraham Lincoln.
+                            Your AI Narrator guides you through the story &mdash; Marie Curie, the Wright Brothers, Amelia Earhart, Henry Ford, or Abraham Lincoln.
                             You play in first person making the decisions and learn by getting it wrong.
                         </p>
                     </div>
@@ -916,8 +916,8 @@ export const LandingPage = ({ onNavigate }) => {
                                     </div>
 
                                     <div className="pt-3 border-t border-[#E6C687]/25 text-[10px] font-bold uppercase tracking-[0.14em] text-[#E6C687]/90 leading-relaxed">
-                                        University-Level Courses.<br />
-                                        Transferable Credit Where Eligible.
+                                        Accredited University Courses.<br />
+                                        Real Credits, Certificates &amp; Degrees.
                                     </div>
                                 </div>
                             </div>
@@ -956,10 +956,10 @@ export const LandingPage = ({ onNavigate }) => {
                         <div className="rounded-2xl bg-[#140709] border border-[#E6C687]/30 p-6">
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
                                 {[
-                                    { age: 'AGE 11', stage: 'First Historical Lab', detail: 'Wright 1903 · Curie · Tesla' },
-                                    { age: 'AGE 13', stage: '15+ Transfer Credits', detail: 'Verified CLEP & Partner Courses' },
-                                    { age: 'AGE 15', stage: 'Sophomore Standing', detail: '30–45 Credits · Micro-Campus Projects' },
-                                    { age: 'AGE 17+', stage: 'University Ready', detail: 'Up to 60 Credits · $80k+ Tuition Saved' },
+                                    { age: 'AGE 11', stage: 'First Historical Lab', detail: 'Wright 1903 · Earhart · Curie · Tesla' },
+                                    { age: 'AGE 13', stage: '15+ University Credits', detail: 'Accredited Partner Courses & CLEP' },
+                                    { age: 'AGE 15', stage: 'Undergraduate Standing', detail: '30–60 Credits · Stackable Certificates' },
+                                    { age: 'AGE 17+', stage: 'College Degree Earned', detail: "Full Bachelor's Degree · $80k+ Saved" },
                                 ].map((step, idx) => (
                                     <div key={idx} className="relative bg-[#1F0B10] border border-[#E6C687]/25 rounded-xl p-4 text-center">
                                         <div className="inline-block px-3 py-0.5 rounded-full bg-[#E6C687]/15 border border-[#E6C687]/40 text-[#E6C687] text-[11px] font-bold tracking-widest mb-2">
@@ -976,52 +976,100 @@ export const LandingPage = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                9. PHILOSOPHY — The Narrator is Not a Professor. (Website 1.2)
+                9. PHILOSOPHY — The Narrator is Not a Professor
+                   (Interactive XP Model vs. Traditional Chapter-Based Instruction)
                 ═══════════════════════════════════════════════════════════ */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-[#FAF8F5] border-b border-[#8B2332]/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <div>
+                    <div className="grid lg:grid-cols-12 gap-12 items-center">
+                        <div className="lg:col-span-5">
+                            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#8B2332] block mb-3">
+                                Interactive XP Curriculum Model
+                            </span>
                             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-6 leading-tight">
                                 The Narrator is Not a Professor.
                             </h2>
-                            <p className="text-slate-600 text-xl mb-8 leading-relaxed">
-                                University School transforms college coursework into interactive missions.
-                                Your AI Narrator doesn&apos;t just grade you&mdash;it guides you through a personalized skill tree mapped directly to college transfer requirements.
+                            <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                                Traditional courses hand you chapters of equations first and hope you remember them for an exam.
+                                University School reverses the sequence: you enter the historical workshop first, test real variables,
+                                and earn accredited university credits, certificates, and degrees by mastering the science in action.
                             </p>
-                            <ul className="space-y-6">
+                            <ul className="space-y-4 mb-8">
                                 {[
-                                    'Real-time XP tracking for academic progress',
-                                    'College graduates oversee every subject',
+                                    'Experience First, Formal Equations Second (F = ma, Lift & Drag)',
+                                    'Co-Op 4-Student Discovery Squads & Micro-Campus Labs',
+                                    'Direct preparation for accredited university exams & degrees',
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-700 font-medium text-lg">
-                                        <div className="h-8 w-8 rounded-full bg-[#8B2332] flex items-center justify-center text-white shadow-md flex-shrink-0">
-                                            <CheckCircle2 size={16} />
+                                    <li key={i} className="flex items-center gap-3 text-slate-700 font-medium text-base">
+                                        <div className="h-7 w-7 rounded-full bg-[#8B2332] flex items-center justify-center text-[#E6C687] shadow-md flex-shrink-0">
+                                            <CheckCircle2 size={15} />
                                         </div>
                                         {item}
                                     </li>
                                 ))}
                             </ul>
+                            <button
+                                onClick={() => onNavigate('process')}
+                                className="inline-flex items-center gap-2.5 bg-[#1F070B] hover:bg-[#3A0C14] text-[#E6C687] border border-[#E6C687]/40 px-6 py-3.5 rounded-xl font-serif font-bold text-sm shadow-lg transition-all"
+                            >
+                                Explore the Interactive XP Curriculum
+                                <ArrowRight size={16} />
+                            </button>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#8B2332] to-[#C9B47C] rounded-3xl blur-2xl opacity-15" />
-                            <div className="relative bg-[#FAF8F5] border border-slate-200 rounded-3xl p-8 shadow-xl">
-                                <div className="text-center mb-6">
-                                    <span className="text-xs font-bold text-[#C9B47C] uppercase tracking-widest">How It Feels</span>
+
+                        {/* Right 7 Cols: Side-by-Side Traditional Chapter vs. Interactive XP Notice ("HELP WANTED") */}
+                        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                            {/* Traditional Chapter-Based Model */}
+                            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-lg flex flex-col justify-between">
+                                <div>
+                                    <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest mb-4">
+                                        Traditional Chapter-Based Model
+                                    </div>
+                                    <h3 className="font-serif text-xl font-bold text-slate-800 mb-2">
+                                        Chapter 1: Foundations of Dynamics
+                                    </h3>
+                                    <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                                        Starts with abstract definitions of kinematics, inertia, and Newton&apos;s Second Law before the student ever touches a physical system.
+                                    </p>
+                                    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 font-mono text-xs text-slate-600 space-y-1.5 mb-4">
+                                        <div>1.1 Position, Velocity &amp; Acceleration</div>
+                                        <div>1.2 ΣF = m · a (Vector Form)</div>
+                                        <div>1.3 L = ½ · ρ · v² · S · C_L</div>
+                                        <div>1.4 End-of-Chapter Problem Set #1–24</div>
+                                    </div>
                                 </div>
-                                <div className="space-y-4">
-                                    {[
-                                        { emoji: '🗺️', label: 'Side Quests', desc: 'Replace homework with real-world missions' },
-                                        { emoji: '🌳', label: 'Skill Trees', desc: 'Track progress like a strategy game' },
-                                    ].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-slate-100 hover:border-[#C9B47C]/30 hover:shadow-md transition-all">
-                                            <div className="text-3xl">{item.emoji}</div>
-                                            <div>
-                                                <div className="font-bold text-[#2D2D2D] text-sm">{item.label}</div>
-                                                <div className="text-xs text-slate-500">{item.desc}</div>
-                                            </div>
+                                <div className="pt-3 border-t border-slate-100 text-xs text-slate-400 italic">
+                                    Passive reading · Isolated memorization
+                                </div>
+                            </div>
+
+                            {/* University School Interactive XP Model (Frank's Wright Brothers Notice) */}
+                            <div className="bg-[#1F070B] text-white rounded-3xl p-6 border border-[#E6C687]/40 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                                <div>
+                                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B2332] border border-[#E6C687]/40 text-[#E6C687] text-[10px] font-bold uppercase tracking-widest mb-4">
+                                        <Sparkles size={11} /> University School Interactive XP
+                                    </div>
+                                    <h3 className="font-serif text-xl font-bold text-white mb-2">
+                                        Dayton &amp; Kitty Hawk, 1903
+                                    </h3>
+                                    <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-4 border border-[#C9B47C] shadow-inner mb-4">
+                                        <div className="text-[10px] font-bold uppercase tracking-widest text-[#8B2332] mb-1">
+                                            Posted Inside Wright Cycle Co.
                                         </div>
-                                    ))}
+                                        <div className="font-serif font-bold text-sm text-[#1F070B] mb-1">
+                                            &ldquo;HELP WANTED &mdash; Mechanical Assistance Needed&rdquo;
+                                        </div>
+                                        <p className="text-xs text-[#2B0A10]/90 leading-relaxed">
+                                            Assist Wilbur &amp; Orville Wright with experimental flying machines. Test wing camber, balance thrust against drag, and launch from Kill Devil Hills.
+                                        </p>
+                                    </div>
+                                    <p className="text-xs text-slate-300 leading-relaxed mb-3">
+                                        Students discover <span className="text-[#E6C687] font-semibold">F = ma</span>, lift-to-weight ratios, and stability by fixing real flight failures first.
+                                    </p>
+                                </div>
+                                <div className="pt-3 border-t border-[#E6C687]/20 flex items-center justify-between text-[11px] font-bold text-[#E6C687]">
+                                    <span>+250 Engineering XP</span>
+                                    <span>3.0 Accredited Credits</span>
                                 </div>
                             </div>
                         </div>
@@ -1032,27 +1080,27 @@ export const LandingPage = ({ onNavigate }) => {
             {/* ═══════════════════════════════════════════════════════════
                 10. ASU DEMO CALLOUT — "Experience the Transformation"
                 ═══════════════════════════════════════════════════════════ */}
-            <section className="py-20 bg-gradient-to-br from-[#0A1628] to-[#1a1a2e] text-white relative overflow-hidden border-t border-[#C9B47C]/20">
-                <div className="absolute inset-0 opacity-10">
+            <section className="py-20 bg-gradient-to-br from-[#1F070B] via-[#2B0A10] to-[#140508] text-white relative overflow-hidden border-t border-[#C9B47C]/30">
+                <div className="absolute inset-0 opacity-15">
                     <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#C9B47C] blur-[120px]" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#8B2332] blur-[100px]" />
                 </div>
                 <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9B47C]/10 border border-[#C9B47C]/20 text-[#C9B47C] text-xs font-bold uppercase tracking-widest mb-6">
-                        <Sparkles size={12} className="animate-pulse" /> Try it now
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6C687]/15 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-widest mb-6">
+                        <Sparkles size={12} /> Interactive University Syllabus Demo
                     </div>
                     <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-                        Transform Dry Lectures into Immersive Quests
+                        See Any University Syllabus Become an <span className="text-[#E6C687]">Immersive Story</span>
                     </h2>
-                    <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Watch how we take a standard, whiteboard-based ASU Online college lecture and morph it instantly into an interactive strategy game built for ambitious students starting at age 11.
+                    <p className="text-slate-200 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                        Explore how University School transforms an accredited Arizona State University engineering course into a hands-on 1903 Wright Brothers aerodynamic lab and Socratic exam prep starting at age 11.
                     </p>
                     <button
                         onClick={() => onNavigate('asu-demo')}
-                        className="group bg-[#8B2332] hover:bg-[#a62b3d] border border-[#C9B47C]/30 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-3 active:scale-[0.98]"
+                        className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-8 py-4 rounded-2xl font-bold transition-all shadow-xl inline-flex items-center gap-3 active:scale-[0.98]"
                     >
-                        <Zap size={18} className="text-[#C9B47C]" />
-                        Launch ASU Course Transformer Demo
+                        <Zap size={18} className="text-[#8B2332]" />
+                        Launch Interactive 1903 Course Demo
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>

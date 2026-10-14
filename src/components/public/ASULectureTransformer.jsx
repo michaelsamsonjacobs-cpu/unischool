@@ -123,8 +123,8 @@ const UNIVERSITY_SKILL_TREE = [
         title: 'Capstone Boss Trial: Transonic Airfoil Optimization',
         xp: 600,
         status: 'locked',
-        historicalSim: '1933 NACA Langley Variable-Density Tunnel',
-        asuCompetency: 'Module 6: Full 4.0 ASU / CLEP Transfer Credit Verification',
+        historicalSim: '1932 Amelia Earhart Transatlantic & NACA Tunnel',
+        asuCompetency: 'Module 6: Full 4.0 Accredited University Degree Credit',
     },
 ];
 
@@ -159,7 +159,7 @@ const SYLLABUS_CAMPAIGN_EPISODES = [
         syllabusUnit: 'Fluid Continuity, Bernoulli Pressure Differential & Boundary-Layer Stall',
         storyTitle: '1901 Dayton Wind Tunnel & Dec 17, 1903 Launch Rail',
         kidNarrative:
-            'Lilienthal’s published tables are wrong! Step into the 1901 Dayton bicycle-shop wind tunnel to test 200 miniature brass wing ribs, discover the 1:20 camber sweet spot, cure the 14.5° stall, and fly 120 feet at Kitty Hawk.',
+            'Lilienthal’s published tables are wrong! Step into the 1901 Dayton bicycle-shop wind tunnel with the Wright Brothers and aviation pioneer Amelia Earhart to test 200 miniature brass wing ribs, discover the 1:20 camber sweet spot, cure the 14.5° stall, and fly 120 feet at Kitty Hawk.',
         asuDeliverable: 'ASU PHY 121 Problem Set #4 + Module 4 Exam (Active)',
         status: 'active',
         asuScore: 'In Progress (Struggle Detected @ 14:22)',
@@ -181,10 +181,10 @@ const SYLLABUS_CAMPAIGN_EPISODES = [
         ep: 'Episode 5',
         weeks: 'Weeks 13–15 · Lectures 25–30',
         syllabusUnit: 'Work, Mechanical Energy, Power, Conservation Laws & Capstone',
-        storyTitle: '1905 Wright Flyer III 39-Minute Endurance Capstone',
+        storyTitle: '1905 Wright Flyer III & Amelia Earhart Endurance Capstone',
         kidNarrative:
-            'Optimize twin-chain propeller mechanical work and engine shaft power to keep the 1905 Flyer airborne for 24 miles over Dayton—completing your full semester narrative arc.',
-        asuDeliverable: 'ASU PHY 121 Proctored Final Exam → 4.0 Transferable Credits',
+            'Optimize propeller mechanical work, fuel range, and engine shaft power to complete your full semester aerodynamic arc—earning official university credit toward your degree.',
+        asuDeliverable: 'ASU PHY 121 Proctored Final Exam → 4.0 Accredited Degree Credits',
         status: 'upcoming',
         asuScore: 'Capstone Boss Trial',
         xp: '+600 XP + 4.0 Credits',

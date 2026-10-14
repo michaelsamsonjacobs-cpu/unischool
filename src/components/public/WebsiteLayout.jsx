@@ -10,10 +10,11 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
 
     const NAV_LINKS = [
         { id: 'home', label: 'Home' },
+        { id: 'students', label: 'Knowledge Schools' },
         { id: 'process', label: 'Our Process' },
         { id: 'partners', label: 'University Partners' },
-        { id: 'franchise', label: 'Franchise' },
-        { id: 'asu-demo', label: 'ASU Demo' },
+        { id: 'franchise', label: 'Centers' },
+        { id: 'asu-demo', label: '1903 Sim Demo' },
         { id: 'about', label: 'About' },
     ];
 
@@ -129,7 +130,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                         <div className="col-span-1 md:col-span-2">
                             <h3 className="font-serif text-2xl font-bold text-[#2D2D2D] mb-4">University School</h3>
                             <p className="text-slate-600 max-w-md mb-6 leading-relaxed">
-                                We are re-engineering the K-12 experience to be a direct pipeline to the world's best universities. Life is a strategy game—we help you win it.
+                                Real university learning starting at age 11. We transform accredited university courses into immersive first-person historical simulations—empowering young learners to earn real college credits, certificates, and degrees.
                             </p>
                             <div className="flex items-start gap-3 p-4 bg-[#8B2332]/5 border border-[#8B2332]/10 rounded-xl max-w-md">
                                 <Shield className="text-[#8B2332] flex-shrink-0 mt-1" size={24} />
@@ -137,7 +138,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                     <h4 className="font-bold text-[#2D2D2D] text-sm mb-1">Academic Supervision</h4>
                                     <p className="text-xs text-slate-600">
                                         All curriculum and learning pathways are independently supervised by administrators from
-                                        <span className="text-[#8B2332] font-semibold"> UC Berkeley's Graduate School of Education</span>.
+                                        <span className="text-[#8B2332] font-semibold"> UC Berkeley&apos;s Graduate School of Education</span>.
                                     </p>
                                 </div>
                             </div>
@@ -146,8 +147,9 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                         <div>
                             <h4 className="font-semibold text-[#2D2D2D] mb-4">Platform</h4>
                             <ul className="space-y-2 text-sm text-slate-600">
+                                <li><button onClick={() => onNavigate('students')} className="hover:text-[#8B2332] transition-colors">Knowledge Schools</button></li>
                                 <li><button onClick={() => onNavigate('process')} className="hover:text-[#8B2332] transition-colors">Our Process</button></li>
-                                <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">Transfer Matrix</button></li>
+                                <li><button onClick={() => onNavigate('partners')} className="hover:text-[#8B2332] transition-colors">University Partners</button></li>
                                 <li><button onClick={() => onNavigate('franchise')} className="hover:text-[#8B2332] transition-colors">Open a Node</button></li>
                                 <li><button onClick={() => onNavigate('asu-demo')} className="hover:text-[#8B2332] transition-colors">ASU Course Demo</button></li>
                             </ul>
