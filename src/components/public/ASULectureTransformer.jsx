@@ -36,7 +36,7 @@ import { ConfusionDetectionService } from '../../services/ConfusionDetectionServ
 const SQUAD_ROLES = [
     {
         id: 'aerodynamicist',
-        student: 'Alex (You)',
+        student: 'Child 1 (Scholar)',
         roleTitle: 'Lead Aerodynamicist',
         guild: 'Engineering Guild',
         level: 14,
@@ -47,7 +47,7 @@ const SQUAD_ROLES = [
     },
     {
         id: 'physicist',
-        student: 'Maya K.',
+        student: 'Child 2',
         roleTitle: 'Experimental Physicist',
         guild: 'Science Guild',
         level: 13,
@@ -150,7 +150,7 @@ const SYLLABUS_CAMPAIGN_EPISODES = [
             'When the 1901 glider pitches nose-down over Kill Devil Hills, balance the four fundamental forces—Lift, Weight, Thrust, and Drag—until net vertical acceleration reaches equilibrium.',
         asuDeliverable: 'ASU PHY 121 Problem Set #3 + Proctored Midterm 1',
         status: 'completed',
-        asuScore: '94% (A)',
+        asuScore: 'Mastery Verified (A)',
         xp: '+300 XP',
     },
     {
@@ -455,14 +455,14 @@ export const ASULectureTransformer = ({ onNavigate }) => {
             setActionPoints((ap) => Math.max(10, ap - role.powerCost));
             setStudentXp((xp) => xp + 75);
             setSquadBannerMsg(
-                'Alex activated Isobar Pressure Vision (-15 AP, +75 XP): Bernoulli ΔP contours & velocity ratios overlaid on 60fps wind tunnel.'
+                'Child 1 activated Isobar Pressure Vision (-15 AP, +75 XP): Bernoulli ΔP contours & velocity ratios overlaid on 60fps wind tunnel.'
             );
         } else if (idx === 1) {
             setActivePowers((p) => ({ ...p, stallHorizon: !p.stallHorizon }));
             setActionPoints((ap) => Math.max(10, ap - role.powerCost));
             setStudentXp((xp) => xp + 75);
             setSquadBannerMsg(
-                'Maya K. activated Stall Envelope Horizon (-15 AP, +75 XP): Critical α = 11.5° boundary-layer separation line projected.'
+                'Child 2 activated Stall Envelope Horizon (-15 AP, +75 XP): Critical α = 11.5° boundary-layer separation line projected.'
             );
         } else if (idx === 2) {
             handleApplyWrightPreset();
@@ -874,7 +874,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
             setStudentXp(3290);
             setStudentLevel(15);
             setSquadBannerMsg(
-                'LEVEL UP! Alex reached LVL 15 Lead Aerodynamicist (+450 XP) · ASU PHY 121 Homework #4 & Exam Prep Verified Properly!'
+                'LEVEL UP! Child 1 reached LVL 15 Lead Aerodynamicist (+450 XP) · ASU PHY 121 Homework #4 & Exam Prep Verified Properly!'
             );
         }
     };
@@ -1194,7 +1194,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 </div>
                             </div>
                             <span className="px-3 py-1 rounded-full bg-black/25 text-xs font-semibold">
-                                Student: Alex (Age 12 · LVL {studentLevel})
+                                Student: Child 1 (Age 12 · LVL {studentLevel})
                             </span>
                         </div>
 
@@ -1242,7 +1242,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                 </p>
                                 <div className="p-3 rounded-xl bg-white border border-red-200 text-xs text-red-800 flex items-center justify-between">
                                     <span>
-                                        <strong>Alex&apos;s Answer:</strong> &ldquo;Because steeper angle always increases lift, so the tail must have been too heavy.&rdquo;
+                                        <strong>Child 1&apos;s Answer:</strong> &ldquo;Because steeper angle always increases lift, so the tail must have been too heavy.&rdquo;
                                     </span>
                                     <span className="font-bold uppercase ml-2 shrink-0">✗ Misconception</span>
                                 </div>
@@ -1258,7 +1258,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                                     Live ASU Struggle Telemetry
                                 </span>
                                 <h3 className="font-serif text-2xl font-bold text-white mt-0.5">
-                                    Where Alex Is Struggling
+                                    Where Child 1 Is Struggling
                                 </h3>
                             </div>
                             <div className="px-3 py-1.5 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 text-xs font-bold flex items-center gap-1.5">
@@ -1647,7 +1647,7 @@ export const ASULectureTransformer = ({ onNavigate }) => {
                             <div className="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 text-emerald-200 text-xs sm:text-sm flex items-center gap-3">
                                 <CheckCircle2 size={22} className="text-emerald-400 shrink-0" />
                                 <div>
-                                    <strong>ASU PHY 121 Assignment &amp; Exam Check Passed Properly!</strong> Alex solved the formal university problem using their lived 1903 wind-tunnel intuition, leveled up to <strong>LVL 15 (3,290 XP)</strong>, and synced 88% Mastery back to ASU Online.
+                                    <strong>ASU PHY 121 Assignment &amp; Exam Check Passed Properly!</strong> Child 1 solved the formal university problem using their lived 1903 wind-tunnel intuition, leveled up to <strong>LVL 15 (3,290 XP)</strong>, and synced 88% Mastery back to ASU Online.
                                 </div>
                             </div>
                         )}

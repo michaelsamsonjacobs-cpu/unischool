@@ -158,7 +158,7 @@ const WRIGHT_CAMPAIGN_NODES = [
         step: 'Node 04',
         title: 'Accredited University Exam & Credit Lock-In',
         status: 'Ready for Mastery Check · 3.0 Credits',
-        desc: 'Translate your lived aerodynamic intuition into formal university equations and complete the proctored partner university assessment.',
+        desc: 'Translate your lived aerodynamic intuition into formal university equations and complete the proctored accredited open-enrollment credit provider assessment.',
         concept: 'Official University Transcript Credit (FSE 100 / PHY 121)',
         done: false,
     },
@@ -213,7 +213,7 @@ export const StudentPage = ({ onNavigate }) => {
                                     onClick={() => onNavigate('partners')}
                                     className="bg-[#8B2332]/90 hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all flex items-center gap-2"
                                 >
-                                    Explore 60+ Partner Universities
+                                    Explore Accredited Open-Enrollment Credit Providers (ASU ULC, BYU IS, CLEP)
                                 </button>
                             </div>
                         </div>
@@ -319,7 +319,7 @@ export const StudentPage = ({ onNavigate }) => {
 
                             {/* Right 7 Cols: Featured Historical Story Notice + Accredited University Course Stack */}
                             <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
-                                {/* Historical Campaign Notice (Frank's Interactive XP Model) */}
+                                {/* Historical Campaign Notice (1903 Interactive XP Model) */}
                                 <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-6 border border-[#C9B47C] shadow-inner">
                                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8B2332]">
@@ -642,7 +642,7 @@ export const StudentPage = ({ onNavigate }) => {
                                 onClick={() => onNavigate('partners')}
                                 className="bg-[#8B2332] hover:bg-[#A3293B] border border-[#E6C687]/50 text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl inline-flex items-center gap-2.5 transition-all"
                             >
-                                View Accredited University Partners
+                                View Accredited Open-Enrollment Credit Providers
                             </button>
                         </div>
                     </div>

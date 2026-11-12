@@ -79,7 +79,7 @@ export const StudentSuccessStories = () => {
                     {[
                         {
                             title: '1. No High School Diploma Needed',
-                            desc: 'Partner universities and CLEP credit-by-exam pathways allow students aged 11+ to earn official, transferable college transcript credits right now.',
+                            desc: 'Accredited Open-Enrollment Credit Providers (ASU Universal Learner, BYU Independent Study, CLEP) and CLEP credit-by-exam pathways allow students aged 11+ to earn official, transferable college transcript credits right now.',
                         },
                         {
                             title: '2. Built for 11+ Minds, Not Lecture Halls',

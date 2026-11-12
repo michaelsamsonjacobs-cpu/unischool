@@ -20,7 +20,7 @@ export const CLEPSection = ({ onNavigate }) => {
                         <span className="block text-[#E6C687]">in 90 Minutes.</span>
                     </h2>
                     <p className="text-slate-300 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Alongside full partner university courses and degree tracks, the College-Level Examination Program (CLEP) lets students earn official college credit by mastering the subject in our historical labs and passing a single exam.
+                        Alongside full accredited open-enrollment credit provider courses and degree tracks, the College-Level Examination Program (CLEP) lets students earn official college credit by mastering the subject in our historical labs and passing a single exam.
                     </p>
                 </div>
 

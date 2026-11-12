@@ -347,7 +347,7 @@ export const ClaudeMotionShowcase = () => {
                 }
                 ctx.fillStyle = '#FAF7F2';
                 ctx.font = '700 14px Georgia, serif';
-                ctx.fillText('“Test the camber at 7.5° angle of attack, Alex.”', cx + 32, cy + 202);
+                ctx.fillText('“Test the camber at 7.5° angle of attack, Scholar.”', cx + 32, cy + 202);
 
                 drawVectorAirfoilDiagram(ctx, cx + 22, cy + 228, 350, 142, t);
 

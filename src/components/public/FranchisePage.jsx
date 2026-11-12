@@ -61,7 +61,7 @@ const CENTER_LAUNCH_STEPS = [
     {
         step: 'STEP 03 · FACILITATOR ONBOARDING',
         title: 'Facilitator Orientation & Platform Provisioning',
-        desc: 'Because our AI Narrator and accredited partner university syllabi handle 100% of formal lecture instruction and Socratic coaching, local facilitators don’t need to write lesson plans—you focus on mentorship, group discussion, and encouragement.',
+        desc: 'Because our AI Narrator and accredited accredited open-enrollment credit provider syllabi handle 100% of formal lecture instruction and Socratic coaching, local facilitators don’t need to write lesson plans—you focus on mentorship, group discussion, and encouragement.',
         deliverable: 'Center OS Dashboard & Facilitator Certification',
     },
     {

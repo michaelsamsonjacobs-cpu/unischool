@@ -21,7 +21,7 @@ const PROCESS_PILLAR_TILES = [
     {
         step: 'Step 01',
         name: 'Accredited Syllabus',
-        tagline: 'Start with a real partner university course.',
+        tagline: 'Start with a real accredited open-enrollment credit provider course.',
         image: '/images/visuals/student_campus_lookup.jpg',
         icon: BookOpen,
     },
@@ -228,7 +228,7 @@ export const ProcessPage = ({ onNavigate }) => {
 
             {/* ═══════════════════════════════════════════════════════════
                 2. SIDE-BY-SIDE CURRICULUM ARCHITECTURE
-                   (Frank's Traditional Chapter Model vs. Interactive XP Model)
+                   (1903 Traditional Chapter Model vs. Interactive XP Model)
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-20 bg-[#FAF8F5] border-b border-[#8B2332]/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -413,7 +413,7 @@ export const ProcessPage = ({ onNavigate }) => {
                             {
                                 step: 'Phase 3',
                                 title: 'University Transcript Credit',
-                                desc: "Complete the partner university's official exams and assignments to lock in accredited credits toward certificates, associate degrees, and bachelor's degrees.",
+                                desc: "Complete the accredited open-enrollment credit provider's official exams and assignments to lock in accredited credits toward certificates, associate degrees, and bachelor's degrees.",
                             },
                         ].map((card, i) => (
                             <div

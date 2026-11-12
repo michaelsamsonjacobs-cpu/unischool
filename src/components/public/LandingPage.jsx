@@ -229,28 +229,45 @@ export const LandingPage = ({ onNavigate }) => {
                                 Starts at 11. Goes as far as you do.
                             </p>
 
-                            <div className="flex flex-wrap items-center gap-3.5">
-                                <button
-                                    onClick={() => onNavigate('students')}
-                                    className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-7 py-4 rounded-2xl font-bold text-base sm:text-lg shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2.5"
+                            <div className="flex flex-wrap items-center gap-3">
+                                <a
+                                    href="https://usai-school-app.vercel.app/login"
+                                    className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2"
                                 >
-                                    Start at 11
-                                    <ArrowRight size={19} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <button
-                                    onClick={() => onNavigate('asu-demo')}
-                                    className="group bg-[#8B2332]/90 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl transition-all flex items-center gap-2.5"
+                                    Launch App (Parent · Child 1 · Child 2)
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                </a>
+                                <a
+                                    href="https://usai-school-app.vercel.app/dashboard/class-studio"
+                                    className="group bg-[#8B2332]/90 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-5 py-4 rounded-2xl font-bold text-sm shadow-xl transition-all flex items-center gap-2"
                                 >
                                     <Sparkles size={16} className="text-[#E6C687]" />
-                                    Try Interactive Course Demo
-                                </button>
+                                    Class Studio &amp; SymPy Lab
+                                </a>
                                 <button
                                     onClick={scrollToHowItWorks}
-                                    className="group bg-black/45 hover:bg-black/65 backdrop-blur-md border border-[#E6C687]/40 text-white px-5 py-4 rounded-2xl font-semibold text-sm sm:text-base transition-all flex items-center gap-2"
+                                    className="group bg-black/45 hover:bg-black/65 backdrop-blur-md border border-[#E6C687]/40 text-white px-5 py-4 rounded-2xl font-semibold text-sm transition-all flex items-center gap-2"
                                 >
                                     <Play size={16} className="text-[#E6C687] fill-[#E6C687]" />
                                     Watch 90s Film
                                 </button>
+                            </div>
+
+                            <div className="mt-3 flex flex-wrap items-center gap-2.5 text-xs">
+                                <a
+                                    href="https://usai-school-app.vercel.app/dashboard/asu-companion"
+                                    className="px-3.5 py-2 rounded-xl bg-black/55 hover:bg-black/75 border border-[#E6C687]/35 text-[#E6C687] font-semibold transition-all inline-flex items-center gap-1.5"
+                                >
+                                    <Compass size={14} />
+                                    <span>1854 Broad Street Investigation</span>
+                                </a>
+                                <a
+                                    href="https://usai-school-app.vercel.app/dashboard/degree-planner"
+                                    className="px-3.5 py-2 rounded-xl bg-black/55 hover:bg-black/75 border border-white/25 text-slate-100 font-semibold transition-all inline-flex items-center gap-1.5"
+                                >
+                                    <GraduationCap size={14} className="text-[#E6C687]" />
+                                    <span>Dual-Credit Architect (🇺🇸 / 🇧🇷)</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -324,10 +341,10 @@ export const LandingPage = ({ onNavigate }) => {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 relative">
                         {[
-                            { label: 'Partner Universities', value: '60+', icon: GraduationCap },
-                            { label: 'Accredited Credits & Degrees', value: '100%', icon: Target },
+                            { label: 'Accredited Open-Enrollment Credit Providers (ASU ULC, BYU IS, CLEP)', value: '3 Core', icon: GraduationCap },
+                            { label: 'Official Transferable Credits', value: '60 Cr', icon: Target },
                             { label: 'Start Age', value: '11+', icon: Star },
-                            { label: 'Tuition Saved', value: '$80k+', icon: Sparkles },
+                            { label: 'Pay-After-Pass Entry', value: '$25', icon: Sparkles },
                         ].map((stat, i) => (
                             <div key={i} className="text-center relative group">
                                 <div className="hidden md:flex absolute -top-3 left-1/2 -translate-x-1/2 items-center justify-center z-10">
@@ -994,7 +1011,7 @@ export const LandingPage = ({ onNavigate }) => {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
                                 {[
                                     { age: 'AGE 11', stage: 'First Historical Lab', detail: 'Wright 1903 · Earhart · Curie · Tesla' },
-                                    { age: 'AGE 13', stage: '15+ University Credits', detail: 'Accredited Partner Courses & CLEP' },
+                                    { age: 'AGE 13', stage: '15+ University Credits', detail: 'ASU Universal Learner, BYU IS & CLEP' },
                                     { age: 'AGE 15', stage: 'Undergraduate Standing', detail: '30–60 Credits · Stackable Certificates' },
                                     { age: 'AGE 17+', stage: 'College Degree Earned', detail: "Full Bachelor's Degree · $80k+ Saved" },
                                 ].map((step, idx) => (
@@ -1140,7 +1157,7 @@ export const LandingPage = ({ onNavigate }) => {
                                 </div>
                             </div>
 
-                            {/* University School Interactive XP Model (Frank's Wright Brothers Notice) */}
+                            {/* University School Interactive XP Model (1903 Wright Brothers Notice) */}
                             <div className="bg-[#1F070B] text-white rounded-3xl p-6 border border-[#E6C687]/40 shadow-2xl flex flex-col justify-between relative overflow-hidden">
                                 <div>
                                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B2332] border border-[#E6C687]/40 text-[#E6C687] text-[10px] font-bold uppercase tracking-widest mb-4">

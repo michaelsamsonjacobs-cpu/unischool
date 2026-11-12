@@ -4,11 +4,11 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 const FAQ_DATA = [
     {
         q: 'How do students earn real university credits and degrees starting at age 11?',
-        a: 'Students enroll in real, accredited university courses offered through our partner universities (such as Arizona State University) and CLEP credit-by-exam sequences. University School transforms those syllabi into interactive first-person historical campaigns, and upon completing the university assessments, the partner university issues official transcript credits that stack toward undergraduate certificates, associate degrees, and full bachelor’s degrees.',
+        a: 'Students enroll in real, accredited university courses offered through our Accredited Open-Enrollment Credit Providers (ASU Universal Learner, BYU Independent Study, CLEP) (such as Arizona State University) and CLEP credit-by-exam sequences. University School transforms those syllabi into interactive first-person historical campaigns, and upon completing the university assessments, the accredited open-enrollment credit provider issues official transcript credits that stack toward undergraduate certificates, associate degrees, and full bachelor’s degrees.',
     },
     {
         q: 'Are the credits, certificates, and degrees fully accredited?',
-        a: 'Yes. The courses, certificates, and degrees are issued directly by regionally accredited partner universities. Credits appear on an official university transcript and are recognized by over 60 public and private universities nationwide.',
+        a: 'Yes. The courses, certificates, and degrees are issued directly by regionally accredited Accredited Open-Enrollment Credit Providers (ASU Universal Learner, BYU Independent Study, CLEP). Credits appear on an official university transcript and are recognized by over 60 public and private universities nationwide.',
     },
     {
         q: 'How does the Interactive XP Curriculum Model work?',
@@ -20,7 +20,7 @@ const FAQ_DATA = [
     },
     {
         q: 'How does University School help students pass real university exams?',
-        a: 'Our Socratic Exam & Assignment Coach bridges every interactive historical lab directly to the partner university’s formal problem sets and proctored assessments. It never gives away answers—instead, it guides students step-by-step using the experiments they just completed so they pass university exams with genuine mastery.',
+        a: 'Our Socratic Exam & Assignment Coach bridges every interactive historical lab directly to the accredited open-enrollment credit provider’s formal problem sets and proctored assessments. It never gives away answers—instead, it guides students step-by-step using the experiments they just completed so they pass university exams with genuine mastery.',
     },
     {
         q: 'Does this replace middle school or high school?',

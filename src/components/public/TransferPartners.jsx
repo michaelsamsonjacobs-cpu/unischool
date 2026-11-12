@@ -250,7 +250,7 @@ const UNIVERSITY_DEGREE_NETWORK = [
     },
 ];
 
-const ADDITIONAL_PARTNER_UNIVERSITIES = [
+const ADDITIONAL_RECEIVING_UNIVERSITIES = [
     'UC Davis',
     'UC Irvine',
     'UC Santa Barbara',
@@ -331,7 +331,7 @@ export const TransferPartners = ({ onNavigate }) => {
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8 w-full">
                         <div className="max-w-2xl">
                             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B2332]/90 border border-[#E6C687]/40 text-[#E6C687] text-xs font-bold uppercase tracking-[0.2em] mb-5">
-                                <GraduationCap size={14} /> 60+ Accredited University Partners
+                                <GraduationCap size={14} /> Accredited Open-Enrollment Credit Providers & 60+ Receiving Universities
                             </div>
 
                             <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.03] mb-5 drop-shadow-lg">
@@ -412,7 +412,7 @@ export const TransferPartners = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                2. HOW UNIVERSITY DEGREE CREDITS WORK (SLIDE 10 / FRANK'S MODEL)
+                2. HOW UNIVERSITY DEGREE CREDITS WORK (SLIDE 10 / 1903 MODEL)
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-16 bg-white border-b border-[#C9B47C]/20">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -445,7 +445,7 @@ export const TransferPartners = ({ onNavigate }) => {
                                         },
                                         {
                                             icon: Building2,
-                                            title: '2. REAL PARTNER UNIVERSITY SYLLABUS',
+                                            title: '2. REAL accredited open-enrollment credit provider SYLLABUS',
                                             sub: 'Every course is anchored to an accredited university syllabus (such as ASU Online FSE 100, PHY 121, or BIO 181).',
                                         },
                                         {
@@ -484,7 +484,7 @@ export const TransferPartners = ({ onNavigate }) => {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════
-                3. RICH STUDIO TILES — PARTNER UNIVERSITY DEGREE NETWORK
+                3. RICH STUDIO TILES — accredited open-enrollment credit provider DEGREE NETWORK
                 ═══════════════════════════════════════════════════════════ */}
             <section className="py-16 bg-[#FAF8F5]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -607,12 +607,12 @@ export const TransferPartners = ({ onNavigate }) => {
                                 60+ Universities Accepting &amp; Issuing Accredited Credits
                             </h3>
                             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                                Credits and credentials earned through University School&apos;s partner university courses and CLEP mastery sequences are recognized across more than 60 major public and private universities nationwide.
+                                Credits and credentials earned through University School&apos;s accredited open-enrollment credit provider courses and CLEP mastery sequences are recognized across more than 60 major public and private universities nationwide.
                             </p>
                         </div>
 
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
-                            {ADDITIONAL_PARTNER_UNIVERSITIES.map((uniName, i) => (
+                            {ADDITIONAL_RECEIVING_UNIVERSITIES.map((uniName, i) => (
                                 <div
                                     key={i}
                                     className="bg-[#240B10] border border-[#E6C687]/25 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 text-xs font-medium text-slate-200"

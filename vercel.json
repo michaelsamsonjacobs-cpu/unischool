@@ -1,0 +1,45 @@
+{
+  "redirects": [
+    {
+      "source": "/login",
+      "destination": "https://usai-school-app.vercel.app/login",
+      "permanent": false
+    },
+    {
+      "source": "/app",
+      "destination": "https://usai-school-app.vercel.app/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://usai-school-app.vercel.app/dashboard/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/dashboard",
+      "destination": "https://usai-school-app.vercel.app/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://usai-school-app.vercel.app/dashboard/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/portal-pais",
+      "destination": "https://usai-school-app.vercel.app/portal-pais",
+      "permanent": false
+    },
+    {
+      "source": "/portal-pais/:path*",
+      "destination": "https://usai-school-app.vercel.app/portal-pais/:path*",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|images/|videos/|favicon).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

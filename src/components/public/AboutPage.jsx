@@ -181,7 +181,7 @@ export const AboutPage = ({ onNavigate }) => {
                                 </p>
                                 <div className="bg-[#F5EBDC] text-[#2B0A10] rounded-2xl p-5 border border-[#C9B47C] space-y-3">
                                     {[
-                                        'Direct Alignment with Partner University Syllabi (e.g. ASU Online)',
+                                        'Direct Alignment with Accredited Open-Enrollment Credit Providers (ASU Universal Learner, BYU Independent Study, CLEP)',
                                         'First-Principles Socratic Coaching (Never Spoon-Fed Answers)',
                                         'Proctored University Assessments & Official Transcript Credits',
                                     ].map((name, i) => (
@@ -215,7 +215,7 @@ export const AboutPage = ({ onNavigate }) => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        {/* Dr. Dave */}
+                        {/* Academic Leadership */}
                         <div className="bg-[#140709] rounded-3xl border border-[#E6C687]/35 p-8 shadow-2xl flex flex-col justify-between">
                             <div>
                                 <div className="flex items-center gap-4 mb-6">
@@ -223,12 +223,12 @@ export const AboutPage = ({ onNavigate }) => {
                                         D
                                     </div>
                                     <div>
-                                        <h3 className="font-serif text-2xl font-bold text-white">Dr. Dave</h3>
+                                        <h3 className="font-serif text-2xl font-bold text-white">Academic Director</h3>
                                         <p className="text-[#E6C687] text-sm font-bold">Co-Founder &amp; Academic Director</p>
                                     </div>
                                 </div>
                                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                                    With a Ph.D. from Harvard University, Dr. Dave brings world-class academic credentials and research expertise to University School&apos;s Interactive XP curriculum architecture and accredited university degree partnerships.
+                                    With a Ph.D. from Harvard University, our Academic Director brings world-class academic credentials and research expertise to University School&apos;s Interactive XP curriculum architecture and Accredited Open-Enrollment Credit Provider pathways.
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
@@ -241,23 +241,23 @@ export const AboutPage = ({ onNavigate }) => {
                             </div>
                         </div>
 
-                        {/* Frank */}
+                        {/* Education Leadership */}
                         <div className="bg-[#140709] rounded-3xl border border-[#E6C687]/35 p-8 shadow-2xl flex flex-col justify-between">
                             <div>
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#C9B47C] to-[#8B2332] flex items-center justify-center text-white text-2xl font-serif font-bold shadow-lg border border-[#E6C687]/50">
-                                        F
+                                        E
                                     </div>
                                     <div>
-                                        <h3 className="font-serif text-2xl font-bold text-white">Frank</h3>
+                                        <h3 className="font-serif text-2xl font-bold text-white">Education Director</h3>
                                         <p className="text-[#E6C687] text-sm font-bold">Co-Founder &amp; Education Director</p>
                                     </div>
                                 </div>
                                 <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                                    With over 20 years of experience in education, Frank has developed Canadian Offshore K-12 schools internationally. Canada is consistently recognized as one of the highest-performing English-speaking education systems in the world based on PISA results.
+                                    With over 20 years of experience in education, our Education Director has developed Canadian Offshore K-12 schools internationally. Canada is consistently recognized as one of the highest-performing English-speaking education systems in the world based on PISA results.
                                 </p>
                                 <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                                    Frank was honored to receive the Noble Partner in Education Medal from the Government of Canada during the celebration of Canada&apos;s 150th anniversary. He also holds the ASCA U Career Development Specialist and College Admissions Specialist designations from the American School Counselor Association (ASCA).
+                                    Our Education Director was honored to receive the Noble Partner in Education Medal from the Government of Canada during the celebration of Canada&apos;s 150th anniversary. He also holds the ASCA U Career Development Specialist and College Admissions Specialist designations from the American School Counselor Association (ASCA).
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
