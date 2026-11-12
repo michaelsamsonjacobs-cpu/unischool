@@ -1,42 +1,85 @@
 {
-  "redirects": [
+  "rewrites": [
+    {
+      "source": "/signup",
+      "destination": "https://usai-school-app.vercel.app/signup"
+    },
     {
       "source": "/login",
-      "destination": "https://usai-school-app.vercel.app/login",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/login"
     },
     {
       "source": "/app",
-      "destination": "https://usai-school-app.vercel.app/dashboard",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/dashboard"
     },
     {
       "source": "/app/:path*",
-      "destination": "https://usai-school-app.vercel.app/dashboard/:path*",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/dashboard/:path*"
     },
     {
       "source": "/dashboard",
-      "destination": "https://usai-school-app.vercel.app/dashboard",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/dashboard"
     },
     {
       "source": "/dashboard/:path*",
-      "destination": "https://usai-school-app.vercel.app/dashboard/:path*",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/dashboard/:path*"
     },
     {
       "source": "/portal-pais",
-      "destination": "https://usai-school-app.vercel.app/portal-pais",
-      "permanent": false
+      "destination": "https://usai-school-app.vercel.app/portal-pais"
     },
     {
       "source": "/portal-pais/:path*",
-      "destination": "https://usai-school-app.vercel.app/portal-pais/:path*",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
+      "destination": "https://usai-school-app.vercel.app/portal-pais/:path*"
+    },
+    {
+      "source": "/para-familias",
+      "destination": "https://usai-school-app.vercel.app/para-familias"
+    },
+    {
+      "source": "/para-familias/:path*",
+      "destination": "https://usai-school-app.vercel.app/para-familias/:path*"
+    },
+    {
+      "source": "/franquias",
+      "destination": "https://usai-school-app.vercel.app/franquias"
+    },
+    {
+      "source": "/franquias/:path*",
+      "destination": "https://usai-school-app.vercel.app/franquias/:path*"
+    },
+    {
+      "source": "/admin",
+      "destination": "https://usai-school-app.vercel.app/admin"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://usai-school-app.vercel.app/admin/:path*"
+    },
+    {
+      "source": "/franqueado",
+      "destination": "https://usai-school-app.vercel.app/franqueado"
+    },
+    {
+      "source": "/franqueado/:path*",
+      "destination": "https://usai-school-app.vercel.app/franqueado/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://usai-school-app.vercel.app/api/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://usai-school-app.vercel.app/_next/:path*"
+    },
+    {
+      "source": "/logo-v2.png",
+      "destination": "https://usai-school-app.vercel.app/logo-v2.png"
+    },
+    {
+      "source": "/asu-companion/:path*",
+      "destination": "https://usai-school-app.vercel.app/asu-companion/:path*"
+    },
     {
       "source": "/((?!assets/|images/|videos/|favicon).*)",
       "destination": "/index.html"

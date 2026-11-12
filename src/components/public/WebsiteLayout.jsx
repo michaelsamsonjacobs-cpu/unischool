@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, Menu, X, ArrowRight, Sparkles, Users } from 'lucide-react';
 
-const APP_BASE_URL = 'https://usai-school-app.vercel.app';
+const APP_BASE_URL = '';
 
 export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -70,10 +70,10 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                             ))}
 
                             <a
-                                href={`${APP_BASE_URL}/dashboard/class-studio`}
+                                href={`${APP_BASE_URL}/signup`}
                                 className="px-3.5 py-2 rounded-full border border-[#8B2332]/30 bg-white hover:bg-[#8B2332]/5 text-[#8B2332] text-xs font-bold transition-all whitespace-nowrap"
                             >
-                                Class Studio &amp; SymPy Lab
+                                Create Family Account
                             </a>
 
                             <a
@@ -81,7 +81,7 @@ export const WebsiteLayout = ({ children, activePage = 'home', onNavigate }) => 
                                 className="bg-[#8B2332] hover:bg-[#a62b3d] text-white px-4 py-2.5 rounded-full text-xs font-bold transition-all hover:shadow-[0_0_20px_rgba(139,35,50,0.4)] flex items-center gap-1.5 group whitespace-nowrap"
                             >
                                 <Users size={14} className="text-[#E6C687]" />
-                                <span>Launch App (Parent · Child 1 · Child 2)</span>
+                                <span>Sign In / Launch App</span>
                                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                             </a>
                         </div>

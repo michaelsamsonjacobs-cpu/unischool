@@ -231,15 +231,22 @@ export const LandingPage = ({ onNavigate }) => {
 
                             <div className="flex flex-wrap items-center gap-3">
                                 <a
-                                    href="https://usai-school-app.vercel.app/login"
+                                    href="/signup"
                                     className="group bg-gradient-to-b from-[#F1D59A] to-[#C8A15A] hover:from-[#F7E0AD] hover:to-[#D4AF6A] text-[#23090D] px-6 py-4 rounded-2xl font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all flex items-center gap-2"
                                 >
-                                    Launch App (Parent · Child 1 · Child 2)
+                                    Create Free Family Account
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </a>
                                 <a
-                                    href="https://usai-school-app.vercel.app/dashboard/class-studio"
-                                    className="group bg-[#8B2332]/90 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-5 py-4 rounded-2xl font-bold text-sm shadow-xl transition-all flex items-center gap-2"
+                                    href="/login"
+                                    className="group bg-[#8B2332]/95 hover:bg-[#A3293B] backdrop-blur-md border border-[#E6C687]/60 text-white px-5 py-4 rounded-2xl font-bold text-sm shadow-xl transition-all flex items-center gap-2"
+                                >
+                                    <Users size={16} className="text-[#E6C687]" />
+                                    Sign In / Launch App
+                                </a>
+                                <a
+                                    href="/dashboard/class-studio"
+                                    className="group bg-black/55 hover:bg-black/75 backdrop-blur-md border border-[#E6C687]/50 text-white px-5 py-4 rounded-2xl font-bold text-sm shadow-xl transition-all flex items-center gap-2"
                                 >
                                     <Sparkles size={16} className="text-[#E6C687]" />
                                     Class Studio &amp; SymPy Lab
@@ -255,14 +262,14 @@ export const LandingPage = ({ onNavigate }) => {
 
                             <div className="mt-3 flex flex-wrap items-center gap-2.5 text-xs">
                                 <a
-                                    href="https://usai-school-app.vercel.app/dashboard/asu-companion"
+                                    href="/dashboard/asu-companion"
                                     className="px-3.5 py-2 rounded-xl bg-black/55 hover:bg-black/75 border border-[#E6C687]/35 text-[#E6C687] font-semibold transition-all inline-flex items-center gap-1.5"
                                 >
                                     <Compass size={14} />
                                     <span>1854 Broad Street Investigation</span>
                                 </a>
                                 <a
-                                    href="https://usai-school-app.vercel.app/dashboard/degree-planner"
+                                    href="/dashboard/degree-planner"
                                     className="px-3.5 py-2 rounded-xl bg-black/55 hover:bg-black/75 border border-white/25 text-slate-100 font-semibold transition-all inline-flex items-center gap-1.5"
                                 >
                                     <GraduationCap size={14} className="text-[#E6C687]" />

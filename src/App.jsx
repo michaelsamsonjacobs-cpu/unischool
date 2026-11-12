@@ -8,7 +8,7 @@ import { AboutPage } from './components/public/AboutPage';
 import { ProcessPage } from './components/public/ProcessPage';
 import { ASULectureTransformer } from './components/public/ASULectureTransformer';
 
-export const USAI_APP_URL = 'https://usai-school-app.vercel.app';
+export const USAI_APP_URL = '';
 
 const VALID_PAGES = new Set([
     'landing',
@@ -31,19 +31,11 @@ function resolveInitialPage() {
 function App() {
     const [activeView, setActiveView] = useState(resolveInitialPage);
 
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-        const p = window.location.pathname;
-        if (p === '/login') {
-            window.location.replace(`${USAI_APP_URL}/login`);
-        } else if (p === '/app' || p.startsWith('/dashboard')) {
-            window.location.replace(`${USAI_APP_URL}/dashboard`);
-        } else if (p.startsWith('/portal-pais')) {
-            window.location.replace(`${USAI_APP_URL}/portal-pais`);
-        }
-    }, []);
-
     const handleNavigate = (target) => {
+        if (target === 'signup') {
+            window.location.href = `${USAI_APP_URL}/signup`;
+            return;
+        }
         if (target === 'login') {
             window.location.href = `${USAI_APP_URL}/login`;
             return;
